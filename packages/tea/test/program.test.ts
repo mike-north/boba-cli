@@ -1,9 +1,9 @@
-import { PassThrough } from 'node:stream';
-import { describe, expect, test, vi } from 'vitest';
-import { Program } from '../src/program.js';
-import type { Cmd, Model, Msg } from '../src/types.js';
-import { EnterAltScreenMsg, QuitMsg, WindowSizeMsg } from '../src/messages.js';
-import { TerminalController } from '../src/terminal.js';
+import { PassThrough } from "node:stream";
+import { describe, expect, test, vi } from "vitest";
+import { Program } from "../src/program.js";
+import type { Cmd, Model, Msg } from "../src/types.js";
+import { EnterAltScreenMsg, QuitMsg, WindowSizeMsg } from "../src/messages.js";
+import { TerminalController } from "../src/terminal.js";
 
 class NoopModel implements Model<Msg, NoopModel> {
   init(): Cmd<Msg> {
@@ -18,15 +18,18 @@ class NoopModel implements Model<Msg, NoopModel> {
   }
 
   view(): string {
-    return 'noop';
+    return "noop";
   }
 }
 
-describe('Program', () => {
-  test('run resolves and cleans up on quit', async () => {
+describe("Program", () => {
+  test("run resolves and cleans up on quit", async () => {
     // Stub terminal methods to avoid mutating real stdout
     const restore = stubTerminal();
-    const program = new Program(new NoopModel(), { altScreen: false, mouseMode: false });
+    const program = new Program(new NoopModel(), {
+      altScreen: false,
+      mouseMode: false,
+    });
     const resultPromise = program.run();
     // Simulate external quit
     program.send(new QuitMsg());
@@ -35,22 +38,27 @@ describe('Program', () => {
     restore();
   });
 
-  test('forwards window size messages to the model', async () => {
+  test("forwards window size messages to the model", async () => {
     const output = Object.assign(new PassThrough(), { columns: 80, rows: 25 });
     const input = new PassThrough();
     const model = new CollectModel();
-    const program = new Program(model, { input, output, altScreen: false, mouseMode: false });
+    const program = new Program(model, {
+      input,
+      output,
+      altScreen: false,
+      mouseMode: false,
+    });
 
     const resultPromise = program.run();
-    (output as PassThrough).emit('resize');
+    (output as PassThrough).emit("resize");
     program.send(new QuitMsg());
 
     await resultPromise;
     expect(model.messages.some((m) => m instanceof WindowSizeMsg)).toBe(true);
   });
 
-  test('screen control messages perform side effects and reach the model', async () => {
-    const enterSpy = vi.spyOn(TerminalController.prototype, 'enterAltScreen');
+  test("screen control messages perform side effects and reach the model", async () => {
+    const enterSpy = vi.spyOn(TerminalController.prototype, "enterAltScreen");
     const output = new PassThrough();
     const input = new PassThrough();
     const model = new CollectModel();
@@ -62,7 +70,9 @@ describe('Program', () => {
     await resultPromise;
 
     expect(enterSpy).toHaveBeenCalled();
-    expect(model.messages.some((m) => m instanceof EnterAltScreenMsg)).toBe(true);
+    expect(model.messages.some((m) => m instanceof EnterAltScreenMsg)).toBe(
+      true,
+    );
     enterSpy.mockRestore();
   });
 });
@@ -89,7 +99,6 @@ class CollectModel implements Model<Msg, CollectModel> {
   }
 
   view(): string {
-    return 'collect';
+    return "collect";
   }
 }
-

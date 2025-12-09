@@ -1,0 +1,5507 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.55.2",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@jsx",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxRuntime",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxFrag",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@jsxImportSource",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@suds-cli/tea!",
+  "docComment": "",
+  "name": "@suds-cli/tea",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@suds-cli/tea!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!batch:function(1)",
+          "docComment": "/**\n * Run multiple commands concurrently and flatten their results.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function batch<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(...cmds: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>>"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "cmds",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "batch"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!BlurMsg:class",
+          "docComment": "/**\n * Terminal focus lost.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class BlurMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "BlurMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!BlurMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"blur\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!clearScreen:function(1)",
+          "docComment": "/**\n * Clear the terminal screen.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "clearScreen: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "clearScreen"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!ClearScreenMsg:class",
+          "docComment": "/**\n * Clear the terminal screen.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ClearScreenMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "ClearScreenMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!ClearScreenMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"clear-screen\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@suds-cli/tea!Cmd:type",
+          "docComment": "/**\n * Command - an async side effect that eventually yields a message. Use `null` to indicate no-op.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type Cmd<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "EffectFn",
+              "canonicalReference": "@suds-cli/tea!EffectFn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M> | null"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/types.ts",
+          "releaseTag": "Public",
+          "name": "Cmd",
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!disableMouse:function(1)",
+          "docComment": "/**\n * Disable mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "disableMouse: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "disableMouse"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!DisableMouseMsg:class",
+          "docComment": "/**\n * Disable mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class DisableMouseMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "DisableMouseMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!DisableMouseMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"disable-mouse\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!DisableReportFocusMsg:class",
+          "docComment": "/**\n * Disable focus in/out reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class DisableReportFocusMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "DisableReportFocusMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!DisableReportFocusMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"disable-report-focus\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@suds-cli/tea!EffectFn:type",
+          "docComment": "/**\n * Function producing an effectful message or messages.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type EffectFn<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "() => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Effect",
+              "canonicalReference": "@suds-cli/tea!~Effect:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Effect",
+              "canonicalReference": "@suds-cli/tea!~Effect:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/types.ts",
+          "releaseTag": "Public",
+          "name": "EffectFn",
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 12
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!enableMouseAllMotion:function(1)",
+          "docComment": "/**\n * Enable all-motion mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "enableMouseAllMotion: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "enableMouseAllMotion"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!EnableMouseAllMotionMsg:class",
+          "docComment": "/**\n * Enable all-motion mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class EnableMouseAllMotionMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "EnableMouseAllMotionMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!EnableMouseAllMotionMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"enable-mouse-all-motion\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!enableMouseCellMotion:function(1)",
+          "docComment": "/**\n * Enable cell-motion mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "enableMouseCellMotion: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "enableMouseCellMotion"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!EnableMouseCellMotionMsg:class",
+          "docComment": "/**\n * Enable cell-based mouse reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class EnableMouseCellMotionMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "EnableMouseCellMotionMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!EnableMouseCellMotionMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"enable-mouse-cell-motion\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!EnableReportFocusMsg:class",
+          "docComment": "/**\n * Enable focus in/out reporting.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class EnableReportFocusMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "EnableReportFocusMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!EnableReportFocusMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"enable-report-focus\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!EnterAltScreenMsg:class",
+          "docComment": "/**\n * Enter the alternate screen buffer.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class EnterAltScreenMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "EnterAltScreenMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!EnterAltScreenMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"enter-alt-screen\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!every:function(1)",
+          "docComment": "/**\n * Schedule a single message aligned to the next interval boundary. Call again from your update loop to continue a repeating cadence.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function every<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(ms: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "(t: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Date",
+              "canonicalReference": "!Date:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => M"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 11
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "ms",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "every"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!ExitAltScreenMsg:class",
+          "docComment": "/**\n * Exit the alternate screen buffer.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ExitAltScreenMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "ExitAltScreenMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!ExitAltScreenMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"exit-alt-screen\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!FocusMsg:class",
+          "docComment": "/**\n * Terminal focus gained.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class FocusMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "FocusMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!FocusMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"focus\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!hideCursor:function(1)",
+          "docComment": "/**\n * Hide the cursor.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "hideCursor: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "hideCursor"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!HideCursorMsg:class",
+          "docComment": "/**\n * Hide the cursor.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class HideCursorMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "HideCursorMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!HideCursorMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"hide-cursor\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!InputOptions:interface",
+          "docComment": "/**\n * Options for the input reader.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface InputOptions "
+            }
+          ],
+          "fileUrlPath": "src/input.ts",
+          "releaseTag": "Public",
+          "name": "InputOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!InputOptions#input:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "input?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.ReadableStream",
+                  "canonicalReference": "!NodeJS.ReadableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!InputOptions#onMessage:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onMessage: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(msg: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Msg",
+                  "canonicalReference": "@suds-cli/tea!Msg:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "onMessage",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!InterruptMsg:class",
+          "docComment": "/**\n * Interrupt the program (SIGINT).\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class InterruptMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "InterruptMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!InterruptMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"interrupt\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!Key:interface",
+          "docComment": "/**\n * Parsed key metadata.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface Key "
+            }
+          ],
+          "fileUrlPath": "src/keys.ts",
+          "releaseTag": "Public",
+          "name": "Key",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!Key#alt:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "alt: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "alt",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!Key#paste:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "paste: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "paste",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!Key#runes:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "runes: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "runes",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!Key#type:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "type: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KeyType",
+                  "canonicalReference": "@suds-cli/tea!KeyType_2:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!KeyMsg:class",
+          "docComment": "/**\n * Message representing a parsed key event.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class KeyMsg "
+            }
+          ],
+          "fileUrlPath": "src/keys.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "KeyMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!KeyMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"key\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@suds-cli/tea!KeyMsg:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `KeyMsg` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(key: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Key",
+                  "canonicalReference": "@suds-cli/tea!Key:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!KeyMsg#key:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly key: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Key",
+                  "canonicalReference": "@suds-cli/tea!Key:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "key",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!KeyMsg#toString:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toString(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toString"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!keyToString:function(1)",
+          "docComment": "/**\n * Convert a parsed key to a human-readable string.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function keyToString(key: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Key",
+              "canonicalReference": "@suds-cli/tea!Key:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/keys.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "key",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "keyToString"
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "@suds-cli/tea!KeyType_2:enum",
+          "docComment": "/**\n * Known key types parsed from terminal input.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum KeyType "
+            }
+          ],
+          "fileUrlPath": "src/keys.ts",
+          "releaseTag": "Public",
+          "name": "KeyType_2",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Backspace:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Backspace = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"backspace\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Backspace"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Break:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Break = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"break\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Break"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+down\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlEnd:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlEnd = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+end\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlEnd"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlHome:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlHome = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+home\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlHome"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlLeft:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlLeft = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlLeft"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlPgDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlPgDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+pgdown\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlPgDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlPgUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlPgUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+pgup\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlPgUp"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlRight:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlRight = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlRight"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+down\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftEnd:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftEnd = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+end\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftEnd"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftHome:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftHome = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+home\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftHome"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftLeft:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftLeft = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftLeft"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftRight:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftRight = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftRight"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlShiftUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlShiftUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+shift+up\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlShiftUp"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.CtrlUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "CtrlUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"ctrl+up\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "CtrlUp"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Delete:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Delete = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"delete\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Delete"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Down:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Down = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"down\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Down"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.End:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "End = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"end\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "End"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Enter:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Enter = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"enter\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Enter"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Esc:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Esc = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"esc\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Esc"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F1:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F1 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f1\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F1"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F10:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F10 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f10\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F10"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F11:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F11 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f11\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F11"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F12:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F12 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f12\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F12"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F13:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F13 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f13\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F13"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F14:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F14 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f14\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F14"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F15:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F15 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f15\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F15"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F16:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F16 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f16\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F16"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F17:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F17 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f17\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F17"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F18:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F18 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f18\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F18"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F19:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F19 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f19\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F19"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F2:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F2 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f2\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F2"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F20:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F20 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f20\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F20"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F3:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F3 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f3\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F3"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F4:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F4 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f4\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F4"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F5:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F5 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f5\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F5"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F6:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F6 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f6\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F6"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F7:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F7 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f7\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F7"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F8:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F8 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f8\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F8"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.F9:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "F9 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"f9\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "F9"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Home:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Home = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"home\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Home"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Insert:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Insert = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"insert\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Insert"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Left:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Left = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Left"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Null:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Null = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"null\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Null"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.PgDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "PgDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"pgdown\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "PgDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.PgUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "PgUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"pgup\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "PgUp"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Right:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Right = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Right"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Runes:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Runes = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"runes\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Runes"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+down\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftEnd:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftEnd = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+end\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftEnd"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftHome:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftHome = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+home\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftHome"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftLeft:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftLeft = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftLeft"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftRight:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftRight = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftRight"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftTab:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftTab = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+tab\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftTab"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.ShiftUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ShiftUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"shift+up\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ShiftUp"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Space:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Space = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"space\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Space"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Tab:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Tab = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"tab\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Tab"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!KeyType_2.Up:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Up = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"up\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Up"
+            }
+          ]
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!Model:interface",
+          "docComment": "/**\n * Elm-like model contract.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface Model<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", Self extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Model",
+              "canonicalReference": "@suds-cli/tea!Model:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<M, Self>"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
+            }
+          ],
+          "fileUrlPath": "src/types.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            },
+            {
+              "typeParameterName": "Self",
+              "constraintTokenRange": {
+                "startIndex": 5,
+                "endIndex": 7
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              }
+            }
+          ],
+          "name": "Model",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "@suds-cli/tea!Model#init:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "init(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Cmd",
+                  "canonicalReference": "@suds-cli/tea!Cmd:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<M>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [],
+              "name": "init"
+            },
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "@suds-cli/tea!Model#update:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "update(msg: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "M"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "[Self, "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Cmd",
+                  "canonicalReference": "@suds-cli/tea!Cmd:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<M>]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "name": "update"
+            },
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "@suds-cli/tea!Model#view:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "view(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [],
+              "name": "view"
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "@suds-cli/tea!MouseAction:enum",
+          "docComment": "/**\n * Mouse action type.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum MouseAction "
+            }
+          ],
+          "fileUrlPath": "src/mouse.ts",
+          "releaseTag": "Public",
+          "name": "MouseAction",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseAction.Motion:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Motion = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"motion\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Motion"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseAction.Press:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Press = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"press\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Press"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseAction.Release:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Release = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"release\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Release"
+            }
+          ]
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "@suds-cli/tea!MouseButton:enum",
+          "docComment": "/**\n * Mouse button identifiers, including wheels.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum MouseButton "
+            }
+          ],
+          "fileUrlPath": "src/mouse.ts",
+          "releaseTag": "Public",
+          "name": "MouseButton",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Backward:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Backward = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"backward\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Backward"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Button10:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Button10 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"button-10\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Button10"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Button11:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Button11 = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"button-11\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Button11"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Forward:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Forward = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"forward\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Forward"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Left:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Left = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Left"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Middle:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Middle = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"middle\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Middle"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.None:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "None = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"none\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "None"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.Right:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Right = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Right"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.WheelDown:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WheelDown = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"wheel-down\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "WheelDown"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.WheelLeft:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WheelLeft = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"wheel-left\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "WheelLeft"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.WheelRight:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WheelRight = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"wheel-right\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "WheelRight"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@suds-cli/tea!MouseButton.WheelUp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WheelUp = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"wheel-up\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "WheelUp"
+            }
+          ]
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!MouseEvent_2:interface",
+          "docComment": "/**\n * Parsed mouse event payload.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MouseEvent "
+            }
+          ],
+          "fileUrlPath": "src/mouse.ts",
+          "releaseTag": "Public",
+          "name": "MouseEvent_2",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#action:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "action: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MouseAction",
+                  "canonicalReference": "@suds-cli/tea!MouseAction:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "action",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#alt:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "alt: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "alt",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#button:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "button: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MouseButton",
+                  "canonicalReference": "@suds-cli/tea!MouseButton:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "button",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#ctrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ctrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ctrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#shift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "shift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "shift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#x:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "x: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "x",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!MouseEvent_2#y:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "y: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "y",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!MouseMsg:class",
+          "docComment": "/**\n * Message representing a parsed mouse event.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class MouseMsg "
+            }
+          ],
+          "fileUrlPath": "src/mouse.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "MouseMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!MouseMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"mouse\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@suds-cli/tea!MouseMsg:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `MouseMsg` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(event: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MouseEvent",
+                  "canonicalReference": "@suds-cli/tea!MouseEvent_2:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "event",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!MouseMsg#event:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly event: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MouseEvent",
+                  "canonicalReference": "@suds-cli/tea!MouseEvent_2:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "event",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!MouseMsg#toString:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toString(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toString"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!msg:function(1)",
+          "docComment": "/**\n * Lift a message into a command.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "msg: <M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(value: "
+            },
+            {
+              "kind": "Content",
+              "text": "M"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "msg"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@suds-cli/tea!Msg:type",
+          "docComment": "/**\n * Message - must be discriminated for safe matching.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type Msg = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    readonly _tag: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/types.ts",
+          "releaseTag": "Public",
+          "name": "Msg",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!Program:class",
+          "docComment": "/**\n * Bubble Tea-style program runner.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class Program<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Model",
+              "canonicalReference": "@suds-cli/tea!Model:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", M>"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
+            }
+          ],
+          "fileUrlPath": "src/program.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "Program",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@suds-cli/tea!Program:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `Program` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(model: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "M"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ProgramOptions",
+                  "canonicalReference": "@suds-cli/tea!ProgramOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "model",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!Program#kill:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "kill(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "kill"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!Program#quit:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "quit(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "quit"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!Program#run:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "run(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ProgramResult",
+                  "canonicalReference": "@suds-cli/tea!ProgramResult:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<M>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "run"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@suds-cli/tea!Program#send:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "send(msg: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Msg",
+                  "canonicalReference": "@suds-cli/tea!Msg:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "send"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!ProgramOptions:interface",
+          "docComment": "/**\n * Configure program runtime options.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ProgramOptions "
+            }
+          ],
+          "fileUrlPath": "src/program.ts",
+          "releaseTag": "Public",
+          "name": "ProgramOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#altScreen:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "altScreen?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "altScreen",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#bracketedPaste:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "bracketedPaste?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "bracketedPaste",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#fps:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "fps?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "fps",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#input:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "input?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.ReadableStream",
+                  "canonicalReference": "!NodeJS.ReadableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#mouseMode:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "mouseMode?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"cell\" | \"all\" | false"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "mouseMode",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#output:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.WritableStream",
+                  "canonicalReference": "!NodeJS.WritableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!ProgramOptions#reportFocus:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reportFocus?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "reportFocus",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@suds-cli/tea!ProgramResult:type",
+          "docComment": "/**\n * Outcome of running a program.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type ProgramResult<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Model",
+              "canonicalReference": "@suds-cli/tea!Model:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    model: M;\n    error?: unknown;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/types.ts",
+          "releaseTag": "Public",
+          "name": "ProgramResult",
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!quit:function(1)",
+          "docComment": "/**\n * Command that emits a QuitMsg.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "quit: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "quit"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!QuitMsg:class",
+          "docComment": "/**\n * Request graceful program termination.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class QuitMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "QuitMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!QuitMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"quit\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!RendererOptions:interface",
+          "docComment": "/**\n * Options for the standard renderer.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface RendererOptions "
+            }
+          ],
+          "fileUrlPath": "src/renderer.ts",
+          "releaseTag": "Public",
+          "name": "RendererOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!RendererOptions#fps:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "fps?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "fps",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!RendererOptions#output:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.WritableStream",
+                  "canonicalReference": "!NodeJS.WritableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!ResumeMsg:class",
+          "docComment": "/**\n * Resume the program after suspension.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ResumeMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "ResumeMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!ResumeMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"resume\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!sequence:function(1)",
+          "docComment": "/**\n * Run commands sequentially, preserving order and skipping nulls.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function sequence<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(...cmds: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>>"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "cmds",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "sequence"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!setWindowTitle:function(1)",
+          "docComment": "/**\n * Set the terminal window title.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "setWindowTitle: (title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "setWindowTitle"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!SetWindowTitleMsg:class",
+          "docComment": "/**\n * Set the terminal window title.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class SetWindowTitleMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "SetWindowTitleMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!SetWindowTitleMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"set-window-title\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@suds-cli/tea!SetWindowTitleMsg:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `SetWindowTitleMsg` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(title: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "title",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!SetWindowTitleMsg#title:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly title: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "title",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!showCursor:function(1)",
+          "docComment": "/**\n * Show the cursor.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "showCursor: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "showCursor"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!ShowCursorMsg:class",
+          "docComment": "/**\n * Show the cursor.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ShowCursorMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "ShowCursorMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!ShowCursorMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"show-cursor\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!SuspendMsg:class",
+          "docComment": "/**\n * Suspend the program (Ctrl+Z).\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class SuspendMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "SuspendMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!SuspendMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"suspend\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@suds-cli/tea!TerminalOptions:interface",
+          "docComment": "/**\n * Options for the terminal controller.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface TerminalOptions "
+            }
+          ],
+          "fileUrlPath": "src/terminal.ts",
+          "releaseTag": "Public",
+          "name": "TerminalOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!TerminalOptions#input:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "input?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.ReadableStream",
+                  "canonicalReference": "!NodeJS.ReadableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@suds-cli/tea!TerminalOptions#output:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NodeJS.WritableStream",
+                  "canonicalReference": "!NodeJS.WritableStream:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!tick:function(1)",
+          "docComment": "/**\n * Emit a message after a delay.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function tick<M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(ms: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "(t: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Date",
+              "canonicalReference": "!Date:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => M"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/commands.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 11
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "ms",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "tick"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@suds-cli/tea!windowSize:function(1)",
+          "docComment": "/**\n * Emit the current window size.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "windowSize: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Cmd",
+              "canonicalReference": "@suds-cli/tea!Cmd:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Msg",
+              "canonicalReference": "@suds-cli/tea!Msg:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/screen.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "windowSize"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@suds-cli/tea!WindowSizeMsg:class",
+          "docComment": "/**\n * Report the current terminal width and height.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class WindowSizeMsg "
+            }
+          ],
+          "fileUrlPath": "src/messages.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "WindowSizeMsg",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!WindowSizeMsg#_tag:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly _tag = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"window-size\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_tag",
+              "propertyTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@suds-cli/tea!WindowSizeMsg:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `WindowSizeMsg` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(width: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", height: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "width",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "height",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!WindowSizeMsg#height:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly height: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "height",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@suds-cli/tea!WindowSizeMsg#width:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly width: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "width",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        }
+      ]
+    }
+  ]
+}

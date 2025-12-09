@@ -1,26 +1,29 @@
-import { Buffer } from 'node:buffer';
+import { Buffer } from "node:buffer";
 
+/** @public Mouse action type. */
 export enum MouseAction {
-  Press = 'press',
-  Release = 'release',
-  Motion = 'motion'
+  Press = "press",
+  Release = "release",
+  Motion = "motion",
 }
 
+/** @public Mouse button identifiers, including wheels. */
 export enum MouseButton {
-  None = 'none',
-  Left = 'left',
-  Middle = 'middle',
-  Right = 'right',
-  WheelUp = 'wheel-up',
-  WheelDown = 'wheel-down',
-  WheelLeft = 'wheel-left',
-  WheelRight = 'wheel-right',
-  Backward = 'backward',
-  Forward = 'forward',
-  Button10 = 'button-10',
-  Button11 = 'button-11'
+  None = "none",
+  Left = "left",
+  Middle = "middle",
+  Right = "right",
+  WheelUp = "wheel-up",
+  WheelDown = "wheel-down",
+  WheelLeft = "wheel-left",
+  WheelRight = "wheel-right",
+  Backward = "backward",
+  Forward = "forward",
+  Button10 = "button-10",
+  Button11 = "button-11",
 }
 
+/** @public Parsed mouse event payload. */
 export interface MouseEvent {
   x: number;
   y: number;
@@ -31,17 +34,18 @@ export interface MouseEvent {
   button: MouseButton;
 }
 
+/** @public Message representing a parsed mouse event. */
 export class MouseMsg {
-  readonly _tag = 'mouse';
+  readonly _tag = "mouse";
   constructor(public readonly event: MouseEvent) {}
 
   toString(): string {
     const parts = [
-      this.event.ctrl ? 'ctrl' : '',
-      this.event.alt ? 'alt' : '',
-      this.event.shift ? 'shift' : ''
+      this.event.ctrl ? "ctrl" : "",
+      this.event.alt ? "alt" : "",
+      this.event.shift ? "shift" : "",
     ].filter(Boolean);
-    const mods = parts.length > 0 ? `${parts.join('+')}+` : '';
+    const mods = parts.length > 0 ? `${parts.join("+")}+` : "";
     return `${mods}${this.event.button} ${this.event.action} @${this.event.x},${this.event.y}`;
   }
 }
@@ -52,7 +56,7 @@ const x10MouseByteOffset = 32;
 
 export function parseMouse(
   buffer: Buffer,
-  allowMoreData: boolean
+  allowMoreData: boolean,
 ): { msg: MouseMsg; length: number } | { needMore: true } | undefined {
   if (buffer.length < 3 || buffer[0] !== 0x1b || buffer[1] !== 0x5b) {
     return undefined;
@@ -67,7 +71,7 @@ export function parseMouse(
   }
 
   if (buffer[2] === 0x3c) {
-    const slice = buffer.toString('utf8');
+    const slice = buffer.toString("utf8");
     const match = mouseSGRRegex.exec(slice.slice(3));
     if (!match) {
       return allowMoreData ? { needMore: true } : undefined;
@@ -86,10 +90,10 @@ function parseSGRMouseEvent(seq: string): MouseEvent {
     return defaultMouseEvent();
   }
 
-  const buttonCode = Number.parseInt(match[1] ?? '0', 10);
-  const px = Number.parseInt(match[2] ?? '0', 10);
-  const py = Number.parseInt(match[3] ?? '0', 10);
-  const release = match[4] === 'm';
+  const buttonCode = Number.parseInt(match[1] ?? "0", 10);
+  const px = Number.parseInt(match[2] ?? "0", 10);
+  const py = Number.parseInt(match[3] ?? "0", 10);
+  const release = match[4] === "m";
 
   const event = parseMouseButton(buttonCode, true);
 
@@ -134,7 +138,7 @@ function parseMouseButton(code: number, isSGR: boolean): MouseEvent {
       0: MouseButton.Backward,
       1: MouseButton.Forward,
       2: MouseButton.Button10,
-      3: MouseButton.Button11
+      3: MouseButton.Button11,
     };
     event.button = extraButtons[e & bitsMask] ?? MouseButton.None;
   } else if ((e & bitWheel) !== 0) {
@@ -142,7 +146,7 @@ function parseMouseButton(code: number, isSGR: boolean): MouseEvent {
       0: MouseButton.WheelUp,
       1: MouseButton.WheelDown,
       2: MouseButton.WheelLeft,
-      3: MouseButton.WheelRight
+      3: MouseButton.WheelRight,
     };
     event.button = wheelButtons[e & bitsMask] ?? MouseButton.None;
   } else {
@@ -150,7 +154,7 @@ function parseMouseButton(code: number, isSGR: boolean): MouseEvent {
       0: MouseButton.Left,
       1: MouseButton.Middle,
       2: MouseButton.Right,
-      3: MouseButton.None
+      3: MouseButton.None,
     };
     event.button = baseButtons[e & bitsMask] ?? MouseButton.None;
     if ((e & bitsMask) === bitsMask) {
@@ -187,7 +191,6 @@ function defaultMouseEvent(): MouseEvent {
     alt: false,
     ctrl: false,
     action: MouseAction.Press,
-    button: MouseButton.None
+    button: MouseButton.None,
   };
 }
-

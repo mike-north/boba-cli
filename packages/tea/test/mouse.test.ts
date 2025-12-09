@@ -1,13 +1,13 @@
-import { describe, expect, test } from 'vitest';
-import { MouseAction, MouseButton, parseMouse } from '../src/mouse.js';
+import { describe, expect, test } from "vitest";
+import { MouseAction, MouseButton, parseMouse } from "../src/mouse.js";
 
-const toBuf = (s: string) => Buffer.from(s, 'utf8');
+const toBuf = (s: string) => Buffer.from(s, "utf8");
 
-describe('parseMouse (SGR)', () => {
-  test('parses left press', () => {
-    const result = parseMouse(toBuf('\u001b[<0;5;10M'), false);
-    expect(result && !('needMore' in result)).toBe(true);
-    if (result && !('needMore' in result)) {
+describe("parseMouse (SGR)", () => {
+  test("parses left press", () => {
+    const result = parseMouse(toBuf("\u001b[<0;5;10M"), false);
+    expect(result && !("needMore" in result)).toBe(true);
+    if (result && !("needMore" in result)) {
       const { event } = result.msg;
       expect(event.button).toBe(MouseButton.Left);
       expect(event.action).toBe(MouseAction.Press);
@@ -17,24 +17,23 @@ describe('parseMouse (SGR)', () => {
     }
   });
 
-  test('parses left release', () => {
-    const result = parseMouse(toBuf('\u001b[<0;5;10m'), false);
-    expect(result && !('needMore' in result)).toBe(true);
-    if (result && !('needMore' in result)) {
+  test("parses left release", () => {
+    const result = parseMouse(toBuf("\u001b[<0;5;10m"), false);
+    expect(result && !("needMore" in result)).toBe(true);
+    if (result && !("needMore" in result)) {
       const { event } = result.msg;
       expect(event.button).toBe(MouseButton.Left);
       expect(event.action).toBe(MouseAction.Release);
     }
   });
 
-  test('parses wheel up', () => {
-    const result = parseMouse(toBuf('\u001b[<64;2;3M'), false);
-    expect(result && !('needMore' in result)).toBe(true);
-    if (result && !('needMore' in result)) {
+  test("parses wheel up", () => {
+    const result = parseMouse(toBuf("\u001b[<64;2;3M"), false);
+    expect(result && !("needMore" in result)).toBe(true);
+    if (result && !("needMore" in result)) {
       const { event } = result.msg;
       expect(event.button).toBe(MouseButton.WheelUp);
       expect(event.action).toBe(MouseAction.Press);
     }
   });
 });
-

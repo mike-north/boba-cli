@@ -1,5 +1,4 @@
-import { QuitMsg } from './messages.js';
-import { Cmd, Effect, Msg } from './types.js';
+import { QuitMsg } from "./messages.js";
 import {
   clearScreen,
   disableMouse,
@@ -10,13 +9,18 @@ import {
   hideCursor,
   setWindowTitle,
   showCursor,
-  windowSize
-} from './screen.js';
+  windowSize,
+} from "./screen.js";
+import { Cmd, Effect, Msg } from "./types.js";
 
 type MsgOrArray<M extends Msg> = M | M[];
 
 const now = () => new Date();
 
+/**
+ * @public
+ * Run multiple commands concurrently and flatten their results.
+ */
 export function batch<M extends Msg>(...cmds: Array<Cmd<M>>): Cmd<M> {
   const valid = cmds.filter((cmd): cmd is Cmd<M> => Boolean(cmd));
   if (valid.length === 0) {
@@ -27,11 +31,17 @@ export function batch<M extends Msg>(...cmds: Array<Cmd<M>>): Cmd<M> {
     return only ?? null;
   }
   return async () => {
-    const results = await Promise.all(valid.map((cmd) => Promise.resolve(cmd?.())));
+    const results = await Promise.all(
+      valid.map((cmd) => Promise.resolve(cmd?.())),
+    );
     return flatten(results);
   };
 }
 
+/**
+ * @public
+ * Run commands sequentially, preserving order and skipping nulls.
+ */
 export function sequence<M extends Msg>(...cmds: Array<Cmd<M>>): Cmd<M> {
   const valid = cmds.filter((cmd): cmd is Cmd<M> => Boolean(cmd));
   if (valid.length === 0) {
@@ -53,6 +63,10 @@ export function sequence<M extends Msg>(...cmds: Array<Cmd<M>>): Cmd<M> {
   };
 }
 
+/**
+ * @public
+ * Emit a message after a delay.
+ */
 export function tick<M extends Msg>(ms: number, fn: (t: Date) => M): Cmd<M> {
   return () =>
     new Promise<M>((resolve) => {
@@ -61,6 +75,7 @@ export function tick<M extends Msg>(ms: number, fn: (t: Date) => M): Cmd<M> {
 }
 
 /**
+ * @public
  * Schedule a single message aligned to the next interval boundary.
  * Call again from your update loop to continue a repeating cadence.
  */
@@ -73,22 +88,17 @@ export function every<M extends Msg>(ms: number, fn: (t: Date) => M): Cmd<M> {
     });
 }
 
-export const msg = <M extends Msg>(value: M): Cmd<M> => () => value;
+/** @public Lift a message into a command. */
+export const msg =
+  <M extends Msg>(value: M): Cmd<M> =>
+  () =>
+    value;
+/** @public Command that emits a QuitMsg. */
 export const quit = (): Cmd<Msg> => msg(new QuitMsg());
-export {
-  clearScreen,
-  enterAltScreen,
-  exitAltScreen,
-  enableMouseCellMotion,
-  enableMouseAllMotion,
-  disableMouse,
-  showCursor,
-  hideCursor,
-  setWindowTitle,
-  windowSize
-};
 
-function flatten<M extends Msg>(values: Array<Effect<M>>): MsgOrArray<M> | null {
+function flatten<M extends Msg>(
+  values: Array<Effect<M>>,
+): MsgOrArray<M> | null {
   const results: M[] = [];
   for (const value of values) {
     if (value === null || value === undefined) {
@@ -115,4 +125,3 @@ function alignToInterval(date: Date, ms: number): number {
   const remainder = date.getTime() % ms;
   return remainder === 0 ? ms : ms - remainder;
 }
-

@@ -1,6 +1,7 @@
-const CURSOR_HOME = '\u001b[H';
-const CLEAR_TO_END = '\u001b[0J';
+const CURSOR_HOME = "\u001b[H";
+const CLEAR_TO_END = "\u001b[0J";
 
+/** @public Options for the standard renderer. */
 export interface RendererOptions {
   output?: NodeJS.WritableStream;
   fps?: number;
@@ -8,7 +9,7 @@ export interface RendererOptions {
 
 export class StandardRenderer {
   private nextFrame: string | null = null;
-  private lastFrame = '';
+  private lastFrame = "";
   private ticker: NodeJS.Timeout | null = null;
   private readonly output: NodeJS.WritableStream;
   private readonly frameInterval: number;
@@ -35,11 +36,11 @@ export class StandardRenderer {
   }
 
   write(view: string): void {
-    this.nextFrame = view ?? '';
+    this.nextFrame = view ?? "";
   }
 
   repaint(): void {
-    this.lastFrame = '';
+    this.lastFrame = "";
   }
 
   private flush(): void {
@@ -54,4 +55,3 @@ export class StandardRenderer {
     this.output.write(`${CURSOR_HOME}${frame}${CLEAR_TO_END}`);
   }
 }
-

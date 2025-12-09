@@ -1,5 +1,5 @@
-import process from 'node:process';
-import { startInput } from './input.js';
+import process from "node:process";
+import { startInput } from "./input.js";
 import {
   ClearScreenMsg,
   DisableMouseMsg,
@@ -12,16 +12,17 @@ import {
   QuitMsg,
   ResumeMsg,
   SetWindowTitleMsg,
-  ShowCursorMsg
-} from './messages.js';
-import { StandardRenderer } from './renderer.js';
-import { TerminalController } from './terminal.js';
-import type { Cmd, Model, ModelMsg, Msg, ProgramResult } from './types.js';
-import { WindowSizeMsg } from './messages.js';
+  ShowCursorMsg,
+} from "./messages.js";
+import { StandardRenderer } from "./renderer.js";
+import { TerminalController } from "./terminal.js";
+import type { Cmd, Model, ModelMsg, Msg, ProgramResult } from "./types.js";
+import { WindowSizeMsg } from "./messages.js";
 
+/** @public Configure program runtime options. */
 export interface ProgramOptions {
   altScreen?: boolean;
-  mouseMode?: 'cell' | 'all' | false;
+  mouseMode?: "cell" | "all" | false;
   input?: NodeJS.ReadableStream;
   output?: NodeJS.WritableStream;
   fps?: number;
@@ -29,14 +30,15 @@ export interface ProgramOptions {
   bracketedPaste?: boolean;
 }
 
-export class Program<M extends Model> {
+/** @public Bubble Tea-style program runner. */
+export class Program<M extends Model<Msg, M>> {
   private model: M;
   private readonly terminal: TerminalController;
   private readonly renderer: StandardRenderer;
   private readonly opts: ProgramOptions;
   private stopInput?: () => void;
   private running = false;
-  private queue: Array<ModelMsg<M>> = [];
+  private queue: Msg[] = [];
   private draining = false;
   private result: ProgramResult<M> | null = null;
 
@@ -44,7 +46,10 @@ export class Program<M extends Model> {
     this.model = model;
     this.opts = options;
     this.terminal = new TerminalController(options.input, options.output);
-    this.renderer = new StandardRenderer({ output: options.output, fps: options.fps });
+    this.renderer = new StandardRenderer({
+      output: options.output,
+      fps: options.fps,
+    });
   }
 
   async run(): Promise<ProgramResult<M>> {
@@ -68,7 +73,7 @@ export class Program<M extends Model> {
     return this.result ?? { model: this.model };
   }
 
-  send(msg: ModelMsg<M>): void {
+  send(msg: Msg): void {
     if (!msg) {
       return;
     }
@@ -114,7 +119,7 @@ export class Program<M extends Model> {
     this.draining = false;
   }
 
-  private handleInternal(msg: ModelMsg<M>): boolean {
+  private handleInternal(msg: Msg): boolean {
     if (msg instanceof QuitMsg || msg instanceof InterruptMsg) {
       this.running = false;
       return true;
@@ -163,7 +168,7 @@ export class Program<M extends Model> {
     return false;
   }
 
-  private async runCmd(cmd: Cmd<ModelMsg<M>> | undefined): Promise<void> {
+  private async runCmd<T extends Msg>(cmd: Cmd<T> | undefined): Promise<void> {
     if (!cmd) {
       return;
     }
@@ -189,9 +194,9 @@ export class Program<M extends Model> {
       this.terminal.clearScreen();
     }
 
-    if (this.opts.mouseMode === 'cell') {
+    if (this.opts.mouseMode === "cell") {
       this.terminal.enableMouseCellMotion();
-    } else if (this.opts.mouseMode === 'all') {
+    } else if (this.opts.mouseMode === "all") {
       this.terminal.enableMouseAllMotion();
     }
 
@@ -207,7 +212,7 @@ export class Program<M extends Model> {
   private startInputLoop(): void {
     this.stopInput = startInput({
       input: this.opts.input,
-      onMessage: (msg) => this.send(msg as ModelMsg<M>)
+      onMessage: (msg) => this.send(msg as ModelMsg<M>),
     });
   }
 
@@ -220,20 +225,26 @@ export class Program<M extends Model> {
       this.send(new WindowSizeMsg(w, h));
     };
 
-    process.on('SIGINT', this.onSigInt);
-    process.on('SIGTERM', this.onSigTerm);
-    if ('on' in output && typeof (output as NodeJS.Process['stdout']).on === 'function') {
-      (output as NodeJS.Process['stdout']).on('resize', handleResize);
+    process.on("SIGINT", this.onSigInt);
+    process.on("SIGTERM", this.onSigTerm);
+    if (
+      "on" in output &&
+      typeof (output as NodeJS.Process["stdout"]).on === "function"
+    ) {
+      (output as NodeJS.Process["stdout"]).on("resize", handleResize);
     }
 
     // Initial size
     handleResize();
 
     this.disposeSignals = () => {
-      process.off('SIGINT', this.onSigInt);
-      process.off('SIGTERM', this.onSigTerm);
-      if ('off' in output && typeof (output as NodeJS.Process['stdout']).off === 'function') {
-        (output as NodeJS.Process['stdout']).off('resize', handleResize);
+      process.off("SIGINT", this.onSigInt);
+      process.off("SIGTERM", this.onSigTerm);
+      if (
+        "off" in output &&
+        typeof (output as NodeJS.Process["stdout"]).off === "function"
+      ) {
+        (output as NodeJS.Process["stdout"]).off("resize", handleResize);
       }
     };
   }
@@ -266,4 +277,3 @@ function getSize(stream: NodeJS.WritableStream) {
   const s = stream as { columns?: number; rows?: number };
   return { columns: s.columns, rows: s.rows };
 }
-

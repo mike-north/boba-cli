@@ -1,32 +1,33 @@
-import { Buffer } from 'node:buffer';
-import { BlurMsg, FocusMsg } from './messages.js';
-import { KeyMsg, KeyType, parseKey } from './keys.js';
-import { parseMouse } from './mouse.js';
-import type { Msg } from './types.js';
+import { Buffer } from "node:buffer";
+import { BlurMsg, FocusMsg } from "./messages.js";
+import { KeyMsg, KeyType, parseKey } from "./keys.js";
+import { parseMouse } from "./mouse.js";
+import type { Msg } from "./types.js";
 
+/** @public Options for the input reader. */
 export interface InputOptions {
   input?: NodeJS.ReadableStream;
   onMessage: (msg: Msg) => void;
 }
 
-const BRACKET_PASTE_START = '\u001b[200~';
-const BRACKET_PASTE_END = '\u001b[201~';
+const BRACKET_PASTE_START = "\u001b[200~";
+const BRACKET_PASTE_END = "\u001b[201~";
 
 export function startInput(options: InputOptions): () => void {
   const input = options.input ?? process.stdin;
   let buffer: Buffer = Buffer.alloc(0);
 
   const onData = (data: Buffer | string) => {
-    const chunk = typeof data === 'string' ? Buffer.from(data, 'utf8') : data;
+    const chunk = typeof data === "string" ? Buffer.from(data, "utf8") : data;
     buffer = Buffer.concat([buffer, chunk]);
     buffer = consumeBuffer(buffer, options.onMessage);
   };
 
-  input.on('data', onData);
+  input.on("data", onData);
   input.resume();
 
   return () => {
-    input.off('data', onData);
+    input.off("data", onData);
   };
 }
 
@@ -37,7 +38,7 @@ function consumeBuffer(buffer: Buffer, push: (msg: Msg) => void): Buffer {
     const slice = buffer.subarray(offset);
     const result = detectOne(slice, offset + slice.length === buffer.length);
 
-    if (!result || 'needMore' in result) {
+    if (!result || "needMore" in result) {
       break;
     }
 
@@ -55,13 +56,16 @@ type DetectResult =
   | { msg?: Msg; length: number }
   | { needMore: true };
 
-function detectOne(buffer: Buffer, allowMoreData: boolean): DetectResult | undefined {
+function detectOne(
+  buffer: Buffer,
+  allowMoreData: boolean,
+): DetectResult | undefined {
   if (buffer.length === 0) {
     return allowMoreData ? { needMore: true } : undefined;
   }
   const mouse = parseMouse(buffer, allowMoreData);
   if (mouse) {
-    if ('needMore' in mouse) {
+    if ("needMore" in mouse) {
       return mouse;
     }
     return { msg: mouse.msg, length: mouse.length };
@@ -81,7 +85,7 @@ function detectOne(buffer: Buffer, allowMoreData: boolean): DetectResult | undef
   if (!key) {
     return undefined;
   }
-  if ('needMore' in key) {
+  if ("needMore" in key) {
     return key;
   }
 
@@ -101,23 +105,31 @@ function detectFocus(buffer: Buffer): DetectResult | undefined {
   return undefined;
 }
 
-function detectBracketedPaste(buffer: Buffer, allowMoreData: boolean): DetectResult | undefined {
-  const asString = buffer.toString('utf8');
+function detectBracketedPaste(
+  buffer: Buffer,
+  allowMoreData: boolean,
+): DetectResult | undefined {
+  const asString = buffer.toString("utf8");
   if (!asString.startsWith(BRACKET_PASTE_START)) {
     return undefined;
   }
-  const endIndex = asString.indexOf(BRACKET_PASTE_END, BRACKET_PASTE_START.length);
+  const endIndex = asString.indexOf(
+    BRACKET_PASTE_END,
+    BRACKET_PASTE_START.length,
+  );
   if (endIndex === -1) {
     return allowMoreData ? { needMore: true } : undefined;
   }
   const content = asString.slice(BRACKET_PASTE_START.length, endIndex);
-  const length = Buffer.byteLength(BRACKET_PASTE_START + content + BRACKET_PASTE_END, 'utf8');
+  const length = Buffer.byteLength(
+    BRACKET_PASTE_START + content + BRACKET_PASTE_END,
+    "utf8",
+  );
   const key: Msg = new KeyMsg({
     type: KeyType.Runes,
     runes: content,
     alt: false,
-    paste: true
+    paste: true,
   });
   return { msg: key, length };
 }
-

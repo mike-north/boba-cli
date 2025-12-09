@@ -1,24 +1,25 @@
+/** @public Options for the terminal controller. */
 export interface TerminalOptions {
   input?: NodeJS.ReadableStream;
   output?: NodeJS.WritableStream;
 }
 
-const CURSOR_SHOW = '\u001b[?25h';
-const CURSOR_HIDE = '\u001b[?25l';
-const CLEAR_SCREEN = '\u001b[2J';
-const CURSOR_HOME = '\u001b[H';
-const ALT_SCREEN_ON = '\u001b[?1049h';
-const ALT_SCREEN_OFF = '\u001b[?1049l';
-const MOUSE_CELL_ON = '\u001b[?1002h';
-const MOUSE_ALL_ON = '\u001b[?1003h';
-const MOUSE_SGR_ON = '\u001b[?1006h';
-const MOUSE_CELL_OFF = '\u001b[?1002l';
-const MOUSE_ALL_OFF = '\u001b[?1003l';
-const MOUSE_SGR_OFF = '\u001b[?1006l';
-const BRACKETED_PASTE_ON = '\u001b[?2004h';
-const BRACKETED_PASTE_OFF = '\u001b[?2004l';
-const REPORT_FOCUS_ON = '\u001b[?1004h';
-const REPORT_FOCUS_OFF = '\u001b[?1004l';
+const CURSOR_SHOW = "\u001b[?25h";
+const CURSOR_HIDE = "\u001b[?25l";
+const CLEAR_SCREEN = "\u001b[2J";
+const CURSOR_HOME = "\u001b[H";
+const ALT_SCREEN_ON = "\u001b[?1049h";
+const ALT_SCREEN_OFF = "\u001b[?1049l";
+const MOUSE_CELL_ON = "\u001b[?1002h";
+const MOUSE_ALL_ON = "\u001b[?1003h";
+const MOUSE_SGR_ON = "\u001b[?1006h";
+const MOUSE_CELL_OFF = "\u001b[?1002l";
+const MOUSE_ALL_OFF = "\u001b[?1003l";
+const MOUSE_SGR_OFF = "\u001b[?1006l";
+const BRACKETED_PASTE_ON = "\u001b[?2004h";
+const BRACKETED_PASTE_OFF = "\u001b[?2004l";
+const REPORT_FOCUS_ON = "\u001b[?1004h";
+const REPORT_FOCUS_OFF = "\u001b[?1004l";
 
 export class TerminalController {
   private rawMode = false;
@@ -28,12 +29,16 @@ export class TerminalController {
 
   constructor(
     private readonly input: NodeJS.ReadableStream = process.stdin,
-    private readonly output: NodeJS.WritableStream = process.stdout
+    private readonly output: NodeJS.WritableStream = process.stdout,
   ) {}
 
   enableRawMode(): void {
     const asTty = this.input as NodeJS.ReadStream;
-    if (typeof asTty.isTTY === 'boolean' && asTty.isTTY && typeof asTty.setRawMode === 'function') {
+    if (
+      typeof asTty.isTTY === "boolean" &&
+      asTty.isTTY &&
+      typeof asTty.setRawMode === "function"
+    ) {
       asTty.setRawMode(true);
       asTty.resume();
       this.rawMode = true;
@@ -42,7 +47,7 @@ export class TerminalController {
 
   disableRawMode(): void {
     const asTty = this.input as NodeJS.ReadStream;
-    if (this.rawMode && typeof asTty.setRawMode === 'function') {
+    if (this.rawMode && typeof asTty.setRawMode === "function") {
       asTty.setRawMode(false);
       this.rawMode = false;
     }
@@ -132,4 +137,3 @@ export class TerminalController {
     this.output.write(data);
   }
 }
-
