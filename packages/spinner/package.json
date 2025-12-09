@@ -1,0 +1,32 @@
+{
+  "name": "@suds-cli/spinner",
+  "version": "0.0.0",
+  "description": "Animated spinner component for Suds terminal UIs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pnpm run clean && tsc -p ./tsconfig.json",
+    "test": "vitest run",
+    "generate:api-report": "api-extractor run --local",
+    "check:api-report": "pnpm run generate:api-report",
+    "check:eslint": "pnpm run lint",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@suds-cli/tea": "workspace:*",
+    "@suds-cli/chapstick": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "5.8.2",
+    "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
+

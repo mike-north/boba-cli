@@ -2,7 +2,19 @@
  * Horizontal alignment options for rendered content.
  * @public
  */
-export type Align = "left" | "center" | "right";
+export type HAlign = "left" | "center" | "right";
+
+/**
+ * Vertical alignment options for rendered content.
+ * @public
+ */
+export type VAlign = "top" | "center" | "bottom";
+
+/**
+ * Alias for horizontal alignment (backwards compatibility).
+ * @public
+ */
+export type Align = HAlign;
 
 /**
  * Spacing descriptor for padding or margin.
@@ -32,6 +44,7 @@ export interface BorderStyle {
 
 /**
  * A color string or adaptive light/dark color choice.
+ * Accepts hex colors (#ff0000), named colors (red), or adaptive objects.
  * @public
  */
 export type ColorInput =
@@ -60,6 +73,7 @@ export interface StyleOptions {
   margin?: Partial<Spacing>;
   borderStyle?: BorderStyle;
   borderColor?: ColorInput;
-  align?: Align;
+  alignHorizontal?: HAlign;
+  alignVertical?: VAlign;
   inline?: boolean;
 }

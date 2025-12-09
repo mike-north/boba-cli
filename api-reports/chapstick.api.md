@@ -5,7 +5,7 @@
 ```ts
 
 // @public
-export type Align = "left" | "center" | "right";
+export type Align = HAlign;
 
 // @public
 export interface BorderStyle {
@@ -58,6 +58,12 @@ export const defaultBorderStyle: BorderStyle;
 export function getColorSupport(): ColorSupport;
 
 // @public
+export function getTerminalBackground(): TerminalBackground;
+
+// @public
+export type HAlign = "left" | "center" | "right";
+
+// @public
 export function joinHorizontal(spacing: number, ...blocks: string[]): string;
 
 // @public
@@ -72,9 +78,6 @@ export function joinVertical(...blocks: string[]): string;
 // @public
 export function padLines(text: string, left?: number, right?: number): string;
 
-// Warning: (ae-forgotten-export) The symbol "HAlign" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "VAlign" needs to be exported by the entry point index.d.ts
-//
 // @public
 export function place(width: number, height: number, hAlign: HAlign, vAlign: VAlign, content: string): string;
 
@@ -95,29 +98,28 @@ export interface Spacing {
 
 // @public
 export class Style {
-    constructor(options?: StyleOptions);
-    // (undocumented)
-    align(value: Align): Style;
+    constructor(options?: StyleOptions, setKeys?: Set<StyleKey>);
+    // @deprecated
+    align(value: HAlign): Style;
+    alignHorizontal(value: HAlign): Style;
+    alignVertical(value: VAlign): Style;
     // (undocumented)
     background(color: ColorInput): Style;
     // (undocumented)
     bold(value?: boolean): Style;
+    border(enabled: boolean): Style;
     // (undocumented)
-    border(style?: BorderStyle): Style;
-    // (undocumented)
+    border(style: BorderStyle): Style;
     borderForeground(color: ColorInput): Style;
-    // (undocumented)
     borderStyle(style: BorderStyle): Style;
-    // (undocumented)
     copy(): Style;
     // (undocumented)
     foreground(color: ColorInput): Style;
     // (undocumented)
     height(value: number): Style;
-    // (undocumented)
     inherit(other: Style): Style;
-    // (undocumented)
     inline(value?: boolean): Style;
+    isSet(key: StyleKey): boolean;
     // (undocumented)
     italic(value?: boolean): Style;
     // (undocumented)
@@ -136,20 +138,25 @@ export class Style {
     padding(vertical: number, horizontal: number): Style;
     // (undocumented)
     padding(top: number, right: number, bottom: number, left: number): Style;
-    // (undocumented)
     render(text: string): string;
     // (undocumented)
     strikethrough(value?: boolean): Style;
     // (undocumented)
     underline(value?: boolean): Style;
+    unset(...keys: StyleKey[]): Style;
     // (undocumented)
     width(value: number): Style;
 }
 
 // @public
+export type StyleKey = keyof StyleOptions;
+
+// @public
 export interface StyleOptions {
     // (undocumented)
-    align?: Align;
+    alignHorizontal?: HAlign;
+    // (undocumented)
+    alignVertical?: VAlign;
     // (undocumented)
     background?: ColorInput;
     // (undocumented)
@@ -181,6 +188,12 @@ export interface StyleOptions {
     // (undocumented)
     width?: number;
 }
+
+// @public
+export type TerminalBackground = "dark" | "light" | "unknown";
+
+// @public
+export type VAlign = "top" | "center" | "bottom";
 
 // @public
 export function width(text: string): number;

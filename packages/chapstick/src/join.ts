@@ -1,7 +1,5 @@
 import stringWidth from "string-width";
-
-type HAlign = "left" | "center" | "right";
-type VAlign = "top" | "center" | "bottom";
+import type { HAlign, VAlign } from "./types.js";
 
 /**
  * Join blocks side-by-side, padding heights and inserting spacing columns.
@@ -71,6 +69,11 @@ export function joinVertical(
 
 /**
  * Place content inside a fixed rectangle with alignment.
+ * @param width - The width of the rectangle.
+ * @param height - The height of the rectangle.
+ * @param hAlign - Horizontal alignment (left, center, right).
+ * @param vAlign - Vertical alignment (top, center, bottom).
+ * @param content - The content to place.
  * @public
  */
 export function place(
@@ -81,7 +84,7 @@ export function place(
   content: string,
 ): string {
   const lines = content.split("\n");
-  const clamped = lines.slice(0, height).map((line) => truncate(line, width));
+  const clamped = lines.slice(0, height).map((line) => truncateLine(line, width));
   const paddedLines = clamped.map((line) => alignLine(line, width, hAlign));
   const missing = height - paddedLines.length;
   const topPad =
@@ -92,12 +95,12 @@ export function place(
         : missing;
   const bottomPad = missing - topPad;
   const empty = " ".repeat(Math.max(0, width));
-  const prefix = padLines(empty, Math.max(0, topPad));
-  const suffix = padLines(empty, Math.max(0, bottomPad));
+  const prefix = createPadLines(empty, Math.max(0, topPad));
+  const suffix = createPadLines(empty, Math.max(0, bottomPad));
   return [...prefix, ...paddedLines, ...suffix].join("\n");
 }
 
-function padLines(line: string, count: number): string[] {
+function createPadLines(line: string, count: number): string[] {
   if (count <= 0) return [];
   return Array<string>(count).fill(line);
 }
@@ -108,10 +111,10 @@ function padToWidth(input: string, width: number): string {
   return `${input}${" ".repeat(width - w)}`;
 }
 
-function truncate(input: string, maxWidth: number): string {
+function truncateLine(input: string, maxWidth: number): string {
   const w = stringWidth(input);
   if (w <= maxWidth) return input;
-  // naive truncation by characters (adequate for helper)
+  // Character-by-character truncation for ANSI-aware width
   let acc = "";
   for (const ch of input) {
     if (stringWidth(acc + ch) > maxWidth) break;

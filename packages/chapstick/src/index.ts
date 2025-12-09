@@ -1,13 +1,33 @@
 // Entry point for @suds/chapstick.
+
+// Types
 export type {
   Align,
+  HAlign,
+  VAlign,
   BorderStyle,
   ColorInput,
   StyleOptions,
   Spacing,
 } from "./types.js";
+
+// Borders
 export { borderStyles, defaultBorderStyle } from "./borders.js";
-export { getColorSupport, resolveColor, type ColorSupport } from "./colors.js";
+
+// Colors
+export {
+  getColorSupport,
+  getTerminalBackground,
+  resolveColor,
+  type ColorSupport,
+  type TerminalBackground,
+} from "./colors.js";
+
+// Measurement utilities
 export { width, clampWidth, wrapWidth, padLines } from "./measure.js";
-export { Style } from "./style.js";
+
+// Style class
+export { Style, type StyleKey } from "./style.js";
+
+// Layout utilities
 export { joinHorizontal, joinVertical, place } from "./join.js";
