@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+  "config": {
+    "default": true,
+    "no-inline-html": false,
+    "line-length": false
+  },
+  "globs": [
+    "**/*.md"
+  ],
+  "ignores": [
+    "docs/**",
+    "api-reports/**",
+    ".changeset/**",
+    "**/CHANGELOG.md",
+    "**/temp/**",
+    "node_modules/**",
+    "**/node_modules/**",
+    "dist/**",
+    "**/dist/**",
+    "coverage/**",
+    "**/coverage/**",
+    ".nx/**",
+    "**/.nx/**"
+  ]
+}
+

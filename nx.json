@@ -1,0 +1,100 @@
+{
+  "$schema": "https://nx.dev/nx.schema.json",
+  "namedInputs": {
+    "source": ["{projectRoot}/src/**/*"],
+    "tsConfig": [
+      "{projectRoot}/tsconfig.json",
+      "{workspaceRoot}/tsconfig.json"
+    ],
+    "eslintConfig": ["{workspaceRoot}/eslint.config.mts"],
+    "apiExtractorConfig": [
+      "{projectRoot}/api-extractor.json",
+      "{workspaceRoot}/api-extractor-base.json"
+    ],
+    "markdownConfig": ["{workspaceRoot}/.markdownlint-cli2.jsonc"],
+    "markdownFiles": [
+      "{workspaceRoot}/**/*.md",
+      "!{workspaceRoot}/docs/**",
+      "!{workspaceRoot}/api-reports/**",
+      "!{workspaceRoot}/node_modules/**",
+      "!{workspaceRoot}/**/node_modules/**",
+      "!{workspaceRoot}/dist/**",
+      "!{workspaceRoot}/**/dist/**"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build", "^generate:api-report"],
+      "inputs": ["source", "tsConfig"],
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "test": {
+      "dependsOn": [
+        "build",
+        "^build",
+        "generate:api-report",
+        "^generate:api-report"
+      ],
+      "cache": true,
+      "inputs": [
+        "source",
+        "tsConfig",
+        "{projectRoot}/test/**/*",
+        "{projectRoot}/vitest.config.mts"
+      ],
+      "outputs": []
+    },
+    "test:coverage": {
+      "dependsOn": [
+        "build",
+        "^build",
+        "generate:api-report",
+        "^generate:api-report"
+      ],
+      "cache": true,
+      "inputs": [
+        "source",
+        "tsConfig",
+        "{projectRoot}/test/**/*",
+        "{projectRoot}/vitest.config.mts"
+      ],
+      "outputs": ["{projectRoot}/coverage"]
+    },
+    "check:eslint": {
+      "cache": true,
+      "inputs": ["source", "eslintConfig"],
+      "outputs": []
+    },
+    "check:typecheck-tests": {
+      "cache": true,
+      "inputs": [
+        "source",
+        "tsConfig",
+        "{projectRoot}/test/**/*",
+        "{projectRoot}/vitest.config.mts",
+        "{projectRoot}/test/tsconfig.json"
+      ],
+      "outputs": []
+    },
+    "generate:api-report": {
+      "cache": true,
+      "dependsOn": ["build", "^build"],
+      "inputs": ["{projectRoot}/dist/**/*.d.ts", "apiExtractorConfig"],
+      "outputs": [
+        "{workspaceRoot}/api-reports/{projectName}.api.md",
+        "{workspaceRoot}/temp/{projectName}.api.json"
+      ]
+    },
+    "check:api-report": {
+      "cache": true,
+      "dependsOn": ["build", "^build", "^generate:api-report"],
+      "inputs": ["{projectRoot}/dist/**/*.d.ts", "apiExtractorConfig"],
+      "outputs": [
+        "{workspaceRoot}/api-reports/{projectName}.api.md",
+        "{workspaceRoot}/temp/{projectName}.api.json"
+      ]
+    }
+  }
+}
+
