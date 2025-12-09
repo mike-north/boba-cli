@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "vitest"],
+    "rootDir": "..",
+    "baseUrl": "..",
+    "paths": {
+      "@": ["src/index.ts"]
+    },
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  },
+  "include": ["./**/*.ts", "../src/**/*.ts"]
+}
+
