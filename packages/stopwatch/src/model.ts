@@ -110,7 +110,7 @@ export class StopwatchModel implements TeaModel<StopwatchMsg, StopwatchModel> {
         return [this, null];
       }
 
-      if (msg.tag > 0 && msg.tag !== this.#tag) {
+      if (msg.tag !== this.#tag) {
         return [this, null];
       }
 
