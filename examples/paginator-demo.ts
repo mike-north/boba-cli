@@ -17,27 +17,27 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from "@suds-cli/tea";
-import { PaginatorModel, PaginatorType } from "@suds-cli/paginator";
-import { newBinding, matches } from "@suds-cli/key";
+} from '@suds-cli/tea'
+import { PaginatorModel, PaginatorType } from '@suds-cli/paginator'
+import { newBinding, matches } from '@suds-cli/key'
 
 // Sample data to paginate
-const ITEMS = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`);
+const ITEMS = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`)
 
 const keys = {
-  toggleView: newBinding({ keys: ["t", "T"] }).withHelp("t", "toggle view"),
-  quit: newBinding({ keys: ["q", "Q", "ctrl+c"] }).withHelp("q", "quit"),
-};
+  toggleView: newBinding({ keys: ['t', 'T'] }).withHelp('t', 'toggle view'),
+  quit: newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp('q', 'quit'),
+}
 
 // Override paginator keymap for laptop-friendly controls
 const paginatorKeyMap = {
-  prevPage: newBinding({ keys: ["u", "k", "up"] }),
-  nextPage: newBinding({ keys: ["d", "j", "down"] }),
-};
+  prevPage: newBinding({ keys: ['u', 'k', 'up'] }),
+  nextPage: newBinding({ keys: ['d', 'j', 'down'] }),
+}
 
 class PaginatorDemo implements Model<Msg, PaginatorDemo> {
-  readonly paginator: PaginatorModel;
-  readonly items: string[];
+  readonly paginator: PaginatorModel
+  readonly items: string[]
 
   constructor(paginator?: PaginatorModel, items = ITEMS) {
     const base =
@@ -45,27 +45,27 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
       PaginatorModel.new({
         perPage: 5,
         keyMap: paginatorKeyMap,
-      });
-    this.items = items;
+      })
+    this.items = items
     // Keep totalPages in sync with item count
-    this.paginator = base.setTotalPages(items.length);
+    this.paginator = base.setTotalPages(items.length)
   }
 
   init(): Cmd<Msg> {
-    return null;
+    return null
   }
 
   update(msg: Msg): [PaginatorDemo, Cmd<Msg>] {
     if (msg instanceof KeyMsg) {
       if (matches(msg, keys.quit)) {
-        return [this, quit()];
+        return [this, quit()]
       }
 
       if (matches(msg, keys.toggleView)) {
         const nextType =
           this.paginator.type === PaginatorType.Dots
             ? PaginatorType.Arabic
-            : PaginatorType.Dots;
+            : PaginatorType.Dots
         const nextPaginator = PaginatorModel.new({
           type: nextType,
           page: this.paginator.page,
@@ -75,14 +75,14 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
           inactiveDot: this.paginator.inactiveDot,
           arabicFormat: this.paginator.arabicFormat,
           keyMap: this.paginator.keyMap,
-        }).setTotalPages(this.items.length);
+        }).setTotalPages(this.items.length)
 
-        return [new PaginatorDemo(nextPaginator, this.items), null];
+        return [new PaginatorDemo(nextPaginator, this.items), null]
       }
     }
 
     // Let the paginator handle navigation keys
-    const [nextPaginator, cmd] = this.paginator.update(msg);
+    const [nextPaginator, cmd] = this.paginator.update(msg)
     if (nextPaginator !== this.paginator) {
       return [
         new PaginatorDemo(
@@ -90,44 +90,41 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
           this.items,
         ),
         cmd as Cmd<Msg>,
-      ];
+      ]
     }
 
-    return [this, cmd as Cmd<Msg>];
+    return [this, cmd as Cmd<Msg>]
   }
 
   view(): string {
-    const [start, end] = this.paginator.getSliceBounds(this.items.length);
-    const visible = this.items.slice(start, end);
+    const [start, end] = this.paginator.getSliceBounds(this.items.length)
+    const visible = this.items.slice(start, end)
 
-    const header = `🧼 Suds Paginator (${this.paginator.view()})`;
+    const header = `🧼 Suds Paginator (${this.paginator.view()})`
     const body = visible
       .map((item, idx) => {
-        const lineNum = start + idx + 1;
-        return `${lineNum.toString().padStart(2, " ")}. ${item}`;
+        const lineNum = start + idx + 1
+        return `${lineNum.toString().padStart(2, ' ')}. ${item}`
       })
-      .join("\n");
+      .join('\n')
 
     const footer = [
-      "",
-      "Controls:",
-      "  Prev: u / k / ↑",
-      "  Next: d / j / ↓",
-      "  t: toggle dots/arabic view",
-      "  q: quit",
-    ].join("\n");
+      '',
+      'Controls:',
+      '  Prev: u / k / ↑',
+      '  Next: d / j / ↓',
+      '  t: toggle dots/arabic view',
+      '  q: quit',
+    ].join('\n')
 
-    return [header, "", body, footer].join("\n");
+    return [header, '', body, footer].join('\n')
   }
 }
 
 async function main() {
-  console.clear();
-  const program = new Program(new PaginatorDemo());
-  await program.run();
+  console.clear()
+  const program = new Program(new PaginatorDemo())
+  await program.run()
 }
 
-main().catch(console.error);
-
-
-
+main().catch(console.error)

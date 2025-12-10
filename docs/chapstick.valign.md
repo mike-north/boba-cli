@@ -9,5 +9,5 @@ Vertical alignment options for rendered content.
 **Signature:**
 
 ```typescript
-export type VAlign = "top" | "center" | "bottom";
+export type VAlign = 'top' | 'center' | 'bottom';
 ```

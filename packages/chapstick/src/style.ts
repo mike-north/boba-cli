@@ -1,7 +1,7 @@
-import chalk from "chalk";
-import { defaultBorderStyle } from "./borders.js";
-import { resolveColor } from "./colors.js";
-import { clampWidth, width as textWidth, wrapWidth } from "./measure.js";
+import chalk from 'chalk'
+import { defaultBorderStyle } from './borders.js'
+import { resolveColor } from './colors.js'
+import { clampWidth, width as textWidth, wrapWidth } from './measure.js'
 import type {
   BorderStyle,
   ColorInput,
@@ -9,37 +9,39 @@ import type {
   Spacing,
   StyleOptions,
   VAlign,
-} from "./types.js";
+} from './types.js'
 
-type PaddingInput = number | Partial<Spacing>;
-type MarginInput = number | Partial<Spacing>;
+type PaddingInput = number | Partial<Spacing>
+type MarginInput = number | Partial<Spacing>
 
 /**
  * Keys that can be explicitly set on a style.
  * Used to track which properties have been set vs using defaults.
  * @public
  */
-export type StyleKey = keyof StyleOptions;
+export type StyleKey = keyof StyleOptions
 
 /**
  * Fluent style builder for terminal strings.
  * @public
  */
 export class Style {
-  private readonly options: StyleOptions;
+  private readonly options: StyleOptions
   /** Track which properties have been explicitly set */
-  private readonly setKeys: Set<StyleKey>;
+  private readonly setKeys: Set<StyleKey>
 
   constructor(options: StyleOptions = {}, setKeys?: Set<StyleKey>) {
-    this.options = { ...options };
-    this.setKeys = setKeys ? new Set(setKeys) : new Set(Object.keys(options) as StyleKey[]);
+    this.options = { ...options }
+    this.setKeys = setKeys
+      ? new Set(setKeys)
+      : new Set(Object.keys(options) as StyleKey[])
   }
 
   /**
    * Create a deep copy of this style.
    */
   copy(): Style {
-    return new Style(structuredClone(this.options), new Set(this.setKeys));
+    return new Style(structuredClone(this.options), new Set(this.setKeys))
   }
 
   /**
@@ -48,145 +50,147 @@ export class Style {
    * Margins and padding are NOT inherited (matching Go Lip Gloss behavior).
    */
   inherit(other: Style): Style {
-    const newOptions = { ...this.options };
-    const newSetKeys = new Set(this.setKeys);
+    const newOptions = { ...this.options }
+    const newSetKeys = new Set(this.setKeys)
 
     // Keys that should not be inherited
-    const noInherit: StyleKey[] = ["padding", "margin"];
+    const noInherit: StyleKey[] = ['padding', 'margin']
 
     for (const key of other.setKeys) {
       // Skip padding and margin - they are not inherited
-      if (noInherit.includes(key)) continue;
-      
+      if (noInherit.includes(key)) continue
+
       // Only copy if not already set in this style
       if (!this.setKeys.has(key)) {
-        (newOptions as Record<string, unknown>)[key] = structuredClone(
-          (other.options as Record<string, unknown>)[key]
-        );
-        newSetKeys.add(key);
+        ;(newOptions as Record<string, unknown>)[key] = structuredClone(
+          (other.options as Record<string, unknown>)[key],
+        )
+        newSetKeys.add(key)
       }
     }
 
-    return new Style(newOptions, newSetKeys);
+    return new Style(newOptions, newSetKeys)
   }
 
   /**
    * Check if a property has been explicitly set.
    */
   isSet(key: StyleKey): boolean {
-    return this.setKeys.has(key);
+    return this.setKeys.has(key)
   }
 
   /**
    * Unset a property, reverting to default behavior.
    */
   unset(...keys: StyleKey[]): Style {
-    const newOptions = { ...this.options };
-    const newSetKeys = new Set(this.setKeys);
+    const newOptions = { ...this.options }
+    const newSetKeys = new Set(this.setKeys)
     for (const key of keys) {
-      delete (newOptions as Record<string, unknown>)[key];
-      newSetKeys.delete(key);
+      delete (newOptions as Record<string, unknown>)[key]
+      newSetKeys.delete(key)
     }
-    return new Style(newOptions, newSetKeys);
+    return new Style(newOptions, newSetKeys)
   }
 
   foreground(color: ColorInput): Style {
-    return this.with({ foreground: color });
+    return this.with({ foreground: color })
   }
 
   background(color: ColorInput): Style {
-    return this.with({ background: color });
+    return this.with({ background: color })
   }
 
   bold(value = true): Style {
-    return this.with({ bold: value });
+    return this.with({ bold: value })
   }
 
   italic(value = true): Style {
-    return this.with({ italic: value });
+    return this.with({ italic: value })
   }
 
   underline(value = true): Style {
-    return this.with({ underline: value });
+    return this.with({ underline: value })
   }
 
   strikethrough(value = true): Style {
-    return this.with({ strikethrough: value });
+    return this.with({ strikethrough: value })
   }
 
-  padding(all: number): Style;
-  padding(vertical: number, horizontal: number): Style;
-  padding(top: number, right: number, bottom: number, left: number): Style;
+  padding(all: number): Style
+  padding(vertical: number, horizontal: number): Style
+  padding(top: number, right: number, bottom: number, left: number): Style
   padding(
     input: PaddingInput,
     right?: number,
     bottom?: number,
     left?: number,
   ): Style {
-    const next = normalizeSpacing(input, right, bottom, left);
-    return this.with({ padding: { ...this.options.padding, ...next } });
+    const next = normalizeSpacing(input, right, bottom, left)
+    return this.with({ padding: { ...this.options.padding, ...next } })
   }
 
-  margin(all: number): Style;
-  margin(vertical: number, horizontal: number): Style;
-  margin(top: number, right: number, bottom: number, left: number): Style;
+  margin(all: number): Style
+  margin(vertical: number, horizontal: number): Style
+  margin(top: number, right: number, bottom: number, left: number): Style
   margin(
     input: MarginInput,
     right?: number,
     bottom?: number,
     left?: number,
   ): Style {
-    const next = normalizeSpacing(input, right, bottom, left);
-    return this.with({ margin: { ...this.options.margin, ...next } });
+    const next = normalizeSpacing(input, right, bottom, left)
+    return this.with({ margin: { ...this.options.margin, ...next } })
   }
 
   width(value: number): Style {
-    return this.with({ width: value });
+    return this.with({ width: value })
   }
 
   height(value: number): Style {
-    return this.with({ height: value });
+    return this.with({ height: value })
   }
 
   maxWidth(value: number): Style {
-    return this.with({ maxWidth: value });
+    return this.with({ maxWidth: value })
   }
 
   maxHeight(value: number): Style {
-    return this.with({ maxHeight: value });
+    return this.with({ maxHeight: value })
   }
 
   /**
    * Enable borders with the default or specified style.
    * Use borderStyle() to change the border characters without re-enabling.
    */
-  border(enabled: boolean): Style;
-  border(style: BorderStyle): Style;
+  border(enabled: boolean): Style
+  border(style: BorderStyle): Style
   border(arg: boolean | BorderStyle = true): Style {
-    if (typeof arg === "boolean") {
+    if (typeof arg === 'boolean') {
       if (arg) {
         // Enable borders with current or default style
-        return this.with({ borderStyle: this.options.borderStyle ?? defaultBorderStyle });
+        return this.with({
+          borderStyle: this.options.borderStyle ?? defaultBorderStyle,
+        })
       } else {
         // Disable borders by unsetting borderStyle and borderColor
-        return this.unset("borderStyle", "borderColor");
+        return this.unset('borderStyle', 'borderColor')
       }
     }
-    return this.with({ borderStyle: arg });
+    return this.with({ borderStyle: arg })
   }
 
   /**
    * Set the border style characters.
    */
   borderStyle(style: BorderStyle): Style {
-    return this.with({ borderStyle: style });
+    return this.with({ borderStyle: style })
   }
 
   /**
    * Set the border foreground color.
    */
   borderForeground(color: ColorInput): Style {
-    return this.with({ borderColor: color });
+    return this.with({ borderColor: color })
   }
 
   /**
@@ -194,14 +198,14 @@ export class Style {
    * @deprecated Use alignHorizontal() instead.
    */
   align(value: HAlign): Style {
-    return this.alignHorizontal(value);
+    return this.alignHorizontal(value)
   }
 
   /**
    * Set horizontal alignment (left, center, right).
    */
   alignHorizontal(value: HAlign): Style {
-    return this.with({ alignHorizontal: value });
+    return this.with({ alignHorizontal: value })
   }
 
   /**
@@ -209,7 +213,7 @@ export class Style {
    * Only applies when height is set.
    */
   alignVertical(value: VAlign): Style {
-    return this.with({ alignVertical: value });
+    return this.with({ alignVertical: value })
   }
 
   /**
@@ -218,73 +222,84 @@ export class Style {
    * - Padding and margins are not applied
    */
   inline(value = true): Style {
-    return this.with({ inline: value });
+    return this.with({ inline: value })
   }
 
   /**
    * Render the style to a string.
    */
   render(text: string): string {
-    const opts = this.options;
-    const isInline = opts.inline ?? false;
+    const opts = this.options
+    const isInline = opts.inline ?? false
 
     // In inline mode, strip newlines first
-    let content = text ?? "";
+    let content = text ?? ''
     if (isInline) {
-      content = content.replace(/\r?\n/g, "");
+      content = content.replace(/\r?\n/g, '')
     }
 
-    const targetWidth = opts.width ?? opts.maxWidth;
+    const targetWidth = opts.width ?? opts.maxWidth
     const hasBorder =
-      opts.borderStyle !== undefined || this.setKeys.has("borderColor");
-    
+      opts.borderStyle !== undefined || this.setKeys.has('borderColor')
+
     // In inline mode, skip padding/margin
-    const padding = isInline ? { top: 0, right: 0, bottom: 0, left: 0 } : normalizeSpacing(opts.padding ?? 0);
-    const borderWidth = hasBorder ? 2 : 0;
+    const padding = isInline
+      ? { top: 0, right: 0, bottom: 0, left: 0 }
+      : normalizeSpacing(opts.padding ?? 0)
+    const borderWidth = hasBorder ? 2 : 0
     const innerTargetWidth =
       targetWidth !== undefined
         ? Math.max(0, targetWidth - padding.left - padding.right - borderWidth)
-        : undefined;
+        : undefined
 
     if (opts.maxWidth && innerTargetWidth !== undefined) {
-      content = wrapWidth(content, innerTargetWidth);
+      content = wrapWidth(content, innerTargetWidth)
     }
     if (opts.width && opts.width > 0 && innerTargetWidth !== undefined) {
-      content = clampWidth(content, innerTargetWidth);
+      content = clampWidth(content, innerTargetWidth)
     }
 
-    const lines: string[] = content.split("\n");
-    const aligned = alignLinesHorizontal(lines, opts.alignHorizontal, innerTargetWidth);
+    const lines: string[] = content.split('\n')
+    const aligned = alignLinesHorizontal(
+      lines,
+      opts.alignHorizontal,
+      innerTargetWidth,
+    )
 
-    const padded = isInline ? aligned : applySpacing(aligned, padding);
-    const borderStyle = opts.borderStyle ?? defaultBorderStyle;
+    const padded = isInline ? aligned : applySpacing(aligned, padding)
+    const borderStyle = opts.borderStyle ?? defaultBorderStyle
     const bordered = hasBorder
       ? applyBorder(padded, borderStyle, opts.borderColor)
-      : padded;
-    
+      : padded
+
     // Apply height and vertical alignment
-    const sized = applyHeight(bordered, opts.height, opts.maxHeight, opts.alignVertical);
-    const colored = applyTextStyle(sized, opts);
-    
+    const sized = applyHeight(
+      bordered,
+      opts.height,
+      opts.maxHeight,
+      opts.alignVertical,
+    )
+    const colored = applyTextStyle(sized, opts)
+
     // In inline mode, skip margin
     if (isInline) {
-      return colored.join("");
+      return colored.join('')
     }
-    
+
     const withMargin = applySpacing(
       colored,
       normalizeSpacing(opts.margin ?? 0),
-    ).join("\n");
+    ).join('\n')
 
-    return withMargin;
+    return withMargin
   }
 
   private with(patch: Partial<StyleOptions>): Style {
-    const newSetKeys = new Set(this.setKeys);
+    const newSetKeys = new Set(this.setKeys)
     for (const key of Object.keys(patch) as StyleKey[]) {
-      newSetKeys.add(key);
+      newSetKeys.add(key)
     }
-    return new Style({ ...this.options, ...patch }, newSetKeys);
+    return new Style({ ...this.options, ...patch }, newSetKeys)
   }
 }
 
@@ -294,27 +309,27 @@ function normalizeSpacing(
   bottom?: number,
   left?: number,
 ): Spacing {
-  if (typeof input === "number") {
-    const v = input;
+  if (typeof input === 'number') {
+    const v = input
     if (right === undefined && bottom === undefined && left === undefined) {
-      return { top: v, right: v, bottom: v, left: v };
+      return { top: v, right: v, bottom: v, left: v }
     }
     if (right !== undefined && bottom === undefined && left === undefined) {
-      return { top: v, right, bottom: v, left: right };
+      return { top: v, right, bottom: v, left: right }
     }
     return {
       top: v,
       right: right ?? 0,
       bottom: bottom ?? 0,
       left: left ?? 0,
-    };
+    }
   }
   return {
     top: input.top ?? 0,
     right: input.right ?? 0,
     bottom: input.bottom ?? 0,
     left: input.left ?? 0,
-  };
+  }
 }
 
 function alignLinesHorizontal(
@@ -323,47 +338,47 @@ function alignLinesHorizontal(
   targetWidth?: number,
 ): string[] {
   if (!align) {
-    return lines;
+    return lines
   }
   const maxLineWidth = lines.reduce(
     (acc, line) => Math.max(acc, textWidth(line)),
     0,
-  );
-  const width = targetWidth ?? maxLineWidth;
+  )
+  const width = targetWidth ?? maxLineWidth
   return lines.map((line) => {
-    const w = textWidth(line);
-    const space = Math.max(0, width - w);
+    const w = textWidth(line)
+    const space = Math.max(0, width - w)
     switch (align) {
-      case "center": {
-        const left = Math.floor(space / 2);
-        const right = space - left;
-        return `${" ".repeat(left)}${line}${" ".repeat(right)}`;
+      case 'center': {
+        const left = Math.floor(space / 2)
+        const right = space - left
+        return `${' '.repeat(left)}${line}${' '.repeat(right)}`
       }
-      case "right":
-        return `${" ".repeat(space)}${line}`;
-      case "left":
+      case 'right':
+        return `${' '.repeat(space)}${line}`
+      case 'left':
       default:
-        return `${line}${" ".repeat(space)}`;
+        return `${line}${' '.repeat(space)}`
     }
-  });
+  })
 }
 
 function applySpacing(lines: string[], spacing: Spacing): string[] {
-  const { top, right, bottom, left } = spacing;
-  const spaceLeft = " ".repeat(Math.max(0, left));
-  const spaceRight = " ".repeat(Math.max(0, right));
-  const spaced = lines.map((line) => `${spaceLeft}${line}${spaceRight}`);
+  const { top, right, bottom, left } = spacing
+  const spaceLeft = ' '.repeat(Math.max(0, left))
+  const spaceRight = ' '.repeat(Math.max(0, right))
+  const spaced = lines.map((line) => `${spaceLeft}${line}${spaceRight}`)
   const maxWidth = spaced.reduce(
     (acc, line) => Math.max(acc, textWidth(line)),
     0,
-  );
-  const empty = " ".repeat(maxWidth);
+  )
+  const empty = ' '.repeat(maxWidth)
   const withTop = Array.from({ length: Math.max(0, top) }, () => empty).concat(
     spaced,
-  );
+  )
   return withTop.concat(
     Array.from({ length: Math.max(0, bottom) }, () => empty),
-  );
+  )
 }
 
 function applyBorder(
@@ -371,30 +386,30 @@ function applyBorder(
   style: BorderStyle,
   borderColor?: ColorInput,
 ): string[] {
-  if (!style) return lines;
+  if (!style) return lines
   const widthMax = lines.reduce(
     (acc, line) => Math.max(acc, textWidth(line)),
     0,
-  );
-  const top = style.top.repeat(Math.max(0, widthMax));
-  const bottom = style.bottom.repeat(Math.max(0, widthMax));
+  )
+  const top = style.top.repeat(Math.max(0, widthMax))
+  const bottom = style.bottom.repeat(Math.max(0, widthMax))
 
-  const wrap = (line: string) => `${style.left}${line}${style.right}`;
+  const wrap = (line: string) => `${style.left}${line}${style.right}`
   const sidePadded = lines.map((line) => {
-    const pad = Math.max(0, widthMax - textWidth(line));
-    return wrap(`${line}${" ".repeat(pad)}`);
-  });
+    const pad = Math.max(0, widthMax - textWidth(line))
+    return wrap(`${line}${' '.repeat(pad)}`)
+  })
 
-  const topLine = `${style.topLeft}${top}${style.topRight}`;
-  const bottomLine = `${style.bottomLeft}${bottom}${style.bottomRight}`;
+  const topLine = `${style.topLeft}${top}${style.topRight}`
+  const bottomLine = `${style.bottomLeft}${bottom}${style.bottomRight}`
 
-  const withBorder = [topLine, ...sidePadded, bottomLine];
+  const withBorder = [topLine, ...sidePadded, bottomLine]
 
   if (!borderColor) {
-    return withBorder;
+    return withBorder
   }
-  const colored = applyColor(withBorder.join("\n"), borderColor);
-  return colored.split("\n");
+  const colored = applyColor(withBorder.join('\n'), borderColor)
+  return colored.split('\n')
 }
 
 function applyHeight(
@@ -403,55 +418,56 @@ function applyHeight(
   maxHeight?: number,
   vAlign?: VAlign,
 ): string[] {
-  let result = [...lines];
-  
+  let result = [...lines]
+
   if (height !== undefined && height > 0) {
-    const widthMax = Math.max(...result.map(textWidth), 0);
-    const blank = " ".repeat(widthMax);
-    
+    const widthMax = Math.max(...result.map(textWidth), 0)
+    const blank = ' '.repeat(widthMax)
+
     if (result.length < height) {
-      const missing = height - result.length;
-      const topPad = vAlign === "bottom" 
-        ? missing 
-        : vAlign === "center" 
-          ? Math.floor(missing / 2) 
-          : 0;
-      const bottomPad = missing - topPad;
-      
-      const topFill: string[] = [];
-      for (let i = 0; i < topPad; i++) topFill.push(blank);
-      const bottomFill: string[] = [];
-      for (let i = 0; i < bottomPad; i++) bottomFill.push(blank);
-      result = [...topFill, ...result, ...bottomFill];
+      const missing = height - result.length
+      const topPad =
+        vAlign === 'bottom'
+          ? missing
+          : vAlign === 'center'
+            ? Math.floor(missing / 2)
+            : 0
+      const bottomPad = missing - topPad
+
+      const topFill: string[] = []
+      for (let i = 0; i < topPad; i++) topFill.push(blank)
+      const bottomFill: string[] = []
+      for (let i = 0; i < bottomPad; i++) bottomFill.push(blank)
+      result = [...topFill, ...result, ...bottomFill]
     } else if (result.length > height) {
-      result = result.slice(0, height);
+      result = result.slice(0, height)
     }
   }
-  
+
   if (maxHeight !== undefined && maxHeight > 0 && result.length > maxHeight) {
-    result = result.slice(0, maxHeight);
+    result = result.slice(0, maxHeight)
   }
-  
-  return result;
+
+  return result
 }
 
 function applyTextStyle(lines: string[], opts: StyleOptions): string[] {
-  const fg = resolveColor(opts.foreground);
-  const bg = resolveColor(opts.background);
-  const base = chalk;
+  const fg = resolveColor(opts.foreground)
+  const bg = resolveColor(opts.background)
+  const base = chalk
 
   const styleFn = (input: string) => {
-    let instance = base;
-    if (fg) instance = applyForeground(instance, fg);
-    if (bg) instance = applyBackground(instance, bg);
-    if (opts.bold) instance = instance.bold;
-    if (opts.italic) instance = instance.italic;
-    if (opts.underline) instance = instance.underline;
-    if (opts.strikethrough) instance = instance.strikethrough;
-    return instance(input);
-  };
+    let instance = base
+    if (fg) instance = applyForeground(instance, fg)
+    if (bg) instance = applyBackground(instance, bg)
+    if (opts.bold) instance = instance.bold
+    if (opts.italic) instance = instance.italic
+    if (opts.underline) instance = instance.underline
+    if (opts.strikethrough) instance = instance.strikethrough
+    return instance(input)
+  }
 
-  return lines.map(styleFn);
+  return lines.map(styleFn)
 }
 
 /**
@@ -459,24 +475,29 @@ function applyTextStyle(lines: string[], opts: StyleOptions): string[] {
  */
 function applyForeground(instance: typeof chalk, color: string): typeof chalk {
   // Hex color
-  if (color.startsWith("#")) {
-    return instance.hex(color);
+  if (color.startsWith('#')) {
+    return instance.hex(color)
   }
   // RGB function format: rgb(r, g, b)
-  const rgbMatch = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
+  const rgbMatch = color.match(
+    /^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i,
+  )
   if (rgbMatch) {
-    const r = parseInt(rgbMatch[1] ?? "0", 10);
-    const g = parseInt(rgbMatch[2] ?? "0", 10);
-    const b = parseInt(rgbMatch[3] ?? "0", 10);
-    return instance.rgb(r, g, b);
+    const r = parseInt(rgbMatch[1] ?? '0', 10)
+    const g = parseInt(rgbMatch[2] ?? '0', 10)
+    const b = parseInt(rgbMatch[3] ?? '0', 10)
+    return instance.rgb(r, g, b)
   }
   // Named color - check if it's a valid chalk color
-  const namedColor = color.toLowerCase() as keyof typeof chalk;
-  if (typeof instance[namedColor] === "function" || typeof instance[namedColor] === "object") {
-    return instance[namedColor] as typeof chalk;
+  const namedColor = color.toLowerCase() as keyof typeof chalk
+  if (
+    typeof instance[namedColor] === 'function' ||
+    typeof instance[namedColor] === 'object'
+  ) {
+    return instance[namedColor] as typeof chalk
   }
   // Fallback: try hex anyway (chalk will handle errors)
-  return instance.hex(color);
+  return instance.hex(color)
 }
 
 /**
@@ -484,36 +505,42 @@ function applyForeground(instance: typeof chalk, color: string): typeof chalk {
  */
 function applyBackground(instance: typeof chalk, color: string): typeof chalk {
   // Hex color
-  if (color.startsWith("#")) {
-    return instance.bgHex(color);
+  if (color.startsWith('#')) {
+    return instance.bgHex(color)
   }
   // RGB function format: rgb(r, g, b)
-  const rgbMatch = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
+  const rgbMatch = color.match(
+    /^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i,
+  )
   if (rgbMatch) {
-    const r = parseInt(rgbMatch[1] ?? "0", 10);
-    const g = parseInt(rgbMatch[2] ?? "0", 10);
-    const b = parseInt(rgbMatch[3] ?? "0", 10);
-    return instance.bgRgb(r, g, b);
+    const r = parseInt(rgbMatch[1] ?? '0', 10)
+    const g = parseInt(rgbMatch[2] ?? '0', 10)
+    const b = parseInt(rgbMatch[3] ?? '0', 10)
+    return instance.bgRgb(r, g, b)
   }
   // Named color - check if chalk has a bg version
-  const bgColor = `bg${color.charAt(0).toUpperCase()}${color.slice(1).toLowerCase()}` as keyof typeof chalk;
-  if (typeof instance[bgColor] === "function" || typeof instance[bgColor] === "object") {
-    return instance[bgColor] as typeof chalk;
+  const bgColor =
+    `bg${color.charAt(0).toUpperCase()}${color.slice(1).toLowerCase()}` as keyof typeof chalk
+  if (
+    typeof instance[bgColor] === 'function' ||
+    typeof instance[bgColor] === 'object'
+  ) {
+    return instance[bgColor] as typeof chalk
   }
   // Fallback: try bgHex anyway
-  return instance.bgHex(color);
+  return instance.bgHex(color)
 }
 
 function applyColor(text: string, color: ColorInput): string {
-  const resolved = resolveColor(color);
-  if (!resolved) return text;
-  
+  const resolved = resolveColor(color)
+  if (!resolved) return text
+
   return text
-    .split("\n")
+    .split('\n')
     .map((line) => {
-      let instance = chalk;
-      instance = applyForeground(instance, resolved);
-      return instance(line);
+      let instance = chalk
+      instance = applyForeground(instance, resolved)
+      return instance(line)
     })
-    .join("\n");
+    .join('\n')
 }

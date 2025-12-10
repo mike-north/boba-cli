@@ -2,6 +2,8 @@
 
 Tabular data display with scrolling and selection for Suds terminal UIs.
 
+![Table Demo](../../examples/table-demo.gif)
+
 ```ts
 import { TableModel } from "@suds-cli/table";
 import { borderStyles } from "@suds-cli/chapstick";

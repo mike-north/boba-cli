@@ -2,6 +2,8 @@
 
 Countdown timer component for Suds terminal UIs. Port of Charmbracelet Bubbles timer.
 
+![Timer Demo](../../examples/timer-demo.gif)
+
 ## Install
 
 ```bash

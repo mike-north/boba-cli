@@ -9,5 +9,5 @@ Detected terminal background mode.
 **Signature:**
 
 ```typescript
-export type TerminalBackground = "dark" | "light" | "unknown";
+export type TerminalBackground = 'dark' | 'light' | 'unknown';
 ```

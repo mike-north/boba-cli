@@ -2,6 +2,8 @@
 
 Animated spinner component for Suds terminal UIs. Port of Charmbracelet Bubbles spinner.
 
+![Spinner Demo](../../examples/spinner-demo.gif)
+
 ## Install
 
 ```bash

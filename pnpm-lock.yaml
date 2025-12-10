@@ -62,6 +62,9 @@ importers:
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -438,6 +441,34 @@ importers:
       vitest:
         specifier: ^4.0.15
         version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+
+  scripts:
+    dependencies:
+      '@suds-cli/chapstick':
+        specifier: workspace:*
+        version: link:../packages/chapstick
+      '@suds-cli/key':
+        specifier: workspace:*
+        version: link:../packages/key
+      '@suds-cli/list':
+        specifier: workspace:*
+        version: link:../packages/list
+      '@suds-cli/progress':
+        specifier: workspace:*
+        version: link:../packages/progress
+      '@suds-cli/spinner':
+        specifier: workspace:*
+        version: link:../packages/spinner
+      '@suds-cli/stopwatch':
+        specifier: workspace:*
+        version: link:../packages/stopwatch
+      '@suds-cli/tea':
+        specifier: workspace:*
+        version: link:../packages/tea
+    devDependencies:
+      tsx:
+        specifier: ^4.7.0
+        version: 4.21.0
 
 packages:
 

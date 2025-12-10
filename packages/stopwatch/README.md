@@ -2,6 +2,8 @@
 
 Stopwatch component for Suds terminal UIs. Port of Charmbracelet Bubbles stopwatch.
 
+![Stopwatch Demo](../../examples/stopwatch-demo.gif)
+
 ## Install
 
 ```bash
