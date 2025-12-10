@@ -2,6 +2,8 @@
 
 Pagination state management and rendering for Suds terminal UIs. Ported from the Charm `bubbles/paginator` component.
 
+![Paginator Demo](../../examples/paginator-demo.gif)
+
 ## Usage
 
 ```ts

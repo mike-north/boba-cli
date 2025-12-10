@@ -14,9 +14,9 @@
  *   q               - quit
  */
 
-import { Style } from "@suds-cli/chapstick";
-import { DefaultItem, ListModel } from "@suds-cli/list";
-import { newBinding, matches } from "@suds-cli/key";
+import { Style } from '@suds-cli/chapstick'
+import { DefaultItem, ListModel } from '@suds-cli/list'
+import { newBinding, matches } from '@suds-cli/key'
 import {
   KeyMsg,
   Program,
@@ -25,80 +25,78 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from "@suds-cli/tea";
+} from '@suds-cli/tea'
 
-const quitBinding = newBinding({ keys: ["q", "Q", "ctrl+c"] }).withHelp(
-  "q",
-  "quit",
-);
+const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp(
+  'q',
+  'quit',
+)
 
-const headerStyle = new Style().bold(true).foreground("#8be9fd");
-const helpStyle = new Style().foreground("#6272a4").italic(true);
+const headerStyle = new Style().bold(true).foreground('#8be9fd')
+const helpStyle = new Style().foreground('#6272a4').italic(true)
 
 const items = [
-  new DefaultItem("Wire UI", "Connect list view to data"),
-  new DefaultItem("Add filter", "Enable fuzzy search"),
-  new DefaultItem("Hook paginator", "Slice visible items"),
-  new DefaultItem("Style delegates", "Custom item renderers"),
-  new DefaultItem("Write tests", "Filter, paging, selection"),
-  new DefaultItem("Docs", "Usage and API reference"),
-  new DefaultItem("Polish demo", "Make it look nice"),
-];
+  new DefaultItem('Wire UI', 'Connect list view to data'),
+  new DefaultItem('Add filter', 'Enable fuzzy search'),
+  new DefaultItem('Hook paginator', 'Slice visible items'),
+  new DefaultItem('Style delegates', 'Custom item renderers'),
+  new DefaultItem('Write tests', 'Filter, paging, selection'),
+  new DefaultItem('Docs', 'Usage and API reference'),
+  new DefaultItem('Polish demo', 'Make it look nice'),
+]
 
 class DemoModel implements Model<Msg, DemoModel> {
-  readonly list: ListModel<DefaultItem>;
+  readonly list: ListModel<DefaultItem>
 
   constructor(list?: ListModel<DefaultItem>) {
     this.list =
       list ??
       ListModel.new({
         items,
-        title: "Backlog",
+        title: 'Backlog',
         height: 12,
         showFilter: true,
         showPagination: true,
         showHelp: true,
-      });
+      })
   }
 
   init(): Cmd<Msg> {
-    return this.list.init();
+    return this.list.init()
   }
 
   update(msg: Msg): [DemoModel, Cmd<Msg>] {
     if (msg instanceof KeyMsg && matches(msg, quitBinding)) {
-      return [this, quit()];
+      return [this, quit()]
     }
 
     if (msg instanceof WindowSizeMsg) {
       const next = this.list
         .setWidth(msg.width)
-        .setHeight(Math.max(8, msg.height - 6));
+        .setHeight(Math.max(8, msg.height - 6))
       if (next !== this.list) {
-        return [new DemoModel(next), null];
+        return [new DemoModel(next), null]
       }
     }
 
-    const [nextList, cmd] = this.list.update(msg);
+    const [nextList, cmd] = this.list.update(msg)
     if (nextList !== this.list) {
-      return [new DemoModel(nextList), cmd];
+      return [new DemoModel(nextList), cmd]
     }
-    return [this, cmd];
+    return [this, cmd]
   }
 
   view(): string {
-    const header = headerStyle.render("🧼 Suds Demo — List");
-    const help = helpStyle.render("Try '/', pgup/pgdn, ?, and q to quit.");
-    return [header, "", this.list.view(), "", help, ""].join("\n");
+    const header = headerStyle.render('🧼 Suds Demo — List')
+    const help = helpStyle.render("Try '/', pgup/pgdn, ?, and q to quit.")
+    return [header, '', this.list.view(), '', help, ''].join('\n')
   }
 }
 
 async function main(): Promise<void> {
-  console.clear();
-  const program = new Program(new DemoModel());
-  await program.run();
+  console.clear()
+  const program = new Program(new DemoModel())
+  await program.run()
 }
 
-main().catch(console.error);
-
-
+main().catch(console.error)

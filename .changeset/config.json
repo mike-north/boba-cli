@@ -1,9 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.1.2/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "mike-north/suds" }
-  ],
+  "changelog": ["@changesets/changelog-github", { "repo": "mike-north/suds" }],
   "commit": false,
   "fixed": [],
   "linked": [],
@@ -12,4 +9,3 @@
   "updateInternalDependencies": "patch",
   "ignore": []
 }
-

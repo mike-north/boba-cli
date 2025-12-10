@@ -142,3 +142,5 @@ vite.config.ts.timestamp-*
 .nx
 temp/*
 !temp/.gitkeep
+**/scratch
+**/.DS_Store

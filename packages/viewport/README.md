@@ -2,6 +2,8 @@
 
 Scrollable content window for Suds terminal UIs. Ported from the Charm `bubbles/viewport` component.
 
+![Viewport Demo](../../examples/viewport-demo.gif)
+
 ## Usage
 
 ```ts

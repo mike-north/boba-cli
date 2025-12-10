@@ -9,10 +9,10 @@ export type {
   ColorInput,
   StyleOptions,
   Spacing,
-} from "./types.js";
+} from './types.js'
 
 // Borders
-export { borderStyles, defaultBorderStyle } from "./borders.js";
+export { borderStyles, defaultBorderStyle } from './borders.js'
 
 // Colors
 export {
@@ -21,13 +21,13 @@ export {
   resolveColor,
   type ColorSupport,
   type TerminalBackground,
-} from "./colors.js";
+} from './colors.js'
 
 // Measurement utilities
-export { width, clampWidth, wrapWidth, padLines } from "./measure.js";
+export { width, clampWidth, wrapWidth, padLines } from './measure.js'
 
 // Style class
-export { Style, type StyleKey } from "./style.js";
+export { Style, type StyleKey } from './style.js'
 
 // Layout utilities
-export { joinHorizontal, joinVertical, place } from "./join.js";
+export { joinHorizontal, joinVertical, place } from './join.js'

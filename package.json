@@ -10,6 +10,7 @@
     "build": "NX_TUI=false nx run-many -t build --exclude suds",
     "generate:api-report": "NX_TUI=false nx run-many -t generate:api-report --exclude suds",
     "generate:docs": "NX_TUI=false nx api-documenter",
+    "generate:example-assets": "tsx scripts/generate-assets.mts",
     "test": "NX_TUI=false nx run-many -t test --exclude suds",
     "test:coverage": "NX_TUI=false nx run-many -t test:coverage --exclude suds",
     "check:packages": "NX_TUI=false nx run-many -t check:eslint,check:typecheck-tests,check:api-report",
@@ -18,6 +19,7 @@
     "check": "pnpm check:packages && pnpm check:workspace",
     "fix": "NX_TUI=false nx run-many -t fix:lint,fix:format",
     "fix:markdown": "markdownlint-cli2 --fix \"**/*.md\"",
+    "fix:format": "NX_TUI=false nx run-many -t code-format",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build && changeset publish",
@@ -46,7 +48,7 @@
           "{workspaceRoot}/**/*.{js,ts,json,md,mts,cts,mjs,cjs}"
         ]
       },
-      "fix:format": {
+      "code-format": {
         "cache": true,
         "command": "prettier --write \"**/*.{js,ts,json,md,mts,cts,mjs,cjs}\"",
         "inputs": [
@@ -58,7 +60,7 @@
         "command": "api-documenter markdown --input-folder temp --output-folder docs",
         "dependsOn": [
           {
-            "projects": "packages-*",
+            "projects": "packages/*",
             "target": "generate:api-report"
           }
         ],
@@ -90,6 +92,7 @@
     "markdownlint-cli2": "^0.20.0",
     "nx": "^22.2.0",
     "prettier": "^3.7.4",
+    "tsx": "^4.21.0",
     "typescript": "5.8.2",
     "typescript-eslint": "^8.49.0"
   }

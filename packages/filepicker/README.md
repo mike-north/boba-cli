@@ -2,6 +2,8 @@
 
 File system browser component for Suds terminal UIs. Ported from the Charm `bubbles/filepicker` component.
 
+![Filepicker Demo](../../examples/filepicker-demo.gif)
+
 ## Usage
 
 ```ts

@@ -9,5 +9,5 @@ Horizontal alignment options for rendered content.
 **Signature:**
 
 ```typescript
-export type HAlign = "left" | "center" | "right";
+export type HAlign = 'left' | 'center' | 'right';
 ```

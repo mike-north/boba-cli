@@ -63,7 +63,7 @@ export function getColorSupport(): ColorSupport;
 export function getTerminalBackground(): TerminalBackground;
 
 // @public
-export type HAlign = "left" | "center" | "right";
+export type HAlign = 'left' | 'center' | 'right';
 
 // @public
 export function joinHorizontal(spacing: number, ...blocks: string[]): string;
@@ -192,10 +192,10 @@ export interface StyleOptions {
 }
 
 // @public
-export type TerminalBackground = "dark" | "light" | "unknown";
+export type TerminalBackground = 'dark' | 'light' | 'unknown';
 
 // @public
-export type VAlign = "top" | "center" | "bottom";
+export type VAlign = 'top' | 'center' | 'bottom';
 
 // @public
 export function width(text: string): number;
