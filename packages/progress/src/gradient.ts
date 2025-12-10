@@ -44,3 +44,4 @@ export function interpolateColor(colorA: string, colorB: string, t: number): str
     b: mix(a.b, b.b),
   });
 }
+

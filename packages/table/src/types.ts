@@ -23,3 +23,4 @@ export interface TableOptions {
   bordered?: boolean;
   borderStyle?: BorderStyle;
 }
+

@@ -104,3 +104,4 @@ describe("TableModel navigation", () => {
     expect(table.columnWidths[1]).toBe(4);
   });
 });
+

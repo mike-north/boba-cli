@@ -73,3 +73,4 @@ export const defaultKeyMap: KeyMap = {
 };
 
 export { CursorMode };
+

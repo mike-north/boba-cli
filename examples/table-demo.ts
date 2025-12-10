@@ -63,7 +63,7 @@ class DemoModel implements Model<Msg, DemoModel> {
         columns,
         rows,
         height: 6,
-        width: 60,
+        // No fixed width - let it auto-size based on column widths
         focused: true,
         bordered: true,
         borderStyle: borderStyles.rounded,
@@ -86,9 +86,8 @@ class DemoModel implements Model<Msg, DemoModel> {
     }
 
     if (msg instanceof WindowSizeMsg) {
-      const nextWidth = Math.max(30, msg.width - 8);
       const nextHeight = Math.max(4, msg.height - 6);
-      const resized = this.table.setWidth(nextWidth).setHeight(nextHeight);
+      const resized = this.table.setHeight(nextHeight);
       if (resized !== this.table) {
         return [new DemoModel(resized), null];
       }
@@ -119,3 +118,4 @@ async function main(): Promise<void> {
 }
 
 main().catch(console.error);
+

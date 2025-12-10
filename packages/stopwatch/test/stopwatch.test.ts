@@ -77,3 +77,4 @@ describe("StopwatchModel", () => {
     expect(model.view()).toBe("1m5s");
   });
 });
+

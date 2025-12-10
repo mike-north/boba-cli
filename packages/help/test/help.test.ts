@@ -83,3 +83,4 @@ describe("HelpModel full help", () => {
     expect(full.view(keyMap)).toContain("alpha");
   });
 });
+

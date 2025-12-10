@@ -127,3 +127,4 @@ describe("SyncMsg", () => {
     expect(syncMsg.bottomLine).toBe(1);
   });
 });
+

@@ -67,3 +67,4 @@ describe("TimerModel", () => {
     expect(started.running()).toBe(true);
   });
 });
+

@@ -25,3 +25,4 @@ export interface HelpStyles {
   fullDesc: Style;
   fullSeparator: Style;
 }
+

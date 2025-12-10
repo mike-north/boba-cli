@@ -27,8 +27,10 @@ export interface BorderStyle {
     topRight: string;
 }
 
+// Warning: (ae-forgotten-export) The symbol "BorderStyleName" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const borderStyles: Record<string, BorderStyle>;
+export const borderStyles: Record<BorderStyleName, BorderStyle>;
 
 // @public
 export function clampWidth(text: string, maxWidth?: number): string;

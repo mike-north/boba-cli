@@ -74,3 +74,4 @@ describe("gradient", () => {
     expect(mid.toLowerCase()).toBe("#808000");
   });
 });
+

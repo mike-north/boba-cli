@@ -8,3 +8,4 @@ import { HelpModel } from "@suds-cli/help";
 const help = HelpModel.new({ width: 80 });
 const text = help.view(keyMap);
 ```
+

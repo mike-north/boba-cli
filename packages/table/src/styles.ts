@@ -19,3 +19,4 @@ export function defaultStyles(): TableStyles {
     borderStyle: borderStyles.normal,
   };
 }
+

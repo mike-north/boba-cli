@@ -47,3 +47,4 @@ export const defaultKeyMap: TableKeyMap = {
     help: { key: "end/G", desc: "go to end" },
   }),
 };
+

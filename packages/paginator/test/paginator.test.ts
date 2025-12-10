@@ -76,3 +76,4 @@ describe("PaginatorModel view", () => {
     expect(model.view()).toBe("○•○");
   });
 });
+

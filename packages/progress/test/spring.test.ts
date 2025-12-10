@@ -22,3 +22,4 @@ describe("Spring", () => {
     expect(tuned.damping).toBe(2);
   });
 });
+

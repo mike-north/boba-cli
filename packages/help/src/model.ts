@@ -181,3 +181,4 @@ export class HelpModel {
 function shouldRenderColumn(bindings: Binding[]): boolean {
   return bindings.some((b) => b.enabled());
 }
+

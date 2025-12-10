@@ -16,3 +16,4 @@ const [next] = viewport.update(keyMsg); // responds to j/k, pgup/pgdown, etc.
 // Render visible slice
 console.log(next.view());
 ```
+
