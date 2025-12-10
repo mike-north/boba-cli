@@ -286,10 +286,10 @@ export async function copyFile(name: string): Promise<string> {
 
   let output: string;
 
-  if (filename.startsWith(".") && ext === "" && ext === filename) {
-    // Hidden file with no extension (e.g., ".gitignore" but ext is "")
+  if (filename.startsWith(".") && ext === "") {
+    // Hidden file with no extension (e.g., ".gitignore")
     output = path.join(dirname, `${filename}_${timestamp}`);
-  } else if (filename.startsWith(".") && ext !== "" && ext !== filename) {
+  } else if (filename.startsWith(".") && ext !== "") {
     // Hidden file with extension (e.g., ".config.json")
     output = path.join(dirname, `${basename}_${timestamp}${ext}`);
   } else if (ext !== "") {
@@ -368,13 +368,17 @@ export async function zip(name: string): Promise<string> {
 
   let output: string;
 
-  if (filename.startsWith(".") && ext === "" && ext === filename) {
+  if (filename.startsWith(".") && ext === "") {
+    // Hidden file with no extension (e.g., ".gitignore")
     output = path.join(dirname, `${filename}_${timestamp}.zip`);
-  } else if (filename.startsWith(".") && ext !== "" && ext !== filename) {
+  } else if (filename.startsWith(".") && ext !== "") {
+    // Hidden file with extension (e.g., ".config.json")
     output = path.join(dirname, `${basename}_${timestamp}.zip`);
   } else if (ext !== "") {
+    // Regular file with extension
     output = path.join(dirname, `${basename}_${timestamp}.zip`);
   } else {
+    // File without extension
     output = path.join(dirname, `${filename}_${timestamp}.zip`);
   }
 
@@ -415,14 +419,7 @@ export async function unzip(name: string): Promise<string> {
   const basename = path.basename(name, ext);
   const dirname = path.dirname(name);
 
-  let output: string;
-
-  if (basename.startsWith(".")) {
-    // For hidden files like ".config.zip"
-    output = path.join(dirname, basename);
-  } else {
-    output = path.join(dirname, basename);
-  }
+  const output = path.join(dirname, basename);
 
   return new Promise((resolve, reject) => {
     createReadStream(name)

@@ -50,24 +50,24 @@ const files = await getDirectoryListingByType('/path/to/dir', FilesListingType);
 
 ### Directory Navigation
 
-#### `getHomeDirectory(): Promise<string>`
+#### `getHomeDirectory(): string`
 
 Returns the user's home directory.
 
 ```typescript
 import { getHomeDirectory } from '@suds-cli/filesystem';
 
-const home = await getHomeDirectory();
+const home = getHomeDirectory();
 ```
 
-#### `getWorkingDirectory(): Promise<string>`
+#### `getWorkingDirectory(): string`
 
 Returns the current working directory.
 
 ```typescript
 import { getWorkingDirectory } from '@suds-cli/filesystem';
 
-const cwd = await getWorkingDirectory();
+const cwd = getWorkingDirectory();
 ```
 
 ### File Reading
