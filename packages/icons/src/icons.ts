@@ -144,7 +144,7 @@ export function getIcon(
   let isExecutable = false;
   if (indicator === "*") {
     // If it's already the generic file icon, change to exe icon
-    if (iconInfo.glyph === "\uf723") {
+    if (iconInfo.glyph === IconDef.file.glyph) {
       iconInfo = IconDef.exe;
     }
     isExecutable = true;
