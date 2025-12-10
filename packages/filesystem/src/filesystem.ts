@@ -254,6 +254,7 @@ export async function createFile(name: string): Promise<void> {
 
 /**
  * Creates a new directory.
+ * Note: Parent directories must exist. Use recursive operations if you need to create nested directories.
  * @param name - The directory path to create
  * @public
  */
