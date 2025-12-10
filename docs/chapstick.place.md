@@ -42,6 +42,8 @@ number
 
 </td><td>
 
+The width of the rectangle.
+
 
 </td></tr>
 <tr><td>
@@ -56,6 +58,8 @@ number
 
 </td><td>
 
+The height of the rectangle.
+
 
 </td></tr>
 <tr><td>
@@ -65,10 +69,12 @@ hAlign
 
 </td><td>
 
-HAlign
+[HAlign](./chapstick.halign.md)
 
 
 </td><td>
+
+Horizontal alignment (left, center, right).
 
 
 </td></tr>
@@ -79,10 +85,12 @@ vAlign
 
 </td><td>
 
-VAlign
+[VAlign](./chapstick.valign.md)
 
 
 </td><td>
+
+Vertical alignment (top, center, bottom).
 
 
 </td></tr>
@@ -97,6 +105,8 @@ string
 
 
 </td><td>
+
+The content to place.
 
 
 </td></tr>

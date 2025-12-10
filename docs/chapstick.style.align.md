@@ -4,10 +4,17 @@
 
 ## Style.align() method
 
+> Warning: This API is now obsolete.
+> 
+> Use alignHorizontal() instead.
+> 
+
+Set horizontal alignment.
+
 **Signature:**
 
 ```typescript
-align(value: Align): Style;
+align(value: HAlign): Style;
 ```
 
 ## Parameters
@@ -35,7 +42,7 @@ value
 
 </td><td>
 
-[Align](./chapstick.align.md)
+[HAlign](./chapstick.halign.md)
 
 
 </td><td>

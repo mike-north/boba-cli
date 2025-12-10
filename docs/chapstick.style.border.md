@@ -4,10 +4,12 @@
 
 ## Style.border() method
 
+Enable borders with the default or specified style. Use borderStyle() to change the border characters without re-enabling.
+
 **Signature:**
 
 ```typescript
-border(style?: BorderStyle): Style;
+border(enabled: boolean): Style;
 ```
 
 ## Parameters
@@ -30,17 +32,15 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-style
+enabled
 
 
 </td><td>
 
-[BorderStyle](./chapstick.borderstyle.md)
+boolean
 
 
 </td><td>
-
-_(Optional)_
 
 
 </td></tr>

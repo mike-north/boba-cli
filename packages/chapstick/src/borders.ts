@@ -1,10 +1,16 @@
 import type { BorderStyle } from "./types.js";
 
 /**
+ * Name of a border style.
+ * @public
+ */
+export type BorderStyleName = "normal" | "rounded" | "bold" | "double";
+
+/**
  * Predefined border styles matching common terminal box characters.
  * @public
  */
-export const borderStyles: Record<string, BorderStyle> = {
+export const borderStyles: Record<BorderStyleName, BorderStyle> = {
   normal: {
     top: "─",
     bottom: "─",

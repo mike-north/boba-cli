@@ -4,6 +4,8 @@
 
 ## Style.render() method
 
+Render the style to a string.
+
 **Signature:**
 
 ```typescript

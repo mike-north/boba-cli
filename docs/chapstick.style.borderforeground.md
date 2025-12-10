@@ -4,6 +4,8 @@
 
 ## Style.borderForeground() method
 
+Set the border foreground color.
+
 **Signature:**
 
 ```typescript

@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-Truncate text to a maximum width.
+Truncate text to a maximum width per line, ANSI-aware.
 
 
 </td></tr>
@@ -62,6 +62,17 @@ Truncate text to a maximum width.
 </td><td>
 
 Detect terminal color support levels.
+
+
+</td></tr>
+<tr><td>
+
+[getTerminalBackground()](./chapstick.getterminalbackground.md)
+
+
+</td><td>
+
+Detect whether the terminal is using a dark or light background. Uses multiple heuristics in order of reliability: 1. COLORFGBG environment variable (most reliable when present) 2. TERM\_BACKGROUND environment variable 3. COLORTERM / TERM\_PROGRAM hints (less reliable)
 
 
 </td></tr>
@@ -160,7 +171,7 @@ Compute ANSI-aware display width.
 
 </td><td>
 
-Wrap text to a maximum width.
+Wrap text to a maximum width, ANSI-aware.
 
 
 </td></tr>
@@ -282,7 +293,7 @@ Description
 
 </td><td>
 
-Horizontal alignment options for rendered content.
+Alias for horizontal alignment (backwards compatibility).
 
 
 </td></tr>
@@ -293,7 +304,51 @@ Horizontal alignment options for rendered content.
 
 </td><td>
 
-A color string or adaptive light/dark color choice.
+A color string or adaptive light/dark color choice. Accepts hex colors (\#ff0000), named colors (red), or adaptive objects.
+
+
+</td></tr>
+<tr><td>
+
+[HAlign](./chapstick.halign.md)
+
+
+</td><td>
+
+Horizontal alignment options for rendered content.
+
+
+</td></tr>
+<tr><td>
+
+[StyleKey](./chapstick.stylekey.md)
+
+
+</td><td>
+
+Keys that can be explicitly set on a style. Used to track which properties have been set vs using defaults.
+
+
+</td></tr>
+<tr><td>
+
+[TerminalBackground](./chapstick.terminalbackground.md)
+
+
+</td><td>
+
+Detected terminal background mode.
+
+
+</td></tr>
+<tr><td>
+
+[VAlign](./chapstick.valign.md)
+
+
+</td><td>
+
+Vertical alignment options for rendered content.
 
 
 </td></tr>

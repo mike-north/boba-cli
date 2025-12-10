@@ -32,7 +32,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[(constructor)(options)](./chapstick.style._constructor_.md)
+[(constructor)(options, setKeys)](./chapstick.style._constructor_.md)
 
 
 </td><td>
@@ -74,6 +74,36 @@ Description
 
 </td><td>
 
+Set horizontal alignment.
+
+
+</td></tr>
+<tr><td>
+
+[alignHorizontal(value)](./chapstick.style.alignhorizontal.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Set horizontal alignment (left, center, right).
+
+
+</td></tr>
+<tr><td>
+
+[alignVertical(value)](./chapstick.style.alignvertical.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Set vertical alignment (top, center, bottom). Only applies when height is set.
+
 
 </td></tr>
 <tr><td>
@@ -102,7 +132,21 @@ Description
 </td></tr>
 <tr><td>
 
-[border(style)](./chapstick.style.border.md)
+[border(enabled)](./chapstick.style.border.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Enable borders with the default or specified style. Use borderStyle() to change the border characters without re-enabling.
+
+
+</td></tr>
+<tr><td>
+
+[border(style)](./chapstick.style.border_1.md)
 
 
 </td><td>
@@ -122,6 +166,8 @@ Description
 
 </td><td>
 
+Set the border foreground color.
+
 
 </td></tr>
 <tr><td>
@@ -134,6 +180,8 @@ Description
 
 </td><td>
 
+Set the border style characters.
+
 
 </td></tr>
 <tr><td>
@@ -145,6 +193,8 @@ Description
 
 
 </td><td>
+
+Create a deep copy of this style.
 
 
 </td></tr>
@@ -182,6 +232,8 @@ Description
 
 </td><td>
 
+Inherit unset properties from another style. Only copies properties that are set in `other` but not set in `this`<!-- -->. Margins and padding are NOT inherited (matching Go Lip Gloss behavior).
+
 
 </td></tr>
 <tr><td>
@@ -193,6 +245,22 @@ Description
 
 
 </td><td>
+
+Enable inline mode. When true: - Newlines are stripped from the input - Padding and margins are not applied
+
+
+</td></tr>
+<tr><td>
+
+[isSet(key)](./chapstick.style.isset.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Check if a property has been explicitly set.
 
 
 </td></tr>
@@ -314,6 +382,8 @@ Description
 
 </td><td>
 
+Render the style to a string.
+
 
 </td></tr>
 <tr><td>
@@ -337,6 +407,20 @@ Description
 
 
 </td><td>
+
+
+</td></tr>
+<tr><td>
+
+[unset(keys)](./chapstick.style.unset.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Unset a property, reverting to default behavior.
 
 
 </td></tr>

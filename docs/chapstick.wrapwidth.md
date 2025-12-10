@@ -4,7 +4,7 @@
 
 ## wrapWidth() function
 
-Wrap text to a maximum width.
+Wrap text to a maximum width, ANSI-aware.
 
 **Signature:**
 

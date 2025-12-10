@@ -4,16 +4,34 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "tsx spinner-demo.ts"
+    "start": "tsx progress-demo.ts",
+    "spinner": "tsx spinner-demo.ts",
+    "progress": "tsx progress-demo.ts",
+    "timer": "tsx timer-demo.ts",
+    "paginator": "tsx paginator-demo.ts",
+    "help-demo": "tsx help-demo.ts",
+    "stopwatch": "tsx stopwatch-demo.ts",
+    "viewport": "tsx viewport-demo.ts",
+    "textinput": "tsx textinput-demo.ts",
+    "textarea": "tsx textarea-demo.ts",
+    "table": "tsx table-demo.ts"
   },
   "dependencies": {
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/key": "workspace:*",
+    "@suds-cli/viewport": "workspace:*",
     "@suds-cli/spinner": "workspace:*",
-    "@suds-cli/tea": "workspace:*"
+    "@suds-cli/timer": "workspace:*",
+    "@suds-cli/progress": "workspace:*",
+    "@suds-cli/stopwatch": "workspace:*",
+    "@suds-cli/tea": "workspace:*",
+    "@suds-cli/help": "workspace:*",
+    "@suds-cli/paginator": "workspace:*",
+    "@suds-cli/textinput": "workspace:*",
+    "@suds-cli/textarea": "workspace:*",
+    "@suds-cli/table": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.7.0"
   }
 }
-

@@ -4,6 +4,8 @@
 
 ## Style.inherit() method
 
+Inherit unset properties from another style. Only copies properties that are set in `other` but not set in `this`<!-- -->. Margins and padding are NOT inherited (matching Go Lip Gloss behavior).
+
 **Signature:**
 
 ```typescript

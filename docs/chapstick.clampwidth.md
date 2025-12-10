@@ -4,7 +4,7 @@
 
 ## clampWidth() function
 
-Truncate text to a maximum width.
+Truncate text to a maximum width per line, ANSI-aware.
 
 **Signature:**
 

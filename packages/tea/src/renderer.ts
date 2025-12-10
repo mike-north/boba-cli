@@ -1,5 +1,5 @@
 const CURSOR_HOME = "\u001b[H";
-const CLEAR_TO_END = "\u001b[0J";
+const CLEAR_SCREEN = "\u001b[2J";
 
 /** @public Options for the standard renderer. */
 export interface RendererOptions {
@@ -52,6 +52,7 @@ export class StandardRenderer {
       return;
     }
     this.lastFrame = frame;
-    this.output.write(`${CURSOR_HOME}${frame}${CLEAR_TO_END}`);
+    // Clear the full screen before writing the next frame to avoid leftover characters
+    this.output.write(`${CLEAR_SCREEN}${CURSOR_HOME}${frame}`);
   }
 }

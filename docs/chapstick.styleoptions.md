@@ -37,7 +37,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[align?](./chapstick.styleoptions.align.md)
+[alignHorizontal?](./chapstick.styleoptions.alignhorizontal.md)
 
 
 </td><td>
@@ -45,7 +45,26 @@ Description
 
 </td><td>
 
-[Align](./chapstick.align.md)
+[HAlign](./chapstick.halign.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[alignVertical?](./chapstick.styleoptions.alignvertical.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[VAlign](./chapstick.valign.md)
 
 
 </td><td>

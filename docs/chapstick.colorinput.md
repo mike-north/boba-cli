@@ -4,7 +4,7 @@
 
 ## ColorInput type
 
-A color string or adaptive light/dark color choice.
+A color string or adaptive light/dark color choice. Accepts hex colors (\#ff0000), named colors (red), or adaptive objects.
 
 **Signature:**
 

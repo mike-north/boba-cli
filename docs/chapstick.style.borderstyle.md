@@ -4,6 +4,8 @@
 
 ## Style.borderStyle() method
 
+Set the border style characters.
+
 **Signature:**
 
 ```typescript

@@ -183,20 +183,38 @@ export class Program<M extends Model<Msg, M>> {
     return false;
   }
 
-  private async runCmd<T extends Msg>(cmd: Cmd<T> | undefined): Promise<void> {
+  private runCmd<T extends Msg>(cmd: Cmd<T> | undefined): void {
     if (!cmd) {
       return;
     }
-    const result = await Promise.resolve(cmd());
-    if (result === null || result === undefined) {
-      return;
-    }
-    if (Array.isArray(result)) {
-      for (const msg of result) {
-        this.send(msg);
+
+    const handleResult = (result: T | T[] | null | undefined) => {
+      if (result === null || result === undefined) {
+        return;
       }
-    } else {
-      this.send(result);
+      if (Array.isArray(result)) {
+        for (const msg of result) {
+          this.send(msg);
+        }
+      } else {
+        this.send(result);
+      }
+    };
+
+    try {
+      const effect = cmd();
+      if (effect instanceof Promise) {
+        effect.then(handleResult).catch((err) => {
+          // Preserve behavior but don't block other messages
+          // eslint-disable-next-line no-console
+          console.error(err);
+        });
+      } else {
+        handleResult(effect);
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
     }
   }
 

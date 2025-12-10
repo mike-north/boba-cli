@@ -4,10 +4,12 @@
 
 ## Align type
 
-Horizontal alignment options for rendered content.
+Alias for horizontal alignment (backwards compatibility).
 
 **Signature:**
 
 ```typescript
-export type Align = "left" | "center" | "right";
+export type Align = HAlign;
 ```
+**References:** [HAlign](./chapstick.halign.md)
+

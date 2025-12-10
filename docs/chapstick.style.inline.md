@@ -4,6 +4,8 @@
 
 ## Style.inline() method
 
+Enable inline mode. When true: - Newlines are stripped from the input - Padding and margins are not applied
+
 **Signature:**
 
 ```typescript

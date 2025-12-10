@@ -4,6 +4,8 @@
 
 ## Style.copy() method
 
+Create a deep copy of this style.
+
 **Signature:**
 
 ```typescript
