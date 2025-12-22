@@ -1,12 +1,12 @@
-import type { DirectoryItem } from './types.js'
+import type { DirectoryItem } from "./types.js";
 
 /**
  * Message containing directory listing results.
  * @public
  */
 export class GetDirectoryListingMsg {
-  readonly _tag = 'filetree-get-directory-listing'
-
+  readonly _tag = "filetree-get-directory-listing";
+  
   constructor(public readonly items: DirectoryItem[]) {}
 }
 
@@ -15,7 +15,7 @@ export class GetDirectoryListingMsg {
  * @public
  */
 export class ErrorMsg {
-  readonly _tag = 'filetree-error'
-
+  readonly _tag = "filetree-error";
+  
   constructor(public readonly error: Error) {}
 }

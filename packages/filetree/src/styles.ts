@@ -1,4 +1,4 @@
-import { Style } from '@suds-cli/chapstick'
+import { Style } from "@suds-cli/chapstick";
 
 /**
  * Style configuration for the filetree component.
@@ -6,9 +6,9 @@ import { Style } from '@suds-cli/chapstick'
  */
 export interface FiletreeStyles {
   /** Style for selected/highlighted item */
-  selectedItem: Style
+  selectedItem: Style;
   /** Style for normal items */
-  normalItem: Style
+  normalItem: Style;
 }
 
 /**
@@ -17,20 +17,18 @@ export interface FiletreeStyles {
  */
 export function defaultStyles(): FiletreeStyles {
   return {
-    selectedItem: new Style().foreground('#00ff00').bold(true),
+    selectedItem: new Style().foreground("#00ff00").bold(true),
     normalItem: new Style(),
-  }
+  };
 }
 
 /**
  * Merge user provided style overrides with defaults.
  * @public
  */
-export function mergeStyles(
-  overrides?: Partial<FiletreeStyles>,
-): FiletreeStyles {
+export function mergeStyles(overrides?: Partial<FiletreeStyles>): FiletreeStyles {
   if (!overrides) {
-    return defaultStyles()
+    return defaultStyles();
   }
-  return { ...defaultStyles(), ...overrides }
+  return { ...defaultStyles(), ...overrides };
 }

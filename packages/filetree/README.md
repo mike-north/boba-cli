@@ -19,16 +19,16 @@ pnpm add @suds-cli/filetree
 ## Usage
 
 ```typescript
-import { FiletreeModel } from '@suds-cli/filetree'
-import { Program } from '@suds-cli/tea'
+import { FiletreeModel } from '@suds-cli/filetree';
+import { Program } from '@suds-cli/tea';
 
 const filetree = FiletreeModel.new({
   currentDir: process.cwd(),
   showHidden: false,
-})
+});
 
-const program = new Program(filetree)
-await program.run()
+const program = new Program(filetree);
+await program.run();
 ```
 
 ## API
