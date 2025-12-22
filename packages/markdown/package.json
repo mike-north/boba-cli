@@ -23,7 +23,6 @@
     "@suds-cli/tea": "workspace:*",
     "@suds-cli/viewport": "workspace:*",
     "chalk": "^5.4.1",
-    "cli-highlight": "^2.1.11",
     "marked": "^15.0.0",
     "marked-terminal": "^7.3.0"
   },

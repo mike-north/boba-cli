@@ -325,9 +325,6 @@ importers:
       chalk:
         specifier: ^5.4.1
         version: 5.6.2
-      cli-highlight:
-        specifier: ^2.1.11
-        version: 2.1.11
       marked:
         specifier: ^15.0.0
         version: 15.0.12
