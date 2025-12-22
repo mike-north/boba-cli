@@ -22,22 +22,17 @@ export interface Entry {
 
 // @public
 export class HelpBubble {
-    // (undocumented)
     readonly active: boolean;
-    // (undocumented)
     readonly entries: Entry[];
     gotoTop(): HelpBubble;
     static new(active: boolean, title: string, titleColor: TitleColor, entries: Entry[]): HelpBubble;
     setIsActive(active: boolean): HelpBubble;
     setSize(width: number, height: number): HelpBubble;
     setTitleColor(color: TitleColor): HelpBubble;
-    // (undocumented)
     readonly title: string;
-    // (undocumented)
     readonly titleColor: TitleColor;
     update(msg: Msg): [HelpBubble, Cmd<Msg>];
     view(): string;
-    // (undocumented)
     readonly viewport: ViewportModel;
 }
 

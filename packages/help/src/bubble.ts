@@ -56,10 +56,25 @@ function generateHelpScreen(
  * @public
  */
 export class HelpBubble {
+  /**
+   * The viewport model that handles scrolling and content display.
+   */
   readonly viewport: ViewportModel;
+  /**
+   * The array of help entries displayed in the bubble.
+   */
   readonly entries: Entry[];
+  /**
+   * The title text shown at the top of the help screen.
+   */
   readonly title: string;
+  /**
+   * The color configuration for the title bar.
+   */
   readonly titleColor: TitleColor;
+  /**
+   * Whether the help bubble is active and receiving input.
+   */
   readonly active: boolean;
 
   private constructor(
