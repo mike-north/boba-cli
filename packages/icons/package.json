@@ -4,7 +4,7 @@
   "description": "Unicode/nerd font icons based on file type, extension, and directory names",
   "type": "module",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/icons-public.d.ts",
   "files": [
     "dist"
   ],

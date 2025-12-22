@@ -2,6 +2,8 @@
 
 Syntax-highlighted code viewer component for Suds terminal UIs.
 
+![Code Demo](../../examples/code-demo.gif)
+
 ## Features
 
 - Syntax highlighting with configurable themes

@@ -86,6 +86,9 @@ importers:
       '@suds-cli/help':
         specifier: workspace:*
         version: link:../packages/help
+      '@suds-cli/icons':
+        specifier: workspace:*
+        version: link:../packages/icons
       '@suds-cli/key':
         specifier: workspace:*
         version: link:../packages/key

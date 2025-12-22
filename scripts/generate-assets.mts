@@ -5,6 +5,10 @@
  * This script discovers `.tape` files in the examples directory and runs VHS
  * on them to produce GIFs. The tape files are the source of truth.
  *
+ * Requirements:
+ *   - VHS: https://github.com/charmbracelet/vhs
+ *   - gifsicle: https://github.com/kohler/gifsicle
+ *
  * Usage:
  *   npx tsx scripts/generate-assets.mts           # Interactive selection
  *   npx tsx scripts/generate-assets.mts --all     # Generate all demos
@@ -809,12 +813,15 @@ async function main(): Promise<void> {
     process.exit(1)
   }
 
-  // Check for gifsicle (optional, for compression)
+  // Check for gifsicle (required for compression)
   if (!commandExists('gifsicle')) {
-    printStatic('\n⚠ Warning: gifsicle is not installed\n', 'yellow')
-    printStatic('GIFs will be generated but not compressed.', 'yellow')
-    printStatic('Install gifsicle for automatic compression:\n')
+    printStatic('\n✗ Error: gifsicle is not installed or not in PATH\n', 'red')
+    printStatic('gifsicle is required to compress generated GIFs.', 'yellow')
+    printStatic('Install gifsicle using one of the following methods:\n')
+    printStatic('  # macOS or Linux (Homebrew)')
     printStatic('  brew install gifsicle\n')
+    printStatic('  # See: https://github.com/kohler/gifsicle\n')
+    process.exit(1)
   }
 
   const requestedDemos = args.filter((a) => !a.startsWith('--'))
