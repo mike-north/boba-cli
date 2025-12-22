@@ -4,10 +4,15 @@
 
 ```ts
 
+import type { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
 import type { ColorInput } from '@suds-cli/chapstick';
 import { Msg } from '@suds-cli/tea';
+import { Style } from '@suds-cli/chapstick';
 import { ViewportModel } from '@suds-cli/viewport';
+
+// @public
+export function defaultStyles(): HelpStyles;
 
 // @public
 export interface Entry {
@@ -16,24 +21,87 @@ export interface Entry {
 }
 
 // @public
-export class HelpModel {
+export class HelpBubble {
     // (undocumented)
     readonly active: boolean;
     // (undocumented)
     readonly entries: Entry[];
-    gotoTop(): HelpModel;
-    static new(active: boolean, title: string, titleColor: TitleColor, entries: Entry[]): HelpModel;
-    setIsActive(active: boolean): HelpModel;
-    setSize(width: number, height: number): HelpModel;
-    setTitleColor(color: TitleColor): HelpModel;
+    gotoTop(): HelpBubble;
+    static new(active: boolean, title: string, titleColor: TitleColor, entries: Entry[]): HelpBubble;
+    setIsActive(active: boolean): HelpBubble;
+    setSize(width: number, height: number): HelpBubble;
+    setTitleColor(color: TitleColor): HelpBubble;
     // (undocumented)
     readonly title: string;
     // (undocumented)
     readonly titleColor: TitleColor;
-    update(msg: Msg): [HelpModel, Cmd<Msg>];
+    update(msg: Msg): [HelpBubble, Cmd<Msg>];
     view(): string;
     // (undocumented)
     readonly viewport: ViewportModel;
+}
+
+// @public
+export class HelpModel {
+    // (undocumented)
+    readonly ellipsis: string;
+    fullHelpView(groups: Binding[][]): string;
+    // (undocumented)
+    readonly fullSeparator: string;
+    static new(options?: HelpOptions): HelpModel;
+    shortHelpView(bindings: Binding[]): string;
+    // (undocumented)
+    readonly shortSeparator: string;
+    // (undocumented)
+    readonly showAll: boolean;
+    // (undocumented)
+    readonly styles: HelpStyles;
+    update(_msg: Msg): [HelpModel, Cmd<Msg>];
+    view(keyMap: KeyMap): string;
+    // (undocumented)
+    readonly width: number;
+    withShowAll(showAll: boolean): HelpModel;
+    withWidth(width: number): HelpModel;
+}
+
+// @public
+export interface HelpOptions {
+    // (undocumented)
+    ellipsis?: string;
+    // (undocumented)
+    fullSeparator?: string;
+    // (undocumented)
+    shortSeparator?: string;
+    // (undocumented)
+    showAll?: boolean;
+    // (undocumented)
+    styles?: Partial<HelpStyles>;
+    // (undocumented)
+    width?: number;
+}
+
+// @public
+export interface HelpStyles {
+    // (undocumented)
+    ellipsis: Style;
+    // (undocumented)
+    fullDesc: Style;
+    // (undocumented)
+    fullKey: Style;
+    // (undocumented)
+    fullSeparator: Style;
+    // (undocumented)
+    shortDesc: Style;
+    // (undocumented)
+    shortKey: Style;
+    // (undocumented)
+    shortSeparator: Style;
+}
+
+// @public
+export interface KeyMap {
+    fullHelp(): Binding[][];
+    shortHelp(): Binding[];
 }
 
 // @public
