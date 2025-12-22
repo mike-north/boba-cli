@@ -74,7 +74,9 @@ class HelpBubbleDemo implements Model<Msg, HelpBubbleDemo> {
 
   update(msg: Msg): [HelpBubbleDemo, Cmd<Msg>] {
     if (msg instanceof WindowSizeMsg) {
-      const nextHelp = this.help.setSize(msg.width, msg.height)
+      // Constrain height to show scrolling feature (show ~10 entries at a time)
+      const constrainedHeight = Math.min(msg.height, 12)
+      const nextHelp = this.help.setSize(msg.width, constrainedHeight)
       return [new HelpBubbleDemo(nextHelp), null]
     }
 

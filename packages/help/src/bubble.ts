@@ -20,17 +20,17 @@ function generateHelpScreen(
 
   // Build each entry row with two-column layout
   for (const content of entries) {
+    const paddedKey = content.key.padEnd(KEY_WIDTH);
     const keyText = new Style()
       .bold(true)
       .foreground({ dark: "#ffffff", light: "#000000" })
-      .width(KEY_WIDTH)
-      .render(content.key);
+      .render(paddedKey);
 
     const descriptionText = new Style()
       .foreground({ dark: "#ffffff", light: "#000000" })
       .render(content.description);
 
-    const row = joinHorizontal(keyText, descriptionText);
+    const row = joinHorizontal(2, keyText, descriptionText);
     helpScreen += `${row}\n`;
   }
 

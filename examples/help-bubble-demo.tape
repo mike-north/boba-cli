@@ -10,7 +10,7 @@ Set Theme "Catppuccin Mocha"
 Set Padding 40
 Set Framerate 30
 
-Type "npx tsx help-bubble-demo.ts"
+Type "pnpm tsx help-bubble-demo.ts"
 Sleep 500ms
 Enter
 Sleep 1500ms

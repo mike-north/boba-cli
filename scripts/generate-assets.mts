@@ -13,7 +13,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process'
-import { readFileSync, readdirSync } from 'node:fs'
+import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -114,6 +114,41 @@ function commandExists(cmd: string): boolean {
 interface VhsResult {
   success: boolean
   error?: string
+  compressedBytes?: { before: number; after: number }
+}
+
+function compressGifAsync(gifPath: string): Promise<{ before: number; after: number } | null> {
+  return new Promise((resolve) => {
+    let beforeSize: number
+    try {
+      beforeSize = statSync(gifPath).size
+    } catch {
+      resolve(null)
+      return
+    }
+
+    // Run gifsicle with lossy compression in-place
+    const proc = spawn('gifsicle', ['-O3', '--lossy=80', '-b', gifPath], {
+      stdio: 'pipe',
+    })
+
+    proc.on('close', (code) => {
+      if (code === 0) {
+        try {
+          const afterSize = statSync(gifPath).size
+          resolve({ before: beforeSize, after: afterSize })
+        } catch {
+          resolve(null)
+        }
+      } else {
+        resolve(null)
+      }
+    })
+
+    proc.on('error', () => {
+      resolve(null)
+    })
+  })
 }
 
 function runVhsAsync(tapePath: string): Promise<VhsResult> {
@@ -130,7 +165,12 @@ function runVhsAsync(tapePath: string): Promise<VhsResult> {
 
     proc.on('close', (code) => {
       if (code === 0) {
-        resolve({ success: true })
+        // Compress the generated GIF
+        const gifName = basename(tapePath).replace('.tape', '.gif')
+        const gifPath = join(EXAMPLES_DIR, gifName)
+        void compressGifAsync(gifPath).then((compressedBytes) => {
+          resolve({ success: true, compressedBytes: compressedBytes ?? undefined })
+        })
       } else {
         const errorMatch =
           stderr.match(/error[:\s]+(.+)/i) ||
@@ -170,6 +210,19 @@ function formatDuration(ms: number): string {
   const minutes = Math.floor(seconds / 60)
   const secs = String(seconds % 60).padStart(2, '0')
   return `${minutes}m${secs}s`
+}
+
+/** Format bytes as human-readable size (KB) */
+function formatBytes(bytes: number): string {
+  const kb = bytes / 1024
+  return `${kb.toFixed(0)}KB`
+}
+
+/** Format compression savings */
+function formatCompression(before: number, after: number): string {
+  const saved = before - after
+  const percent = ((saved / before) * 100).toFixed(0)
+  return `${formatBytes(after)} (-${percent}%)`
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -218,6 +271,7 @@ class VhsCompleteMsg {
     readonly success: boolean,
     readonly durationMs: number,
     readonly error?: string,
+    readonly compressedBytes?: { before: number; after: number },
   ) {}
 }
 
@@ -230,6 +284,7 @@ interface CompletedItem {
   success: boolean
   durationMs: number
   error?: string
+  compressedBytes?: { before: number; after: number }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -469,6 +524,7 @@ class AppModel implements Model<Msg, AppModel> {
             result.success,
             duration,
             result.error,
+            result.compressedBytes,
           )
         },
       ]
@@ -482,6 +538,7 @@ class AppModel implements Model<Msg, AppModel> {
           success: msg.success,
           durationMs: msg.durationMs,
           error: msg.error,
+          compressedBytes: msg.compressedBytes,
         },
       ]
 
@@ -544,19 +601,19 @@ class AppModel implements Model<Msg, AppModel> {
     // Update spinner - keep it animating during generation
     const [nextSpinner, spinnerCmd] = this.spinner.update(msg)
     if (nextSpinner !== this.spinner) {
-      return [this.copy({ spinner: nextSpinner }), spinnerCmd as Cmd<Msg>]
+      return [this.copy({ spinner: nextSpinner }), spinnerCmd]
     }
 
     // Update stopwatch - keep it ticking
     const [nextStopwatch, stopwatchCmd] = this.stopwatch.update(msg)
     if (nextStopwatch !== this.stopwatch) {
-      return [this.copy({ stopwatch: nextStopwatch }), stopwatchCmd as Cmd<Msg>]
+      return [this.copy({ stopwatch: nextStopwatch }), stopwatchCmd]
     }
 
     // Update progress
     const [nextProgress, progressCmd] = this.progress.update(msg)
     if (nextProgress !== this.progress) {
-      return [this.copy({ progress: nextProgress }), progressCmd as Cmd<Msg>]
+      return [this.copy({ progress: nextProgress }), progressCmd]
     }
 
     return [this, null]
@@ -610,7 +667,7 @@ class AppModel implements Model<Msg, AppModel> {
   private viewGenerating(): string {
     const lines: string[] = []
 
-    // Print completed items with timing
+    // Print completed items with timing and compression info
     for (const item of this.completed) {
       const icon = item.success
         ? styles.checkMark.render('✓')
@@ -618,7 +675,12 @@ class AppModel implements Model<Msg, AppModel> {
       const duration = styles.time.render(
         `(${formatDuration(item.durationMs)})`,
       )
-      lines.push(`${icon} ${item.name}-demo.gif ${duration}`)
+      const compression = item.compressedBytes
+        ? styles.muted.render(
+            ` ${formatCompression(item.compressedBytes.before, item.compressedBytes.after)}`,
+          )
+        : ''
+      lines.push(`${icon} ${item.name}-demo.gif ${duration}${compression}`)
     }
 
     // Current progress line: spinner + name + elapsed + progress + count
@@ -641,7 +703,7 @@ class AppModel implements Model<Msg, AppModel> {
   private viewDone(): string {
     const lines: string[] = []
 
-    // Print all completed items with timing
+    // Print all completed items with timing and compression info
     for (const item of this.completed) {
       const icon = item.success
         ? styles.checkMark.render('✓')
@@ -649,7 +711,12 @@ class AppModel implements Model<Msg, AppModel> {
       const duration = styles.time.render(
         `(${formatDuration(item.durationMs)})`,
       )
-      lines.push(`${icon} ${item.name}-demo.gif ${duration}`)
+      const compression = item.compressedBytes
+        ? styles.muted.render(
+            ` ${formatCompression(item.compressedBytes.before, item.compressedBytes.after)}`,
+          )
+        : ''
+      lines.push(`${icon} ${item.name}-demo.gif ${duration}${compression}`)
     }
 
     lines.push('')
@@ -658,16 +725,27 @@ class AppModel implements Model<Msg, AppModel> {
     const failCount = this.completed.length - successCount
     const totalTime = this.completed.reduce((sum, c) => sum + c.durationMs, 0)
 
+    // Calculate total compression savings
+    const totalSaved = this.completed.reduce((sum, c) => {
+      if (c.compressedBytes) {
+        return sum + (c.compressedBytes.before - c.compressedBytes.after)
+      }
+      return sum
+    }, 0)
+
+    const savedInfo =
+      totalSaved > 0 ? ` Saved ${formatBytes(totalSaved)} via compression.` : ''
+
     if (failCount === 0) {
       lines.push(
         styles.success.render(
-          `Done! Generated ${successCount} GIF(s) in ${formatDuration(totalTime)}.`,
+          `Done! Generated ${successCount} GIF(s) in ${formatDuration(totalTime)}.${savedInfo}`,
         ),
       )
     } else {
       lines.push(
         styles.warning.render(
-          `Done! Generated ${successCount} GIF(s), ${failCount} failed. Total: ${formatDuration(totalTime)}.`,
+          `Done! Generated ${successCount} GIF(s), ${failCount} failed. Total: ${formatDuration(totalTime)}.${savedInfo}`,
         ),
       )
     }
@@ -729,6 +807,14 @@ async function main(): Promise<void> {
     printStatic('  go install github.com/charmbracelet/vhs@latest\n')
     printStatic('  # See: https://github.com/charmbracelet/vhs\n')
     process.exit(1)
+  }
+
+  // Check for gifsicle (optional, for compression)
+  if (!commandExists('gifsicle')) {
+    printStatic('\n⚠ Warning: gifsicle is not installed\n', 'yellow')
+    printStatic('GIFs will be generated but not compressed.', 'yellow')
+    printStatic('Install gifsicle for automatic compression:\n')
+    printStatic('  brew install gifsicle\n')
   }
 
   const requestedDemos = args.filter((a) => !a.startsWith('--'))
