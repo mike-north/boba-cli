@@ -242,9 +242,11 @@ export class CodeModel {
   update(msg: Msg): [CodeModel, Cmd<Msg>] {
     if (msg instanceof SyntaxMsg) {
       const content = msg.content;
+      // Apply width for consistent line lengths and left-align to pad lines
+      // Viewport handles height/scrolling - don't use .height() here as it truncates
       const style = new Style()
         .width(this.viewport.width)
-        .height(this.viewport.height);
+        .alignHorizontal('left');
       const rendered = style.render(content);
       const nextViewport = this.viewport.setContent(rendered);
       return [
@@ -260,7 +262,7 @@ export class CodeModel {
       const errorContent = `Error: ${msg.error.message}`;
       const style = new Style()
         .width(this.viewport.width)
-        .height(this.viewport.height);
+        .alignHorizontal('left');
       const rendered = style.render(errorContent);
       const nextViewport = this.viewport.setContent(rendered);
       return [

@@ -2,6 +2,8 @@
 
 Unicode/nerd font icons based on file type, extension, and directory names.
 
+![Icons Demo](../../examples/icons-demo.gif)
+
 Ported from [teacup icons](https://github.com/mistakenelf/teacup/tree/main/icons).
 
 ## Features

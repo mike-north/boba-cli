@@ -10,7 +10,7 @@ Set Theme "Catppuccin Mocha"
 Set Padding 40
 Set Framerate 30
 
-Type "npx tsx code-demo.ts"
+Type "pnpm tsx code-demo.ts"
 Sleep 500ms
 Enter
 Sleep 2000ms

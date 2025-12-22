@@ -132,9 +132,11 @@ export class MarkdownModel {
   update(msg: Msg): [MarkdownModel, Cmd<Msg>] {
     // Handle markdown rendering
     if (msg instanceof RenderMarkdownMsg) {
+      // Apply width for word wrapping and left-align to pad lines to consistent width
+      // Viewport handles height/scrolling
       const styled = new Style()
         .width(this.viewport.width)
-        .height(this.viewport.height)
+        .alignHorizontal('left')
         .render(msg.content);
 
       const updatedViewport = this.viewport.setContent(styled);

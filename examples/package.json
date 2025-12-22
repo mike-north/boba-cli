@@ -20,11 +20,13 @@
     "list": "tsx list-demo.ts",
     "filepicker": "tsx filepicker-demo.ts",
     "code": "tsx code-demo.ts",
-    "markdown": "tsx markdown-demo.ts"
+    "markdown": "tsx markdown-demo.ts",
+    "icons": "tsx icons-demo.ts"
   },
   "dependencies": {
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/code": "workspace:*",
+    "@suds-cli/icons": "workspace:*",
     "@suds-cli/key": "workspace:*",
     "@suds-cli/help": "workspace:*",
     "@suds-cli/list": "workspace:*",

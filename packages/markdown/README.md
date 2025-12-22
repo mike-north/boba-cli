@@ -2,6 +2,8 @@
 
 Markdown viewer component for Suds terminal UIs.
 
+<img src="../../examples/markdown-demo.gif" width="950" alt="Markdown component demo" />
+
 ## Features
 
 - Renders markdown with beautiful terminal styling
