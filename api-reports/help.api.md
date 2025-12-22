@@ -4,75 +4,42 @@
 
 ```ts
 
-import type { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
+import type { ColorInput } from '@suds-cli/chapstick';
 import { Msg } from '@suds-cli/tea';
-import { Style } from '@suds-cli/chapstick';
+import { ViewportModel } from '@suds-cli/viewport';
 
 // @public
-export function defaultStyles(): HelpStyles;
+export interface Entry {
+    description: string;
+    key: string;
+}
 
 // @public
 export class HelpModel {
     // (undocumented)
-    readonly ellipsis: string;
-    fullHelpView(groups: Binding[][]): string;
+    readonly active: boolean;
     // (undocumented)
-    readonly fullSeparator: string;
-    static new(options?: HelpOptions): HelpModel;
-    shortHelpView(bindings: Binding[]): string;
+    readonly entries: Entry[];
+    gotoTop(): HelpModel;
+    static new(active: boolean, title: string, titleColor: TitleColor, entries: Entry[]): HelpModel;
+    setIsActive(active: boolean): HelpModel;
+    setSize(width: number, height: number): HelpModel;
+    setTitleColor(color: TitleColor): HelpModel;
     // (undocumented)
-    readonly shortSeparator: string;
+    readonly title: string;
     // (undocumented)
-    readonly showAll: boolean;
+    readonly titleColor: TitleColor;
+    update(msg: Msg): [HelpModel, Cmd<Msg>];
+    view(): string;
     // (undocumented)
-    readonly styles: HelpStyles;
-    update(_msg: Msg): [HelpModel, Cmd<Msg>];
-    view(keyMap: KeyMap): string;
-    // (undocumented)
-    readonly width: number;
-    withShowAll(showAll: boolean): HelpModel;
-    withWidth(width: number): HelpModel;
+    readonly viewport: ViewportModel;
 }
 
 // @public
-export interface HelpOptions {
-    // (undocumented)
-    ellipsis?: string;
-    // (undocumented)
-    fullSeparator?: string;
-    // (undocumented)
-    shortSeparator?: string;
-    // (undocumented)
-    showAll?: boolean;
-    // (undocumented)
-    styles?: Partial<HelpStyles>;
-    // (undocumented)
-    width?: number;
-}
-
-// @public
-export interface HelpStyles {
-    // (undocumented)
-    ellipsis: Style;
-    // (undocumented)
-    fullDesc: Style;
-    // (undocumented)
-    fullKey: Style;
-    // (undocumented)
-    fullSeparator: Style;
-    // (undocumented)
-    shortDesc: Style;
-    // (undocumented)
-    shortKey: Style;
-    // (undocumented)
-    shortSeparator: Style;
-}
-
-// @public
-export interface KeyMap {
-    fullHelp(): Binding[][];
-    shortHelp(): Binding[];
+export interface TitleColor {
+    background: ColorInput;
+    foreground: ColorInput;
 }
 
 // (No @packageDocumentation comment for this package)
