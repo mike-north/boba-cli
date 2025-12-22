@@ -7,17 +7,14 @@ Pagination state management and rendering for Suds terminal UIs. Ported from the
 ## Usage
 
 ```ts
-import { PaginatorModel, PaginatorType } from "@suds-cli/paginator";
+import { PaginatorModel, PaginatorType } from '@suds-cli/paginator'
 
 const paginator = PaginatorModel.new({
   type: PaginatorType.Dots,
   perPage: 10,
-});
+})
 
-const next = paginator.setTotalPages(items.length);
-const [start, end] = next.getSliceBounds(items.length);
-const visibleItems = items.slice(start, end);
+const next = paginator.setTotalPages(items.length)
+const [start, end] = next.getSliceBounds(items.length)
+const visibleItems = items.slice(start, end)
 ```
-
-
-

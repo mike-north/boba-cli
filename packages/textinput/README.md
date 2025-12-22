@@ -13,32 +13,29 @@ pnpm add @suds-cli/textinput
 ## Quickstart
 
 ```ts
-import { TextInputModel, EchoMode } from "@suds-cli/textinput";
-import type { Cmd, Msg } from "@suds-cli/tea";
+import { TextInputModel, EchoMode } from '@suds-cli/textinput'
+import type { Cmd, Msg } from '@suds-cli/tea'
 
 let input = TextInputModel.new({
-  placeholder: "Type your name…",
+  placeholder: 'Type your name…',
   width: 40,
   echoMode: EchoMode.Normal,
-});
+})
 
 function init(): Cmd<Msg> {
-  const [focused, cmd] = input.focus();
-  input = focused;
-  return cmd;
+  const [focused, cmd] = input.focus()
+  input = focused
+  return cmd
 }
 
 function update(msg: Msg): [typeof model, Cmd<Msg>] {
-  const [nextInput, cmd] = input.update(msg);
-  input = nextInput;
-  return [model, cmd];
+  const [nextInput, cmd] = input.update(msg)
+  input = nextInput
+  return [model, cmd]
 }
 
 function view(): string {
-  return [
-    "Name:",
-    input.view(),
-  ].join("\n");
+  return ['Name:', input.view()].join('\n')
 }
 ```
 
@@ -82,6 +79,3 @@ function view(): string {
 ## License
 
 MIT
-
-
-

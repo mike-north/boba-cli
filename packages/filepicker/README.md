@@ -7,12 +7,10 @@ File system browser component for Suds terminal UIs. Ported from the Charm `bubb
 ## Usage
 
 ```ts
-import { FilepickerModel } from "@suds-cli/filepicker";
+import { FilepickerModel } from '@suds-cli/filepicker'
 
 const [picker, cmd] = FilepickerModel.new({
   currentDir: process.cwd(),
   showHidden: false,
-});
+})
 ```
-
-
