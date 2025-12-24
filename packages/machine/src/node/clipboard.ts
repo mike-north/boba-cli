@@ -36,8 +36,8 @@ export class NodeClipboardAdapter implements ClipboardAdapter {
 
     try {
       // Dynamic import of optional peer dependency
-      const module = await import('clipboardy')
-      this.clipboard = module.default as ClipboardModule
+      const module = (await import('clipboardy')) as { default: ClipboardModule }
+      this.clipboard = module.default
       this.available = true
       return this.clipboard
     } catch {
@@ -70,7 +70,6 @@ export class NodeClipboardAdapter implements ClipboardAdapter {
 
     // Try synchronous check first
     try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
       require.resolve('clipboardy')
       return true
     } catch {

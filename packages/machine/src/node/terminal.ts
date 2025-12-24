@@ -21,12 +21,9 @@ export class NodeTerminalAdapter implements TerminalAdapter {
   constructor(
     private readonly input: NodeJS.ReadableStream = process.stdin,
     private readonly output: NodeJS.WritableStream = process.stdout,
-  ) {
-    this.handleData = this.handleData.bind(this)
-    this.handleResize = this.handleResize.bind(this)
-  }
+  ) {}
 
-  private handleData(data: Buffer | string): void {
+  private readonly handleData = (data: Buffer | string): void => {
     const bytes =
       typeof data === 'string' ? encodeString(data) : new Uint8Array(data)
     for (const handler of this.inputHandlers) {
@@ -34,7 +31,7 @@ export class NodeTerminalAdapter implements TerminalAdapter {
     }
   }
 
-  private handleResize(): void {
+  private readonly handleResize = (): void => {
     const size = this.getSize()
     for (const handler of this.resizeHandlers) {
       handler(size)

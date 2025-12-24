@@ -19,7 +19,7 @@
     "generate:api-report": "api-extractor run --local",
     "check:api-report": "pnpm run generate:api-report",
     "check:eslint": "pnpm run lint",
-    "lint": "eslint \"src/**/*.{ts,tsx}\""
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\""
   },
   "sideEffects": false,
   "devDependencies": {

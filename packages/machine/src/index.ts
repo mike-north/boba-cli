@@ -1,5 +1,5 @@
 /**
- * @suds-cli/machine - Platform abstraction layer for Suds terminal UIs.
+ * \@suds-cli/machine - Platform abstraction layer for Suds terminal UIs.
  *
  * This package provides platform-agnostic interfaces and utilities for building
  * terminal applications that can run in both Node.js and browser environments.

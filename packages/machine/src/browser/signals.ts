@@ -3,8 +3,8 @@ import type { Disposable, SignalAdapter, SignalHandler } from '../types.js'
 /**
  * Browser signal adapter using window events.
  * Maps browser events to the signal interface:
- * - beforeunload -> interrupt
- * - pagehide -> terminate
+ * - beforeunload -\> interrupt
+ * - pagehide -\> terminate
  * @public
  */
 export class BrowserSignalAdapter implements SignalAdapter {

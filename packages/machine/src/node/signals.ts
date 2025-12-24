@@ -10,18 +10,13 @@ export class NodeSignalAdapter implements SignalAdapter {
   private readonly terminateHandlers: Set<SignalHandler> = new Set()
   private disposed = false
 
-  constructor() {
-    this.handleInterrupt = this.handleInterrupt.bind(this)
-    this.handleTerminate = this.handleTerminate.bind(this)
-  }
-
-  private handleInterrupt(): void {
+  private readonly handleInterrupt = (): void => {
     for (const handler of this.interruptHandlers) {
       handler()
     }
   }
 
-  private handleTerminate(): void {
+  private readonly handleTerminate = (): void => {
     for (const handler of this.terminateHandlers) {
       handler()
     }

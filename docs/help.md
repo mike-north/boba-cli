@@ -19,6 +19,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[HelpBubble](./help.helpbubble.md)
+
+
+</td><td>
+
+Model representing a scrollable help bubble. Displays a styled title and a list of key binding entries in a scrollable viewport.
+
+
+</td></tr>
+<tr><td>
+
 [HelpModel](./help.helpmodel.md)
 
 
@@ -71,6 +82,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[Entry](./help.entry.md)
+
+
+</td><td>
+
+A single entry in the help bubble screen.
+
+
+</td></tr>
+<tr><td>
+
 [HelpOptions](./help.helpoptions.md)
 
 
@@ -99,6 +121,17 @@ Style configuration for help rendering.
 </td><td>
 
 Interface for components that provide help bindings.
+
+
+</td></tr>
+<tr><td>
+
+[TitleColor](./help.titlecolor.md)
+
+
+</td><td>
+
+Color configuration for the help bubble title (adaptive for light/dark terminals).
 
 
 </td></tr>

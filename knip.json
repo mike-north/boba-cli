@@ -3,7 +3,9 @@
   "ignoreDependencies": [
     "@vitest/coverage-v8",
     "@commitlint/cli",
-    "@commitlint/types"
+    "@commitlint/types",
+    "clipboardy",
+    "supports-color"
   ],
   "workspaces": {
     ".": {

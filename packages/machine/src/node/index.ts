@@ -1,5 +1,5 @@
 /**
- * Node.js platform adapters for @suds-cli/machine.
+ * Node.js platform adapters for \@suds-cli/machine.
  * @packageDocumentation
  */
 

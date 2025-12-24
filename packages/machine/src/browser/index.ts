@@ -1,5 +1,5 @@
 /**
- * Browser platform adapters for @suds-cli/machine.
+ * Browser platform adapters for \@suds-cli/machine.
  * @packageDocumentation
  */
 
