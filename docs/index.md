@@ -102,6 +102,30 @@ Syntax-highlighted code viewer component.
 </td></tr>
 <tr><td>
 
+[@suds-cli/machine](./machine.md)
+
+
+</td><td>
+
+@<!-- -->suds-cli/machine - Platform abstraction layer for Suds terminal UIs.
+
+This package provides platform-agnostic interfaces and utilities for building terminal applications that can run in both Node.js and browser environments.
+
+
+</td></tr>
+<tr><td>
+
+[@suds-cli/markdown](./markdown.md)
+
+
+</td><td>
+
+Markdown viewer component for Suds terminal UIs.
+
+
+</td></tr>
+<tr><td>
+
 [@suds-cli/paginator](./paginator.md)
 
 
