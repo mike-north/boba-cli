@@ -314,6 +314,28 @@ importers:
         specifier: ^4.0.15
         version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
+  packages/machine:
+    dependencies:
+      '@xterm/xterm':
+        specifier: ^5.0.0
+        version: 5.5.0
+      clipboardy:
+        specifier: ^4.0.0
+        version: 4.0.0
+      supports-color:
+        specifier: ^9.0.0
+        version: 9.4.0
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.26
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
+      vitest:
+        specifier: ^4.0.15
+        version: 4.0.15(@types/node@20.19.26)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+
   packages/markdown:
     dependencies:
       '@suds-cli/chapstick':
@@ -1740,6 +1762,9 @@ packages:
 
   '@vitest/utils@4.0.15':
     resolution: {integrity: sha512-HXjPW2w5dxhTD0dLwtYHDnelK3j8sR8cWIaLxr22evTyY6q8pRCjZSmhRWVjBaOVXChQd6AwMzi9pucorXCPZA==}
+
+  '@xterm/xterm@5.5.0':
+    resolution: {integrity: sha512-hqJHYaQb5OptNunnyAnkHyM8aCjZ1MEIDTQu1iIbbTD/xops91NB5yq1ZK/dC2JDbVWtF23zUtl9JE2NqwT87A==}
 
   '@yarnpkg/lockfile@1.1.0':
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
@@ -5076,6 +5101,8 @@ snapshots:
     dependencies:
       '@vitest/pretty-format': 4.0.15
       tinyrainbow: 3.0.3
+
+  '@xterm/xterm@5.5.0': {}
 
   '@yarnpkg/lockfile@1.1.0': {}
 

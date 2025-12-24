@@ -1,0 +1,51 @@
+{
+  "name": "@suds-cli/machine",
+  "version": "0.0.0",
+  "description": "Platform abstraction layer for Suds terminal UIs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./node": "./dist/node/index.js",
+    "./browser": "./dist/browser/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pnpm run clean && tsc -p ./tsconfig.json",
+    "test": "vitest run",
+    "generate:api-report": "api-extractor run --local",
+    "check:api-report": "pnpm run generate:api-report",
+    "check:eslint": "pnpm run lint",
+    "lint": "eslint \"src/**/*.{ts,tsx}\""
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "vitest": "^4.0.15",
+    "typescript": "5.8.2"
+  },
+  "peerDependencies": {
+    "clipboardy": "^4.0.0",
+    "supports-color": "^9.0.0",
+    "@xterm/xterm": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "clipboardy": {
+      "optional": true
+    },
+    "supports-color": {
+      "optional": true
+    },
+    "@xterm/xterm": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
