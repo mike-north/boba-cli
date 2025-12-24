@@ -5,7 +5,12 @@
     "@commitlint/cli",
     "@commitlint/types",
     "clipboardy",
-    "supports-color"
+    "supports-color",
+    "syncpack"
+  ],
+  "ignoreBinaries": [
+    "test:graceful-degradation",
+    "test:browser"
   ],
   "workspaces": {
     ".": {

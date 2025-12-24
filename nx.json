@@ -25,16 +25,14 @@
   "targetDefaults": {
     "build": {
       "cache": true,
-      "dependsOn": ["^build", "^generate:api-report"],
+      "dependsOn": ["^build"],
       "inputs": ["source", "tsConfig"],
       "outputs": ["{projectRoot}/dist"]
     },
     "test": {
       "dependsOn": [
         "build",
-        "^build",
-        "generate:api-report",
-        "^generate:api-report"
+        "^build"
       ],
       "cache": true,
       "inputs": [
@@ -48,9 +46,7 @@
     "test:coverage": {
       "dependsOn": [
         "build",
-        "^build",
-        "generate:api-report",
-        "^generate:api-report"
+        "^build"
       ],
       "cache": true,
       "inputs": [

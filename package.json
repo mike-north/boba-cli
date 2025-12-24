@@ -76,7 +76,7 @@
   "packageManager": "pnpm@10.26.2",
   "private": true,
   "scripts": {
-    "build": "NX_TUI=false nx run-many -t build --exclude suds",
+    "build": "NX_TUI=false nx run-many -t build --exclude suds-workspace",
     "changeset": "changeset",
     "check": "pnpm check:packages && pnpm check:workspace",
     "check:markdown": "markdownlint-cli2 \"**/*.md\"",
@@ -86,14 +86,14 @@
     "fix": "NX_TUI=false nx run-many -t fix:lint,fix:format",
     "fix:format": "NX_TUI=false nx run-many -t code-format",
     "fix:markdown": "markdownlint-cli2 --fix \"**/*.md\"",
-    "generate:api-report": "NX_TUI=false nx run-many -t generate:api-report --exclude suds",
+    "generate:api-report": "NX_TUI=false nx run-many -t generate:api-report --exclude suds-workspace",
     "generate:docs": "NX_TUI=false nx api-documenter",
     "generate:example-assets": "tsx scripts/generate-assets.mts",
     "lint:staged": "lint-staged",
     "prepare": "husky",
     "release": "pnpm build && changeset publish",
-    "test": "NX_TUI=false nx run-many -t test --exclude suds",
-    "test:coverage": "NX_TUI=false nx run-many -t test:coverage --exclude suds",
+    "test": "NX_TUI=false nx run-many -t test --exclude suds-workspace",
+    "test:coverage": "NX_TUI=false nx run-many -t test:coverage --exclude suds-workspace",
     "version-packages": "changeset version"
   },
   "type": "module"
