@@ -34,7 +34,7 @@ importers:
         version: 24.10.2
       '@vitest/coverage-v8':
         specifier: ^4.0.15
-        version: 4.0.15(vitest@4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))
+        version: 4.0.15(vitest@4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
@@ -156,7 +156,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/code:
     dependencies:
@@ -181,7 +181,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/cursor:
     dependencies:
@@ -197,7 +197,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/filepicker:
     dependencies:
@@ -219,7 +219,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/filesystem:
     dependencies:
@@ -241,7 +241,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/help:
     dependencies:
@@ -263,7 +263,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/icons:
     devDependencies:
@@ -272,7 +272,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/key:
     devDependencies:
@@ -281,7 +281,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/list:
     dependencies:
@@ -312,7 +312,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/machine:
     dependencies:
@@ -326,15 +326,21 @@ importers:
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.26
+      '@vitest/ui':
+        specifier: ^4.0.16
+        version: 4.0.16(vitest@4.0.15)
       clipboardy:
         specifier: ^4.0.0
         version: 4.0.0
+      happy-dom:
+        specifier: ^20.0.11
+        version: 20.0.11
       typescript:
         specifier: 5.8.2
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@20.19.26)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@20.19.26)(@vitest/ui@4.0.16)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/markdown:
     dependencies:
@@ -365,7 +371,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/paginator:
     dependencies:
@@ -381,7 +387,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/progress:
     dependencies:
@@ -397,7 +403,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/runeutil:
     dependencies:
@@ -410,7 +416,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/spinner:
     dependencies:
@@ -426,7 +432,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/statusbar:
     dependencies:
@@ -442,7 +448,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/stopwatch:
     dependencies:
@@ -455,7 +461,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/table:
     dependencies:
@@ -474,7 +480,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/tea:
     devDependencies:
@@ -486,7 +492,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@20.19.26)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@20.19.26)(@vitest/ui@4.0.16)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/textarea:
     dependencies:
@@ -517,7 +523,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/textinput:
     dependencies:
@@ -548,7 +554,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/timer:
     dependencies:
@@ -561,7 +567,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   packages/viewport:
     dependencies:
@@ -580,7 +586,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
 
   scripts:
     dependencies:
@@ -1388,6 +1394,9 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
+  '@polka/url@1.0.0-next.29':
+    resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
   '@rollup/rollup-android-arm-eabi@4.53.3':
     resolution: {integrity: sha512-mRSi+4cBjrRLoaal2PnqH82Wqyb+d3HsPUN/W+WslCXsZsyHa9ZeQQX/pQsZaVIWDkPcpV6jJ+3KLbTbgnwv8w==}
     cpu: [arm]
@@ -1626,6 +1635,9 @@ packages:
   '@types/unzipper@0.10.11':
     resolution: {integrity: sha512-D25im2zjyMCcgL9ag6N46+wbtJBnXIr7SI4zHf9eJD2Dw2tEB5e+p5MYkrxKIVRscs5QV0EhtU9rgXSPx90oJg==}
 
+  '@types/whatwg-mimetype@3.0.2':
+    resolution: {integrity: sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA==}
+
   '@typescript-eslint/eslint-plugin@8.49.0':
     resolution: {integrity: sha512-JXij0vzIaTtCwu6SxTh8qBc66kmf1xs7pI4UOiMDFVct6q86G0Zs7KRcEoJgY3Cav3x5Tq0MF5jwgpgLqgKG3A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1751,6 +1763,9 @@ packages:
   '@vitest/pretty-format@4.0.15':
     resolution: {integrity: sha512-SWdqR8vEv83WtZcrfLNqlqeQXlQLh2iilO1Wk1gv4eiHKjEzvgHb2OVc3mIPyhZE6F+CtfYjNlDJwP5MN6Km7A==}
 
+  '@vitest/pretty-format@4.0.16':
+    resolution: {integrity: sha512-eNCYNsSty9xJKi/UdVD8Ou16alu7AYiS2fCPRs0b1OdhJiV89buAXQLpTbe+X8V9L6qrs9CqyvU7OaAopJYPsA==}
+
   '@vitest/runner@4.0.15':
     resolution: {integrity: sha512-+A+yMY8dGixUhHmNdPUxOh0la6uVzun86vAbuMT3hIDxMrAOmn5ILBHm8ajrqHE0t8R9T1dGnde1A5DTnmi3qw==}
 
@@ -1760,8 +1775,16 @@ packages:
   '@vitest/spy@4.0.15':
     resolution: {integrity: sha512-+EIjOJmnY6mIfdXtE/bnozKEvTC4Uczg19yeZ2vtCz5Yyb0QQ31QWVQ8hswJ3Ysx/K2EqaNsVanjr//2+P3FHw==}
 
+  '@vitest/ui@4.0.16':
+    resolution: {integrity: sha512-rkoPH+RqWopVxDnCBE/ysIdfQ2A7j1eDmW8tCxxrR9nnFBa9jKf86VgsSAzxBd1x+ny0GC4JgiD3SNfRHv3pOg==}
+    peerDependencies:
+      vitest: 4.0.16
+
   '@vitest/utils@4.0.15':
     resolution: {integrity: sha512-HXjPW2w5dxhTD0dLwtYHDnelK3j8sR8cWIaLxr22evTyY6q8pRCjZSmhRWVjBaOVXChQd6AwMzi9pucorXCPZA==}
+
+  '@vitest/utils@4.0.16':
+    resolution: {integrity: sha512-h8z9yYhV3e1LEfaQ3zdypIrnAg/9hguReGZoS7Gl0aBG5xgA410zBqECqmaF/+RkTggRsfnzc1XaAHA6bmUufA==}
 
   '@xterm/xterm@5.5.0':
     resolution: {integrity: sha512-hqJHYaQb5OptNunnyAnkHyM8aCjZ1MEIDTQu1iIbbTD/xops91NB5yq1ZK/dC2JDbVWtF23zUtl9JE2NqwT87A==}
@@ -2382,6 +2405,9 @@ packages:
       picomatch:
         optional: true
 
+  fflate@0.8.2:
+    resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
+
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
     engines: {node: '>=8'}
@@ -2533,6 +2559,10 @@ packages:
 
   grapheme-splitter@1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
+
+  happy-dom@20.0.11:
+    resolution: {integrity: sha512-QsCdAUHAmiDeKeaNojb1OHOPF7NjcWPBR7obdu3NwH2a/oyQaLg5d0aaCy/9My6CdPChYF07dvz5chaXBGaD4g==}
+    engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -3095,6 +3125,10 @@ packages:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
 
+  mrmime@2.0.1:
+    resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
+    engines: {node: '>=10'}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -3481,6 +3515,10 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+  sirv@3.0.2:
+    resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
+    engines: {node: '>=18'}
+
   skin-tone@2.0.0:
     resolution: {integrity: sha512-kUMbT1oBJCpgrnKoSr0o6wPtvRWT9W9UKvGLwfJYO2WuahZRHOpEyL1ckyMGgMWh0UdpmaoFqKKD29WTomNEGA==}
     engines: {node: '>=8'}
@@ -3665,6 +3703,10 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
+
+  totalist@3.0.1:
+    resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
+    engines: {node: '>=6'}
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
@@ -3852,6 +3894,10 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+
+  whatwg-mimetype@3.0.0:
+    resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
+    engines: {node: '>=12'}
 
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
@@ -4677,6 +4723,8 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+  '@polka/url@1.0.0-next.29': {}
+
   '@rollup/rollup-android-arm-eabi@4.53.3':
     optional: true
 
@@ -4893,6 +4941,8 @@ snapshots:
     dependencies:
       '@types/node': 24.10.2
 
+  '@types/whatwg-mimetype@3.0.2': {}
+
   '@typescript-eslint/eslint-plugin@8.49.0(@typescript-eslint/parser@8.49.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.8.2))(eslint@9.39.1(jiti@2.6.1))(typescript@5.8.2)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
@@ -5038,7 +5088,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitest/coverage-v8@4.0.15(vitest@4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))':
+  '@vitest/coverage-v8@4.0.15(vitest@4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.0.15
@@ -5051,7 +5101,7 @@ snapshots:
       obug: 2.1.1
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -5084,6 +5134,10 @@ snapshots:
     dependencies:
       tinyrainbow: 3.0.3
 
+  '@vitest/pretty-format@4.0.16':
+    dependencies:
+      tinyrainbow: 3.0.3
+
   '@vitest/runner@4.0.15':
     dependencies:
       '@vitest/utils': 4.0.15
@@ -5097,9 +5151,25 @@ snapshots:
 
   '@vitest/spy@4.0.15': {}
 
+  '@vitest/ui@4.0.16(vitest@4.0.15)':
+    dependencies:
+      '@vitest/utils': 4.0.16
+      fflate: 0.8.2
+      flatted: 3.3.3
+      pathe: 2.0.3
+      sirv: 3.0.2
+      tinyglobby: 0.2.15
+      tinyrainbow: 3.0.3
+      vitest: 4.0.15(@types/node@20.19.26)(@vitest/ui@4.0.16)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2)
+
   '@vitest/utils@4.0.15':
     dependencies:
       '@vitest/pretty-format': 4.0.15
+      tinyrainbow: 3.0.3
+
+  '@vitest/utils@4.0.16':
+    dependencies:
+      '@vitest/pretty-format': 4.0.16
       tinyrainbow: 3.0.3
 
   '@xterm/xterm@5.5.0': {}
@@ -5761,6 +5831,8 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
+  fflate@0.8.2: {}
+
   figures@3.2.0:
     dependencies:
       escape-string-regexp: 1.0.5
@@ -5928,6 +6000,12 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   grapheme-splitter@1.0.4: {}
+
+  happy-dom@20.0.11:
+    dependencies:
+      '@types/node': 20.19.26
+      '@types/whatwg-mimetype': 3.0.2
+      whatwg-mimetype: 3.0.0
 
   has-flag@4.0.0: {}
 
@@ -6574,6 +6652,8 @@ snapshots:
 
   mri@1.2.0: {}
 
+  mrmime@2.0.1: {}
+
   ms@2.1.3: {}
 
   mz@2.7.0:
@@ -7018,6 +7098,12 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
+  sirv@3.0.2:
+    dependencies:
+      '@polka/url': 1.0.0-next.29
+      mrmime: 2.0.1
+      totalist: 3.0.1
+
   skin-tone@2.0.0:
     dependencies:
       unicode-emoji-modifier-base: 1.0.0
@@ -7195,6 +7281,8 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
+  totalist@3.0.1: {}
+
   tr46@0.0.3: {}
 
   tree-kill@1.2.2: {}
@@ -7330,7 +7418,7 @@ snapshots:
       tsx: 4.21.0
       yaml: 2.8.2
 
-  vitest@4.0.15(@types/node@20.19.26)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2):
+  vitest@4.0.15(@types/node@20.19.26)(@vitest/ui@4.0.16)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.15
       '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@20.19.26)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))
@@ -7354,6 +7442,8 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.19.26
+      '@vitest/ui': 4.0.16(vitest@4.0.15)
+      happy-dom: 20.0.11
     transitivePeerDependencies:
       - jiti
       - less
@@ -7367,7 +7457,7 @@ snapshots:
       - tsx
       - yaml
 
-  vitest@4.0.15(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2):
+  vitest@4.0.15(@types/node@24.10.2)(happy-dom@20.0.11)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.15
       '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.2))
@@ -7391,6 +7481,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.10.2
+      happy-dom: 20.0.11
     transitivePeerDependencies:
       - jiti
       - less
@@ -7411,6 +7502,8 @@ snapshots:
       defaults: 1.0.4
 
   webidl-conversions@3.0.1: {}
+
+  whatwg-mimetype@3.0.0: {}
 
   whatwg-url@5.0.0:
     dependencies:

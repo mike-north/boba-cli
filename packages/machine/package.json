@@ -19,6 +19,7 @@
     "build": "pnpm run clean && tsc -p ./tsconfig.json",
     "test": "vitest run",
     "test:graceful-degradation": "vitest run -t \"\\[graceful-degradation\\]\"",
+    "test:browser": "vitest run test/browser",
     "generate:api-report": "api-extractor run --local",
     "check:api-report": "api-extractor run",
     "lint": "eslint \"{src,test}/**/*.{ts,tsx}\""
@@ -26,7 +27,9 @@
   "sideEffects": false,
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@vitest/ui": "^4.0.16",
     "clipboardy": "^4.0.0",
+    "happy-dom": "^20.0.11",
     "typescript": "5.8.2",
     "vitest": "^4.0.15"
   },
