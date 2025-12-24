@@ -121,7 +121,9 @@ interface VhsResult {
   compressedBytes?: { before: number; after: number }
 }
 
-function compressGifAsync(gifPath: string): Promise<{ before: number; after: number } | null> {
+function compressGifAsync(
+  gifPath: string,
+): Promise<{ before: number; after: number } | null> {
   return new Promise((resolve) => {
     let beforeSize: number
     try {
@@ -173,7 +175,10 @@ function runVhsAsync(tapePath: string): Promise<VhsResult> {
         const gifName = basename(tapePath).replace('.tape', '.gif')
         const gifPath = join(EXAMPLES_DIR, gifName)
         void compressGifAsync(gifPath).then((compressedBytes) => {
-          resolve({ success: true, compressedBytes: compressedBytes ?? undefined })
+          resolve({
+            success: true,
+            compressedBytes: compressedBytes ?? undefined,
+          })
         })
       } else {
         const errorMatch =

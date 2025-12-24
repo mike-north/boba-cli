@@ -231,10 +231,10 @@ interface TerminalSize {
 
 ```typescript
 interface ColorSupport {
-  readonly level: number    // 0-3
+  readonly level: number // 0-3
   readonly hasBasic: boolean // 16 colors
-  readonly has256: boolean   // 256 colors
-  readonly has16m: boolean   // True color (16 million)
+  readonly has256: boolean // 256 colors
+  readonly has16m: boolean // True color (16 million)
 }
 ```
 

@@ -76,7 +76,7 @@ describe('Mock StyleProvider for testing', () => {
     const mockRender = vi.fn((text: string) => text)
     const mockBold = vi.fn()
     const mockForeground = vi.fn()
-    
+
     const mockStyle = {
       bold: mockBold,
       foreground: mockForeground,
@@ -135,9 +135,10 @@ describe('Mock StyleProvider for testing', () => {
       type: 'success' | 'error',
       provider: StyleProvider = defaultStyleProvider,
     ): string {
-      const style = type === 'success' 
-        ? provider.semanticStyles.success 
-        : provider.semanticStyles.error
+      const style =
+        type === 'success'
+          ? provider.semanticStyles.success
+          : provider.semanticStyles.error
       return style.render(message)
     }
 

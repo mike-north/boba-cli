@@ -16,21 +16,25 @@ describe('NodeSignalAdapter', () => {
     originalOn = process.on
     originalOff = process.off
 
-    process.on = vi.fn((event: string, handler: (...args: unknown[]) => void) => {
-      if (!signalHandlers.has(event)) {
-        signalHandlers.set(event, new Set())
-      }
-      signalHandlers.get(event)!.add(handler)
-      return process as NodeJS.Process
-    }) as typeof process.on
+    process.on = vi.fn(
+      (event: string, handler: (...args: unknown[]) => void) => {
+        if (!signalHandlers.has(event)) {
+          signalHandlers.set(event, new Set())
+        }
+        signalHandlers.get(event)!.add(handler)
+        return process as NodeJS.Process
+      },
+    ) as typeof process.on
 
-    process.off = vi.fn((event: string, handler: (...args: unknown[]) => void) => {
-      const handlers = signalHandlers.get(event)
-      if (handlers) {
-        handlers.delete(handler)
-      }
-      return process as NodeJS.Process
-    }) as typeof process.off
+    process.off = vi.fn(
+      (event: string, handler: (...args: unknown[]) => void) => {
+        const handlers = signalHandlers.get(event)
+        if (handlers) {
+          handlers.delete(handler)
+        }
+        return process as NodeJS.Process
+      },
+    ) as typeof process.off
   })
 
   afterEach(() => {
@@ -208,4 +212,3 @@ describe('NodeSignalAdapter', () => {
     })
   })
 })
-

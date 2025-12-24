@@ -10,39 +10,39 @@ Icon mappings for directory names.
 
 ```typescript
 IconDir: {
-    readonly ".config": {
+    readonly '.config': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly ".env": {
+    readonly '.env': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly ".environment": {
+    readonly '.environment': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly ".git": {
+    readonly '.git': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly ".githooks": {
+    readonly '.githooks': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly ".github": {
+    readonly '.github': {
         readonly glyph: "";
         readonly color: readonly [84, 110, 122];
     };
-    readonly ".settings": {
+    readonly '.settings': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly ".submodules": {
+    readonly '.submodules': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly "META-INF": {
+    readonly 'META-INF': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };

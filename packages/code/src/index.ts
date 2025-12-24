@@ -3,5 +3,5 @@
  * @packageDocumentation
  */
 
-export { CodeModel, highlight, type CodeOptions } from "./model.js";
-export { SyntaxMsg, ErrorMsg } from "./messages.js";
+export { CodeModel, highlight, type CodeOptions } from './model.js'
+export { SyntaxMsg, ErrorMsg } from './messages.js'

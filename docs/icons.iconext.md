@@ -10,11 +10,11 @@ Icon mappings for file extensions.
 
 ```typescript
 IconExt: {
-    readonly "4th": {
+    readonly '4th': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "7z": {
+    readonly '7z': {
         readonly glyph: "";
         readonly color: readonly [175, 180, 43];
     };
@@ -222,7 +222,7 @@ IconExt: {
         readonly glyph: "ﭰ";
         readonly color: readonly [2, 119, 189];
     };
-    readonly "c++": {
+    readonly 'c++': {
         readonly glyph: "ﭱ";
         readonly color: readonly [2, 119, 189];
     };
@@ -310,7 +310,7 @@ IconExt: {
         readonly glyph: "";
         readonly color: readonly [141, 110, 99];
     };
-    readonly "code-workplace": {
+    readonly 'code-workplace': {
         readonly glyph: "";
         readonly color: readonly [33, 150, 243];
     };
@@ -718,7 +718,7 @@ IconExt: {
         readonly glyph: "h";
         readonly color: readonly [2, 119, 189];
     };
-    readonly "h++": {
+    readonly 'h++': {
         readonly glyph: "h";
         readonly color: readonly [2, 119, 189];
     };
@@ -882,7 +882,7 @@ IconExt: {
         readonly glyph: "";
         readonly color: readonly [174, 44, 42];
     };
-    readonly "jinja-html": {
+    readonly 'jinja-html': {
         readonly glyph: "";
         readonly color: readonly [174, 44, 42];
     };
@@ -1742,11 +1742,11 @@ IconExt: {
         readonly glyph: "";
         readonly color: readonly [192, 202, 51];
     };
-    readonly "sublime-project": {
+    readonly 'sublime-project': {
         readonly glyph: "";
         readonly color: readonly [239, 148, 58];
     };
-    readonly "sublime-workspace": {
+    readonly 'sublime-workspace': {
         readonly glyph: "";
         readonly color: readonly [239, 148, 58];
     };
@@ -1942,7 +1942,7 @@ IconExt: {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
-    readonly "vbox-prev": {
+    readonly 'vbox-prev': {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
@@ -2110,7 +2110,7 @@ IconExt: {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "yaml-tmlanguage": {
+    readonly 'yaml-tmlanguage': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };

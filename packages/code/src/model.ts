@@ -1,20 +1,20 @@
-import { Style } from "@suds-cli/chapstick";
-import { readFileContent } from "@suds-cli/filesystem";
-import { type Cmd, type Msg } from "@suds-cli/tea";
-import { ViewportModel } from "@suds-cli/viewport";
-import { getHighlighter } from "shiki";
-import path from "node:path";
-import { ErrorMsg, SyntaxMsg } from "./messages.js";
+import { Style } from '@suds-cli/chapstick'
+import { readFileContent } from '@suds-cli/filesystem'
+import { type Cmd, type Msg } from '@suds-cli/tea'
+import { ViewportModel } from '@suds-cli/viewport'
+import { getHighlighter } from 'shiki'
+import path from 'node:path'
+import { ErrorMsg, SyntaxMsg } from './messages.js'
 
 /**
  * Options for creating a code model.
  * @public
  */
 export interface CodeOptions {
-  active?: boolean;
-  syntaxTheme?: string;
-  width?: number;
-  height?: number;
+  active?: boolean
+  syntaxTheme?: string
+  width?: number
+  height?: number
 }
 
 /**
@@ -28,30 +28,30 @@ export interface CodeOptions {
 export async function highlight(
   content: string,
   extension: string,
-  theme: string = "dracula",
+  theme: string = 'dracula',
 ): Promise<string> {
   try {
     const highlighter = await getHighlighter({
       themes: [theme],
       langs: [],
-    });
+    })
 
     // Map extension to language - use a safer approach
-    const ext = extension.startsWith(".") ? extension.slice(1) : extension;
-    let lang = ext || "text";
+    const ext = extension.startsWith('.') ? extension.slice(1) : extension
+    let lang = ext || 'text'
 
     // Load the language if needed, fallback to text
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
-      await highlighter.loadLanguage(lang as any);
+      await highlighter.loadLanguage(lang as any)
     } catch {
       // If language loading fails, use 'text' as fallback
-      lang = "text";
+      lang = 'text'
       try {
-        await highlighter.loadLanguage("text");
+        await highlighter.loadLanguage('text')
       } catch {
         // If even text fails, just return plain content
-        return content;
+        return content
       }
     }
 
@@ -60,26 +60,26 @@ export async function highlight(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
       lang: lang as any,
       theme: theme,
-    });
+    })
 
     // Convert tokens to ANSI colored text
-    let result = "";
+    let result = ''
     for (const line of tokens.tokens) {
       for (const token of line) {
         if (token.color) {
           // Simple ANSI color conversion (this is a basic approach)
-          result += `\x1b[38;2;${hexToRgb(token.color)}m${token.content}\x1b[0m`;
+          result += `\x1b[38;2;${hexToRgb(token.color)}m${token.content}\x1b[0m`
         } else {
-          result += token.content;
+          result += token.content
         }
       }
-      result += "\n";
+      result += '\n'
     }
 
-    return result.trimEnd();
+    return result.trimEnd()
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : String(error);
-    throw new Error(`Syntax highlighting failed: ${errorMessage}`);
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    throw new Error(`Syntax highlighting failed: ${errorMessage}`)
   }
 }
 
@@ -87,30 +87,31 @@ export async function highlight(
  * Convert hex color to RGB values for ANSI
  */
 function hexToRgb(hex: string): string {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  if (!result) return "255;255;255";
-  return `${parseInt(result[1]!, 16)};${parseInt(result[2]!, 16)};${parseInt(result[3]!, 16)}`;
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  if (!result) return '255;255;255'
+  return `${parseInt(result[1]!, 16)};${parseInt(result[2]!, 16)};${parseInt(result[3]!, 16)}`
 }
 
 /**
  * Read file content and highlight it asynchronously.
  */
-function readFileContentCmd(
-  fileName: string,
-  syntaxTheme: string,
-): Cmd<Msg> {
+function readFileContentCmd(fileName: string, syntaxTheme: string): Cmd<Msg> {
   return async (): Promise<Msg> => {
     try {
-      const content = await readFileContent(fileName);
-      const extension = path.extname(fileName);
-      const highlightedContent = await highlight(content, extension, syntaxTheme);
-      return new SyntaxMsg(highlightedContent);
+      const content = await readFileContent(fileName)
+      const extension = path.extname(fileName)
+      const highlightedContent = await highlight(
+        content,
+        extension,
+        syntaxTheme,
+      )
+      return new SyntaxMsg(highlightedContent)
     } catch (error) {
       return new ErrorMsg(
         error instanceof Error ? error : new Error(String(error)),
-      );
+      )
     }
-  };
+  }
 }
 
 /**
@@ -118,24 +119,24 @@ function readFileContentCmd(
  * @public
  */
 export class CodeModel {
-  readonly viewport: ViewportModel;
-  readonly active: boolean;
-  readonly filename: string;
-  readonly highlightedContent: string;
-  readonly syntaxTheme: string;
+  readonly viewport: ViewportModel
+  readonly active: boolean
+  readonly filename: string
+  readonly highlightedContent: string
+  readonly syntaxTheme: string
 
   private constructor(options: {
-    viewport: ViewportModel;
-    active: boolean;
-    filename: string;
-    highlightedContent: string;
-    syntaxTheme: string;
+    viewport: ViewportModel
+    active: boolean
+    filename: string
+    highlightedContent: string
+    syntaxTheme: string
   }) {
-    this.viewport = options.viewport;
-    this.active = options.active;
-    this.filename = options.filename;
-    this.highlightedContent = options.highlightedContent;
-    this.syntaxTheme = options.syntaxTheme;
+    this.viewport = options.viewport
+    this.active = options.active
+    this.filename = options.filename
+    this.highlightedContent = options.highlightedContent
+    this.syntaxTheme = options.syntaxTheme
   }
 
   /**
@@ -150,29 +151,31 @@ export class CodeModel {
         height: options.height ?? 0,
       }),
       active: options.active ?? false,
-      filename: "",
-      highlightedContent: "",
-      syntaxTheme: options.syntaxTheme ?? "dracula",
-    });
+      filename: '',
+      highlightedContent: '',
+      syntaxTheme: options.syntaxTheme ?? 'dracula',
+    })
   }
 
   /**
    * Create a copy with updated fields.
    */
-  private with(partial: Partial<{
-    viewport: ViewportModel;
-    active: boolean;
-    filename: string;
-    highlightedContent: string;
-    syntaxTheme: string;
-  }>): CodeModel {
+  private with(
+    partial: Partial<{
+      viewport: ViewportModel
+      active: boolean
+      filename: string
+      highlightedContent: string
+      syntaxTheme: string
+    }>,
+  ): CodeModel {
     return new CodeModel({
       viewport: partial.viewport ?? this.viewport,
       active: partial.active ?? this.active,
       filename: partial.filename ?? this.filename,
       highlightedContent: partial.highlightedContent ?? this.highlightedContent,
       syntaxTheme: partial.syntaxTheme ?? this.syntaxTheme,
-    });
+    })
   }
 
   /**
@@ -181,8 +184,8 @@ export class CodeModel {
    * @returns Command to read and highlight the file
    */
   setFileName(filename: string): [CodeModel, Cmd<Msg>] {
-    const updated = this.with({ filename });
-    return [updated, readFileContentCmd(filename, this.syntaxTheme)];
+    const updated = this.with({ filename })
+    return [updated, readFileContentCmd(filename, this.syntaxTheme)]
   }
 
   /**
@@ -191,8 +194,8 @@ export class CodeModel {
    * @returns Updated model
    */
   setIsActive(active: boolean): CodeModel {
-    if (this.active === active) return this;
-    return this.with({ active });
+    if (this.active === active) return this
+    return this.with({ active })
   }
 
   /**
@@ -201,8 +204,8 @@ export class CodeModel {
    * @returns Updated model
    */
   setSyntaxTheme(theme: string): CodeModel {
-    if (this.syntaxTheme === theme) return this;
-    return this.with({ syntaxTheme: theme });
+    if (this.syntaxTheme === theme) return this
+    return this.with({ syntaxTheme: theme })
   }
 
   /**
@@ -212,9 +215,9 @@ export class CodeModel {
    * @returns Updated model
    */
   setSize(width: number, height: number): CodeModel {
-    const nextViewport = this.viewport.setWidth(width).setHeight(height);
-    if (nextViewport === this.viewport) return this;
-    return this.with({ viewport: nextViewport });
+    const nextViewport = this.viewport.setWidth(width).setHeight(height)
+    if (nextViewport === this.viewport) return this
+    return this.with({ viewport: nextViewport })
   }
 
   /**
@@ -222,16 +225,16 @@ export class CodeModel {
    * @returns Updated model
    */
   gotoTop(): CodeModel {
-    const nextViewport = this.viewport.scrollToTop();
-    if (nextViewport === this.viewport) return this;
-    return this.with({ viewport: nextViewport });
+    const nextViewport = this.viewport.scrollToTop()
+    if (nextViewport === this.viewport) return this
+    return this.with({ viewport: nextViewport })
   }
 
   /**
    * Tea init hook.
    */
   init(): Cmd<Msg> {
-    return this.viewport.init();
+    return this.viewport.init()
   }
 
   /**
@@ -241,47 +244,47 @@ export class CodeModel {
    */
   update(msg: Msg): [CodeModel, Cmd<Msg>] {
     if (msg instanceof SyntaxMsg) {
-      const content = msg.content;
+      const content = msg.content
       // Apply width for consistent line lengths and left-align to pad lines
       // Viewport handles height/scrolling - don't use .height() here as it truncates
       const style = new Style()
         .width(this.viewport.width)
-        .alignHorizontal('left');
-      const rendered = style.render(content);
-      const nextViewport = this.viewport.setContent(rendered);
+        .alignHorizontal('left')
+      const rendered = style.render(content)
+      const nextViewport = this.viewport.setContent(rendered)
       return [
         this.with({
           highlightedContent: rendered,
           viewport: nextViewport,
         }),
         null,
-      ];
+      ]
     }
 
     if (msg instanceof ErrorMsg) {
-      const errorContent = `Error: ${msg.error.message}`;
+      const errorContent = `Error: ${msg.error.message}`
       const style = new Style()
         .width(this.viewport.width)
-        .alignHorizontal('left');
-      const rendered = style.render(errorContent);
-      const nextViewport = this.viewport.setContent(rendered);
+        .alignHorizontal('left')
+      const rendered = style.render(errorContent)
+      const nextViewport = this.viewport.setContent(rendered)
       return [
         this.with({
           highlightedContent: rendered,
           viewport: nextViewport,
         }),
         null,
-      ];
+      ]
     }
 
     if (this.active) {
-      const [nextViewport, cmd] = this.viewport.update(msg);
+      const [nextViewport, cmd] = this.viewport.update(msg)
       if (nextViewport !== this.viewport) {
-        return [this.with({ viewport: nextViewport }), cmd];
+        return [this.with({ viewport: nextViewport }), cmd]
       }
     }
 
-    return [this, null];
+    return [this, null]
   }
 
   /**
@@ -289,6 +292,6 @@ export class CodeModel {
    * @returns The viewport view
    */
   view(): string {
-    return this.viewport.view();
+    return this.viewport.view()
   }
 }

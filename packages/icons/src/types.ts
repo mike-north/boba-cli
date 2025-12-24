@@ -4,9 +4,9 @@
  */
 export interface IconInfo {
   /** Unicode glyph for the icon */
-  readonly glyph: string;
+  readonly glyph: string
   /** RGB color values [r, g, b] for the icon */
-  readonly color: readonly [number, number, number];
+  readonly color: readonly [number, number, number]
 }
 
 /**
@@ -15,7 +15,7 @@ export interface IconInfo {
  */
 export interface IconResult {
   /** Unicode glyph for the icon */
-  readonly glyph: string;
+  readonly glyph: string
   /** ANSI color code for the icon */
-  readonly color: string;
+  readonly color: string
 }

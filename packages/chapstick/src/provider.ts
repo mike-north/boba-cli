@@ -24,7 +24,7 @@ export interface StyleProvider {
    * Create a new style instance.
    */
   createStyle(): Style
-  
+
   /**
    * Get semantic styles for common use cases.
    */

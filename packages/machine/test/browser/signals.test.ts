@@ -78,7 +78,9 @@ describe('BrowserSignalAdapter', () => {
         preventDefault: vi.fn(),
       } as unknown as BeforeUnloadEvent
 
-      const handlerFunc = Array.from(handlers!)[0] as (e: BeforeUnloadEvent) => void
+      const handlerFunc = Array.from(handlers!)[0] as (
+        e: BeforeUnloadEvent,
+      ) => void
       handlerFunc(beforeUnloadEvent)
 
       expect(handler).toHaveBeenCalledTimes(1)
@@ -93,7 +95,9 @@ describe('BrowserSignalAdapter', () => {
       adapter.onInterrupt(handler2)
 
       const handlers = eventListeners.get('beforeunload')
-      const handlerFunc = Array.from(handlers!)[0] as (e: BeforeUnloadEvent) => void
+      const handlerFunc = Array.from(handlers!)[0] as (
+        e: BeforeUnloadEvent,
+      ) => void
       handlerFunc({ preventDefault: vi.fn() } as unknown as BeforeUnloadEvent)
 
       expect(handler1).toHaveBeenCalledTimes(1)
@@ -131,7 +135,10 @@ describe('BrowserSignalAdapter', () => {
       const handler = vi.fn()
       adapter.onTerminate(handler)
 
-      expect(mockWindow.addEventListener).toHaveBeenCalledWith('pagehide', expect.any(Function))
+      expect(mockWindow.addEventListener).toHaveBeenCalledWith(
+        'pagehide',
+        expect.any(Function),
+      )
     })
 
     it('only registers pagehide listener once', () => {
@@ -205,4 +212,3 @@ describe('BrowserSignalAdapter', () => {
     })
   })
 })
-

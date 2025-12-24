@@ -10,6 +10,7 @@
     "shiki": "^1.24.2"
   },
   "devDependencies": {
+    "@types/node": "^24.10.2",
     "typescript": "5.8.2",
     "vitest": "^4.0.16"
   },

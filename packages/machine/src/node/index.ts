@@ -51,7 +51,10 @@ export class NodePlatformAdapter implements PlatformAdapter {
    * @param options - Configuration options
    */
   constructor(options: NodePlatformOptions = {}) {
-    const terminalAdapter = new NodeTerminalAdapter(options.input, options.output)
+    const terminalAdapter = new NodeTerminalAdapter(
+      options.input,
+      options.output,
+    )
     const signalAdapter = new NodeSignalAdapter()
     const clipboardAdapter = new NodeClipboardAdapter()
     const environmentAdapter = new NodeEnvironmentAdapter()

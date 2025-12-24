@@ -34,9 +34,6 @@ importers:
       '@microsoft/api-extractor':
         specifier: ^7.55.2
         version: 7.55.2(@types/node@24.10.2)
-      '@types/node':
-        specifier: ^24.10.2
-        version: 24.10.2
       '@vitest/coverage-v8':
         specifier: ^4.0.15
         version: 4.0.15(vitest@4.0.16)
@@ -85,6 +82,9 @@ importers:
       '@suds-cli/chapstick':
         specifier: workspace:*
         version: link:../packages/chapstick
+      '@suds-cli/code':
+        specifier: workspace:*
+        version: link:../packages/code
       '@suds-cli/filepicker':
         specifier: workspace:*
         version: link:../packages/filepicker
@@ -94,12 +94,18 @@ importers:
       '@suds-cli/help':
         specifier: workspace:*
         version: link:../packages/help
+      '@suds-cli/icons':
+        specifier: workspace:*
+        version: link:../packages/icons
       '@suds-cli/key':
         specifier: workspace:*
         version: link:../packages/key
       '@suds-cli/list':
         specifier: workspace:*
         version: link:../packages/list
+      '@suds-cli/markdown':
+        specifier: workspace:*
+        version: link:../packages/markdown
       '@suds-cli/paginator':
         specifier: workspace:*
         version: link:../packages/paginator
@@ -109,6 +115,9 @@ importers:
       '@suds-cli/spinner':
         specifier: workspace:*
         version: link:../packages/spinner
+      '@suds-cli/statusbar':
+        specifier: workspace:*
+        version: link:../packages/statusbar
       '@suds-cli/stopwatch':
         specifier: workspace:*
         version: link:../packages/stopwatch
@@ -131,6 +140,9 @@ importers:
         specifier: workspace:*
         version: link:../packages/viewport
     devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -150,6 +162,9 @@ importers:
         specifier: 0.0.0-alpha.0
         version: 0.0.0-alpha.0
     devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -175,6 +190,9 @@ importers:
         specifier: ^1.24.2
         version: 1.29.2
     devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -213,6 +231,9 @@ importers:
         specifier: workspace:*
         version: link:../tea
     devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -254,6 +275,9 @@ importers:
         specifier: workspace:*
         version: link:../tea
     devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
       typescript:
         specifier: 5.8.2
         version: 5.8.2

@@ -14,9 +14,9 @@
  *   q / ctrl+c / esc - quit
  */
 
-import { Style } from "@suds-cli/chapstick";
-import { newBinding, matches } from "@suds-cli/key";
-import { MarkdownModel } from "@suds-cli/markdown";
+import { Style } from '@suds-cli/chapstick'
+import { newBinding, matches } from '@suds-cli/key'
+import { MarkdownModel } from '@suds-cli/markdown'
 import {
   KeyMsg,
   Program,
@@ -25,22 +25,22 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from "@suds-cli/tea";
+} from '@suds-cli/tea'
 
-const quitBinding = newBinding({ keys: ["q", "Q", "ctrl+c", "esc"] }).withHelp(
-  "q",
-  "quit",
-);
+const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c', 'esc'] }).withHelp(
+  'q',
+  'quit',
+)
 
-const headerStyle = new Style().bold(true).foreground("#8be9fd");
-const helpStyle = new Style().foreground("#6272a4").italic(true);
+const headerStyle = new Style().bold(true).foreground('#8be9fd')
+const helpStyle = new Style().foreground('#6272a4').italic(true)
 const viewportStyle = new Style()
   .border(true)
-  .borderForeground("#bd93f9")
-  .padding(0, 1);
+  .borderForeground('#bd93f9')
+  .padding(0, 1)
 
 class DemoModel implements Model<Msg, DemoModel> {
-  readonly markdown: MarkdownModel;
+  readonly markdown: MarkdownModel
 
   constructor(markdown?: MarkdownModel) {
     this.markdown =
@@ -50,21 +50,21 @@ class DemoModel implements Model<Msg, DemoModel> {
         width: 72,
         height: 16,
         style: viewportStyle,
-      });
+      })
   }
 
   init(): Cmd<Msg> {
     // Load the README.md file from the repository root
-    const readmePath = new URL("../README.md", import.meta.url).pathname;
-    const [, cmd] = this.markdown.setFileName(readmePath);
+    const readmePath = new URL('../README.md', import.meta.url).pathname
+    const [, cmd] = this.markdown.setFileName(readmePath)
     // Note: The updated model with filename set will be applied when
     // the command resolves and RenderMarkdownMsg is received in update()
-    return cmd;
+    return cmd
   }
 
   update(msg: Msg): [DemoModel, Cmd<Msg>] {
     if (msg instanceof KeyMsg && matches(msg, quitBinding)) {
-      return [this, quit()];
+      return [this, quit()]
     }
 
     // Resize the viewport when terminal size changes
@@ -72,34 +72,34 @@ class DemoModel implements Model<Msg, DemoModel> {
       const [nextMarkdown, cmd] = this.markdown.setSize(
         Math.max(20, msg.width - 8),
         Math.max(6, msg.height - 6),
-      );
+      )
       if (nextMarkdown !== this.markdown) {
-        return [new DemoModel(nextMarkdown), cmd];
+        return [new DemoModel(nextMarkdown), cmd]
       }
-      return [this, null];
+      return [this, null]
     }
 
-    const [nextMarkdown, cmd] = this.markdown.update(msg);
+    const [nextMarkdown, cmd] = this.markdown.update(msg)
     if (nextMarkdown !== this.markdown) {
-      return [new DemoModel(nextMarkdown), cmd];
+      return [new DemoModel(nextMarkdown), cmd]
     }
 
-    return [this, cmd];
+    return [this, cmd]
   }
 
   view(): string {
-    const header = headerStyle.render("🧼 Suds Demo — Markdown Viewer");
+    const header = headerStyle.render('🧼 Suds Demo — Markdown Viewer')
     const help = helpStyle.render(
-      "Scroll with j/k, f/b, d/u, PgUp/PgDn, mouse wheel • q to quit",
-    );
-    return [header, "", this.markdown.view(), "", help, ""].join("\n");
+      'Scroll with j/k, f/b, d/u, PgUp/PgDn, mouse wheel • q to quit',
+    )
+    return [header, '', this.markdown.view(), '', help, ''].join('\n')
   }
 }
 
 async function main(): Promise<void> {
-  console.clear();
-  const program = new Program(new DemoModel());
-  await program.run();
+  console.clear()
+  const program = new Program(new DemoModel())
+  await program.run()
 }
 
-main().catch(console.error);
+main().catch(console.error)

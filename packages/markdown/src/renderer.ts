@@ -2,10 +2,10 @@
  * Markdown rendering utilities.
  */
 
-import { Marked } from "marked";
-import { markedTerminal } from "marked-terminal";
-import { getTerminalBackground } from "@suds-cli/chapstick";
-import chalk from "chalk";
+import { Marked } from 'marked'
+import { markedTerminal } from 'marked-terminal'
+import { getTerminalBackground } from '@suds-cli/chapstick'
+import chalk from 'chalk'
 
 /**
  * Options for rendering markdown.
@@ -15,7 +15,7 @@ export interface RenderMarkdownOptions {
   /**
    * Width for word wrapping. Defaults to 80.
    */
-  width?: number;
+  width?: number
 }
 
 /**
@@ -31,12 +31,12 @@ export function renderMarkdown(
   content: string,
   options: RenderMarkdownOptions = {},
 ): string {
-  const width = options.width ?? 80;
-  const background = getTerminalBackground();
-  
+  const width = options.width ?? 80
+  const background = getTerminalBackground()
+
   // Use appropriate colors for terminal background
-  const isDark = background !== 'light';
-  
+  const isDark = background !== 'light'
+
   // Create marked instance with terminal renderer
   const marked = new Marked(
     markedTerminal({
@@ -60,12 +60,14 @@ export function renderMarkdown(
       hr: chalk.gray,
       paragraph: chalk.reset,
     }),
-  );
+  )
 
   try {
-    const rendered = marked.parse(content) as string;
-    return rendered.trim();
+    const rendered = marked.parse(content) as string
+    return rendered.trim()
   } catch (error) {
-    throw new Error(`Failed to render markdown: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(
+      `Failed to render markdown: ${error instanceof Error ? error.message : String(error)}`,
+    )
   }
 }

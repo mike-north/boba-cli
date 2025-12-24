@@ -31,10 +31,10 @@ npm install @suds-cli/filesystem
 Returns a list of files and directories within a given directory.
 
 ```typescript
-import { getDirectoryListing } from '@suds-cli/filesystem';
+import { getDirectoryListing } from '@suds-cli/filesystem'
 
-const entries = await getDirectoryListing('/path/to/dir');
-const allEntries = await getDirectoryListing('/path/to/dir', true); // includes hidden files
+const entries = await getDirectoryListing('/path/to/dir')
+const allEntries = await getDirectoryListing('/path/to/dir', true) // includes hidden files
 ```
 
 #### `getDirectoryListingByType(dir: string, listingType: string, showHidden?: boolean): Promise<DirectoryEntry[]>`
@@ -42,10 +42,17 @@ const allEntries = await getDirectoryListing('/path/to/dir', true); // includes 
 Returns a directory listing filtered by type (directories or files).
 
 ```typescript
-import { getDirectoryListingByType, DirectoriesListingType, FilesListingType } from '@suds-cli/filesystem';
+import {
+  getDirectoryListingByType,
+  DirectoriesListingType,
+  FilesListingType,
+} from '@suds-cli/filesystem'
 
-const dirs = await getDirectoryListingByType('/path/to/dir', DirectoriesListingType);
-const files = await getDirectoryListingByType('/path/to/dir', FilesListingType);
+const dirs = await getDirectoryListingByType(
+  '/path/to/dir',
+  DirectoriesListingType,
+)
+const files = await getDirectoryListingByType('/path/to/dir', FilesListingType)
 ```
 
 ### Directory Navigation
@@ -55,9 +62,9 @@ const files = await getDirectoryListingByType('/path/to/dir', FilesListingType);
 Returns the user's home directory.
 
 ```typescript
-import { getHomeDirectory } from '@suds-cli/filesystem';
+import { getHomeDirectory } from '@suds-cli/filesystem'
 
-const home = getHomeDirectory();
+const home = getHomeDirectory()
 ```
 
 #### `getWorkingDirectory(): string`
@@ -65,9 +72,9 @@ const home = getHomeDirectory();
 Returns the current working directory.
 
 ```typescript
-import { getWorkingDirectory } from '@suds-cli/filesystem';
+import { getWorkingDirectory } from '@suds-cli/filesystem'
 
-const cwd = getWorkingDirectory();
+const cwd = getWorkingDirectory()
 ```
 
 ### File Reading
@@ -77,9 +84,9 @@ const cwd = getWorkingDirectory();
 Returns the contents of a file as a string.
 
 ```typescript
-import { readFileContent } from '@suds-cli/filesystem';
+import { readFileContent } from '@suds-cli/filesystem'
 
-const content = await readFileContent('/path/to/file.txt');
+const content = await readFileContent('/path/to/file.txt')
 ```
 
 ### Size Calculation
@@ -89,10 +96,10 @@ const content = await readFileContent('/path/to/file.txt');
 Calculates the size of a directory or file in bytes.
 
 ```typescript
-import { getDirectoryItemSize } from '@suds-cli/filesystem';
+import { getDirectoryItemSize } from '@suds-cli/filesystem'
 
-const size = await getDirectoryItemSize('/path/to/item');
-console.log(`Size: ${size} bytes`);
+const size = await getDirectoryItemSize('/path/to/item')
+console.log(`Size: ${size} bytes`)
 ```
 
 ### File Search
@@ -102,9 +109,9 @@ console.log(`Size: ${size} bytes`);
 Searches for files by name (supports partial matches).
 
 ```typescript
-import { findFilesByName } from '@suds-cli/filesystem';
+import { findFilesByName } from '@suds-cli/filesystem'
 
-const { paths, entries } = await findFilesByName('*.txt', '/path/to/search');
+const { paths, entries } = await findFilesByName('*.txt', '/path/to/search')
 ```
 
 ### File Operations
@@ -114,9 +121,9 @@ const { paths, entries } = await findFilesByName('*.txt', '/path/to/search');
 Creates a new file.
 
 ```typescript
-import { createFile } from '@suds-cli/filesystem';
+import { createFile } from '@suds-cli/filesystem'
 
-await createFile('/path/to/newfile.txt');
+await createFile('/path/to/newfile.txt')
 ```
 
 #### `deleteFile(name: string): Promise<void>`
@@ -124,9 +131,9 @@ await createFile('/path/to/newfile.txt');
 Deletes a file.
 
 ```typescript
-import { deleteFile } from '@suds-cli/filesystem';
+import { deleteFile } from '@suds-cli/filesystem'
 
-await deleteFile('/path/to/file.txt');
+await deleteFile('/path/to/file.txt')
 ```
 
 #### `writeToFile(path: string, content: string): Promise<void>`
@@ -134,9 +141,9 @@ await deleteFile('/path/to/file.txt');
 Writes content to a file (overwrites if exists).
 
 ```typescript
-import { writeToFile } from '@suds-cli/filesystem';
+import { writeToFile } from '@suds-cli/filesystem'
 
-await writeToFile('/path/to/file.txt', 'Hello, World!');
+await writeToFile('/path/to/file.txt', 'Hello, World!')
 ```
 
 #### `copyFile(name: string): Promise<string>`
@@ -144,9 +151,9 @@ await writeToFile('/path/to/file.txt', 'Hello, World!');
 Copies a file with a timestamp suffix and returns the new file path.
 
 ```typescript
-import { copyFile } from '@suds-cli/filesystem';
+import { copyFile } from '@suds-cli/filesystem'
 
-const newPath = await copyFile('/path/to/file.txt');
+const newPath = await copyFile('/path/to/file.txt')
 // Returns: /path/to/file_1234567890.txt
 ```
 
@@ -157,9 +164,9 @@ const newPath = await copyFile('/path/to/file.txt');
 Creates a new directory.
 
 ```typescript
-import { createDirectory } from '@suds-cli/filesystem';
+import { createDirectory } from '@suds-cli/filesystem'
 
-await createDirectory('/path/to/newdir');
+await createDirectory('/path/to/newdir')
 ```
 
 #### `deleteDirectory(name: string): Promise<void>`
@@ -167,9 +174,9 @@ await createDirectory('/path/to/newdir');
 Deletes a directory recursively.
 
 ```typescript
-import { deleteDirectory } from '@suds-cli/filesystem';
+import { deleteDirectory } from '@suds-cli/filesystem'
 
-await deleteDirectory('/path/to/dir');
+await deleteDirectory('/path/to/dir')
 ```
 
 #### `copyDirectory(name: string): Promise<string>`
@@ -177,9 +184,9 @@ await deleteDirectory('/path/to/dir');
 Copies a directory recursively with a timestamp suffix and returns the new directory path.
 
 ```typescript
-import { copyDirectory } from '@suds-cli/filesystem';
+import { copyDirectory } from '@suds-cli/filesystem'
 
-const newPath = await copyDirectory('/path/to/dir');
+const newPath = await copyDirectory('/path/to/dir')
 // Returns: /path/to/dir_1234567890
 ```
 
@@ -190,9 +197,9 @@ const newPath = await copyDirectory('/path/to/dir');
 Renames a file or directory.
 
 ```typescript
-import { renameDirectoryItem } from '@suds-cli/filesystem';
+import { renameDirectoryItem } from '@suds-cli/filesystem'
 
-await renameDirectoryItem('/path/to/old.txt', '/path/to/new.txt');
+await renameDirectoryItem('/path/to/old.txt', '/path/to/new.txt')
 ```
 
 #### `moveDirectoryItem(src: string, dst: string): Promise<void>`
@@ -200,9 +207,9 @@ await renameDirectoryItem('/path/to/old.txt', '/path/to/new.txt');
 Moves a file or directory to a new location.
 
 ```typescript
-import { moveDirectoryItem } from '@suds-cli/filesystem';
+import { moveDirectoryItem } from '@suds-cli/filesystem'
 
-await moveDirectoryItem('/path/to/file.txt', '/new/path/file.txt');
+await moveDirectoryItem('/path/to/file.txt', '/new/path/file.txt')
 ```
 
 ### Archive Operations
@@ -212,9 +219,9 @@ await moveDirectoryItem('/path/to/file.txt', '/new/path/file.txt');
 Creates a zip archive of a file or directory and returns the zip file path.
 
 ```typescript
-import { zip } from '@suds-cli/filesystem';
+import { zip } from '@suds-cli/filesystem'
 
-const zipPath = await zip('/path/to/file.txt');
+const zipPath = await zip('/path/to/file.txt')
 // Returns: /path/to/file_1234567890.zip
 ```
 
@@ -223,9 +230,9 @@ const zipPath = await zip('/path/to/file.txt');
 Extracts a zip archive and returns the output directory path.
 
 ```typescript
-import { unzip } from '@suds-cli/filesystem';
+import { unzip } from '@suds-cli/filesystem'
 
-const extractPath = await unzip('/path/to/archive.zip');
+const extractPath = await unzip('/path/to/archive.zip')
 // Returns: /path/to/archive
 ```
 

@@ -1,4 +1,4 @@
-import type { ColorInput } from "@suds-cli/chapstick";
+import type { ColorInput } from '@suds-cli/chapstick'
 
 /**
  * Color configuration for the help bubble title (adaptive for light/dark terminals).
@@ -6,9 +6,9 @@ import type { ColorInput } from "@suds-cli/chapstick";
  */
 export interface TitleColor {
   /** Background color (adaptive) */
-  background: ColorInput;
+  background: ColorInput
   /** Foreground color (adaptive) */
-  foreground: ColorInput;
+  foreground: ColorInput
 }
 
 /**
@@ -17,7 +17,7 @@ export interface TitleColor {
  */
 export interface Entry {
   /** Key binding (e.g., "ctrl+c", "j/up") */
-  key: string;
+  key: string
   /** Description of what the key does */
-  description: string;
+  description: string
 }

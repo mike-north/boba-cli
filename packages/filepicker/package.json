@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "typescript": "5.8.2",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.16",
+    "@types/node": "^24.10.2"
   },
   "engines": {
     "node": ">=20.0.0"

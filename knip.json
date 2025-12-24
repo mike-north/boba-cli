@@ -8,10 +8,7 @@
     "supports-color",
     "syncpack"
   ],
-  "ignoreBinaries": [
-    "test:graceful-degradation",
-    "test:browser"
-  ],
+  "ignoreBinaries": ["test:graceful-degradation", "test:browser"],
   "workspaces": {
     ".": {
       "paths": {

@@ -1,46 +1,46 @@
-import fs from "node:fs/promises";
-import fsSync from "node:fs";
-import path from "node:path";
-import os from "node:os";
-import archiver from "archiver";
-import unzipper from "unzipper";
-import { createWriteStream, createReadStream } from "node:fs";
+import fs from 'node:fs/promises'
+import fsSync from 'node:fs'
+import path from 'node:path'
+import os from 'node:os'
+import archiver from 'archiver'
+import unzipper from 'unzipper'
+import { createWriteStream, createReadStream } from 'node:fs'
 
 /**
  * Directory shortcuts.
  * @public
  */
-export const CurrentDirectory = ".";
+export const CurrentDirectory = '.'
 
 /**
  * Previous directory shortcut.
  * @public
  */
-export const PreviousDirectory = "..";
+export const PreviousDirectory = '..'
 
 /**
  * Home directory shortcut.
  * @public
  */
-export const HomeDirectory = "~";
+export const HomeDirectory = '~'
 
 /**
  * Root directory shortcut.
  * @public
  */
-export const RootDirectory = "/";
+export const RootDirectory = '/'
 
 /**
  * Listing type for directories only.
  * @public
  */
-export const DirectoriesListingType = "directories";
+export const DirectoriesListingType = 'directories'
 
 /**
  * Listing type for files only.
  * @public
  */
-export const FilesListingType = "files";
+export const FilesListingType = 'files'
 
 /**
  * Generates a timestamped filename for a copy or archive operation.
@@ -52,32 +52,32 @@ function generateTimestampedFilename(
   filePath: string,
   extension: string,
 ): string {
-  const timestamp = Math.floor(Date.now() / 1000);
-  const ext = path.extname(filePath);
-  const basename = path.basename(filePath, ext);
-  const dirname = path.dirname(filePath);
-  const filename = path.basename(filePath);
+  const timestamp = Math.floor(Date.now() / 1000)
+  const ext = path.extname(filePath)
+  const basename = path.basename(filePath, ext)
+  const dirname = path.dirname(filePath)
+  const filename = path.basename(filePath)
 
-  let output: string;
+  let output: string
 
-  if (filename.startsWith(".") && ext === "") {
+  if (filename.startsWith('.') && ext === '') {
     // Hidden file with no extension (e.g., ".gitignore")
-    output = path.join(dirname, `${filename}_${timestamp}${extension}`);
-  } else if (filename.startsWith(".") && ext !== "") {
+    output = path.join(dirname, `${filename}_${timestamp}${extension}`)
+  } else if (filename.startsWith('.') && ext !== '') {
     // Hidden file with extension (e.g., ".config.json")
-    output = path.join(dirname, `${basename}_${timestamp}${ext}${extension}`);
-  } else if (ext !== "" && extension === "") {
+    output = path.join(dirname, `${basename}_${timestamp}${ext}${extension}`)
+  } else if (ext !== '' && extension === '') {
     // Regular file with extension, copying (preserve original extension)
-    output = path.join(dirname, `${basename}_${timestamp}${ext}`);
-  } else if (ext !== "" && extension !== "") {
+    output = path.join(dirname, `${basename}_${timestamp}${ext}`)
+  } else if (ext !== '' && extension !== '') {
     // Regular file with extension, archiving (replace with new extension)
-    output = path.join(dirname, `${basename}_${timestamp}${extension}`);
+    output = path.join(dirname, `${basename}_${timestamp}${extension}`)
   } else {
     // File without extension
-    output = path.join(dirname, `${filename}_${timestamp}${extension}`);
+    output = path.join(dirname, `${filename}_${timestamp}${extension}`)
   }
 
-  return output;
+  return output
 }
 
 /**
@@ -85,10 +85,10 @@ function generateTimestampedFilename(
  * @public
  */
 export interface DirectoryEntry {
-  name: string;
-  isDirectory: () => boolean;
-  isFile: () => boolean;
-  isSymbolicLink: () => boolean;
+  name: string
+  isDirectory: () => boolean
+  isFile: () => boolean
+  isSymbolicLink: () => boolean
 }
 
 /**
@@ -102,13 +102,13 @@ export async function getDirectoryListing(
   dir: string,
   showHidden: boolean = false,
 ): Promise<DirectoryEntry[]> {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const entries = await fs.readdir(dir, { withFileTypes: true })
 
   if (!showHidden) {
-    return entries.filter((entry) => !entry.name.startsWith("."));
+    return entries.filter((entry) => !entry.name.startsWith('.'))
   }
 
-  return entries;
+  return entries
 }
 
 /**
@@ -124,23 +124,23 @@ export async function getDirectoryListingByType(
   listingType: typeof DirectoriesListingType | typeof FilesListingType,
   showHidden: boolean = false,
 ): Promise<DirectoryEntry[]> {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const entries = await fs.readdir(dir, { withFileTypes: true })
 
   return entries.filter((entry) => {
-    const isHidden = entry.name.startsWith(".");
+    const isHidden = entry.name.startsWith('.')
 
     if (!showHidden && isHidden) {
-      return false;
+      return false
     }
 
     if (listingType === DirectoriesListingType) {
-      return entry.isDirectory();
+      return entry.isDirectory()
     } else if (listingType === FilesListingType) {
-      return entry.isFile();
+      return entry.isFile()
     }
 
-    return false;
-  });
+    return false
+  })
 }
 
 /**
@@ -149,7 +149,7 @@ export async function getDirectoryListingByType(
  * @public
  */
 export function getHomeDirectory(): string {
-  return os.homedir();
+  return os.homedir()
 }
 
 /**
@@ -158,7 +158,7 @@ export function getHomeDirectory(): string {
  * @public
  */
 export function getWorkingDirectory(): string {
-  return process.cwd();
+  return process.cwd()
 }
 
 /**
@@ -168,8 +168,8 @@ export function getWorkingDirectory(): string {
  * @public
  */
 export async function readFileContent(name: string): Promise<string> {
-  const content = await fs.readFile(name, "utf-8");
-  return content;
+  const content = await fs.readFile(name, 'utf-8')
+  return content
 }
 
 /**
@@ -179,26 +179,26 @@ export async function readFileContent(name: string): Promise<string> {
  * @public
  */
 export async function getDirectoryItemSize(itemPath: string): Promise<number> {
-  const stats = await fs.stat(itemPath);
+  const stats = await fs.stat(itemPath)
 
   if (!stats.isDirectory()) {
-    return stats.size;
+    return stats.size
   }
 
-  let totalSize = 0;
-  const entries = await fs.readdir(itemPath, { withFileTypes: true });
+  let totalSize = 0
+  const entries = await fs.readdir(itemPath, { withFileTypes: true })
 
   for (const entry of entries) {
-    const fullPath = path.join(itemPath, entry.name);
+    const fullPath = path.join(itemPath, entry.name)
     if (entry.isDirectory()) {
-      totalSize += await getDirectoryItemSize(fullPath);
+      totalSize += await getDirectoryItemSize(fullPath)
     } else {
-      const fileStats = await fs.stat(fullPath);
-      totalSize += fileStats.size;
+      const fileStats = await fs.stat(fullPath)
+      totalSize += fileStats.size
     }
   }
 
-  return totalSize;
+  return totalSize
 }
 
 /**
@@ -212,23 +212,23 @@ export async function findFilesByName(
   name: string,
   dir: string,
 ): Promise<{ paths: string[]; entries: DirectoryEntry[] }> {
-  const paths: string[] = [];
-  const entries: DirectoryEntry[] = [];
+  const paths: string[] = []
+  const entries: DirectoryEntry[] = []
 
   async function search(searchDir: string): Promise<void> {
     try {
-      const items = await fs.readdir(searchDir, { withFileTypes: true });
+      const items = await fs.readdir(searchDir, { withFileTypes: true })
 
       for (const item of items) {
-        const fullPath = path.join(searchDir, item.name);
+        const fullPath = path.join(searchDir, item.name)
 
         if (item.name.includes(name)) {
-          paths.push(fullPath);
-          entries.push(item);
+          paths.push(fullPath)
+          entries.push(item)
         }
 
         if (item.isDirectory()) {
-          await search(fullPath);
+          await search(fullPath)
         }
       }
     } catch {
@@ -237,9 +237,9 @@ export async function findFilesByName(
     }
   }
 
-  await search(dir);
+  await search(dir)
 
-  return { paths, entries };
+  return { paths, entries }
 }
 
 /**
@@ -248,8 +248,8 @@ export async function findFilesByName(
  * @public
  */
 export async function createFile(name: string): Promise<void> {
-  const handle = await fs.open(name, "w");
-  await handle.close();
+  const handle = await fs.open(name, 'w')
+  await handle.close()
 }
 
 /**
@@ -260,10 +260,10 @@ export async function createFile(name: string): Promise<void> {
  */
 export async function createDirectory(name: string): Promise<void> {
   try {
-    await fs.access(name);
+    await fs.access(name)
     // Directory already exists
   } catch {
-    await fs.mkdir(name, { recursive: false });
+    await fs.mkdir(name, { recursive: false })
   }
 }
 
@@ -273,7 +273,7 @@ export async function createDirectory(name: string): Promise<void> {
  * @public
  */
 export async function deleteFile(name: string): Promise<void> {
-  await fs.unlink(name);
+  await fs.unlink(name)
 }
 
 /**
@@ -282,7 +282,7 @@ export async function deleteFile(name: string): Promise<void> {
  * @public
  */
 export async function deleteDirectory(name: string): Promise<void> {
-  await fs.rm(name, { recursive: true, force: true });
+  await fs.rm(name, { recursive: true, force: true })
 }
 
 /**
@@ -295,7 +295,7 @@ export async function renameDirectoryItem(
   src: string,
   dst: string,
 ): Promise<void> {
-  await fs.rename(src, dst);
+  await fs.rename(src, dst)
 }
 
 /**
@@ -308,7 +308,7 @@ export async function moveDirectoryItem(
   src: string,
   dst: string,
 ): Promise<void> {
-  await fs.rename(src, dst);
+  await fs.rename(src, dst)
 }
 
 /**
@@ -318,10 +318,10 @@ export async function moveDirectoryItem(
  * @public
  */
 export async function copyFile(name: string): Promise<string> {
-  const output = generateTimestampedFilename(name, "");
+  const output = generateTimestampedFilename(name, '')
 
-  await fs.copyFile(name, output);
-  return output;
+  await fs.copyFile(name, output)
+  return output
 }
 
 /**
@@ -331,33 +331,33 @@ export async function copyFile(name: string): Promise<string> {
  * @public
  */
 export async function copyDirectory(name: string): Promise<string> {
-  const timestamp = Math.floor(Date.now() / 1000);
-  const output = `${name}_${timestamp}`;
+  const timestamp = Math.floor(Date.now() / 1000)
+  const output = `${name}_${timestamp}`
 
   async function copyRecursive(src: string, dest: string): Promise<void> {
-    const stats = await fs.stat(src);
+    const stats = await fs.stat(src)
 
     if (stats.isDirectory()) {
-      await fs.mkdir(dest, { recursive: true });
-      const entries = await fs.readdir(src, { withFileTypes: true });
+      await fs.mkdir(dest, { recursive: true })
+      const entries = await fs.readdir(src, { withFileTypes: true })
 
       for (const entry of entries) {
-        const srcPath = path.join(src, entry.name);
-        const destPath = path.join(dest, entry.name);
+        const srcPath = path.join(src, entry.name)
+        const destPath = path.join(dest, entry.name)
 
         if (entry.isDirectory()) {
-          await copyRecursive(srcPath, destPath);
+          await copyRecursive(srcPath, destPath)
         } else {
-          await fs.copyFile(srcPath, destPath);
+          await fs.copyFile(srcPath, destPath)
         }
       }
     } else {
-      await fs.copyFile(src, dest);
+      await fs.copyFile(src, dest)
     }
   }
 
-  await copyRecursive(name, output);
-  return output;
+  await copyRecursive(name, output)
+  return output
 }
 
 /**
@@ -370,7 +370,7 @@ export async function writeToFile(
   filePath: string,
   content: string,
 ): Promise<void> {
-  await fs.writeFile(filePath, content, "utf-8");
+  await fs.writeFile(filePath, content, 'utf-8')
 }
 
 /**
@@ -380,32 +380,32 @@ export async function writeToFile(
  * @public
  */
 export async function zip(name: string): Promise<string> {
-  const output = generateTimestampedFilename(name, ".zip");
+  const output = generateTimestampedFilename(name, '.zip')
 
   return new Promise((resolve, reject) => {
-    const outputStream = createWriteStream(output);
-    const archive = archiver("zip", { zlib: { level: 9 } });
+    const outputStream = createWriteStream(output)
+    const archive = archiver('zip', { zlib: { level: 9 } })
 
-    outputStream.on("close", () => {
-      resolve(output);
-    });
+    outputStream.on('close', () => {
+      resolve(output)
+    })
 
-    archive.on("error", (err) => {
-      reject(err);
-    });
+    archive.on('error', (err) => {
+      reject(err)
+    })
 
-    archive.pipe(outputStream);
+    archive.pipe(outputStream)
 
-    const stats = fsSync.statSync(name);
+    const stats = fsSync.statSync(name)
 
     if (stats.isDirectory()) {
-      archive.directory(name, false);
+      archive.directory(name, false)
     } else {
-      archive.file(name, { name: path.basename(name) });
+      archive.file(name, { name: path.basename(name) })
     }
 
-    void archive.finalize();
-  });
+    void archive.finalize()
+  })
 }
 
 /**
@@ -415,20 +415,20 @@ export async function zip(name: string): Promise<string> {
  * @public
  */
 export async function unzip(name: string): Promise<string> {
-  const ext = path.extname(name);
-  const basename = path.basename(name, ext);
-  const dirname = path.dirname(name);
+  const ext = path.extname(name)
+  const basename = path.basename(name, ext)
+  const dirname = path.dirname(name)
 
-  const output = path.join(dirname, basename);
+  const output = path.join(dirname, basename)
 
   return new Promise((resolve, reject) => {
     createReadStream(name)
       .pipe(unzipper.Extract({ path: output }))
-      .on("close", () => {
-        resolve(output);
+      .on('close', () => {
+        resolve(output)
       })
-      .on("error", (err) => {
-        reject(err);
-      });
-  });
+      .on('error', (err) => {
+        reject(err)
+      })
+  })
 }

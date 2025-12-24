@@ -1,5 +1,5 @@
 ---
-"@suds-cli/examples": patch
+'@suds-cli/examples': patch
 ---
 
 Add code-demo.ts example for the new code component

@@ -1,5 +1,5 @@
 ---
-"@suds-cli/help": minor
+'@suds-cli/help': minor
 ---
 
 Add HelpBubble component for scrollable help screens

@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@suds-cli/code": "workspace:*",
+    "@suds-cli/icons": "workspace:*",
+    "@suds-cli/markdown": "workspace:*",
+    "@suds-cli/statusbar": "workspace:*",
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/key": "workspace:*",
     "@suds-cli/help": "workspace:*",
@@ -21,12 +25,14 @@
     "@suds-cli/viewport": "workspace:*"
   },
   "devDependencies": {
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "@types/node": "^24.10.2"
   },
   "private": true,
   "scripts": {
     "code": "tsx code-demo.ts",
     "filepicker": "tsx filepicker-demo.ts",
+    "filetree": "tsx filetree-demo.ts",
     "help-bubble": "tsx help-bubble-demo.ts",
     "help-demo": "tsx help-demo.ts",
     "icons": "tsx icons-demo.ts",

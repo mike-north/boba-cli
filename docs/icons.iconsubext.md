@@ -10,175 +10,175 @@ Icon mappings for compound file extensions (e.g., .test.ts, .d.ts).
 
 ```typescript
 IconSubExt: {
-    readonly "azure-pipelines.yaml": {
+    readonly 'azure-pipelines.yaml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "azure-pipelines.yml": {
+    readonly 'azure-pipelines.yml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "blade.php": {
+    readonly 'blade.php': {
         readonly glyph: "";
         readonly color: readonly [248, 80, 81];
     };
-    readonly "css.map": {
+    readonly 'css.map': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "d.ts": {
+    readonly 'd.ts': {
         readonly glyph: "ﯤ";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "e2e-spec.js": {
+    readonly 'e2e-spec.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "e2e-spec.ts": {
+    readonly 'e2e-spec.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "gitlab-ci.yml": {
+    readonly 'gitlab-ci.yml': {
         readonly glyph: "";
         readonly color: readonly [226, 69, 57];
     };
-    readonly "inky.php": {
+    readonly 'inky.php': {
         readonly glyph: "";
         readonly color: readonly [248, 80, 81];
     };
-    readonly "js.map": {
+    readonly 'js.map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "js.snap": {
+    readonly 'js.snap': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "jsx.snap": {
+    readonly 'jsx.snap': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "mjs.map": {
+    readonly 'mjs.map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "routes.js": {
+    readonly 'routes.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.jsx": {
+    readonly 'routes.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.ts": {
+    readonly 'routes.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.tsx": {
+    readonly 'routes.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.js": {
+    readonly 'routing.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.jsx": {
+    readonly 'routing.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.ts": {
+    readonly 'routing.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.tsx": {
+    readonly 'routing.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "sln.dotsettings": {
+    readonly 'sln.dotsettings': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "spec.js": {
+    readonly 'spec.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "spec.jsx": {
+    readonly 'spec.jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "spec.ts": {
+    readonly 'spec.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "spec.tsx": {
+    readonly 'spec.tsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "stories.js": {
+    readonly 'stories.js': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.jsx": {
+    readonly 'stories.jsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.ts": {
+    readonly 'stories.ts': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.tsx": {
+    readonly 'stories.tsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.js": {
+    readonly 'story.js': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.jsx": {
+    readonly 'story.jsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.ts": {
+    readonly 'story.ts': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.tsx": {
+    readonly 'story.tsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "test.js": {
+    readonly 'test.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "test.jsx": {
+    readonly 'test.jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "test.ts": {
+    readonly 'test.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "test.tsx": {
+    readonly 'test.tsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "tf.json": {
+    readonly 'tf.json': {
         readonly glyph: "";
         readonly color: readonly [92, 107, 192];
     };
-    readonly "ts.snap": {
+    readonly 'ts.snap': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "tsx.snap": {
+    readonly 'tsx.snap': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "vcxitems.filters": {
+    readonly 'vcxitems.filters': {
         readonly glyph: "";
         readonly color: readonly [173, 99, 188];
     };
-    readonly "vcxproj.filters": {
+    readonly 'vcxproj.filters': {
         readonly glyph: "";
         readonly color: readonly [173, 99, 188];
     };

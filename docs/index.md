@@ -66,6 +66,15 @@ Syntax-highlighted code viewer component.
 </td></tr>
 <tr><td>
 
+[@suds-cli/filetree](./filetree.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
 [@suds-cli/help](./help.md)
 
 

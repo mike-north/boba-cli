@@ -7,7 +7,7 @@
  * @public
  */
 export class RenderMarkdownMsg {
-  readonly _tag = "markdown-render";
+  readonly _tag = 'markdown-render'
 
   constructor(public readonly content: string) {}
 }
@@ -17,7 +17,7 @@ export class RenderMarkdownMsg {
  * @public
  */
 export class ErrorMsg {
-  readonly _tag = "markdown-error";
+  readonly _tag = 'markdown-error'
 
   constructor(public readonly error: Error) {}
 }

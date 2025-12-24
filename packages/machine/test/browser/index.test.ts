@@ -113,4 +113,3 @@ describe('createBrowserPlatform', () => {
     expect(platformAdapter.environment).toBeDefined()
   })
 })
-

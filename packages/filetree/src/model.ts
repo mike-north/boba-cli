@@ -1,10 +1,10 @@
-import { matches } from "@suds-cli/key";
-import { type Cmd, type Msg, KeyMsg, WindowSizeMsg } from "@suds-cli/tea";
-import type { DirectoryItem } from "./types.js";
-import { defaultKeyMap, type FiletreeKeyMap } from "./keymap.js";
-import { defaultStyles, mergeStyles, type FiletreeStyles } from "./styles.js";
-import { getDirectoryListingCmd } from "./fs.js";
-import { GetDirectoryListingMsg, ErrorMsg } from "./messages.js";
+import { matches } from '@suds-cli/key'
+import { type Cmd, type Msg, KeyMsg, WindowSizeMsg } from '@suds-cli/tea'
+import type { DirectoryItem } from './types.js'
+import { defaultKeyMap, type FiletreeKeyMap } from './keymap.js'
+import { mergeStyles, type FiletreeStyles } from './styles.js'
+import { getDirectoryListingCmd } from './fs.js'
+import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
 
 /**
  * Options for creating a new FiletreeModel.
@@ -12,17 +12,17 @@ import { GetDirectoryListingMsg, ErrorMsg } from "./messages.js";
  */
 export interface FiletreeOptions {
   /** Initial directory to display */
-  currentDir?: string;
+  currentDir?: string
   /** Whether to show hidden files */
-  showHidden?: boolean;
+  showHidden?: boolean
   /** Custom key bindings */
-  keyMap?: FiletreeKeyMap;
+  keyMap?: FiletreeKeyMap
   /** Custom styles */
-  styles?: Partial<FiletreeStyles>;
+  styles?: Partial<FiletreeStyles>
   /** Initial width */
-  width?: number;
+  width?: number
   /** Initial height */
-  height?: number;
+  height?: number
 }
 
 /**
@@ -31,40 +31,40 @@ export interface FiletreeOptions {
  */
 export class FiletreeModel {
   /** Current cursor position */
-  readonly cursor: number;
-  
+  readonly cursor: number
+
   /** Array of directory items */
-  readonly files: DirectoryItem[];
-  
+  readonly files: DirectoryItem[]
+
   /** Whether component is active and receives input */
-  readonly active: boolean;
-  
+  readonly active: boolean
+
   /** Key bindings */
-  readonly keyMap: FiletreeKeyMap;
-  
+  readonly keyMap: FiletreeKeyMap
+
   /** Minimum viewport scroll position */
-  readonly min: number;
-  
+  readonly min: number
+
   /** Maximum viewport scroll position */
-  readonly max: number;
-  
+  readonly max: number
+
   /** Component height */
-  readonly height: number;
-  
+  readonly height: number
+
   /** Component width */
-  readonly width: number;
-  
+  readonly width: number
+
   /** Styles */
-  readonly styles: FiletreeStyles;
-  
+  readonly styles: FiletreeStyles
+
   /** Current directory */
-  readonly currentDir: string;
-  
+  readonly currentDir: string
+
   /** Whether to show hidden files */
-  readonly showHidden: boolean;
-  
+  readonly showHidden: boolean
+
   /** Last error, if any */
-  readonly error: Error | null;
+  readonly error: Error | null
 
   private constructor(
     cursor: number,
@@ -80,18 +80,18 @@ export class FiletreeModel {
     showHidden: boolean,
     error: Error | null,
   ) {
-    this.cursor = cursor;
-    this.files = files;
-    this.active = active;
-    this.keyMap = keyMap;
-    this.min = min;
-    this.max = max;
-    this.height = height;
-    this.width = width;
-    this.styles = styles;
-    this.currentDir = currentDir;
-    this.showHidden = showHidden;
-    this.error = error;
+    this.cursor = cursor
+    this.files = files
+    this.active = active
+    this.keyMap = keyMap
+    this.min = min
+    this.max = max
+    this.height = height
+    this.width = width
+    this.styles = styles
+    this.currentDir = currentDir
+    this.showHidden = showHidden
+    this.error = error
   }
 
   /**
@@ -101,12 +101,12 @@ export class FiletreeModel {
    * @public
    */
   static new(options: FiletreeOptions = {}): FiletreeModel {
-    const currentDir = options.currentDir ?? process.cwd();
-    const showHidden = options.showHidden ?? false;
-    const keyMap = options.keyMap ?? defaultKeyMap;
-    const styles = mergeStyles(options.styles);
-    const width = options.width ?? 80;
-    const height = options.height ?? 24;
+    const currentDir = options.currentDir ?? process.cwd()
+    const showHidden = options.showHidden ?? false
+    const keyMap = options.keyMap ?? defaultKeyMap
+    const styles = mergeStyles(options.styles)
+    const width = options.width ?? 80
+    const height = options.height ?? 24
 
     return new FiletreeModel(
       0, // cursor
@@ -121,7 +121,7 @@ export class FiletreeModel {
       currentDir,
       showHidden,
       null, // error
-    );
+    )
   }
 
   /**
@@ -130,7 +130,7 @@ export class FiletreeModel {
    * @public
    */
   init(): Cmd<GetDirectoryListingMsg | ErrorMsg> {
-    return getDirectoryListingCmd(this.currentDir, this.showHidden);
+    return getDirectoryListingCmd(this.currentDir, this.showHidden)
   }
 
   /**
@@ -141,7 +141,7 @@ export class FiletreeModel {
    */
   setIsActive(active: boolean): FiletreeModel {
     if (this.active === active) {
-      return this;
+      return this
     }
 
     return new FiletreeModel(
@@ -157,7 +157,7 @@ export class FiletreeModel {
       this.currentDir,
       this.showHidden,
       this.error,
-    );
+    )
   }
 
   /**
@@ -169,7 +169,10 @@ export class FiletreeModel {
   update(msg: Msg): [FiletreeModel, Cmd<Msg> | null] {
     // Handle directory listing message
     if (msg instanceof GetDirectoryListingMsg) {
-      const newMax = Math.max(0, Math.min(this.height - 1, msg.items.length - 1));
+      const newMax = Math.max(
+        0,
+        Math.min(this.height - 1, msg.items.length - 1),
+      )
       return [
         new FiletreeModel(
           0, // reset cursor to top
@@ -186,7 +189,7 @@ export class FiletreeModel {
           null, // clear error
         ),
         null,
-      ];
+      ]
     }
 
     // Handle error message
@@ -207,14 +210,14 @@ export class FiletreeModel {
           msg.error,
         ),
         null,
-      ];
+      ]
     }
 
     // Handle window size message
     if (msg instanceof WindowSizeMsg) {
-      const newHeight = msg.height;
-      const newWidth = msg.width;
-      const newMax = Math.max(0, Math.min(newHeight - 1, this.files.length - 1));
+      const newHeight = msg.height
+      const newWidth = msg.width
+      const newMax = Math.max(0, Math.min(newHeight - 1, this.files.length - 1))
 
       return [
         new FiletreeModel(
@@ -232,27 +235,27 @@ export class FiletreeModel {
           this.error,
         ),
         null,
-      ];
+      ]
     }
 
     // Only handle keyboard input if active
     if (!this.active) {
-      return [this, null];
+      return [this, null]
     }
 
     // Handle keyboard input
     if (msg instanceof KeyMsg) {
       // Move down
       if (matches(msg, this.keyMap.down)) {
-        const nextCursor = Math.min(this.cursor + 1, this.files.length - 1);
-        
+        const nextCursor = Math.min(this.cursor + 1, this.files.length - 1)
+
         // Adjust viewport if needed
-        let nextMin = this.min;
-        let nextMax = this.max;
-        
+        let nextMin = this.min
+        let nextMax = this.max
+
         if (nextCursor > this.max) {
-          nextMin = this.min + 1;
-          nextMax = this.max + 1;
+          nextMin = this.min + 1
+          nextMax = this.max + 1
         }
 
         return [
@@ -271,20 +274,20 @@ export class FiletreeModel {
             this.error,
           ),
           null,
-        ];
+        ]
       }
 
       // Move up
       if (matches(msg, this.keyMap.up)) {
-        const nextCursor = Math.max(this.cursor - 1, 0);
-        
+        const nextCursor = Math.max(this.cursor - 1, 0)
+
         // Adjust viewport if needed
-        let nextMin = this.min;
-        let nextMax = this.max;
-        
+        let nextMin = this.min
+        let nextMax = this.max
+
         if (nextCursor < this.min && this.min > 0) {
-          nextMin = this.min - 1;
-          nextMax = this.max - 1;
+          nextMin = this.min - 1
+          nextMax = this.max - 1
         }
 
         return [
@@ -303,11 +306,11 @@ export class FiletreeModel {
             this.error,
           ),
           null,
-        ];
+        ]
       }
     }
 
-    return [this, null];
+    return [this, null]
   }
 
   /**
@@ -317,35 +320,37 @@ export class FiletreeModel {
    */
   view(): string {
     if (this.error) {
-      return `Error: ${this.error.message}`;
+      return `Error: ${this.error.message}`
     }
 
     if (this.files.length === 0) {
-      return "(empty directory)";
+      return '(empty directory)'
     }
 
-    const lines: string[] = [];
-    
+    const lines: string[] = []
+
     // Render visible items in viewport
     for (let i = this.min; i <= this.max && i < this.files.length; i++) {
-      const item = this.files[i];
-      if (!item) continue;
+      const item = this.files[i]
+      if (!item) continue
 
-      const isSelected = i === this.cursor;
-      const style = isSelected ? this.styles.selectedItem : this.styles.normalItem;
-      
+      const isSelected = i === this.cursor
+      const style = isSelected
+        ? this.styles.selectedItem
+        : this.styles.normalItem
+
       // Format: "name  details"
-      const line = `${item.name}  ${item.details}`;
-      lines.push(style.render(line));
+      const line = `${item.name}  ${item.details}`
+      lines.push(style.render(line))
     }
 
     // Fill remaining height with empty lines
-    const remainingLines = this.height - lines.length;
+    const remainingLines = this.height - lines.length
     for (let i = 0; i < remainingLines; i++) {
-      lines.push("");
+      lines.push('')
     }
 
-    return lines.join("\n");
+    return lines.join('\n')
   }
 
   /**
@@ -354,6 +359,6 @@ export class FiletreeModel {
    * @public
    */
   get selectedFile(): DirectoryItem | null {
-    return this.files[this.cursor] ?? null;
+    return this.files[this.cursor] ?? null
   }
 }

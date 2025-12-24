@@ -20,9 +20,14 @@ A self-contained help bubble component with a scrollable viewport for displaying
 ```ts
 import { HelpBubble } from '@suds-cli/help'
 
-const bubble = HelpBubble.new(true, 'Keyboard Shortcuts', { foreground: '#f8f8f2', background: '#6272a4' }, [
-  { key: '↑/↓', description: 'Navigate' },
-  { key: 'enter', description: 'Select' },
-  { key: 'q', description: 'Quit' },
-])
+const bubble = HelpBubble.new(
+  true,
+  'Keyboard Shortcuts',
+  { foreground: '#f8f8f2', background: '#6272a4' },
+  [
+    { key: '↑/↓', description: 'Navigate' },
+    { key: 'enter', description: 'Select' },
+    { key: 'q', description: 'Quit' },
+  ],
+)
 ```

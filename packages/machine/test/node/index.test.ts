@@ -106,4 +106,3 @@ describe('createNodePlatform', () => {
     expect(platformAdapter.environment).toBeDefined()
   })
 })
-

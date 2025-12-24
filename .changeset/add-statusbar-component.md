@@ -1,6 +1,6 @@
 ---
-"@suds-cli/statusbar": minor
-"@suds-cli/examples": patch
+'@suds-cli/statusbar': minor
+'@suds-cli/examples': patch
 ---
 
 Add statusbar component - a 4-column status bar for terminal UIs ported from teacup.
