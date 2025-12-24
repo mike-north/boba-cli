@@ -6,9 +6,7 @@
 
 import { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
-import type { FileSystemAdapter } from '@suds-cli/machine';
 import { Msg } from '@suds-cli/tea';
-import type { PathAdapter } from '@suds-cli/machine';
 import { Style } from '@suds-cli/chapstick';
 
 // @public
@@ -55,14 +53,12 @@ export class FiletreeModel {
     readonly cursor: number;
     readonly error: Error | null;
     readonly files: DirectoryItem[];
-    readonly filesystem: FileSystemAdapter;
     readonly height: number;
     init(): Cmd<GetDirectoryListingMsg | ErrorMsg>;
     readonly keyMap: FiletreeKeyMap;
     readonly max: number;
     readonly min: number;
-    static new(options: FiletreeOptions): FiletreeModel;
-    readonly path: PathAdapter;
+    static new(options?: FiletreeOptions): FiletreeModel;
     get selectedFile(): DirectoryItem | null;
     setIsActive(active: boolean): FiletreeModel;
     readonly showHidden: boolean;
@@ -75,10 +71,8 @@ export class FiletreeModel {
 // @public
 export interface FiletreeOptions {
     currentDir?: string;
-    filesystem: FileSystemAdapter;
     height?: number;
     keyMap?: FiletreeKeyMap;
-    path: PathAdapter;
     showHidden?: boolean;
     styles?: Partial<FiletreeStyles>;
     width?: number;
@@ -91,7 +85,7 @@ export interface FiletreeStyles {
 }
 
 // @public
-export function getDirectoryListingCmd(filesystem: FileSystemAdapter, path: PathAdapter, dir: string, showHidden: boolean): Cmd<GetDirectoryListingMsg | ErrorMsg>;
+export function getDirectoryListingCmd(dir: string, showHidden: boolean): Cmd<GetDirectoryListingMsg | ErrorMsg>;
 
 // @public
 export class GetDirectoryListingMsg {

@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@suds-cli/code": "workspace:*",
+    "@suds-cli/icons": "workspace:*",
+    "@suds-cli/markdown": "workspace:*",
+    "@suds-cli/statusbar": "workspace:*",
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/code": "workspace:*",
     "@suds-cli/filepicker": "workspace:*",

@@ -142,27 +142,6 @@ Array of directory items
 </td></tr>
 <tr><td>
 
-[filesystem](./filetree.filetreemodel.filesystem.md)
-
-
-</td><td>
-
-`readonly`
-
-
-</td><td>
-
-[FileSystemAdapter](./machine.filesystemadapter.md)
-
-
-</td><td>
-
-FileSystem adapter
-
-
-</td></tr>
-<tr><td>
-
 [height](./filetree.filetreemodel.height.md)
 
 
@@ -242,27 +221,6 @@ number
 </td><td>
 
 Minimum viewport scroll position
-
-
-</td></tr>
-<tr><td>
-
-[path](./filetree.filetreemodel.path.md)
-
-
-</td><td>
-
-`readonly`
-
-
-</td><td>
-
-[PathAdapter](./machine.pathadapter.md)
-
-
-</td><td>
-
-Path adapter
 
 
 </td></tr>

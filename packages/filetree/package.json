@@ -23,6 +23,7 @@
     "@suds-cli/tea": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^24.10.2",
     "typescript": "5.8.2",
     "vitest": "^4.0.15"
   },
