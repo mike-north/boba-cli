@@ -36,7 +36,9 @@ describe('NodeClipboardAdapter', () => {
       expect(typeof available).toBe('boolean')
     })
 
-    it('marks clipboard as unavailable after runtime error', async () => {
+    it('marks clipboard as unavailable after runtime error [graceful-degradation]', async () => {
+      // This test validates graceful degradation behavior
+      // Run this in CI environments without clipboard binaries to verify degradation works
       // If clipboardy fails at runtime (e.g., missing xsel), subsequent isAvailable() should return false
       const adapter = new NodeClipboardAdapter()
       
@@ -67,7 +69,9 @@ describe('NodeClipboardAdapter', () => {
       expect(mockClipboard.read).toHaveBeenCalledTimes(1)
     })
 
-    it('throws error when clipboard is not available', async () => {
+    it('throws error when clipboard is not available [graceful-degradation]', async () => {
+      // This test validates graceful degradation behavior
+      // It should pass both with and without clipboard binaries available
       // Create adapter without mock - it will try to load clipboardy
       // In CI environments, clipboardy may be installed but fail at runtime
       // (e.g., missing xsel binary on Linux), which is acceptable
@@ -122,7 +126,9 @@ describe('NodeClipboardAdapter', () => {
       expect(mockClipboard.write).toHaveBeenCalledTimes(1)
     })
 
-    it('throws error when clipboard is not available', async () => {
+    it('throws error when clipboard is not available [graceful-degradation]', async () => {
+      // This test validates graceful degradation behavior
+      // It should pass both with and without clipboard binaries available
       const adapter = new NodeClipboardAdapter()
       
       // This test verifies the error handling path

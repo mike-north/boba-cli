@@ -18,6 +18,7 @@
     "clean": "rm -rf dist",
     "build": "pnpm run clean && tsc -p ./tsconfig.json",
     "test": "vitest run",
+    "test:graceful-degradation": "vitest run -t \"\\[graceful-degradation\\]\"",
     "generate:api-report": "api-extractor run --local",
     "check:api-report": "api-extractor run",
     "lint": "eslint \"{src,test}/**/*.{ts,tsx}\""

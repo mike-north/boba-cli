@@ -9,6 +9,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    outputs:
+      non_markdown_changed: ${{ steps.changed-files.outputs.non_markdown_any_changed }}
 
     steps:
       - name: Checkout
@@ -44,6 +46,11 @@ jobs:
           restore-keys: |
             nx-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'nx.json') }}-
 
+      - name: Install clipboard binaries (xsel/xclip)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xsel xclip
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -56,4 +63,64 @@ jobs:
       - name: Test
         if: steps.changed-files.outputs.non_markdown_any_changed == 'true'
         run: pnpm test
+
+  test-graceful-degradation:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    # Only run if build-and-test passed and there are non-markdown changes
+    if: success() && needs.build-and-test.outputs.non_markdown_changed == 'true'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files_yaml: |
+            markdown:
+              - '**/*.md'
+            non_markdown:
+              - '**'
+              - '!**/*.md'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Cache NX
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'nx.json') }}-${{ github.sha }}
+          restore-keys: |
+            nx-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'nx.json') }}-
+
+      - name: Verify clipboard binaries are NOT installed
+        run: |
+          if command -v xsel &> /dev/null || command -v xclip &> /dev/null; then
+            echo "ERROR: Clipboard binaries found! They should not be installed for graceful degradation testing."
+            exit 1
+          fi
+          echo "✓ Clipboard binaries not found (as expected)"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test graceful degradation
+        if: steps.changed-files.outputs.non_markdown_any_changed == 'true'
+        run: |
+          # Run graceful degradation tests for machine package
+          cd packages/machine && pnpm test:graceful-degradation
 
