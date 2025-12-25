@@ -1,6 +1,5 @@
 import { matches } from '@suds-cli/key'
 import { type Cmd, type Msg, KeyMsg, WindowSizeMsg } from '@suds-cli/tea'
-import type { FileSystemAdapter, PathAdapter } from '@suds-cli/machine'
 import type { DirectoryItem } from './types.js'
 import { defaultKeyMap, type FiletreeKeyMap } from './keymap.js'
 import { mergeStyles, type FiletreeStyles } from './styles.js'
@@ -12,10 +11,6 @@ import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
  * @public
  */
 export interface FiletreeOptions {
-  /** FileSystem adapter for file operations */
-  filesystem: FileSystemAdapter
-  /** Path adapter for path operations */
-  path: PathAdapter
   /** Initial directory to display */
   currentDir?: string
   /** Whether to show hidden files */
@@ -71,12 +66,6 @@ export class FiletreeModel {
   /** Last error, if any */
   readonly error: Error | null
 
-  /** FileSystem adapter */
-  readonly filesystem: FileSystemAdapter
-
-  /** Path adapter */
-  readonly path: PathAdapter
-
   private constructor(
     cursor: number,
     files: DirectoryItem[],
@@ -90,8 +79,6 @@ export class FiletreeModel {
     currentDir: string,
     showHidden: boolean,
     error: Error | null,
-    filesystem: FileSystemAdapter,
-    path: PathAdapter,
   ) {
     this.cursor = cursor
     this.files = files
@@ -105,8 +92,6 @@ export class FiletreeModel {
     this.currentDir = currentDir
     this.showHidden = showHidden
     this.error = error
-    this.filesystem = filesystem
-    this.path = path
   }
 
   /**
@@ -115,8 +100,8 @@ export class FiletreeModel {
    * @returns A new FiletreeModel instance
    * @public
    */
-  static new(options: FiletreeOptions): FiletreeModel {
-    const currentDir = options.currentDir ?? options.filesystem.cwd()
+  static new(options: FiletreeOptions = {}): FiletreeModel {
+    const currentDir = options.currentDir ?? process.cwd()
     const showHidden = options.showHidden ?? false
     const keyMap = options.keyMap ?? defaultKeyMap
     const styles = mergeStyles(options.styles)
@@ -136,8 +121,6 @@ export class FiletreeModel {
       currentDir,
       showHidden,
       null, // error
-      options.filesystem,
-      options.path,
     )
   }
 
@@ -146,13 +129,8 @@ export class FiletreeModel {
    * @returns Command to load directory listing
    * @public
    */
-  init(): Cmd<GetDirectoryListingMsg | ErrorMsg> {
-    return getDirectoryListingCmd(
-      this.filesystem,
-      this.path,
-      this.currentDir,
-      this.showHidden,
-    )
+  init(): Cmd<Msg> {
+    return getDirectoryListingCmd(this.currentDir, this.showHidden)
   }
 
   /**
@@ -179,8 +157,6 @@ export class FiletreeModel {
       this.currentDir,
       this.showHidden,
       this.error,
-      this.filesystem,
-      this.path,
     )
   }
 
@@ -211,8 +187,6 @@ export class FiletreeModel {
           this.currentDir,
           this.showHidden,
           null, // clear error
-          this.filesystem,
-          this.path,
         ),
         null,
       ]
@@ -234,8 +208,6 @@ export class FiletreeModel {
           this.currentDir,
           this.showHidden,
           msg.error,
-          this.filesystem,
-          this.path,
         ),
         null,
       ]
@@ -245,38 +217,23 @@ export class FiletreeModel {
     if (msg instanceof WindowSizeMsg) {
       const newHeight = msg.height
       const newWidth = msg.width
-
-      // Clamp cursor to valid range
-      const maxValidCursor = Math.max(0, this.files.length - 1)
-      const newCursor = Math.min(this.cursor, maxValidCursor)
-
-      // Calculate viewport size (can't be larger than file count)
-      const viewportSize = Math.min(newHeight, this.files.length)
-
-      // Adjust min to keep cursor visible within the new viewport
-      // Cursor should be between newMin and newMin + viewportSize - 1
-      let newMin = this.min
-
-      // If cursor is before the viewport, move viewport up
-      if (newCursor < newMin) {
-        newMin = newCursor
-      }
-
-      // If cursor is after the viewport, move viewport down
-      const maxVisibleIndex = newMin + viewportSize - 1
-      if (newCursor > maxVisibleIndex) {
-        newMin = newCursor - viewportSize + 1
-      }
-
-      // Ensure min doesn't go negative
-      newMin = Math.max(0, newMin)
-
-      // Calculate max based on min and viewport size
-      const newMax = Math.min(newMin + viewportSize - 1, this.files.length - 1)
+      const newMax = Math.max(0, Math.min(newHeight - 1, this.files.length - 1))
+      
+      // Clamp cursor position if it falls outside new viewport bounds
+      const adjustedCursor = Math.min(
+        this.cursor,
+        Math.max(0, this.files.length - 1),
+      )
+      
+      // Adjust viewport min to keep cursor visible after resize
+      const newMin = Math.min(
+        this.min,
+        Math.max(0, adjustedCursor - (newHeight - 1)),
+      )
 
       return [
         new FiletreeModel(
-          newCursor,
+          adjustedCursor,
           this.files,
           this.active,
           this.keyMap,
@@ -288,8 +245,6 @@ export class FiletreeModel {
           this.currentDir,
           this.showHidden,
           this.error,
-          this.filesystem,
-          this.path,
         ),
         null,
       ]
@@ -304,10 +259,6 @@ export class FiletreeModel {
     if (msg instanceof KeyMsg) {
       // Move down
       if (matches(msg, this.keyMap.down)) {
-        // Don't navigate if list is empty
-        if (this.files.length === 0) {
-          return [this, null]
-        }
         const nextCursor = Math.min(this.cursor + 1, this.files.length - 1)
 
         // Adjust viewport if needed
@@ -333,8 +284,6 @@ export class FiletreeModel {
             this.currentDir,
             this.showHidden,
             this.error,
-            this.filesystem,
-            this.path,
           ),
           null,
         ]
@@ -342,10 +291,6 @@ export class FiletreeModel {
 
       // Move up
       if (matches(msg, this.keyMap.up)) {
-        // Don't navigate if list is empty
-        if (this.files.length === 0) {
-          return [this, null]
-        }
         const nextCursor = Math.max(this.cursor - 1, 0)
 
         // Adjust viewport if needed
@@ -371,8 +316,6 @@ export class FiletreeModel {
             this.currentDir,
             this.showHidden,
             this.error,
-            this.filesystem,
-            this.path,
           ),
           null,
         ]
