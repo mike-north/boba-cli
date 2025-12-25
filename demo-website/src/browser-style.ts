@@ -1,11 +1,11 @@
 /**
- * Browser style utilities for suds-cli demos.
+ * Browser style utilities for boba-cli demos.
  * Provides a StyleContext with full color support for xterm.js.
  */
 
-import { createAlwaysEnabledStyle } from '@suds-cli/machine'
-import { Style, setDefaultContext, type StyleContext } from '@suds-cli/chapstick'
-import type { EnvironmentAdapter, ColorSupport } from '@suds-cli/machine'
+import { createAlwaysEnabledStyle } from '@boba-cli/machine'
+import { Style, setDefaultContext, type StyleContext } from '@boba-cli/chapstick'
+import type { EnvironmentAdapter, ColorSupport } from '@boba-cli/machine'
 
 // Browser environment adapter with full color support
 const browserEnv: EnvironmentAdapter = {
@@ -20,7 +20,7 @@ const browserEnv: EnvironmentAdapter = {
 }
 
 // Style context for browser with full color support
-const browserStyleContext: StyleContext = {
+export const browserStyleContext: StyleContext = {
   env: browserEnv,
   styleFn: createAlwaysEnabledStyle(),
 }
@@ -34,4 +34,11 @@ setDefaultContext(browserStyleContext)
  */
 export function createStyle(): Style {
   return new Style({}, undefined, browserStyleContext)
+}
+
+/**
+ * Wrap an existing style with browser color context.
+ */
+export function withBrowserContext(style: Style): Style {
+  return style.withContext(browserStyleContext)
 }
