@@ -20,7 +20,7 @@ const browserEnv: EnvironmentAdapter = {
 }
 
 // Style context for browser with full color support
-export const browserStyleContext: StyleContext = {
+const browserStyleContext: StyleContext = {
   env: browserEnv,
   styleFn: createAlwaysEnabledStyle(),
 }
@@ -36,9 +36,3 @@ export function createStyle(): Style {
   return new Style({}, undefined, browserStyleContext)
 }
 
-/**
- * Wrap an existing style with browser color context.
- */
-export function withBrowserContext(style: Style): Style {
-  return style.withContext(browserStyleContext)
-}
