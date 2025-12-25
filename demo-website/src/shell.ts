@@ -270,7 +270,7 @@ class ShellModel implements Model<Msg, ShellModel> {
 /**
  * Shell runner - manages the shell and demo lifecycle.
  */
-class ShellRunner {
+export class ShellRunner {
   private terminal: Terminal
   private platform: ReturnType<typeof createBrowserPlatform>
   private shellProgram: Program<ShellModel> | null = null
