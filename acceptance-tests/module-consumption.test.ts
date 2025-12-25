@@ -2,8 +2,8 @@
  * Acceptance tests for CJS and ESM module consumption.
  *
  * These tests validate that:
- * 1. All @suds-cli packages can be consumed via CommonJS (require)
- * 2. All @suds-cli packages can be consumed via ESM (import)
+ * 1. All @boba-cli packages can be consumed via CommonJS (require)
+ * 2. All @boba-cli packages can be consumed via ESM (import)
  * 3. TypeScript types work correctly in both module systems
  */
 
@@ -95,9 +95,9 @@ describe('CJS Module Consumption', () => {
       typescript: '5.8.2',
     }
 
-    // Link all @suds-cli packages
+    // Link all @boba-cli packages
     for (const pkg of PACKAGES) {
-      project.linkDependency(`@suds-cli/${pkg}`, {
+      project.linkDependency(`@boba-cli/${pkg}`, {
         target: path.join(ROOT_DIR, 'packages', pkg),
       })
     }
@@ -163,9 +163,9 @@ describe('ESM Module Consumption', () => {
       typescript: '5.8.2',
     }
 
-    // Link all @suds-cli packages
+    // Link all @boba-cli packages
     for (const pkg of PACKAGES) {
-      project.linkDependency(`@suds-cli/${pkg}`, {
+      project.linkDependency(`@boba-cli/${pkg}`, {
         target: path.join(ROOT_DIR, 'packages', pkg),
       })
     }
@@ -224,8 +224,8 @@ describe('Machine package subpath exports', () => {
         src: {
           'index.ts': `
 // Test machine package subpath exports (CJS)
-import type { PlatformAdapter } from '@suds-cli/machine'
-import { createNodePlatform } from '@suds-cli/machine/node'
+import type { PlatformAdapter } from '@boba-cli/machine'
+import { createNodePlatform } from '@boba-cli/machine/node'
 
 // Type check - this should compile without errors
 const _typeCheck: PlatformAdapter = {} as PlatformAdapter
@@ -239,7 +239,7 @@ console.log('Machine subpath CJS imports successful')
 
     cjsProject.pkg.type = 'commonjs'
     cjsProject.pkg.devDependencies = { typescript: '5.8.2' }
-    cjsProject.linkDependency('@suds-cli/machine', {
+    cjsProject.linkDependency('@boba-cli/machine', {
       target: path.join(ROOT_DIR, 'packages', 'machine'),
     })
 
@@ -270,8 +270,8 @@ console.log('Machine subpath CJS imports successful')
         src: {
           'index.ts': `
 // Test machine package subpath exports (ESM)
-import type { PlatformAdapter } from '@suds-cli/machine'
-import { createNodePlatform } from '@suds-cli/machine/node'
+import type { PlatformAdapter } from '@boba-cli/machine'
+import { createNodePlatform } from '@boba-cli/machine/node'
 
 // Type check - this should compile without errors
 const _typeCheck: PlatformAdapter = {} as PlatformAdapter
@@ -285,7 +285,7 @@ console.log('Machine subpath ESM imports successful')
 
     esmProject.pkg.type = 'module'
     esmProject.pkg.devDependencies = { typescript: '5.8.2' }
-    esmProject.linkDependency('@suds-cli/machine', {
+    esmProject.linkDependency('@boba-cli/machine', {
       target: path.join(ROOT_DIR, 'packages', 'machine'),
     })
 
@@ -315,15 +315,15 @@ console.log('Machine subpath ESM imports successful')
 
 function generateCjsTestFile(): string {
   const imports = PACKAGES.map(
-    (pkg) => `import * as ${toCamelCase(pkg)} from '@suds-cli/${pkg}'`,
+    (pkg) => `import * as ${toCamelCase(pkg)} from '@boba-cli/${pkg}'`,
   ).join('\n')
 
   const checks = PACKAGES.map(
-    (pkg) => `console.log('@suds-cli/${pkg}:', typeof ${toCamelCase(pkg)})`,
+    (pkg) => `console.log('@boba-cli/${pkg}:', typeof ${toCamelCase(pkg)})`,
   ).join('\n')
 
   return `
-// Test all @suds-cli packages can be imported via CJS
+// Test all @boba-cli packages can be imported via CJS
 ${imports}
 
 ${checks}
@@ -334,15 +334,15 @@ console.log('All CJS imports successful')
 
 function generateEsmTestFile(): string {
   const imports = PACKAGES.map(
-    (pkg) => `import * as ${toCamelCase(pkg)} from '@suds-cli/${pkg}'`,
+    (pkg) => `import * as ${toCamelCase(pkg)} from '@boba-cli/${pkg}'`,
   ).join('\n')
 
   const checks = PACKAGES.map(
-    (pkg) => `console.log('@suds-cli/${pkg}:', typeof ${toCamelCase(pkg)})`,
+    (pkg) => `console.log('@boba-cli/${pkg}:', typeof ${toCamelCase(pkg)})`,
   ).join('\n')
 
   return `
-// Test all @suds-cli packages can be imported via ESM
+// Test all @boba-cli packages can be imported via ESM
 ${imports}
 
 ${checks}

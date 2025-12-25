@@ -1,6 +1,6 @@
-import { Style, joinVertical, joinHorizontal } from '@suds-cli/chapstick'
-import { ViewportModel } from '@suds-cli/viewport'
-import { type Cmd, type Msg } from '@suds-cli/tea'
+import { Style, joinVertical, joinHorizontal } from '@boba-cli/chapstick'
+import { ViewportModel } from '@boba-cli/viewport'
+import { type Cmd, type Msg } from '@boba-cli/tea'
 import type { Entry, TitleColor } from './bubble-types.js'
 
 const KEY_WIDTH = 12

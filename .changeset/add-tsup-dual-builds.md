@@ -1,28 +1,28 @@
 ---
-'@suds-cli/chapstick': minor
-'@suds-cli/code': minor
-'@suds-cli/cursor': minor
-'@suds-cli/filepicker': minor
-'@suds-cli/filesystem': minor
-'@suds-cli/filetree': minor
-'@suds-cli/help': minor
-'@suds-cli/icons': minor
-'@suds-cli/key': minor
-'@suds-cli/list': minor
-'@suds-cli/machine': minor
-'@suds-cli/markdown': minor
-'@suds-cli/paginator': minor
-'@suds-cli/progress': minor
-'@suds-cli/runeutil': minor
-'@suds-cli/spinner': minor
-'@suds-cli/statusbar': minor
-'@suds-cli/stopwatch': minor
-'@suds-cli/table': minor
-'@suds-cli/tea': minor
-'@suds-cli/textarea': minor
-'@suds-cli/textinput': minor
-'@suds-cli/timer': minor
-'@suds-cli/viewport': minor
+'@boba-cli/chapstick': minor
+'@boba-cli/code': minor
+'@boba-cli/cursor': minor
+'@boba-cli/filepicker': minor
+'@boba-cli/filesystem': minor
+'@boba-cli/filetree': minor
+'@boba-cli/help': minor
+'@boba-cli/icons': minor
+'@boba-cli/key': minor
+'@boba-cli/list': minor
+'@boba-cli/machine': minor
+'@boba-cli/markdown': minor
+'@boba-cli/paginator': minor
+'@boba-cli/progress': minor
+'@boba-cli/runeutil': minor
+'@boba-cli/spinner': minor
+'@boba-cli/statusbar': minor
+'@boba-cli/stopwatch': minor
+'@boba-cli/table': minor
+'@boba-cli/tea': minor
+'@boba-cli/textarea': minor
+'@boba-cli/textinput': minor
+'@boba-cli/timer': minor
+'@boba-cli/viewport': minor
 ---
 
 Add dual CJS/ESM builds using tsup bundler

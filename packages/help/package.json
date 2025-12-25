@@ -1,12 +1,12 @@
 {
-  "name": "@suds-cli/help",
-  "description": "Help components for Suds terminal UIs: key binding renderer and scrollable help bubble",
+  "name": "@boba-cli/help",
+  "description": "Help components for Boba terminal UIs: key binding renderer and scrollable help bubble",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/tea": "workspace:*",
-    "@suds-cli/viewport": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
+    "@boba-cli/viewport": "workspace:*"
   },
   "devDependencies": {
     "typescript": "5.8.2",

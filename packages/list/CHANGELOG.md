@@ -1,4 +1,4 @@
-# @suds-cli/list
+# @boba-cli/list
 
 ## 0.1.0-alpha.2
 
@@ -29,12 +29,12 @@
 ### Patch Changes
 
 - Updated dependencies [[`0756ee8`](https://github.com/mike-north/suds-cli/commit/0756ee87bd7470589cdd0181fab0573a90fe3c2d), [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca)]:
-  - @suds-cli/chapstick@0.1.0-alpha.1
-  - @suds-cli/help@0.1.0-alpha.1
-  - @suds-cli/key@0.1.0-alpha.0
-  - @suds-cli/paginator@0.1.0-alpha.0
-  - @suds-cli/spinner@0.1.0-alpha.1
-  - @suds-cli/tea@0.1.0-alpha.0
+  - @boba-cli/chapstick@0.1.0-alpha.1
+  - @boba-cli/help@0.1.0-alpha.1
+  - @boba-cli/key@0.1.0-alpha.0
+  - @boba-cli/paginator@0.1.0-alpha.0
+  - @boba-cli/spinner@0.1.0-alpha.1
+  - @boba-cli/tea@0.1.0-alpha.0
 
 ## 0.0.1-alpha.0
 
@@ -44,7 +44,7 @@
 
   Introduces a `StyleProvider` abstraction layer for style creation, addressing ES module mocking limitations that prevent reliable unit testing.
 
-  **Core changes to @suds-cli/chapstick:**
+  **Core changes to @boba-cli/chapstick:**
   - New `StyleProvider` interface with `createStyle()` and `semanticStyles` accessors
   - `ChapstickStyleProvider` as the default implementation
   - `SemanticStyles` interface for success/error/warning/info/muted/highlight/header styles
@@ -57,6 +57,6 @@
   All existing APIs remain backward compatible with default parameters.
 
 - Updated dependencies [[`a7fe6ab`](https://github.com/mike-north/suds-cli/commit/a7fe6aba10a7074b90a9f9febdd04432d26888c1), [`a7fe6ab`](https://github.com/mike-north/suds-cli/commit/a7fe6aba10a7074b90a9f9febdd04432d26888c1), [`efe85ab`](https://github.com/mike-north/suds-cli/commit/efe85ab594594a348db08c32d73afddcc52bc175)]:
-  - @suds-cli/chapstick@0.1.0-alpha.0
-  - @suds-cli/help@0.1.0-alpha.0
-  - @suds-cli/spinner@0.0.1-alpha.0
+  - @boba-cli/chapstick@0.1.0-alpha.0
+  - @boba-cli/help@0.1.0-alpha.0
+  - @boba-cli/spinner@0.0.1-alpha.0

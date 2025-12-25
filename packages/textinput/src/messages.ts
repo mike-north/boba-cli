@@ -1,5 +1,5 @@
 import clipboard from 'clipboardy'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 /**
  * Clipboard paste content.

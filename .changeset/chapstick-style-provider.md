@@ -1,15 +1,15 @@
 ---
-'@suds-cli/chapstick': minor
-'@suds-cli/help': patch
-'@suds-cli/table': patch
-'@suds-cli/list': patch
+'@boba-cli/chapstick': minor
+'@boba-cli/help': patch
+'@boba-cli/table': patch
+'@boba-cli/list': patch
 ---
 
 Add dependency injection for Style providers to enable testability
 
 Introduces a `StyleProvider` abstraction layer for style creation, addressing ES module mocking limitations that prevent reliable unit testing.
 
-**Core changes to @suds-cli/chapstick:**
+**Core changes to @boba-cli/chapstick:**
 
 - New `StyleProvider` interface with `createStyle()` and `semanticStyles` accessors
 - `ChapstickStyleProvider` as the default implementation

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { StatusbarModel, Height } from '../src/model.js'
 import type { ColorConfig } from '../src/types.js'
-import { WindowSizeMsg } from '@suds-cli/tea'
+import { WindowSizeMsg } from '@boba-cli/tea'
 
 describe('StatusbarModel', () => {
   const defaultColors: ColorConfig = {

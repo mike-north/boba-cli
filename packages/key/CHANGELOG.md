@@ -1,4 +1,4 @@
-# @suds-cli/key
+# @boba-cli/key
 
 ## 0.1.0-alpha.1
 

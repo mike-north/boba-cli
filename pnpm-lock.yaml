@@ -91,34 +91,34 @@ importers:
 
   demo-website:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../packages/chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../packages/key
-      '@suds-cli/list':
+      '@boba-cli/list':
         specifier: workspace:*
         version: link:../packages/list
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../packages/machine
-      '@suds-cli/progress':
+      '@boba-cli/progress':
         specifier: workspace:*
         version: link:../packages/progress
-      '@suds-cli/spinner':
+      '@boba-cli/spinner':
         specifier: workspace:*
         version: link:../packages/spinner
-      '@suds-cli/stopwatch':
+      '@boba-cli/stopwatch':
         specifier: workspace:*
         version: link:../packages/stopwatch
-      '@suds-cli/table':
+      '@boba-cli/table':
         specifier: workspace:*
         version: link:../packages/table
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../packages/tea
-      '@suds-cli/timer':
+      '@boba-cli/timer':
         specifier: workspace:*
         version: link:../packages/timer
       '@xterm/addon-fit':
@@ -137,70 +137,70 @@ importers:
 
   examples:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../packages/chapstick
-      '@suds-cli/code':
+      '@boba-cli/code':
         specifier: workspace:*
         version: link:../packages/code
-      '@suds-cli/dsl':
+      '@boba-cli/dsl':
         specifier: workspace:*
         version: link:../packages/dsl
-      '@suds-cli/filepicker':
+      '@boba-cli/filepicker':
         specifier: workspace:*
         version: link:../packages/filepicker
-      '@suds-cli/filetree':
+      '@boba-cli/filetree':
         specifier: workspace:*
         version: link:../packages/filetree
-      '@suds-cli/help':
+      '@boba-cli/help':
         specifier: workspace:*
         version: link:../packages/help
-      '@suds-cli/icons':
+      '@boba-cli/icons':
         specifier: workspace:*
         version: link:../packages/icons
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../packages/key
-      '@suds-cli/list':
+      '@boba-cli/list':
         specifier: workspace:*
         version: link:../packages/list
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../packages/machine
-      '@suds-cli/markdown':
+      '@boba-cli/markdown':
         specifier: workspace:*
         version: link:../packages/markdown
-      '@suds-cli/paginator':
+      '@boba-cli/paginator':
         specifier: workspace:*
         version: link:../packages/paginator
-      '@suds-cli/progress':
+      '@boba-cli/progress':
         specifier: workspace:*
         version: link:../packages/progress
-      '@suds-cli/spinner':
+      '@boba-cli/spinner':
         specifier: workspace:*
         version: link:../packages/spinner
-      '@suds-cli/statusbar':
+      '@boba-cli/statusbar':
         specifier: workspace:*
         version: link:../packages/statusbar
-      '@suds-cli/stopwatch':
+      '@boba-cli/stopwatch':
         specifier: workspace:*
         version: link:../packages/stopwatch
-      '@suds-cli/table':
+      '@boba-cli/table':
         specifier: workspace:*
         version: link:../packages/table
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../packages/tea
-      '@suds-cli/textarea':
+      '@boba-cli/textarea':
         specifier: workspace:*
         version: link:../packages/textarea
-      '@suds-cli/textinput':
+      '@boba-cli/textinput':
         specifier: workspace:*
         version: link:../packages/textinput
-      '@suds-cli/timer':
+      '@boba-cli/timer':
         specifier: workspace:*
         version: link:../packages/timer
-      '@suds-cli/viewport':
+      '@boba-cli/viewport':
         specifier: workspace:*
         version: link:../packages/viewport
     devDependencies:
@@ -211,9 +211,94 @@ importers:
         specifier: ^4.21.0
         version: 4.21.0
 
+  packages/boba-cli:
+    dependencies:
+      '@boba-cli/chapstick':
+        specifier: workspace:*
+        version: link:../chapstick
+      '@boba-cli/code':
+        specifier: workspace:*
+        version: link:../code
+      '@boba-cli/cursor':
+        specifier: workspace:*
+        version: link:../cursor
+      '@boba-cli/dsl':
+        specifier: workspace:*
+        version: link:../dsl
+      '@boba-cli/filepicker':
+        specifier: workspace:*
+        version: link:../filepicker
+      '@boba-cli/filesystem':
+        specifier: workspace:*
+        version: link:../filesystem
+      '@boba-cli/filetree':
+        specifier: workspace:*
+        version: link:../filetree
+      '@boba-cli/help':
+        specifier: workspace:*
+        version: link:../help
+      '@boba-cli/icons':
+        specifier: workspace:*
+        version: link:../icons
+      '@boba-cli/key':
+        specifier: workspace:*
+        version: link:../key
+      '@boba-cli/list':
+        specifier: workspace:*
+        version: link:../list
+      '@boba-cli/machine':
+        specifier: workspace:*
+        version: link:../machine
+      '@boba-cli/markdown':
+        specifier: workspace:*
+        version: link:../markdown
+      '@boba-cli/paginator':
+        specifier: workspace:*
+        version: link:../paginator
+      '@boba-cli/progress':
+        specifier: workspace:*
+        version: link:../progress
+      '@boba-cli/runeutil':
+        specifier: workspace:*
+        version: link:../runeutil
+      '@boba-cli/spinner':
+        specifier: workspace:*
+        version: link:../spinner
+      '@boba-cli/statusbar':
+        specifier: workspace:*
+        version: link:../statusbar
+      '@boba-cli/stopwatch':
+        specifier: workspace:*
+        version: link:../stopwatch
+      '@boba-cli/table':
+        specifier: workspace:*
+        version: link:../table
+      '@boba-cli/tea':
+        specifier: workspace:*
+        version: link:../tea
+      '@boba-cli/textarea':
+        specifier: workspace:*
+        version: link:../textarea
+      '@boba-cli/textinput':
+        specifier: workspace:*
+        version: link:../textinput
+      '@boba-cli/timer':
+        specifier: workspace:*
+        version: link:../timer
+      '@boba-cli/viewport':
+        specifier: workspace:*
+        version: link:../viewport
+    devDependencies:
+      '@types/node':
+        specifier: ^24.10.2
+        version: 24.10.2
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
+
   packages/chapstick:
     dependencies:
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
       string-width:
@@ -235,19 +320,19 @@ importers:
 
   packages/code:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/filesystem':
+      '@boba-cli/filesystem':
         specifier: workspace:*
         version: link:../filesystem
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
-      '@suds-cli/viewport':
+      '@boba-cli/viewport':
         specifier: workspace:*
         version: link:../viewport
       shiki:
@@ -266,10 +351,10 @@ importers:
 
   packages/cursor:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -282,19 +367,19 @@ importers:
 
   packages/dsl:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/spinner':
+      '@boba-cli/spinner':
         specifier: workspace:*
         version: link:../spinner
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
-      '@suds-cli/textinput':
+      '@boba-cli/textinput':
         specifier: workspace:*
         version: link:../textinput
     devDependencies:
@@ -310,19 +395,19 @@ importers:
 
   packages/filepicker:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/help':
+      '@boba-cli/help':
         specifier: workspace:*
         version: link:../help
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -338,7 +423,7 @@ importers:
 
   packages/filesystem:
     dependencies:
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
     devDependencies:
@@ -351,16 +436,16 @@ importers:
 
   packages/filetree:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -376,16 +461,16 @@ importers:
 
   packages/help:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
-      '@suds-cli/viewport':
+      '@boba-cli/viewport':
         specifier: workspace:*
         version: link:../viewport
     devDependencies:
@@ -416,22 +501,22 @@ importers:
 
   packages/list:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/help':
+      '@boba-cli/help':
         specifier: workspace:*
         version: link:../help
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/paginator':
+      '@boba-cli/paginator':
         specifier: workspace:*
         version: link:../paginator
-      '@suds-cli/spinner':
+      '@boba-cli/spinner':
         specifier: workspace:*
         version: link:../spinner
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
       fuzzysort:
@@ -487,19 +572,19 @@ importers:
 
   packages/markdown:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/filesystem':
+      '@boba-cli/filesystem':
         specifier: workspace:*
         version: link:../filesystem
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
-      '@suds-cli/viewport':
+      '@boba-cli/viewport':
         specifier: workspace:*
         version: link:../viewport
       marked:
@@ -518,10 +603,10 @@ importers:
 
   packages/paginator:
     dependencies:
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -534,10 +619,10 @@ importers:
 
   packages/progress:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -563,10 +648,10 @@ importers:
 
   packages/spinner:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -579,10 +664,10 @@ importers:
 
   packages/statusbar:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -595,7 +680,7 @@ importers:
 
   packages/stopwatch:
     dependencies:
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -608,13 +693,13 @@ importers:
 
   packages/table:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -627,7 +712,7 @@ importers:
 
   packages/tea:
     dependencies:
-      '@suds-cli/machine':
+      '@boba-cli/machine':
         specifier: workspace:*
         version: link:../machine
     devDependencies:
@@ -643,19 +728,19 @@ importers:
 
   packages/textarea:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/cursor':
+      '@boba-cli/cursor':
         specifier: workspace:*
         version: link:../cursor
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/runeutil':
+      '@boba-cli/runeutil':
         specifier: workspace:*
         version: link:../runeutil
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
       clipboardy:
@@ -674,19 +759,19 @@ importers:
 
   packages/textinput:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/cursor':
+      '@boba-cli/cursor':
         specifier: workspace:*
         version: link:../cursor
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/runeutil':
+      '@boba-cli/runeutil':
         specifier: workspace:*
         version: link:../runeutil
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
       clipboardy:
@@ -705,7 +790,7 @@ importers:
 
   packages/timer:
     dependencies:
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -718,13 +803,13 @@ importers:
 
   packages/viewport:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../key
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../tea
     devDependencies:
@@ -737,25 +822,25 @@ importers:
 
   scripts:
     dependencies:
-      '@suds-cli/chapstick':
+      '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../packages/chapstick
-      '@suds-cli/key':
+      '@boba-cli/key':
         specifier: workspace:*
         version: link:../packages/key
-      '@suds-cli/list':
+      '@boba-cli/list':
         specifier: workspace:*
         version: link:../packages/list
-      '@suds-cli/progress':
+      '@boba-cli/progress':
         specifier: workspace:*
         version: link:../packages/progress
-      '@suds-cli/spinner':
+      '@boba-cli/spinner':
         specifier: workspace:*
         version: link:../packages/spinner
-      '@suds-cli/stopwatch':
+      '@boba-cli/stopwatch':
         specifier: workspace:*
         version: link:../packages/stopwatch
-      '@suds-cli/tea':
+      '@boba-cli/tea':
         specifier: workspace:*
         version: link:../packages/tea
     devDependencies:

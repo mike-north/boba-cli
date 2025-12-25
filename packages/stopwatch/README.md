@@ -1,22 +1,20 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/stopwatch` to `@boba-cli/stopwatch`. Please update your dependencies accordingly.
+# @boba-cli/stopwatch
 
-# @suds-cli/stopwatch
-
-Stopwatch component for Suds terminal UIs. Port of Charmbracelet Bubbles stopwatch.
+Stopwatch component for Boba terminal UIs. Port of Charmbracelet Bubbles stopwatch.
 
 <img src="../../examples/stopwatch-demo.gif" width="950" alt="Stopwatch component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/stopwatch
+pnpm add @boba-cli/stopwatch
 ```
 
 ## Quickstart
 
 ```ts
-import { StopwatchModel, TickMsg } from '@suds-cli/stopwatch'
-import type { Cmd, Msg, Model } from '@suds-cli/tea'
+import { StopwatchModel, TickMsg } from '@boba-cli/stopwatch'
+import type { Cmd, Msg, Model } from '@boba-cli/tea'
 
 const stopwatch = StopwatchModel.new()
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { MarkdownModel } from '../src/model.js'
 import { RenderMarkdownMsg, ErrorMsg } from '../src/messages.js'
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
 
 describe('MarkdownModel', () => {
   const filesystem = new NodeFileSystemAdapter()

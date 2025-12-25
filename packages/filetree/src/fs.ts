@@ -1,9 +1,9 @@
-import type { Cmd } from '@suds-cli/tea'
+import type { Cmd } from '@boba-cli/tea'
 import type {
   DirectoryEntry,
   FileSystemAdapter,
   PathAdapter,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 import type { DirectoryItem } from './types.js'
 import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
 

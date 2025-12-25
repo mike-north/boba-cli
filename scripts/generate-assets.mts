@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Generate GIF assets for Suds examples using VHS
+ * Generate GIF assets for Boba-CLI examples using VHS
  *
  * This script discovers `.tape` files in the examples directory and runs VHS
  * on them to produce GIFs. The tape files are the source of truth.
@@ -21,12 +21,12 @@ import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { Style, borderStyles } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { DefaultItem, ListModel } from '@suds-cli/list'
-import { ProgressModel } from '@suds-cli/progress'
-import { SpinnerModel, dot } from '@suds-cli/spinner'
-import { StopwatchModel } from '@suds-cli/stopwatch'
+import { Style, borderStyles } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { DefaultItem, ListModel } from '@boba-cli/list'
+import { ProgressModel } from '@boba-cli/progress'
+import { SpinnerModel, dot } from '@boba-cli/spinner'
+import { StopwatchModel } from '@boba-cli/stopwatch'
 import {
   KeyMsg,
   Program,
@@ -35,7 +35,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -643,7 +643,7 @@ class AppModel implements Model<Msg, AppModel> {
     const lines: string[] = []
 
     lines.push('')
-    lines.push(styles.title.render('📼 Suds Asset Generator'))
+    lines.push(styles.title.render('📼 Boba-CLI Asset Generator'))
     lines.push(styles.muted.render('Generate GIF demos using VHS'))
     lines.push('')
     lines.push(this.list.view())

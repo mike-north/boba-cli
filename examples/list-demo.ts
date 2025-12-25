@@ -1,7 +1,7 @@
 /**
- * Suds Demo: List
+ * Boba Demo: List
  *
- * Demonstrates \@suds-cli/list with filtering, pagination, and help.
+ * Demonstrates \@boba-cli/list with filtering, pagination, and help.
  *
  * Controls (built into the list keymap):
  *   j / k / arrows  - move selection
@@ -14,9 +14,9 @@
  *   q               - quit
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { DefaultItem, ListModel } from '@suds-cli/list'
-import { newBinding, matches } from '@suds-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import { DefaultItem, ListModel } from '@boba-cli/list'
+import { newBinding, matches } from '@boba-cli/key'
 import {
   KeyMsg,
   Program,
@@ -25,7 +25,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp(
   'q',
@@ -87,7 +87,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — List')
+    const header = headerStyle.render('🧼 Boba Demo — List')
     const help = helpStyle.render("Try '/', pgup/pgdn, ?, and q to quit.")
     return [header, '', this.list.view(), '', help, ''].join('\n')
   }

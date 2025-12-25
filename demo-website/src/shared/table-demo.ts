@@ -15,10 +15,10 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { TableModel } from '@suds-cli/table'
-import { borderStyles } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { TableModel } from '@boba-cli/table'
+import { borderStyles } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 import { createStyle } from '../browser-style'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp('q', 'quit')
@@ -100,7 +100,7 @@ export class TableDemoModel implements Model<Msg, TableDemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('Suds Table Demo')
+    const header = headerStyle.render('Boba Table Demo')
     const help = helpStyle.render(
       'Move: j/k, f/b, g/G, PgUp/PgDn | [q] quit',
     )

@@ -1,5 +1,5 @@
 /**
- * Suds Demo: Textarea
+ * Boba Demo: Textarea
  *
  * Multi-line input with validation, line numbers, and scrolling.
  * Controls:
@@ -18,10 +18,10 @@ import {
   type Cmd,
   type Msg,
   type Model,
-} from '@suds-cli/tea'
-import { TextareaModel } from '@suds-cli/textarea'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { TextareaModel } from '@boba-cli/textarea'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 const keys = {
   quit: newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp('q', 'quit'),
@@ -83,7 +83,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
   view(): string {
     const lines: string[] = []
-    lines.push(titleStyle.render('🧼 Suds Textarea Demo'))
+    lines.push(titleStyle.render('🧼 Boba Textarea Demo'))
     lines.push('')
     lines.push(this.editor.view())
 

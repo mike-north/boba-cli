@@ -1,26 +1,24 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/chapstick` to `@boba-cli/chapstick`. Please update your dependencies accordingly.
-
-# @suds-cli/chapstick
+# @boba-cli/chapstick
 
 TypeScript port of Charmbracelet Lip Gloss for styling terminal strings. Implements a fluent `Style` API with colors, padding/margin, borders, alignment, joins/placement, and ANSI-aware rendering.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/chapstick
+pnpm add @boba-cli/chapstick
 ```
 
 ## Quickstart
 
 ```ts
-import { Style, borderStyles } from '@suds-cli/chapstick'
+import { Style, borderStyles } from '@boba-cli/chapstick'
 
 const card = new Style()
   .padding(1)
   .border(borderStyles.rounded)
   .borderForeground('#7c3aed')
   .alignHorizontal('center')
-  .render('Hello Suds')
+  .render('Hello Boba')
 
 console.log(card)
 ```
@@ -32,7 +30,7 @@ console.log(card)
 The `Style` class provides a fluent, immutable API for building terminal styles:
 
 ```ts
-import { Style } from '@suds-cli/chapstick'
+import { Style } from '@boba-cli/chapstick'
 
 const style = new Style()
   .foreground('#ff0000') // Text color (hex, named, or rgb())
@@ -82,7 +80,7 @@ const style = new Style().foreground({
 ### Composition
 
 ```ts
-import { Style, joinHorizontal, joinVertical, place } from '@suds-cli/chapstick'
+import { Style, joinHorizontal, joinVertical, place } from '@boba-cli/chapstick'
 
 const label = new Style().foreground('#10b981').bold()
 const left = label.render('Left')
@@ -101,7 +99,7 @@ console.log(place(20, 5, 'center', 'center', label.render('Centered')))
 ### Measurement Utilities
 
 ```ts
-import { width, clampWidth, wrapWidth, padLines } from '@suds-cli/chapstick'
+import { width, clampWidth, wrapWidth, padLines } from '@boba-cli/chapstick'
 
 // Get display width (ANSI-aware)
 width('\x1b[31mred\x1b[0m') // => 3
@@ -119,7 +117,7 @@ padLines('text', 2, 2) // => "  text  "
 ### Terminal Detection
 
 ```ts
-import { getColorSupport, getTerminalBackground } from '@suds-cli/chapstick'
+import { getColorSupport, getTerminalBackground } from '@boba-cli/chapstick'
 
 const support = getColorSupport()
 // { level: 3, hasBasic: true, has256: true, has16m: true }
@@ -133,7 +131,7 @@ const bg = getTerminalBackground()
 Built-in border styles:
 
 ```ts
-import { borderStyles } from '@suds-cli/chapstick'
+import { borderStyles } from '@boba-cli/chapstick'
 
 borderStyles.normal // ┌─┐│ │└─┘
 borderStyles.rounded // ╭─╮│ │╰─╯

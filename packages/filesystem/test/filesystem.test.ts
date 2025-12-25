@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach, afterEach } from 'vitest'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
 import {
   CurrentDirectory,
   PreviousDirectory,
@@ -24,7 +24,7 @@ import {
   copyDirectory,
   writeToFile,
 } from '../src/index.js'
-import type { DirectoryEntry } from '@suds-cli/machine'
+import type { DirectoryEntry } from '@boba-cli/machine'
 
 // Create adapter instances for testing
 const fs = new NodeFileSystemAdapter()

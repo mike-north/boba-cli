@@ -1,6 +1,6 @@
 declare module 'marked-terminal' {
   import type { MarkedExtension } from 'marked'
-  import type { StyleFn } from '@suds-cli/machine'
+  import type { StyleFn } from '@boba-cli/machine'
 
   export interface MarkedTerminalOptions {
     code?: StyleFn

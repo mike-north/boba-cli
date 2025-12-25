@@ -1,4 +1,4 @@
-import { newBinding, type Binding } from '@suds-cli/key'
+import { newBinding, type Binding } from '@boba-cli/key'
 
 /** Key bindings for table navigation. @public */
 export interface TableKeyMap {

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the interactive demo website for the Suds CLI monorepo. It showcases terminal UI components (Spinner, Progress, List) running in a browser via xterm.js. The site is deployed to GitHub Pages at `/suds-cli/`.
+This is the interactive demo website for the Boba CLI monorepo. It showcases terminal UI components (Spinner, Progress, List) running in a browser via xterm.js. The site is deployed to GitHub Pages at `/boba-cli/`.
 
 ## Commands
 
@@ -14,7 +14,7 @@ pnpm build       # TypeScript compile + Vite production build
 pnpm preview     # Preview production build locally
 ```
 
-From the monorepo root (`/Users/mnorth/agentrc/suds-cli/`):
+From the monorepo root (`/Users/mnorth/agentrc/boba-cli/`):
 ```bash
 pnpm build       # Build all packages (required before demo-website build)
 pnpm check       # Run all linting and type checks
@@ -25,7 +25,7 @@ pnpm test        # Run all tests
 
 ### Elm Architecture Pattern
 
-All demos implement the Elm Architecture from `@suds-cli/tea`:
+All demos implement the Elm Architecture from `@boba-cli/tea`:
 
 ```typescript
 class DemoModel implements Model<Msg, DemoModel> {
@@ -37,17 +37,17 @@ class DemoModel implements Model<Msg, DemoModel> {
 
 ### Browser Platform Abstraction
 
-The `@suds-cli/machine` package provides platform-agnostic APIs. For browser usage:
+The `@boba-cli/machine` package provides platform-agnostic APIs. For browser usage:
 
 1. **`browser-style.ts`** - Sets up color support globally via `setDefaultContext()` before any component imports
-2. **`createBrowserPlatform({ terminal })`** - Creates a platform adapter that bridges xterm.js to Suds components
+2. **`createBrowserPlatform({ terminal })`** - Creates a platform adapter that bridges xterm.js to Boba components
 
-This pattern is critical: import `browser-style.ts` before any Suds component imports to ensure all `Style` instances use browser colors.
+This pattern is critical: import `browser-style.ts` before any Boba component imports to ensure all `Style` instances use browser colors.
 
 ### Demo Structure
 
 Each demo in `src/demos/` follows this pattern:
-- Define keybindings with `@suds-cli/key`
+- Define keybindings with `@boba-cli/key`
 - Create styles with `createStyle()` from `browser-style.ts`
 - Implement a `Model` class with `init`, `update`, `view`
 - Export a `createXxxDemo(terminal: Terminal): { stop: () => void }` factory
@@ -56,10 +56,10 @@ Each demo in `src/demos/` follows this pattern:
 
 | Package | Purpose |
 |---------|---------|
-| `@suds-cli/tea` | Elm Architecture runtime (Program, KeyMsg, quit, Cmd) |
-| `@suds-cli/chapstick` | ANSI styling (Style, StyleContext) |
-| `@suds-cli/machine` | Platform abstraction (createBrowserPlatform, ColorSupport) |
-| `@suds-cli/key` | Key binding utilities (newBinding, matches) |
+| `@boba-cli/tea` | Elm Architecture runtime (Program, KeyMsg, quit, Cmd) |
+| `@boba-cli/chapstick` | ANSI styling (Style, StyleContext) |
+| `@boba-cli/machine` | Platform abstraction (createBrowserPlatform, ColorSupport) |
+| `@boba-cli/key` | Key binding utilities (newBinding, matches) |
 | `@xterm/xterm` | Terminal emulator |
 
 ## Monorepo Context

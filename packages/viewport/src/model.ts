@@ -1,5 +1,5 @@
-import { Style } from '@suds-cli/chapstick'
-import { matches } from '@suds-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import { matches } from '@boba-cli/key'
 import {
   KeyMsg,
   MouseAction,
@@ -7,7 +7,7 @@ import {
   MouseMsg,
   type Cmd,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import { defaultKeyMap, type ViewportKeyMap } from './keymap.js'
 import { ScrollMsg, SyncMsg } from './messages.js'
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { KeyMsg, KeyType } from '@suds-cli/tea'
+import { KeyMsg, KeyType } from '@boba-cli/tea'
 import { TextareaModel } from '../src/index.js'
 
 function key(type: KeyType, runes = '', alt = false): KeyMsg {

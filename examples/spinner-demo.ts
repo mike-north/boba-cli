@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Spinner with Styling
+ * Boba Demo: Spinner with Styling
  *
- * Demonstrates \@suds/tea, \@suds/spinner, \@suds/chapstick, and \@suds/key
+ * Demonstrates \@boba/tea, \@boba/spinner, \@boba/chapstick, and \@boba/key
  * working together.
  *
  * Controls:
@@ -17,7 +17,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import {
   SpinnerModel,
   line,
@@ -29,9 +29,9 @@ import {
   meter,
   ellipsis,
   type Spinner,
-} from '@suds-cli/spinner'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/spinner'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 // Available spinners to cycle through
 const SPINNERS: { name: string; spinner: Spinner }[] = [
@@ -122,7 +122,7 @@ class DemoModel implements Model<Msg, DemoModel> {
     const current = SPINNERS[this.spinnerIndex]
     const spinnerName = current?.name ?? 'unknown'
 
-    const title = titleStyle.render('🧼 Suds Demo')
+    const title = titleStyle.render('🧼 Boba Demo')
 
     const spinnerLine = `${this.spinner.view()}  ${textStyle.render('Loading something amazing...')}`
 

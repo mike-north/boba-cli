@@ -1,6 +1,4 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/list` to `@boba-cli/list`. Please update your dependencies accordingly.
-
-# @suds-cli/list
+# @boba-cli/list
 
 Filterable, selectable list with integrated help, spinner, and paginator. Ported from the Charm `bubbles/list` component.
 
@@ -9,7 +7,7 @@ Filterable, selectable list with integrated help, spinner, and paginator. Ported
 ## Usage
 
 ```ts
-import { DefaultItem, ListModel } from '@suds-cli/list'
+import { DefaultItem, ListModel } from '@boba-cli/list'
 
 const list = ListModel.new({
   items: [new DefaultItem('Item 1'), new DefaultItem('Item 2')],

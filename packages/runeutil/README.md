@@ -1,19 +1,17 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/runeutil` to `@boba-cli/runeutil`. Please update your dependencies accordingly.
+# @boba-cli/runeutil
 
-# @suds-cli/runeutil
-
-Input sanitization utilities for Suds terminal UIs. Strips ANSI escape sequences and control characters, with configurable replacement for newlines and tabs.
+Input sanitization utilities for Boba terminal UIs. Strips ANSI escape sequences and control characters, with configurable replacement for newlines and tabs.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/runeutil
+pnpm add @boba-cli/runeutil
 ```
 
 ## Quickstart
 
 ```ts
-import { newSanitizer } from '@suds-cli/runeutil'
+import { newSanitizer } from '@boba-cli/runeutil'
 
 // Default: keep newlines, expand tabs to 4 spaces
 const sanitizer = newSanitizer()

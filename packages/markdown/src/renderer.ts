@@ -4,8 +4,8 @@
 
 import { Marked } from 'marked'
 import { markedTerminal } from 'marked-terminal'
-import type { EnvironmentAdapter, TerminalBackground } from '@suds-cli/machine'
-import { createAlwaysEnabledStyle } from '@suds-cli/machine'
+import type { EnvironmentAdapter, TerminalBackground } from '@boba-cli/machine'
+import { createAlwaysEnabledStyle } from '@boba-cli/machine'
 
 /**
  * Options for rendering markdown.

@@ -1,19 +1,17 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/dsl` to `@boba-cli/dsl`. Please update your dependencies accordingly.
-
-# @suds-cli/dsl
+# @boba-cli/dsl
 
 Declarative DSL for building CLI applications with minimal ceremony. Build terminal UIs using a fluent builder API and view primitives inspired by SwiftUI.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/dsl
+pnpm add @boba-cli/dsl
 ```
 
 ## Quick Start
 
 ```typescript
-import { createApp, spinner, vstack, hstack, text, Style } from '@suds-cli/dsl'
+import { createApp, spinner, vstack, hstack, text, Style } from '@boba-cli/dsl'
 
 const app = createApp()
   .state({ message: 'Loading something amazing...' })
@@ -243,7 +241,7 @@ Creates an animated spinner component.
 
 **Re-exported spinners:**
 ```typescript
-import { line, dot, miniDot, pulse, points, moon, meter, ellipsis } from '@suds-cli/dsl'
+import { line, dot, miniDot, pulse, points, moon, meter, ellipsis } from '@boba-cli/dsl'
 ```
 
 ### Re-exported Types
@@ -251,11 +249,11 @@ import { line, dot, miniDot, pulse, points, moon, meter, ellipsis } from '@suds-
 For convenience, the DSL re-exports commonly used types:
 
 ```typescript
-// From @suds-cli/chapstick
-import { Style } from '@suds-cli/dsl'
+// From @boba-cli/chapstick
+import { Style } from '@boba-cli/dsl'
 
-// From @suds-cli/spinner
-import { type Spinner, line, dot, miniDot, pulse, points, moon, meter, ellipsis } from '@suds-cli/dsl'
+// From @boba-cli/spinner
+import { type Spinner, line, dot, miniDot, pulse, points, moon, meter, ellipsis } from '@boba-cli/dsl'
 ```
 
 ## Type Safety
@@ -319,8 +317,8 @@ const model = app.getModel()
 You can create custom component builders by implementing the `ComponentBuilder` interface:
 
 ```typescript
-import type { ComponentBuilder } from '@suds-cli/dsl'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import type { ComponentBuilder } from '@boba-cli/dsl'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 interface MyComponentModel {
   value: number
@@ -350,7 +348,7 @@ createApp()
 ### Counter with State Updates
 
 ```typescript
-import { createApp, vstack, hstack, text } from '@suds-cli/dsl'
+import { createApp, vstack, hstack, text } from '@boba-cli/dsl'
 
 const app = createApp()
   .state({ count: 0 })
@@ -409,7 +407,7 @@ await app.run()
 ### Multiple Components
 
 ```typescript
-import { createApp, spinner, vstack, hstack, text, Style, dot, pulse } from '@suds-cli/dsl'
+import { createApp, spinner, vstack, hstack, text, Style, dot, pulse } from '@boba-cli/dsl'
 
 const app = createApp()
   .state({ status: 'Initializing...' })

@@ -1,4 +1,4 @@
-import { Style, borderStyles, type BorderStyle } from '@suds-cli/chapstick'
+import { Style, borderStyles, type BorderStyle } from '@boba-cli/chapstick'
 
 /** Styles applied to parts of the table. @public */
 export interface TableStyles {

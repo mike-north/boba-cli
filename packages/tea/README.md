@@ -1,19 +1,17 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/tea` to `@boba-cli/tea`. Please update your dependencies accordingly.
-
-# @suds-cli/tea
+# @boba-cli/tea
 
 TypeScript port of [Bubble Tea](https://github.com/charmbracelet/bubbletea), the Elm-inspired terminal UI framework from Charm. Build interactive CLIs using a simple, functional architecture: Model-Update-View.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/tea
+pnpm add @boba-cli/tea
 ```
 
 ## Quickstart
 
 ```ts
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 import {
   Program,
   quit,
@@ -22,7 +20,7 @@ import {
   type Model,
   type Cmd,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 // Define your message types
 type AppMsg = Msg | { _tag: 'increment' } | { _tag: 'decrement' }
@@ -87,7 +85,7 @@ type MyMsg =
 Commands are async functions that return messages. Use the built-in helpers:
 
 ```ts
-import { batch, sequence, tick, every, msg, quit } from '@suds-cli/tea'
+import { batch, sequence, tick, every, msg, quit } from '@boba-cli/tea'
 
 // Lift a value into a command
 const notify = msg({ _tag: 'notify', text: 'Hello' })
@@ -113,7 +111,7 @@ const exit = quit()
 ### Keyboard
 
 ```ts
-import { KeyMsg, KeyType, keyToString } from "@suds-cli/tea";
+import { KeyMsg, KeyType, keyToString } from "@boba-cli/tea";
 
 update(msg: Msg): [Model, Cmd<Msg>] {
   if (msg instanceof KeyMsg) {
@@ -143,7 +141,7 @@ update(msg: Msg): [Model, Cmd<Msg>] {
 ### Mouse
 
 ```ts
-import { MouseMsg, MouseAction, MouseButton } from "@suds-cli/tea";
+import { MouseMsg, MouseAction, MouseButton } from "@boba-cli/tea";
 
 update(msg: Msg): [Model, Cmd<Msg>] {
   if (msg instanceof MouseMsg) {
@@ -167,7 +165,7 @@ update(msg: Msg): [Model, Cmd<Msg>] {
 Enable mouse with program options:
 
 ```ts
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 
 const platform = createNodePlatform()
 const program = new Program(model, {
@@ -191,7 +189,7 @@ import {
   enableMouseAllMotion,
   disableMouse,
   windowSize,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 // In your update function
 return [newModel, clearScreen()]
@@ -210,7 +208,7 @@ import {
   BlurMsg,          // Terminal lost focus
   InterruptMsg,     // Ctrl+C pressed
   QuitMsg,          // Graceful shutdown requested
-} from "@suds-cli/tea";
+} from "@boba-cli/tea";
 
 update(msg: Msg): [Model, Cmd<Msg>] {
   if (msg instanceof WindowSizeMsg) {
@@ -223,7 +221,7 @@ update(msg: Msg): [Model, Cmd<Msg>] {
 ## Program Options
 
 ```ts
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 
 // Create platform adapter with custom streams (optional)
 const platform = createNodePlatform({
@@ -243,10 +241,10 @@ const program = new Program(model, {
 
 ### Platform Adapters
 
-Tea uses `@suds-cli/machine` for platform abstraction, making it possible to run terminal UIs in different environments:
+Tea uses `@boba-cli/machine` for platform abstraction, making it possible to run terminal UIs in different environments:
 
-- **Node.js**: `createNodePlatform()` from `@suds-cli/machine/node`
-- **Browser** (with xterm.js): `createBrowserPlatform()` from `@suds-cli/machine/browser`
+- **Node.js**: `createNodePlatform()` from `@boba-cli/machine/node`
+- **Browser** (with xterm.js): `createBrowserPlatform()` from `@boba-cli/machine/browser`
 
 The platform adapter provides terminal I/O, signal handling, environment access, and more.
 

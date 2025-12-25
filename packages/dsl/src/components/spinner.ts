@@ -1,6 +1,6 @@
-import { type Cmd, type Msg } from '@suds-cli/tea'
-import { Style } from '@suds-cli/chapstick'
-import { SpinnerModel, type Spinner, line, type SpinnerOptions } from '@suds-cli/spinner'
+import { type Cmd, type Msg } from '@boba-cli/tea'
+import { Style } from '@boba-cli/chapstick'
+import { SpinnerModel, type Spinner, line, type SpinnerOptions } from '@boba-cli/spinner'
 import type { ComponentBuilder } from '../types.js'
 
 /**
@@ -24,7 +24,7 @@ export interface SpinnerBuilderOptions {
    * Style for rendering the spinner.
    *
    * @remarks
-   * Uses `Style` from `@suds-cli/chapstick` to apply terminal colors and formatting.
+   * Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting.
    */
   style?: Style
 }
@@ -33,7 +33,7 @@ export interface SpinnerBuilderOptions {
  * Create a spinner component builder.
  *
  * @remarks
- * Creates a {@link ComponentBuilder} wrapping the `@suds-cli/spinner` package.
+ * Creates a {@link ComponentBuilder} wrapping the `@boba-cli/spinner` package.
  * The spinner automatically animates and can be styled with custom colors.
  *
  * @example

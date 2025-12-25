@@ -1,5 +1,5 @@
-import { tick, type Cmd, type Msg, FocusMsg, BlurMsg } from '@suds-cli/tea'
-import { Style } from '@suds-cli/chapstick'
+import { tick, type Cmd, type Msg, FocusMsg, BlurMsg } from '@boba-cli/tea'
+import { Style } from '@boba-cli/chapstick'
 import { BlinkMsg, InitialBlinkMsg } from './messages.js'
 
 const defaultBlinkSpeed = 530 // ms

@@ -1,9 +1,9 @@
 {
-  "name": "@suds-cli/tea",
-  "description": "Bubble Tea-inspired runtime for Suds terminal UIs",
+  "name": "@boba-cli/tea",
+  "description": "Bubble Tea-inspired runtime for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
   "dependencies": {
-    "@suds-cli/machine": "workspace:*"
+    "@boba-cli/machine": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.10.2",

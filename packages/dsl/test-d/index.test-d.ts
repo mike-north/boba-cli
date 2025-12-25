@@ -1,5 +1,5 @@
 /**
- * Type-level tests for @suds-cli/dsl
+ * Type-level tests for @boba-cli/dsl
  *
  * These tests verify that TypeScript type inference works correctly throughout
  * the builder chain and that invalid usage is properly rejected at compile time.
@@ -18,8 +18,8 @@ import {
   type App,
   type AppBuilder,
 } from '../src/index.js'
-import type { SpinnerModel } from '@suds-cli/spinner'
-import type { TextInputModel } from '@suds-cli/textinput'
+import type { SpinnerModel } from '@boba-cli/spinner'
+import type { TextInputModel } from '@boba-cli/textinput'
 
 // ============================================================================
 // Test 1: Initial app builder has undefined state and no components

@@ -1,10 +1,10 @@
 ---
-'@suds-cli/code': minor
+'@boba-cli/code': minor
 ---
 
 Add new code component for syntax-highlighted code viewing
 
-This change introduces a new `@suds-cli/code` package that provides a syntax-highlighted code viewer component with scrollable viewport support.
+This change introduces a new `@boba-cli/code` package that provides a syntax-highlighted code viewer component with scrollable viewport support.
 
 Features:
 

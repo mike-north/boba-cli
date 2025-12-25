@@ -5,9 +5,9 @@ import {
   joinHorizontal,
   width as textWidth,
   type BorderStyle,
-} from '@suds-cli/chapstick'
-import { matches } from '@suds-cli/key'
-import { KeyMsg, type Cmd, type Msg } from '@suds-cli/tea'
+} from '@boba-cli/chapstick'
+import { matches } from '@boba-cli/key'
+import { KeyMsg, type Cmd, type Msg } from '@boba-cli/tea'
 import { defaultKeyMap, type TableKeyMap } from './keymap.js'
 import { defaultStyles, type TableStyles } from './styles.js'
 import type { Column, Row, TableOptions } from './types.js'

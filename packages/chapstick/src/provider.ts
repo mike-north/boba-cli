@@ -1,4 +1,4 @@
-import type { EnvironmentAdapter, StyleFn } from '@suds-cli/machine'
+import type { EnvironmentAdapter, StyleFn } from '@boba-cli/machine'
 import { Style, StyleContext } from './style.js'
 
 /**

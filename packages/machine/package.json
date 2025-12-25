@@ -1,6 +1,6 @@
 {
-  "name": "@suds-cli/machine",
-  "description": "Platform abstraction layer for Suds terminal UIs",
+  "name": "@boba-cli/machine",
+  "description": "Platform abstraction layer for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
   "devDependencies": {
     "@types/archiver": "^6.0.4",

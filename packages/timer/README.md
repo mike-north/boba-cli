@@ -1,22 +1,20 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/timer` to `@boba-cli/timer`. Please update your dependencies accordingly.
+# @boba-cli/timer
 
-# @suds-cli/timer
-
-Countdown timer component for Suds terminal UIs. Port of Charmbracelet Bubbles timer.
+Countdown timer component for Boba terminal UIs. Port of Charmbracelet Bubbles timer.
 
 <img src="../../examples/timer-demo.gif" width="950" alt="Timer component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/timer
+pnpm add @boba-cli/timer
 ```
 
 ## Quickstart
 
 ```ts
-import { TimerModel, TickMsg, TimeoutMsg } from '@suds-cli/timer'
-import type { Cmd, Msg, Model } from '@suds-cli/tea'
+import { TimerModel, TickMsg, TimeoutMsg } from '@boba-cli/timer'
+import type { Cmd, Msg, Model } from '@boba-cli/tea'
 
 const timer = TimerModel.new({ timeout: 30_000 }) // 30 seconds
 

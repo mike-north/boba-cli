@@ -1,5 +1,5 @@
-import type { ColorSupport, EnvironmentAdapter, StyleFn, TerminalBackground } from '@suds-cli/machine'
-import { createStyle } from '@suds-cli/machine'
+import type { ColorSupport, EnvironmentAdapter, StyleFn, TerminalBackground } from '@boba-cli/machine'
+import { createStyle } from '@boba-cli/machine'
 import { StyleContext } from '../src/style.js'
 
 /**

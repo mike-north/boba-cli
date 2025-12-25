@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { Style, borderStyles } from '@suds-cli/chapstick'
+import { Style, borderStyles } from '@boba-cli/chapstick'
 import { TableModel } from '../src/model.js'
 import type { TableStyles } from '../src/styles.js'
 import type { Row } from '../src/types.js'

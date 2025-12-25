@@ -1,6 +1,6 @@
-import { joinHorizontal, width as stringWidth } from '@suds-cli/chapstick'
-import { type Cmd, type Msg } from '@suds-cli/tea'
-import type { Binding } from '@suds-cli/key'
+import { joinHorizontal, width as stringWidth } from '@boba-cli/chapstick'
+import { type Cmd, type Msg } from '@boba-cli/tea'
+import type { Binding } from '@boba-cli/key'
 import { defaultStyles } from './styles.js'
 import type { HelpStyles, KeyMap } from './types.js'
 

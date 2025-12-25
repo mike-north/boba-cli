@@ -1,4 +1,4 @@
-// Entry point for @suds/chapstick.
+// Entry point for @boba/chapstick.
 
 // Types
 export type {

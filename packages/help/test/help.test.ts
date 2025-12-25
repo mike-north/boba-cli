@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding } from '@suds-cli/key'
-import { KeyMsg, KeyType } from '@suds-cli/tea'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding } from '@boba-cli/key'
+import { KeyMsg, KeyType } from '@boba-cli/tea'
 import { HelpModel, HelpBubble, type HelpStyles, type Entry } from '@/index.js'
 
 function plainStyles(): HelpStyles {

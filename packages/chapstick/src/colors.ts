@@ -2,7 +2,7 @@ import type {
   ColorSupport,
   EnvironmentAdapter,
   TerminalBackground,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 import type { ColorInput } from './types.js'
 
 // Re-export types from machine for convenience

@@ -1,13 +1,13 @@
 {
-  "name": "@suds-cli/dsl",
+  "name": "@boba-cli/dsl",
   "description": "Declarative DSL for building CLI applications with minimal ceremony",
   "version": "0.1.0-alpha.1",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/spinner": "workspace:*",
-    "@suds-cli/tea": "workspace:*",
-    "@suds-cli/textinput": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/spinner": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
+    "@boba-cli/textinput": "workspace:*"
   },
   "devDependencies": {
     "tsd": "^0.31.2",

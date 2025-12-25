@@ -1,4 +1,4 @@
-import { decodeString } from '@suds-cli/machine'
+import { decodeString } from '@boba-cli/machine'
 
 /** @public Mouse action type. */
 export enum MouseAction {

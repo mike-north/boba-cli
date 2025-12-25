@@ -1,10 +1,10 @@
 {
-  "name": "@suds-cli/statusbar",
-  "description": "Status bar component for Suds terminal UIs",
+  "name": "@boba-cli/statusbar",
+  "description": "Status bar component for Boba terminal UIs",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/tea": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/tea": "workspace:*"
   },
   "devDependencies": {
     "typescript": "5.8.2",

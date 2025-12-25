@@ -1,5 +1,5 @@
-import type { Disposable, PlatformAdapter } from '@suds-cli/machine'
-import { allocBytes, concatBytes, encodeString } from '@suds-cli/machine'
+import type { Disposable, PlatformAdapter } from '@boba-cli/machine'
+import { allocBytes, concatBytes, encodeString } from '@boba-cli/machine'
 import { BlurMsg, FocusMsg } from './messages.js'
 import { KeyMsg, KeyType, parseKey } from './keys.js'
 import { parseMouse } from './mouse.js'

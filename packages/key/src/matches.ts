@@ -2,7 +2,7 @@ import type { Binding } from './binding.js'
 
 /**
  * Interface for key-like objects that can be matched.
- * Compatible with `\@suds-cli/tea` KeyMsg without importing it.
+ * Compatible with `\@boba-cli/tea` KeyMsg without importing it.
  * @public
  */
 export interface Matchable {
@@ -15,8 +15,8 @@ export interface Matchable {
  *
  * @example
  * ```ts
- * import { KeyMsg } from "@suds-cli/tea";
- * import { matches, newBinding } from "@suds-cli/key";
+ * import { KeyMsg } from "@boba-cli/tea";
+ * import { matches, newBinding } from "@boba-cli/key";
  *
  * const keymap = {
  *   up: newBinding({ keys: ["k", "up"], help: { key: "↑/k", desc: "up" } }),

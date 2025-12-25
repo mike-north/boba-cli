@@ -40,7 +40,7 @@ jobs:
       - name: Build demo website
         run: pnpm --filter demo-website build
         env:
-          VITE_BASE_PATH: /suds-cli/
+          VITE_BASE_PATH: /boba-cli/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

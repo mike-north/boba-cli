@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { CodeModel } from '@/index.js'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
 
 describe('CodeModel', () => {
   const filesystem = new NodeFileSystemAdapter()

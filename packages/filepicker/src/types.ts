@@ -1,7 +1,7 @@
-import { Style } from '@suds-cli/chapstick'
-import type { KeyMap as HelpKeyMap } from '@suds-cli/help'
-import type { Binding } from '@suds-cli/key'
-import type { FileSystemAdapter, PathAdapter } from '@suds-cli/machine'
+import { Style } from '@boba-cli/chapstick'
+import type { KeyMap as HelpKeyMap } from '@boba-cli/help'
+import type { Binding } from '@boba-cli/key'
+import type { FileSystemAdapter, PathAdapter } from '@boba-cli/machine'
 
 /** Metadata for a file system entry. @public */
 export interface FileInfo {

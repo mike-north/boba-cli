@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Scrollable Viewport
+ * Boba Demo: Scrollable Viewport
  *
- * Demonstrates \@suds/viewport with keyboard and mouse scrolling.
+ * Demonstrates \@boba/viewport with keyboard and mouse scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line
@@ -14,9 +14,9 @@
  *   q          - quit
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { ViewportModel } from '@suds-cli/viewport'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { ViewportModel } from '@boba-cli/viewport'
 import {
   KeyMsg,
   Program,
@@ -25,7 +25,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp(
   'q',
@@ -41,10 +41,10 @@ const viewportStyle = new Style()
 
 // Some long text to scroll through
 const CONTENT = `
-Suds Viewport Demo
+Boba Viewport Demo
 
 This example shows a scrollable text
-area using the @suds-cli/viewport
+area using the @boba-cli/viewport
 package. Use the provided keybindings
 or your mouse wheel to move through
 the content.
@@ -148,7 +148,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Viewport')
+    const header = headerStyle.render('🧼 Boba Demo — Viewport')
     const help = helpStyle.render(
       'Scroll with j/k, f/b, d/u, PgUp/PgDn, mouse wheel • q to quit',
     )

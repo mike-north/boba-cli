@@ -1,4 +1,4 @@
-import { newBinding } from '@suds-cli/key'
+import { newBinding } from '@boba-cli/key'
 import type { FilepickerKeyMap } from './types.js'
 
 /** Default filepicker keymap. @public */

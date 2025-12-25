@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Timer countdown
+ * Boba Demo: Timer countdown
  *
- * Demonstrates \@suds-cli/tea, \@suds-cli/timer, \@suds-cli/chapstick, and \@suds-cli/key.
+ * Demonstrates \@boba-cli/tea, \@boba-cli/timer, \@boba-cli/chapstick, and \@boba-cli/key.
  *
  * Controls:
  *   space  - Start/stop
@@ -16,10 +16,10 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { TimerModel, TickMsg, TimeoutMsg, StartStopMsg } from '@suds-cli/timer'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { TimerModel, TickMsg, TimeoutMsg, StartStopMsg } from '@boba-cli/timer'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 const keys = {
   // Space renders as " " from KeyMsg.toString()
@@ -102,7 +102,7 @@ class TimerDemo implements Model<Msg, TimerDemo> {
 
     const lines = [
       '',
-      title.render('⏳ Suds Timer Demo'),
+      title.render('⏳ Boba Timer Demo'),
       '',
       text.render(`Remaining: ${value.render(this.timer.view())}`),
       text.render(`Status: ${state.render(this.status)}`),

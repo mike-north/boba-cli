@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Animated Progress Bar
+ * Boba Demo: Animated Progress Bar
  *
- * Demonstrates \@suds-cli/progress with spring animation, gradient fill,
+ * Demonstrates \@boba-cli/progress with spring animation, gradient fill,
  * and keyboard controls.
  *
  * Controls:
@@ -20,10 +20,10 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { newBinding, matches } from '@suds-cli/key'
-import { Style } from '@suds-cli/chapstick'
-import { ProgressModel } from '@suds-cli/progress'
+} from '@boba-cli/tea'
+import { newBinding, matches } from '@boba-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import { ProgressModel } from '@boba-cli/progress'
 
 const keys = {
   inc: newBinding({ keys: ['+', '='] }).withHelp('+', 'increase 10%'),
@@ -112,7 +112,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const title = titleStyle.render('🧼 Suds Progress Demo')
+    const title = titleStyle.render('🧼 Boba Progress Demo')
     const bar = this.progress.view()
     const mode = this.useGradient ? 'Gradient' : 'Solid'
 

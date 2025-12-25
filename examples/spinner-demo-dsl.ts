@@ -1,7 +1,7 @@
 /**
- * Suds DSL Demo: Spinner with Styling
+ * Boba DSL Demo: Spinner with Styling
  *
- * Demonstrates the \@suds-cli/dsl package for building CLI apps
+ * Demonstrates the \@boba-cli/dsl package for building CLI apps
  * with minimal ceremony.
  *
  * Compare this to spinner-demo.ts to see the reduction in boilerplate:
@@ -20,7 +20,7 @@ import {
   hstack,
   text,
   Style,
-} from '@suds-cli/dsl'
+} from '@boba-cli/dsl'
 
 // Styles
 const spinnerStyle = new Style().foreground('#50fa7b')
@@ -33,7 +33,7 @@ const app = createApp()
   .view(({ state, components }) =>
     vstack(
       text(''),
-      text('🧼 Suds DSL Demo').bold().foreground('#ff79c6'),
+      text('🧼 Boba DSL Demo').bold().foreground('#ff79c6'),
       text(''),
       hstack(components.loading, text('  ' + state.message).foreground('#f8f8f2')),
       text(''),

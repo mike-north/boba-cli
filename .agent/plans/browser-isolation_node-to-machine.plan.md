@@ -1,12 +1,12 @@
-# Browser Isolation Plan: Isolate Node.js to @suds-cli/machine
+# Browser Isolation Plan: Isolate Node.js to @boba-cli/machine
 
-**Goal**: Make all public packages browser-compatible by isolating Node.js dependencies to `@suds-cli/machine`.
+**Goal**: Make all public packages browser-compatible by isolating Node.js dependencies to `@boba-cli/machine`.
 
 **Status**: In Progress
 
 ---
 
-## Phase 1: Extend @suds-cli/machine with New Abstractions
+## Phase 1: Extend @boba-cli/machine with New Abstractions
 
 ### 1.1 FileSystemAdapter Interface
 
@@ -173,7 +173,7 @@ export interface PlatformAdapter extends Disposable {
 ### 2.4 NodeArchiveAdapter
 - **File**: `packages/machine/src/node/archive.ts`
 - Wraps `archiver` and `unzipper` packages
-- Move implementation from `@suds-cli/filesystem`
+- Move implementation from `@boba-cli/filesystem`
 
 ---
 
@@ -195,7 +195,7 @@ export interface PlatformAdapter extends Disposable {
 
 ## Phase 4: Package Migrations
 
-### 4.1 @suds-cli/chapstick
+### 4.1 @boba-cli/chapstick
 **Current Node.js usage:**
 - `chalk` for terminal styling
 - `supports-color` for color detection
@@ -211,7 +211,7 @@ export interface PlatformAdapter extends Disposable {
 - `packages/chapstick/src/style.ts`
 - `packages/chapstick/package.json`
 
-### 4.2 @suds-cli/tea
+### 4.2 @boba-cli/tea
 **Current Node.js usage:**
 - `node:process` for signals (SIGINT, SIGTERM)
 - `node:buffer` for input processing
@@ -229,7 +229,7 @@ export interface PlatformAdapter extends Disposable {
 - `packages/tea/src/terminal.ts`
 - `packages/tea/src/renderer.ts`
 
-### 4.3 @suds-cli/filesystem
+### 4.3 @boba-cli/filesystem
 **Current Node.js usage:**
 - `node:fs`, `node:fs/promises`, `node:path`, `node:os`
 - `archiver`, `unzipper` for archives
@@ -243,7 +243,7 @@ export interface PlatformAdapter extends Disposable {
 - `packages/filesystem/src/filesystem.ts`
 - `packages/filesystem/package.json`
 
-### 4.4 @suds-cli/filetree
+### 4.4 @boba-cli/filetree
 **Current Node.js usage:**
 - `node:fs/promises` for readdir, stat
 - `node:path` for path operations
@@ -256,14 +256,14 @@ export interface PlatformAdapter extends Disposable {
 - `packages/filetree/src/fs.ts`
 - `packages/filetree/src/model.ts`
 
-### 4.5 @suds-cli/filepicker
+### 4.5 @boba-cli/filepicker
 **Current Node.js usage:**
 - Same as filetree
 
 **Changes:**
 - Same pattern as filetree
 
-### 4.6 @suds-cli/code
+### 4.6 @boba-cli/code
 **Current Node.js usage:**
 - `node:path` for `path.extname()`
 
@@ -273,7 +273,7 @@ export interface PlatformAdapter extends Disposable {
 **Files to modify:**
 - `packages/code/src/model.ts`
 
-### 4.7 @suds-cli/markdown
+### 4.7 @boba-cli/markdown
 **Current Node.js usage:**
 - `chalk` for styling (via marked-terminal)
 
@@ -302,15 +302,15 @@ Add `no-restricted-imports` rule:
       'error',
       {
         patterns: [
-          { group: ['node:*'], message: 'Use @suds-cli/machine abstractions instead.' },
-          { group: ['fs', 'fs/*'], message: 'Use @suds-cli/machine FileSystemAdapter.' },
-          { group: ['path'], message: 'Use @suds-cli/machine PathAdapter.' },
-          { group: ['os'], message: 'Use @suds-cli/machine abstractions.' },
-          { group: ['process'], message: 'Use @suds-cli/machine PlatformAdapter.' },
+          { group: ['node:*'], message: 'Use @boba-cli/machine abstractions instead.' },
+          { group: ['fs', 'fs/*'], message: 'Use @boba-cli/machine FileSystemAdapter.' },
+          { group: ['path'], message: 'Use @boba-cli/machine PathAdapter.' },
+          { group: ['os'], message: 'Use @boba-cli/machine abstractions.' },
+          { group: ['process'], message: 'Use @boba-cli/machine PlatformAdapter.' },
         ],
         paths: [
-          { name: 'chalk', message: 'Use @suds-cli/machine StyleAdapter.' },
-          { name: 'supports-color', message: 'Use @suds-cli/machine EnvironmentAdapter.' },
+          { name: 'chalk', message: 'Use @boba-cli/machine StyleAdapter.' },
+          { name: 'supports-color', message: 'Use @boba-cli/machine EnvironmentAdapter.' },
         ],
       },
     ],

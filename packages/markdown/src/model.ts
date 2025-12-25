@@ -2,11 +2,11 @@
  * Markdown viewer component.
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { readFileContent } from '@suds-cli/filesystem'
-import { ViewportModel } from '@suds-cli/viewport'
-import type { Cmd, Msg } from '@suds-cli/tea'
-import type { FileSystemAdapter } from '@suds-cli/machine'
+import { Style } from '@boba-cli/chapstick'
+import { readFileContent } from '@boba-cli/filesystem'
+import { ViewportModel } from '@boba-cli/viewport'
+import type { Cmd, Msg } from '@boba-cli/tea'
+import type { FileSystemAdapter } from '@boba-cli/machine'
 import { RenderMarkdownMsg, ErrorMsg } from './messages.js'
 import { renderMarkdown } from './renderer.js'
 

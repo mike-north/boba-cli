@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { createApp, AppBuilder } from '../src/app-builder.js'
 import { text, vstack } from '../src/view/nodes.js'
 import type { ComponentBuilder } from '../src/types.js'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 // Mock component builder for testing
 function createMockComponent<M>(initialModel: M): ComponentBuilder<M> {

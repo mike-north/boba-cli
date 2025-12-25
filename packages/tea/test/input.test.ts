@@ -1,6 +1,6 @@
 import { PassThrough } from 'node:stream'
 import { describe, expect, test } from 'vitest'
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 import { startInput } from '../src/input.js'
 import { FocusMsg } from '../src/messages.js'
 import { KeyMsg, KeyType } from '../src/keys.js'

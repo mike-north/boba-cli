@@ -28,4 +28,4 @@ export {
 } from './filesystem.js'
 
 // Re-export types from machine for convenience
-export type { DirectoryEntry } from '@suds-cli/machine'
+export type { DirectoryEntry } from '@boba-cli/machine'

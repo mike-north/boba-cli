@@ -1,7 +1,7 @@
 /**
- * Suds DSL Demo: Text Input
+ * Boba DSL Demo: Text Input
  *
- * Demonstrates the \@suds-cli/dsl package with text input validation.
+ * Demonstrates the \@boba-cli/dsl package with text input validation.
  *
  * Compare this to textinput-demo.ts to see the reduction in boilerplate:
  * - Original: 128 lines with class, manual state management, complex update logic
@@ -24,7 +24,7 @@ import {
   Style,
   EchoMode,
   type ValidateFunc,
-} from '@suds-cli/dsl'
+} from '@boba-cli/dsl'
 
 // Styles
 const titleStyle = new Style().bold(true).foreground('#00d7ff')
@@ -62,7 +62,7 @@ const app = createApp()
   })
   .view(({ components }) =>
     vstack(
-      titleStyle.render('🧼 Suds DSL Text Input Demo'),
+      titleStyle.render('🧼 Boba DSL Text Input Demo'),
       text(''),
       labelStyle.render('Name:'),
       components.nameInput,

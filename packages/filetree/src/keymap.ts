@@ -1,4 +1,4 @@
-import { Binding, newBinding } from '@suds-cli/key'
+import { Binding, newBinding } from '@boba-cli/key'
 
 /**
  * Keyboard bindings for the filetree component.

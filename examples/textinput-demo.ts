@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Text Input
+ * Boba Demo: Text Input
  *
- * Demonstrates \@suds-cli/textinput with validation, placeholder,
+ * Demonstrates \@boba-cli/textinput with validation, placeholder,
  * width-constrained scrolling, and styles.
  *
  * Controls:
@@ -17,14 +17,14 @@ import {
   type Cmd,
   type Msg,
   type Model,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import {
   TextInputModel,
   EchoMode,
   type ValidateFunc,
-} from '@suds-cli/textinput'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/textinput'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 const keys = {
   quit: newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp('q', 'quit'),
@@ -93,7 +93,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
   view(): string {
     const lines: string[] = []
-    lines.push(titleStyle.render('🧼 Suds Text Input Demo'))
+    lines.push(titleStyle.render('🧼 Boba Text Input Demo'))
     lines.push('')
     lines.push(labelStyle.render('Name:'))
     lines.push(this.input.view())

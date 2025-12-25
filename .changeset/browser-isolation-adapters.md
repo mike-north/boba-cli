@@ -1,20 +1,20 @@
 ---
-'@suds-cli/machine': minor
-'@suds-cli/chapstick': patch
-'@suds-cli/code': patch
-'@suds-cli/markdown': patch
-'@suds-cli/tea': patch
-'@suds-cli/filesystem': patch
-'@suds-cli/filetree': patch
-'@suds-cli/filepicker': patch
+'@boba-cli/machine': minor
+'@boba-cli/chapstick': patch
+'@boba-cli/code': patch
+'@boba-cli/markdown': patch
+'@boba-cli/tea': patch
+'@boba-cli/filesystem': patch
+'@boba-cli/filetree': patch
+'@boba-cli/filepicker': patch
 ---
 
-Isolate Node.js dependencies to @suds-cli/machine for browser compatibility
+Isolate Node.js dependencies to @boba-cli/machine for browser compatibility
 
 This change introduces platform abstraction adapters that allow all public packages
-(except @suds-cli/machine) to run in browser environments:
+(except @boba-cli/machine) to run in browser environments:
 
-**New adapters in @suds-cli/machine:**
+**New adapters in @boba-cli/machine:**
 - `FileSystemAdapter` - File operations abstraction
 - `PathAdapter` - Path manipulation abstraction
 - `EnvironmentAdapter` - Environment variable and terminal capability detection
@@ -22,8 +22,8 @@ This change introduces platform abstraction adapters that allow all public packa
 - `ArchiveAdapter` - Archive creation/extraction
 
 **Platform implementations:**
-- Node.js: `@suds-cli/machine/node` subpath exports
-- Browser: `@suds-cli/machine/browser` subpath exports (stubs/polyfills)
+- Node.js: `@boba-cli/machine/node` subpath exports
+- Browser: `@boba-cli/machine/browser` subpath exports (stubs/polyfills)
 
 **Breaking changes:**
 - `CodeModel.new()` now requires `filesystem` and `path` options

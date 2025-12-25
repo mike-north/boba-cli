@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Table
+ * Boba Demo: Table
  *
- * Demonstrates \@suds-cli/table with scrolling and selection.
+ * Demonstrates \@boba-cli/table with scrolling and selection.
  *
  * Controls:
  *   j / ↓        - move down
@@ -15,9 +15,9 @@
  *   q            - quit
  */
 
-import { Style, borderStyles } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { TableModel } from '@suds-cli/table'
+import { Style, borderStyles } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { TableModel } from '@boba-cli/table'
 import {
   KeyMsg,
   Program,
@@ -26,7 +26,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp(
   'q',
@@ -108,7 +108,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Table')
+    const header = headerStyle.render('🧼 Boba Demo — Table')
     const help = helpStyle.render(
       'Move with j/k, f/b, d/u, g/G, PgUp/PgDn • q to quit',
     )

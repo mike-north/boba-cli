@@ -1,4 +1,4 @@
-import type { FileSystemAdapter, PathAdapter } from '@suds-cli/machine'
+import type { FileSystemAdapter, PathAdapter } from '@boba-cli/machine'
 import type { FileInfo } from './types.js'
 
 /**

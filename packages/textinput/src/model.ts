@@ -1,8 +1,8 @@
-import { Style, width as stringWidth, clampWidth } from '@suds-cli/chapstick'
-import { CursorModel, CursorMode } from '@suds-cli/cursor'
-import { matches } from '@suds-cli/key'
-import { batch, type Cmd, type Msg, KeyMsg, KeyType } from '@suds-cli/tea'
-import { newSanitizer } from '@suds-cli/runeutil'
+import { Style, width as stringWidth, clampWidth } from '@boba-cli/chapstick'
+import { CursorModel, CursorMode } from '@boba-cli/cursor'
+import { matches } from '@boba-cli/key'
+import { batch, type Cmd, type Msg, KeyMsg, KeyType } from '@boba-cli/tea'
+import { newSanitizer } from '@boba-cli/runeutil'
 import GraphemeSplitter from 'grapheme-splitter'
 import { PasteErrorMsg, PasteMsg, pasteCommand } from './messages.js'
 import {

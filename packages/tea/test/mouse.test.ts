@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { encodeString } from '@suds-cli/machine'
+import { encodeString } from '@boba-cli/machine'
 import { MouseAction, MouseButton, parseMouse } from '../src/mouse.js'
 
 const toBuf = (s: string) => encodeString(s)

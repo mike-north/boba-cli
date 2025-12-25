@@ -1,5 +1,5 @@
-import { Style } from '@suds-cli/chapstick'
-import type { Binding } from '@suds-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import type { Binding } from '@boba-cli/key'
 
 /**
  * Interface for components that provide help bindings.

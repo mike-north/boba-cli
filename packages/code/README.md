@@ -1,8 +1,6 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/code` to `@boba-cli/code`. Please update your dependencies accordingly.
+# @boba-cli/code
 
-# @suds-cli/code
-
-Syntax-highlighted code viewer component for Suds terminal UIs.
+Syntax-highlighted code viewer component for Boba terminal UIs.
 
 ![Code Demo](../../examples/code-demo.gif)
 
@@ -17,14 +15,14 @@ Syntax-highlighted code viewer component for Suds terminal UIs.
 ## Installation
 
 ```bash
-pnpm add @suds-cli/code
+pnpm add @boba-cli/code
 ```
 
 ## Usage
 
 ```typescript
-import { CodeModel } from '@suds-cli/code'
-import { Program } from '@suds-cli/tea'
+import { CodeModel } from '@boba-cli/code'
+import { Program } from '@boba-cli/tea'
 
 const codeModel = CodeModel.new({ active: true })
 

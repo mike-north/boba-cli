@@ -1,8 +1,8 @@
-import { Style } from '@suds-cli/chapstick'
-import { readFileContent } from '@suds-cli/filesystem'
-import { type Cmd, type Msg } from '@suds-cli/tea'
-import type { FileSystemAdapter, PathAdapter } from '@suds-cli/machine'
-import { ViewportModel } from '@suds-cli/viewport'
+import { Style } from '@boba-cli/chapstick'
+import { readFileContent } from '@boba-cli/filesystem'
+import { type Cmd, type Msg } from '@boba-cli/tea'
+import type { FileSystemAdapter, PathAdapter } from '@boba-cli/machine'
+import { ViewportModel } from '@boba-cli/viewport'
 import { getHighlighter } from 'shiki'
 import { ErrorMsg, SyntaxMsg } from './messages.js'
 

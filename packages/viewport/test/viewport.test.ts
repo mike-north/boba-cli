@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { Style } from '@suds-cli/chapstick'
+import { Style } from '@boba-cli/chapstick'
 import {
   KeyMsg,
   KeyType,
   MouseAction,
   MouseButton,
   MouseMsg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import { ScrollMsg, SyncMsg, ViewportModel } from '@/index.js'
 
 function key(type: KeyType): KeyMsg {

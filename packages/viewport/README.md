@@ -1,15 +1,13 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/viewport` to `@boba-cli/viewport`. Please update your dependencies accordingly.
+# @boba-cli/viewport
 
-# @suds-cli/viewport
-
-Scrollable content window for Suds terminal UIs. Ported from the Charm `bubbles/viewport` component.
+Scrollable content window for Boba terminal UIs. Ported from the Charm `bubbles/viewport` component.
 
 <img src="../../examples/viewport-demo.gif" width="950" alt="Viewport component demo" />
 
 ## Usage
 
 ```ts
-import { ViewportModel } from '@suds-cli/viewport'
+import { ViewportModel } from '@boba-cli/viewport'
 
 const viewport = ViewportModel.new({ width: 80, height: 10 }).setContent(
   longText,

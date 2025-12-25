@@ -1,5 +1,5 @@
 ---
-'@suds-cli/markdown': minor
+'@boba-cli/markdown': minor
 ---
 
 Add markdown viewer component with terminal styling

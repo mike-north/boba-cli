@@ -13,9 +13,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { TimerModel, TickMsg, TimeoutMsg, StartStopMsg } from '@suds-cli/timer'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { TimerModel, TickMsg, TimeoutMsg, StartStopMsg } from '@boba-cli/timer'
+import { newBinding, matches } from '@boba-cli/key'
 import { createStyle } from '../browser-style'
 
 const keys = {
@@ -106,7 +106,7 @@ export class TimerDemoModel implements Model<Msg, TimerDemoModel> {
 
     const lines = [
       '',
-      title.render('Suds Timer Demo'),
+      title.render('Boba Timer Demo'),
       '',
       text.render(`Remaining: ${value.render(this.timer.view())}`),
       text.render(`Status: ${state.render(this.status)}`),

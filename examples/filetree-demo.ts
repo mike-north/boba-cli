@@ -1,20 +1,20 @@
 /**
- * Suds Demo: Filetree
+ * Boba Demo: Filetree
  *
- * Demonstrates \@suds-cli/filetree for browsing files with metadata.
+ * Demonstrates \@boba-cli/filetree for browsing files with metadata.
  *
  * Controls:
  *   j / k / arrows  - move selection up/down
  *   q / ctrl+c / esc - quit
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { getIcon, getIndicator, type IconResult } from '@suds-cli/icons'
-import { newBinding, matches } from '@suds-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import { getIcon, getIndicator, type IconResult } from '@boba-cli/icons'
+import { newBinding, matches } from '@boba-cli/key'
 import {
   NodeFileSystemAdapter,
   NodePathAdapter,
-} from '@suds-cli/machine/node'
+} from '@boba-cli/machine/node'
 import {
   KeyMsg,
   Program,
@@ -23,8 +23,8 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { FiletreeModel } from '@suds-cli/filetree'
+} from '@boba-cli/tea'
+import { FiletreeModel } from '@boba-cli/filetree'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c', 'esc'] }).withHelp(
   'q',
@@ -87,7 +87,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Filetree')
+    const header = headerStyle.render('🧼 Boba Demo — Filetree')
     const help = helpStyle.render(
       'Use j/k or arrows to navigate. q/esc to quit.',
     )

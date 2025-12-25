@@ -1,15 +1,13 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/filesystem` to `@boba-cli/filesystem`. Please update your dependencies accordingly.
+# @boba-cli/filesystem
 
-# @suds-cli/filesystem
+Filesystem utility functions for Boba terminal UIs. This package provides a collection of helper functions for working with the filesystem, ported from the [teacup](https://github.com/mistakenelf/teacup) Go library.
 
-Filesystem utility functions for Suds terminal UIs. This package provides a collection of helper functions for working with the filesystem, ported from the [teacup](https://github.com/mistakenelf/teacup) Go library.
-
-This package uses `@suds-cli/machine` abstractions to ensure browser compatibility and platform independence.
+This package uses `@boba-cli/machine` abstractions to ensure browser compatibility and platform independence.
 
 ## Installation
 
 ```bash
-npm install @suds-cli/filesystem @suds-cli/machine
+npm install @boba-cli/filesystem @boba-cli/machine
 ```
 
 ## Features
@@ -28,11 +26,11 @@ npm install @suds-cli/filesystem @suds-cli/machine
 
 ## Usage
 
-All functions require `FileSystemAdapter` and/or `PathAdapter` instances from `@suds-cli/machine`. This design allows the package to work in both Node.js and browser environments.
+All functions require `FileSystemAdapter` and/or `PathAdapter` instances from `@boba-cli/machine`. This design allows the package to work in both Node.js and browser environments.
 
 ```typescript
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
-import { getDirectoryListing } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
+import { getDirectoryListing } from '@boba-cli/filesystem'
 
 // Create adapter instances
 const fs = new NodeFileSystemAdapter()
@@ -51,8 +49,8 @@ const entries = await getDirectoryListing(fs, '/path/to/dir')
 Returns a list of files and directories within a given directory.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { getDirectoryListing } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { getDirectoryListing } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const entries = await getDirectoryListing(fs, '/path/to/dir')
@@ -64,12 +62,12 @@ const allEntries = await getDirectoryListing(fs, '/path/to/dir', true) // includ
 Returns a directory listing filtered by type (directories or files).
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
 import {
   getDirectoryListingByType,
   DirectoriesListingType,
   FilesListingType,
-} from '@suds-cli/filesystem'
+} from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const dirs = await getDirectoryListingByType(
@@ -87,8 +85,8 @@ const files = await getDirectoryListingByType(fs, '/path/to/dir', FilesListingTy
 Returns the user's home directory.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { getHomeDirectory } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { getHomeDirectory } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const home = getHomeDirectory(fs)
@@ -99,8 +97,8 @@ const home = getHomeDirectory(fs)
 Returns the current working directory.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { getWorkingDirectory } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { getWorkingDirectory } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const cwd = getWorkingDirectory(fs)
@@ -113,8 +111,8 @@ const cwd = getWorkingDirectory(fs)
 Returns the contents of a file as a string.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { readFileContent } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { readFileContent } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const content = await readFileContent(fs, '/path/to/file.txt')
@@ -127,8 +125,8 @@ const content = await readFileContent(fs, '/path/to/file.txt')
 Calculates the size of a directory or file in bytes.
 
 ```typescript
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
-import { getDirectoryItemSize } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
+import { getDirectoryItemSize } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const path = new NodePathAdapter()
@@ -143,8 +141,8 @@ console.log(`Size: ${size} bytes`)
 Searches for files by name (supports partial matches).
 
 ```typescript
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
-import { findFilesByName } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
+import { findFilesByName } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const path = new NodePathAdapter()
@@ -158,8 +156,8 @@ const { paths, entries } = await findFilesByName(fs, path, '*.txt', '/path/to/se
 Creates a new file.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { createFile } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { createFile } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await createFile(fs, '/path/to/newfile.txt')
@@ -170,8 +168,8 @@ await createFile(fs, '/path/to/newfile.txt')
 Deletes a file.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { deleteFile } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { deleteFile } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await deleteFile(fs, '/path/to/file.txt')
@@ -182,8 +180,8 @@ await deleteFile(fs, '/path/to/file.txt')
 Writes content to a file (overwrites if exists).
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { writeToFile } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { writeToFile } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await writeToFile(fs, '/path/to/file.txt', 'Hello, World!')
@@ -194,8 +192,8 @@ await writeToFile(fs, '/path/to/file.txt', 'Hello, World!')
 Copies a file with a timestamp suffix and returns the new file path.
 
 ```typescript
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
-import { copyFile } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
+import { copyFile } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const path = new NodePathAdapter()
@@ -210,8 +208,8 @@ const newPath = await copyFile(fs, path, '/path/to/file.txt')
 Creates a new directory.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { createDirectory } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { createDirectory } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await createDirectory(fs, '/path/to/newdir')
@@ -222,8 +220,8 @@ await createDirectory(fs, '/path/to/newdir')
 Deletes a directory recursively.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { deleteDirectory } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { deleteDirectory } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await deleteDirectory(fs, '/path/to/dir')
@@ -234,8 +232,8 @@ await deleteDirectory(fs, '/path/to/dir')
 Copies a directory recursively with a timestamp suffix and returns the new directory path.
 
 ```typescript
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
-import { copyDirectory } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
+import { copyDirectory } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 const path = new NodePathAdapter()
@@ -250,8 +248,8 @@ const newPath = await copyDirectory(fs, path, '/path/to/dir')
 Renames a file or directory.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { renameDirectoryItem } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { renameDirectoryItem } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await renameDirectoryItem(fs, '/path/to/old.txt', '/path/to/new.txt')
@@ -262,8 +260,8 @@ await renameDirectoryItem(fs, '/path/to/old.txt', '/path/to/new.txt')
 Moves a file or directory to a new location.
 
 ```typescript
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
-import { moveDirectoryItem } from '@suds-cli/filesystem'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
+import { moveDirectoryItem } from '@boba-cli/filesystem'
 
 const fs = new NodeFileSystemAdapter()
 await moveDirectoryItem(fs, '/path/to/file.txt', '/new/path/file.txt')
@@ -271,10 +269,10 @@ await moveDirectoryItem(fs, '/path/to/file.txt', '/new/path/file.txt')
 
 ## Archive Operations
 
-Archive operations (zip/unzip) have been moved to `@suds-cli/machine`. Use the `ArchiveAdapter` from that package:
+Archive operations (zip/unzip) have been moved to `@boba-cli/machine`. Use the `ArchiveAdapter` from that package:
 
 ```typescript
-import { NodeArchiveAdapter } from '@suds-cli/machine/node'
+import { NodeArchiveAdapter } from '@boba-cli/machine/node'
 
 const archive = new NodeArchiveAdapter()
 await archive.zip('/path/to/source', '/path/to/output.zip')
@@ -294,7 +292,7 @@ Represents a directory entry with the following properties and methods:
 
 ## Cross-Platform Compatibility
 
-All functions use `@suds-cli/machine` adapters to ensure compatibility across Node.js and browser environments. The adapters handle platform-specific implementation details, allowing this package to provide a consistent API regardless of the runtime environment.
+All functions use `@boba-cli/machine` adapters to ensure compatibility across Node.js and browser environments. The adapters handle platform-specific implementation details, allowing this package to provide a consistent API regardless of the runtime environment.
 
 ## License
 

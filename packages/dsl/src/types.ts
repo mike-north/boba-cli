@@ -1,4 +1,4 @@
-import type { Cmd, Model, Msg } from '@suds-cli/tea'
+import type { Cmd, Model, Msg } from '@boba-cli/tea'
 
 /**
  * View node types for the view DSL.
@@ -269,7 +269,7 @@ export interface App<State, _Components extends Record<string, unknown>> {
   run(): Promise<{ state: State }>
   /**
    * Get the underlying TEA model (escape hatch for advanced use cases).
-   * @returns The generated TEA Model from `@suds-cli/tea`
+   * @returns The generated TEA Model from `@boba-cli/tea`
    */
   getModel(): Model<Msg>
 }

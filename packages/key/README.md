@@ -1,19 +1,17 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/key` to `@boba-cli/key`. Please update your dependencies accordingly.
-
-# @suds-cli/key
+# @boba-cli/key
 
 TypeScript port of Charmbracelet Bubbles key package for user-definable keybindings. Provides immutable `Binding` objects with help text and a `matches()` function for matching key events.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/key
+pnpm add @boba-cli/key
 ```
 
 ## Quickstart
 
 ```ts
-import { newBinding, matches } from '@suds-cli/key'
+import { newBinding, matches } from '@boba-cli/key'
 
 // Define keybindings with help text
 const keymap = {

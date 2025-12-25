@@ -1,22 +1,20 @@
-> **Deprecation Notice:** This package is being renamed from `@suds-cli/textarea` to `@boba-cli/textarea`. Please update your dependencies accordingly.
+# @boba-cli/textarea
 
-# @suds-cli/textarea
-
-Multi-line textarea component for Suds terminal UIs. Early port of Charmbracelet Bubbles textarea.
+Multi-line textarea component for Boba terminal UIs. Early port of Charmbracelet Bubbles textarea.
 
 <img src="../../examples/textarea-demo.gif" width="950" alt="Textarea component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/textarea
+pnpm add @boba-cli/textarea
 ```
 
 ## Quickstart
 
 ```ts
-import { TextareaModel } from '@suds-cli/textarea'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import { TextareaModel } from '@boba-cli/textarea'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 let editor = TextareaModel.new({
   placeholder: 'Write your note...',

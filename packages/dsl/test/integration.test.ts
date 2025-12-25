@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { createApp } from '../src/app-builder.js'
 import { text, vstack, hstack, when } from '../src/view/nodes.js'
 import { spinner } from '../src/components/spinner.js'
-import { Style } from '@suds-cli/chapstick'
-import { line, dot } from '@suds-cli/spinner'
+import { Style } from '@boba-cli/chapstick'
+import { line, dot } from '@boba-cli/spinner'
 
 describe('Integration: spinner component', () => {
   it('creates app with spinner component', () => {

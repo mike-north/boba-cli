@@ -1,5 +1,5 @@
-import { tick, type Cmd, type Msg } from '@suds-cli/tea'
-import { Style } from '@suds-cli/chapstick'
+import { tick, type Cmd, type Msg } from '@boba-cli/tea'
+import { Style } from '@boba-cli/chapstick'
 import { type Spinner, line } from './spinner.js'
 import { TickMsg } from './messages.js'
 

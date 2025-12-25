@@ -1,4 +1,4 @@
-import type { PlatformAdapter } from '@suds-cli/machine'
+import type { PlatformAdapter } from '@boba-cli/machine'
 import {
   ClearScreenMsg,
   DisableMouseMsg,

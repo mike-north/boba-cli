@@ -1,4 +1,4 @@
-# @suds-cli/runeutil
+# @boba-cli/runeutil
 
 ## 0.1.0-alpha.1
 

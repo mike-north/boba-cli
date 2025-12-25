@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Style } from '@suds-cli/chapstick'
-import { BlurMsg, FocusMsg } from '@suds-cli/tea'
+import { Style } from '@boba-cli/chapstick'
+import { BlurMsg, FocusMsg } from '@boba-cli/tea'
 import { CursorModel, CursorMode } from '@/model.js'
 import { BlinkMsg, InitialBlinkMsg } from '@/messages.js'
 
