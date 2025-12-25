@@ -1,5 +1,33 @@
 # @suds-cli/examples
 
+## 0.0.1-alpha.1
+
+### Patch Changes
+
+- Updated dependencies [[`b499f15`](https://github.com/mike-north/boba-cli/commit/b499f15d35675af1e740d92468da921344dda321), [`91d1441`](https://github.com/mike-north/boba-cli/commit/91d144145cacb3b0464ea244ad05a61a2b83bd0f)]:
+  - @suds-cli/dsl@0.1.0-alpha.1
+  - @suds-cli/chapstick@0.1.0-alpha.2
+  - @suds-cli/code@0.1.0-alpha.2
+  - @suds-cli/filepicker@0.1.0-alpha.2
+  - @suds-cli/filetree@0.1.0-alpha.1
+  - @suds-cli/help@0.1.0-alpha.2
+  - @suds-cli/icons@0.1.0-alpha.1
+  - @suds-cli/key@0.1.0-alpha.1
+  - @suds-cli/list@0.1.0-alpha.2
+  - @suds-cli/machine@0.1.0-alpha.1
+  - @suds-cli/markdown@0.1.0-alpha.2
+  - @suds-cli/paginator@0.1.0-alpha.1
+  - @suds-cli/progress@0.1.0-alpha.2
+  - @suds-cli/spinner@0.1.0-alpha.2
+  - @suds-cli/statusbar@0.1.0-alpha.2
+  - @suds-cli/stopwatch@0.1.0-alpha.1
+  - @suds-cli/table@0.1.0-alpha.2
+  - @suds-cli/tea@0.1.0-alpha.1
+  - @suds-cli/textarea@0.1.0-alpha.2
+  - @suds-cli/textinput@0.1.0-alpha.2
+  - @suds-cli/timer@0.1.0-alpha.1
+  - @suds-cli/viewport@0.1.0-alpha.2
+
 ## 0.0.1-alpha.0
 
 ### Patch Changes

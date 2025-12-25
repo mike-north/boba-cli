@@ -1,7 +1,7 @@
 {
   "name": "@suds-cli/dsl",
   "description": "Declarative DSL for building CLI applications with minimal ceremony",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "dependencies": {
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/key": "workspace:*",
