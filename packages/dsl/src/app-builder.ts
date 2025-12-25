@@ -7,7 +7,7 @@ import {
   type Model,
   type Msg,
 } from '@suds-cli/tea'
-import { newBinding, matches } from '@suds-cli/key'
+import { newBinding, matches, type Binding } from '@suds-cli/key'
 import type {
   App,
   ComponentBuilder,
@@ -25,6 +25,7 @@ import { componentView } from './view/nodes.js'
  */
 interface KeyHandlerEntry<State, Components extends Record<string, unknown>> {
   keys: string[]
+  binding: Binding
   handler: KeyHandler<State, Components>
 }
 
@@ -180,7 +181,8 @@ export class AppBuilder<
     handler: KeyHandler<State, Components>,
   ): AppBuilder<State, Components> {
     const keyArray = Array.isArray(keys) ? keys : [keys]
-    const newHandlers = [...this.#keyHandlers, { keys: keyArray, handler }]
+    const binding = newBinding({ keys: keyArray })
+    const newHandlers = [...this.#keyHandlers, { keys: keyArray, binding, handler }]
     return new AppBuilder(this.#initialState, this.#components, newHandlers, this.#viewFn)
   }
 
@@ -324,8 +326,7 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
   update(msg: Msg): [GeneratedModel<State, Components>, Cmd<Msg>] {
     // Check key handlers first
     if (msg instanceof KeyMsg) {
-      for (const { keys, handler } of this.#keyHandlers) {
-        const binding = newBinding({ keys })
+      for (const { binding, handler } of this.#keyHandlers) {
         if (matches(msg, binding)) {
           // Create event context and call handler
           let nextUserState = this.#userState

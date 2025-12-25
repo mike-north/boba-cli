@@ -92,7 +92,9 @@ export class XtermTerminalAdapter implements TerminalAdapter {
     }
     // Convert lone \n to \r\n for proper terminal line handling
     // xterm.js requires \r\n for carriage return + line feed
-    const normalized = data.replace(/(?<!\r)\n/g, '\r\n')
+    // Use two-step replacement to avoid lookbehind assertions (ES2018+)
+    // which aren't supported in all JavaScript environments
+    const normalized = data.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n')
     this.terminal.write(normalized)
   }
 
