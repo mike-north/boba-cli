@@ -1,5 +1,9 @@
 import type { Cmd } from '@suds-cli/tea'
-import type { FileSystemAdapter, PathAdapter } from '@suds-cli/machine'
+import type {
+  DirectoryEntry,
+  FileSystemAdapter,
+  PathAdapter,
+} from '@suds-cli/machine'
 import type { DirectoryItem } from './types.js'
 import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
 
@@ -76,7 +80,7 @@ function formatDate(date: Date): string {
 }
 
 /**
- * Type guard to check if an error is a Node.js filesystem permission error.
+ * Type guard to check if an error is a filesystem permission error.
  * @param error - The error to check
  * @returns True if the error is a permission-related filesystem error
  */
@@ -94,7 +98,7 @@ function isPermissionError(
 
 /**
  * Creates a command to asynchronously fetch directory contents.
- * @param filesystem - FileSystem adapter for file operations
+ * @param filesystem - Filesystem adapter for file operations
  * @param path - Path adapter for path operations
  * @param dir - Directory path to list
  * @param showHidden - Whether to show hidden files
@@ -109,29 +113,32 @@ export function getDirectoryListingCmd(
 ): Cmd<GetDirectoryListingMsg | ErrorMsg> {
   return async () => {
     try {
-      const result = await filesystem.readdir(dir, { withFileTypes: true })
+      const resolvedDir = path.resolve(dir)
+      const entries = await filesystem.readdir(resolvedDir, {
+        withFileTypes: true,
+      })
 
-      // Type guard to ensure we got DirectoryEntry[]
-      if (typeof result[0] === 'string') {
-        throw new Error('Expected DirectoryEntry array but got string array')
+      // Type guard: entries should be DirectoryEntry[] when withFileTypes is true
+      if (
+        entries.length > 0 &&
+        typeof entries[0] === 'string'
+      ) {
+        // Fallback if adapter returns string[] instead of DirectoryEntry[]
+        throw new Error(
+          'Filesystem adapter must support withFileTypes option',
+        )
       }
 
-      const entries = result as Array<{
-        readonly name: string
-        isDirectory(): boolean
-        isFile(): boolean
-        isSymbolicLink(): boolean
-      }>
-
+      const typedEntries = entries as DirectoryEntry[]
       const items: DirectoryItem[] = []
 
-      for (const entry of entries) {
+      for (const entry of typedEntries) {
         // Skip hidden files if showHidden is false
         if (!showHidden && entry.name.startsWith('.')) {
           continue
         }
 
-        const itemPath = path.join(dir, entry.name)
+        const itemPath = path.join(resolvedDir, entry.name)
 
         try {
           const stats = await filesystem.stat(itemPath)
@@ -149,7 +156,7 @@ export function getDirectoryListingCmd(
             path: itemPath,
             extension,
             isDirectory: entry.isDirectory(),
-            currentDirectory: dir,
+            currentDirectory: resolvedDir,
             mode: stats.mode,
           })
         } catch (error: unknown) {

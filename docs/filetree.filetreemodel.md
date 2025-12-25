@@ -157,7 +157,7 @@ Array of directory items
 
 </td><td>
 
-FileSystem adapter
+Filesystem adapter
 
 
 </td></tr>

@@ -69,7 +69,7 @@ _(Optional)_ Initial directory to display
 
 </td><td>
 
-FileSystem adapter for file operations
+Filesystem adapter for file operations
 
 
 </td></tr>

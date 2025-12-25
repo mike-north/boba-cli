@@ -11,7 +11,10 @@
 import { Style } from '@suds-cli/chapstick'
 import { getIcon, getIndicator, type IconResult } from '@suds-cli/icons'
 import { newBinding, matches } from '@suds-cli/key'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import {
+  NodeFileSystemAdapter,
+  NodePathAdapter,
+} from '@suds-cli/machine/node'
 import {
   KeyMsg,
   Program,
@@ -31,11 +34,10 @@ const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c', 'esc'] }).withHelp(
 const headerStyle = new Style().bold(true).foreground('#8be9fd')
 const helpStyle = new Style().foreground('#6272a4').italic(true)
 
-const filesystem = new NodeFileSystemAdapter()
-const path = new NodePathAdapter()
-
 class DemoModel implements Model<Msg, DemoModel> {
   readonly filetree: FiletreeModel
+  private readonly filesystem = new NodeFileSystemAdapter()
+  private readonly pathAdapter = new NodePathAdapter()
 
   constructor(filetree?: FiletreeModel) {
     // Use a dedicated demo directory for a cleaner, more confined example
@@ -44,8 +46,8 @@ class DemoModel implements Model<Msg, DemoModel> {
     this.filetree =
       filetree ??
       FiletreeModel.new({
-        filesystem,
-        path,
+        filesystem: this.filesystem,
+        path: this.pathAdapter,
         currentDir: demoDir,
         showHidden: false,
       })

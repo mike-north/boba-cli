@@ -42,7 +42,7 @@ filesystem
 
 </td><td>
 
-FileSystem adapter for file operations
+Filesystem adapter for file operations
 
 
 </td></tr>

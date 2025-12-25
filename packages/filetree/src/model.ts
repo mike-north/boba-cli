@@ -12,7 +12,7 @@ import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
  * @public
  */
 export interface FiletreeOptions {
-  /** FileSystem adapter for file operations */
+  /** Filesystem adapter for file operations */
   filesystem: FileSystemAdapter
   /** Path adapter for path operations */
   path: PathAdapter
@@ -71,7 +71,7 @@ export class FiletreeModel {
   /** Last error, if any */
   readonly error: Error | null
 
-  /** FileSystem adapter */
+  /** Filesystem adapter */
   readonly filesystem: FileSystemAdapter
 
   /** Path adapter */
@@ -146,7 +146,7 @@ export class FiletreeModel {
    * @returns Command to load directory listing
    * @public
    */
-  init(): Cmd<GetDirectoryListingMsg | ErrorMsg> {
+  init(): Cmd<Msg> {
     return getDirectoryListingCmd(
       this.filesystem,
       this.path,
@@ -245,38 +245,25 @@ export class FiletreeModel {
     if (msg instanceof WindowSizeMsg) {
       const newHeight = msg.height
       const newWidth = msg.width
-
-      // Clamp cursor to valid range
+      const newMax = Math.max(0, Math.min(newHeight - 1, this.files.length - 1))
+      
+      // Clamp cursor position to valid range and viewport bounds
       const maxValidCursor = Math.max(0, this.files.length - 1)
-      const newCursor = Math.min(this.cursor, maxValidCursor)
-
-      // Calculate viewport size (can't be larger than file count)
-      const viewportSize = Math.min(newHeight, this.files.length)
-
-      // Adjust min to keep cursor visible within the new viewport
-      // Cursor should be between newMin and newMin + viewportSize - 1
-      let newMin = this.min
-
-      // If cursor is before the viewport, move viewport up
-      if (newCursor < newMin) {
-        newMin = newCursor
-      }
-
-      // If cursor is after the viewport, move viewport down
-      const maxVisibleIndex = newMin + viewportSize - 1
-      if (newCursor > maxVisibleIndex) {
-        newMin = newCursor - viewportSize + 1
-      }
-
-      // Ensure min doesn't go negative
-      newMin = Math.max(0, newMin)
-
-      // Calculate max based on min and viewport size
-      const newMax = Math.min(newMin + viewportSize - 1, this.files.length - 1)
+      const adjustedCursor = Math.min(
+        Math.min(this.cursor, maxValidCursor),
+        newMax,
+      )
+      
+      // Adjust viewport min to keep cursor visible after resize
+      // If cursor is at the bottom of the viewport, min should be adjusted
+      const newMin = Math.min(
+        Math.max(0, adjustedCursor - (newHeight - 1)),
+        adjustedCursor,
+      )
 
       return [
         new FiletreeModel(
-          newCursor,
+          adjustedCursor,
           this.files,
           this.active,
           this.keyMap,
@@ -304,7 +291,7 @@ export class FiletreeModel {
     if (msg instanceof KeyMsg) {
       // Move down
       if (matches(msg, this.keyMap.down)) {
-        // Don't navigate if list is empty
+        // Don't navigate if files list is empty
         if (this.files.length === 0) {
           return [this, null]
         }
@@ -342,7 +329,7 @@ export class FiletreeModel {
 
       // Move up
       if (matches(msg, this.keyMap.up)) {
-        // Don't navigate if list is empty
+        // Don't navigate if files list is empty
         if (this.files.length === 0) {
           return [this, null]
         }

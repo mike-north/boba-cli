@@ -57,7 +57,7 @@ export class FiletreeModel {
     readonly files: DirectoryItem[];
     readonly filesystem: FileSystemAdapter;
     readonly height: number;
-    init(): Cmd<GetDirectoryListingMsg | ErrorMsg>;
+    init(): Cmd<Msg>;
     readonly keyMap: FiletreeKeyMap;
     readonly max: number;
     readonly min: number;
