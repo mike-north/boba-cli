@@ -53,6 +53,7 @@
     "table": "tsx table-demo.ts",
     "textarea": "tsx textarea-demo.ts",
     "textinput": "tsx textinput-demo.ts",
+    "textinput-dsl": "tsx textinput-demo-dsl.ts",
     "timer": "tsx timer-demo.ts",
     "viewport": "tsx viewport-demo.ts"
   }
