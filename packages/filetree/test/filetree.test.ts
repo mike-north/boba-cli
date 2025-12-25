@@ -1,19 +1,37 @@
 import { describe, it, expect } from 'vitest'
+import {
+  NodeFileSystemAdapter,
+  NodePathAdapter,
+} from '@suds-cli/machine/node'
 import { FiletreeModel } from '../src/model.js'
 import { GetDirectoryListingMsg, ErrorMsg } from '../src/messages.js'
 import { convertBytesToSizeString } from '../src/fs.js'
 import { KeyMsg, KeyType, WindowSizeMsg } from '@suds-cli/tea'
 
+// Test helpers
+const filesystem = new NodeFileSystemAdapter()
+const pathAdapter = new NodePathAdapter()
+
+function createModel(
+  options?: Parameters<typeof FiletreeModel.new>[0],
+): FiletreeModel {
+  return FiletreeModel.new({
+    filesystem,
+    path: pathAdapter,
+    ...options,
+  })
+}
+
 describe('FiletreeModel', () => {
   it('should create a new model with defaults', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     expect(model.cursor).toBe(0)
     expect(model.files).toEqual([])
     expect(model.active).toBe(true)
   })
 
   it('should create a model with custom options', () => {
-    const model = FiletreeModel.new({
+    const model = createModel({
       currentDir: '/tmp',
       showHidden: true,
       width: 100,
@@ -27,7 +45,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should set active state', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const inactive = model.setIsActive(false)
 
     expect(model.active).toBe(true)
@@ -35,7 +53,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should handle directory listing message', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -64,7 +82,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should navigate down', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -95,7 +113,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should navigate up', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -129,7 +147,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should get selected file', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -148,7 +166,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should not navigate when file list is empty', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const emptyItems: typeof model.files = []
 
     const [withEmptyItems] = model.update(
@@ -169,7 +187,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should not navigate beyond first item', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -193,7 +211,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should not navigate beyond last item', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -229,7 +247,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should handle error message', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const error = new Error('Permission denied')
     const [nextModel] = model.update(new ErrorMsg(error))
 
@@ -239,7 +257,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should display error in view', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const error = new Error('Permission denied')
     const [withError] = model.update(new ErrorMsg(error))
 
@@ -248,7 +266,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should display empty directory message in view', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const emptyItems: typeof model.files = []
     const [withEmptyItems] = model.update(
       new GetDirectoryListingMsg(emptyItems),
@@ -259,7 +277,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should render viewport with selected item styling', () => {
-    const model = FiletreeModel.new({ height: 3, width: 80 })
+    const model = createModel({ height: 3, width: 80 })
     const items = [
       {
         name: 'file1.txt',
@@ -302,7 +320,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should ignore keyboard input when inactive', () => {
-    const model = FiletreeModel.new()
+    const model = createModel()
     const items = [
       {
         name: 'file1.txt',
@@ -337,7 +355,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should handle window resize message', () => {
-    const model = FiletreeModel.new({ height: 24, width: 80 })
+    const model = createModel({ height: 24, width: 80 })
     const items = [
       {
         name: 'file1.txt',
@@ -368,7 +386,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should clamp cursor when window resizes smaller', () => {
-    const model = FiletreeModel.new({ height: 24, width: 80 })
+    const model = createModel({ height: 24, width: 80 })
     const items = [
       {
         name: 'file1.txt',
@@ -406,7 +424,7 @@ describe('FiletreeModel', () => {
   })
 
   it('should adjust viewport min to keep cursor visible after resize', () => {
-    const model = FiletreeModel.new({ height: 24, width: 80 })
+    const model = createModel({ height: 24, width: 80 })
     const items = Array.from({ length: 10 }, (_, i) => ({
       name: `file${i + 1}.txt`,
       details: '2024-01-15 10:30:00 -rw-r--r-- 1.2K',

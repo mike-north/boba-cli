@@ -1,6 +1,9 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
 import type { Cmd } from '@suds-cli/tea'
+import type {
+  DirectoryEntry,
+  FileSystemAdapter,
+  PathAdapter,
+} from '@suds-cli/machine'
 import type { DirectoryItem } from './types.js'
 import { GetDirectoryListingMsg, ErrorMsg } from './messages.js'
 
@@ -77,7 +80,7 @@ function formatDate(date: Date): string {
 }
 
 /**
- * Type guard to check if an error is a Node.js filesystem permission error.
+ * Type guard to check if an error is a filesystem permission error.
  * @param error - The error to check
  * @returns True if the error is a permission-related filesystem error
  */
@@ -95,22 +98,41 @@ function isPermissionError(
 
 /**
  * Creates a command to asynchronously fetch directory contents.
+ * @param filesystem - Filesystem adapter for file operations
+ * @param path - Path adapter for path operations
  * @param dir - Directory path to list
  * @param showHidden - Whether to show hidden files
  * @returns Command that will emit GetDirectoryListingMsg or ErrorMsg
  * @public
  */
 export function getDirectoryListingCmd(
+  filesystem: FileSystemAdapter,
+  path: PathAdapter,
   dir: string,
   showHidden: boolean,
 ): Cmd<GetDirectoryListingMsg | ErrorMsg> {
   return async () => {
     try {
       const resolvedDir = path.resolve(dir)
-      const entries = await fs.readdir(resolvedDir, { withFileTypes: true })
+      const entries = await filesystem.readdir(resolvedDir, {
+        withFileTypes: true,
+      })
+
+      // Type guard: entries should be DirectoryEntry[] when withFileTypes is true
+      if (
+        entries.length > 0 &&
+        typeof entries[0] === 'string'
+      ) {
+        // Fallback if adapter returns string[] instead of DirectoryEntry[]
+        throw new Error(
+          'Filesystem adapter must support withFileTypes option',
+        )
+      }
+
+      const typedEntries = entries as DirectoryEntry[]
       const items: DirectoryItem[] = []
 
-      for (const entry of entries) {
+      for (const entry of typedEntries) {
         // Skip hidden files if showHidden is false
         if (!showHidden && entry.name.startsWith('.')) {
           continue
@@ -119,7 +141,7 @@ export function getDirectoryListingCmd(
         const itemPath = path.join(resolvedDir, entry.name)
 
         try {
-          const stats = await fs.stat(itemPath)
+          const stats = await filesystem.stat(itemPath)
           const extension = entry.isDirectory() ? '' : path.extname(entry.name)
 
           // Format details: "2024-01-15 10:30:00 -rw-r--r-- 1.2K"

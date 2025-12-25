@@ -12,6 +12,10 @@ import { Style } from '@suds-cli/chapstick'
 import { getIcon, getIndicator, type IconResult } from '@suds-cli/icons'
 import { newBinding, matches } from '@suds-cli/key'
 import {
+  NodeFileSystemAdapter,
+  NodePathAdapter,
+} from '@suds-cli/machine/node'
+import {
   KeyMsg,
   Program,
   WindowSizeMsg,
@@ -32,6 +36,8 @@ const helpStyle = new Style().foreground('#6272a4').italic(true)
 
 class DemoModel implements Model<Msg, DemoModel> {
   readonly filetree: FiletreeModel
+  private readonly filesystem = new NodeFileSystemAdapter()
+  private readonly pathAdapter = new NodePathAdapter()
 
   constructor(filetree?: FiletreeModel) {
     // Use a dedicated demo directory for a cleaner, more confined example
@@ -40,6 +46,8 @@ class DemoModel implements Model<Msg, DemoModel> {
     this.filetree =
       filetree ??
       FiletreeModel.new({
+        filesystem: this.filesystem,
+        path: this.pathAdapter,
         currentDir: demoDir,
         showHidden: false,
       })
