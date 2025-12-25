@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Statusbar
  *
- * Demonstrates @suds-cli/tea, @suds-cli/statusbar, @suds-cli/chapstick, and @suds-cli/key.
+ * Demonstrates \@suds-cli/tea, \@suds-cli/statusbar, \@suds-cli/chapstick, and \@suds-cli/key.
  *
  * Controls:
  *   q      - Quit

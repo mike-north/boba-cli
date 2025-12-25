@@ -2,6 +2,13 @@
   "name": "@suds-cli/list",
   "description": "Filterable, selectable list for Suds terminal UIs.",
   "version": "0.0.1-alpha.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "@suds-cli/chapstick": "workspace:*",
     "@suds-cli/help": "workspace:*",

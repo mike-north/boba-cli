@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Markdown Viewer
  *
- * Demonstrates @suds-cli/markdown with file rendering and scrolling.
+ * Demonstrates \@suds-cli/markdown with file rendering and scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line

@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Timer countdown
  *
- * Demonstrates @suds-cli/tea, @suds-cli/timer, @suds-cli/chapstick, and @suds-cli/key.
+ * Demonstrates \@suds-cli/tea, \@suds-cli/timer, \@suds-cli/chapstick, and \@suds-cli/key.
  *
  * Controls:
  *   space  - Start/stop
@@ -13,7 +13,6 @@ import {
   Program,
   KeyMsg,
   quit,
-  batch,
   type Cmd,
   type Model,
   type Msg,
@@ -44,7 +43,7 @@ class TimerDemo implements Model<Msg, TimerDemo> {
   ) {}
 
   init(): Cmd<Msg> {
-    return this.timer.init() as Cmd<Msg>
+    return this.timer.init()
   }
 
   update(msg: Msg): [TimerDemo, Cmd<Msg>] {
@@ -55,7 +54,7 @@ class TimerDemo implements Model<Msg, TimerDemo> {
 
       if (matches(msg, keys.toggle)) {
         const cmd = this.timer.toggle()
-        return [this, cmd as Cmd<Msg>]
+        return [this, cmd]
       }
 
       if (matches(msg, keys.restart)) {
@@ -65,7 +64,7 @@ class TimerDemo implements Model<Msg, TimerDemo> {
         })
         return [
           new TimerDemo(this.initialTimeout, fresh, 'running'),
-          fresh.init() as Cmd<Msg>,
+          fresh.init(),
         ]
       }
     }
@@ -86,7 +85,7 @@ class TimerDemo implements Model<Msg, TimerDemo> {
             : this.status
       return [
         new TimerDemo(this.initialTimeout, nextTimer, nextStatus),
-        cmd as Cmd<Msg>,
+        cmd,
       ]
     }
 

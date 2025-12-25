@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Help
  *
- * Shows how @suds-cli/help renders short and full help from key bindings.
+ * Shows how \@suds-cli/help renders short and full help from key bindings.
  *
  * Controls:
  *   k / ↑   - move up

@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Code Viewer
  *
- * Demonstrates @suds-cli/code with syntax highlighting and scrolling.
+ * Demonstrates \@suds-cli/code with syntax highlighting and scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line

@@ -89,11 +89,11 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
           nextPaginator.setTotalPages(this.items.length),
           this.items,
         ),
-        cmd as Cmd<Msg>,
+        cmd,
       ]
     }
 
-    return [this, cmd as Cmd<Msg>]
+    return [this, cmd]
   }
 
   view(): string {

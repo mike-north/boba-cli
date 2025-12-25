@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Table
  *
- * Demonstrates @suds-cli/table with scrolling and selection.
+ * Demonstrates \@suds-cli/table with scrolling and selection.
  *
  * Controls:
  *   j / ↓        - move down

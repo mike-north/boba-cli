@@ -1,7 +1,7 @@
 /**
  * Suds Demo: List
  *
- * Demonstrates @suds-cli/list with filtering, pagination, and help.
+ * Demonstrates \@suds-cli/list with filtering, pagination, and help.
  *
  * Controls (built into the list keymap):
  *   j / k / arrows  - move selection

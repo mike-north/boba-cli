@@ -9,7 +9,7 @@ Deletes a directory recursively.
 **Signature:**
 
 ```typescript
-export declare function deleteDirectory(name: string): Promise<void>;
+export declare function deleteDirectory(fs: FileSystemAdapter, name: string): Promise<void>;
 ```
 
 ## Parameters
@@ -31,6 +31,22 @@ Description
 
 </th></tr></thead>
 <tbody><tr><td>
+
+fs
+
+
+</td><td>
+
+[FileSystemAdapter](./machine.filesystemadapter.md)
+
+
+</td><td>
+
+FileSystem adapter
+
+
+</td></tr>
+<tr><td>
 
 name
 

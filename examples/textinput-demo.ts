@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Text Input
  *
- * Demonstrates @suds-cli/textinput with validation, placeholder,
+ * Demonstrates \@suds-cli/textinput with validation, placeholder,
  * width-constrained scrolling, and styles.
  *
  * Controls:
@@ -70,7 +70,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
     const [focused, cmd] = base.focus()
     this.input = focused
-    this.focusCmd = cmd as Cmd<Msg>
+    this.focusCmd = cmd
   }
 
   init(): Cmd<Msg> {
