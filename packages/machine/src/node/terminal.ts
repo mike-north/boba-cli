@@ -132,6 +132,8 @@ export class NodeTerminalAdapter implements TerminalAdapter {
   private isWritableStream(
     stream: NodeJS.WritableStream,
   ): stream is NodeJS.WriteStream {
-    return 'on' in stream && typeof (stream as NodeJS.WriteStream).on === 'function'
+    return (
+      'on' in stream && typeof (stream as NodeJS.WriteStream).on === 'function'
+    )
   }
 }

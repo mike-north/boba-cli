@@ -40,39 +40,39 @@ export const IconDef: {
 
 // @public
 export const IconDir: {
-    readonly ".config": {
+    readonly '.config': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly ".env": {
+    readonly '.env': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly ".environment": {
+    readonly '.environment': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly ".git": {
+    readonly '.git': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly ".githooks": {
+    readonly '.githooks': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly ".github": {
+    readonly '.github': {
         readonly glyph: "";
         readonly color: readonly [84, 110, 122];
     };
-    readonly ".settings": {
+    readonly '.settings': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly ".submodules": {
+    readonly '.submodules': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly "META-INF": {
+    readonly 'META-INF': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
@@ -272,11 +272,11 @@ export const IconDir: {
 
 // @public
 export const IconExt: {
-    readonly "4th": {
+    readonly '4th': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "7z": {
+    readonly '7z': {
         readonly glyph: "";
         readonly color: readonly [175, 180, 43];
     };
@@ -484,7 +484,7 @@ export const IconExt: {
         readonly glyph: "ﭰ";
         readonly color: readonly [2, 119, 189];
     };
-    readonly "c++": {
+    readonly 'c++': {
         readonly glyph: "ﭱ";
         readonly color: readonly [2, 119, 189];
     };
@@ -572,7 +572,7 @@ export const IconExt: {
         readonly glyph: "";
         readonly color: readonly [141, 110, 99];
     };
-    readonly "code-workplace": {
+    readonly 'code-workplace': {
         readonly glyph: "";
         readonly color: readonly [33, 150, 243];
     };
@@ -980,7 +980,7 @@ export const IconExt: {
         readonly glyph: "h";
         readonly color: readonly [2, 119, 189];
     };
-    readonly "h++": {
+    readonly 'h++': {
         readonly glyph: "h";
         readonly color: readonly [2, 119, 189];
     };
@@ -1144,7 +1144,7 @@ export const IconExt: {
         readonly glyph: "";
         readonly color: readonly [174, 44, 42];
     };
-    readonly "jinja-html": {
+    readonly 'jinja-html': {
         readonly glyph: "";
         readonly color: readonly [174, 44, 42];
     };
@@ -2004,11 +2004,11 @@ export const IconExt: {
         readonly glyph: "";
         readonly color: readonly [192, 202, 51];
     };
-    readonly "sublime-project": {
+    readonly 'sublime-project': {
         readonly glyph: "";
         readonly color: readonly [239, 148, 58];
     };
-    readonly "sublime-workspace": {
+    readonly 'sublime-workspace': {
         readonly glyph: "";
         readonly color: readonly [239, 148, 58];
     };
@@ -2204,7 +2204,7 @@ export const IconExt: {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
-    readonly "vbox-prev": {
+    readonly 'vbox-prev': {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
@@ -2372,7 +2372,7 @@ export const IconExt: {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "yaml-tmlanguage": {
+    readonly 'yaml-tmlanguage': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
@@ -2404,583 +2404,583 @@ export const IconExt: {
 
 // @public
 export const IconFileName: {
-    readonly ".Rhistory": {
+    readonly '.Rhistory': {
         readonly glyph: "ﳒ";
         readonly color: readonly [25, 118, 210];
     };
-    readonly ".adonisrc.json": {
+    readonly '.adonisrc.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".appveyor.yml": {
+    readonly '.appveyor.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".babelrc": {
+    readonly '.babelrc': {
         readonly glyph: "";
         readonly color: readonly [253, 217, 59];
     };
-    readonly ".babelrc.js": {
+    readonly '.babelrc.js': {
         readonly glyph: "";
         readonly color: readonly [253, 217, 59];
     };
-    readonly ".babelrc.json": {
+    readonly '.babelrc.json': {
         readonly glyph: "";
         readonly color: readonly [253, 217, 59];
     };
-    readonly ".bazelignore": {
+    readonly '.bazelignore': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".bazelrc": {
+    readonly '.bazelrc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".bithoundrc": {
+    readonly '.bithoundrc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".bowerrc": {
+    readonly '.bowerrc': {
         readonly glyph: "";
         readonly color: readonly [239, 88, 60];
     };
-    readonly ".browserslistrc": {
+    readonly '.browserslistrc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".buckconfig": {
+    readonly '.buckconfig': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".buildignore": {
+    readonly '.buildignore': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".cfignore": {
+    readonly '.cfignore': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".clang-format": {
+    readonly '.clang-format': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".clang-tidy": {
+    readonly '.clang-tidy': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".codeclimate.yml": {
+    readonly '.codeclimate.yml': {
         readonly glyph: "";
         readonly color: readonly [238, 238, 238];
     };
-    readonly ".codecov.yml": {
+    readonly '.codecov.yml': {
         readonly glyph: "";
         readonly color: readonly [237, 80, 122];
     };
-    readonly ".commitlint.yaml": {
+    readonly '.commitlint.yaml': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly ".commitlint.yml": {
+    readonly '.commitlint.yml': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly ".commitlintrc": {
+    readonly '.commitlintrc': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly ".commitlintrc.js": {
+    readonly '.commitlintrc.js': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly ".commitlintrc.json": {
+    readonly '.commitlintrc.json': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly ".drone.yml": {
+    readonly '.drone.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".editorconfig": {
+    readonly '.editorconfig': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".env.defaults": {
+    readonly '.env.defaults': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.dev": {
+    readonly '.env.dev': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.development": {
+    readonly '.env.development': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.development.local": {
+    readonly '.env.development.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.example": {
+    readonly '.env.example': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.local": {
+    readonly '.env.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.preview": {
+    readonly '.env.preview': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.prod": {
+    readonly '.env.prod': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.production": {
+    readonly '.env.production': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.production.local": {
+    readonly '.env.production.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.qa": {
+    readonly '.env.qa': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.qa.local": {
+    readonly '.env.qa.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.sample": {
+    readonly '.env.sample': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.schema": {
+    readonly '.env.schema': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.staging": {
+    readonly '.env.staging': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.staging.local": {
+    readonly '.env.staging.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.test": {
+    readonly '.env.test': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.test.local": {
+    readonly '.env.test.local': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".env.testing": {
+    readonly '.env.testing': {
         readonly glyph: "ﭩ";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".esformatter": {
+    readonly '.esformatter': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".eslintcache": {
+    readonly '.eslintcache': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintignore": {
+    readonly '.eslintignore': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc": {
+    readonly '.eslintrc': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc.cjs": {
+    readonly '.eslintrc.cjs': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc.js": {
+    readonly '.eslintrc.js': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc.json": {
+    readonly '.eslintrc.json': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc.yaml": {
+    readonly '.eslintrc.yaml': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".eslintrc.yml": {
+    readonly '.eslintrc.yml': {
         readonly glyph: "ﯶ";
         readonly color: readonly [121, 134, 203];
     };
-    readonly ".esmrc": {
+    readonly '.esmrc': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
-    readonly ".firebaserc": {
+    readonly '.firebaserc': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".flowconfig": {
+    readonly '.flowconfig': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".gcloudignore": {
+    readonly '.gcloudignore': {
         readonly glyph: "";
         readonly color: readonly [70, 136, 250];
     };
-    readonly ".gitattributes": {
+    readonly '.gitattributes': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly ".gitconfig": {
+    readonly '.gitconfig': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly ".gitignore": {
+    readonly '.gitignore': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly ".gitkeep": {
+    readonly '.gitkeep': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly ".gitmodules": {
+    readonly '.gitmodules': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly ".gitpod.yml": {
+    readonly '.gitpod.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".graphqlconfig": {
+    readonly '.graphqlconfig': {
         readonly glyph: "";
         readonly color: readonly [237, 80, 122];
     };
-    readonly ".helmignore": {
+    readonly '.helmignore': {
         readonly glyph: "ﴱ";
         readonly color: readonly [32, 173, 194];
     };
-    readonly ".hhconfig": {
+    readonly '.hhconfig': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".hintrc": {
+    readonly '.hintrc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".htaccess": {
+    readonly '.htaccess': {
         readonly glyph: "";
         readonly color: readonly [64, 153, 69];
     };
-    readonly ".htpasswd": {
+    readonly '.htpasswd': {
         readonly glyph: "";
         readonly color: readonly [48, 166, 154];
     };
-    readonly ".huskyrc": {
+    readonly '.huskyrc': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly ".huskyrc.js": {
+    readonly '.huskyrc.js': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly ".huskyrc.json": {
+    readonly '.huskyrc.json': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly ".huskyrc.yaml": {
+    readonly '.huskyrc.yaml': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly ".huskyrc.yml": {
+    readonly '.huskyrc.yml': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly ".io-config.json": {
+    readonly '.io-config.json': {
         readonly glyph: "";
         readonly color: readonly [79, 143, 247];
     };
-    readonly ".jestrc": {
+    readonly '.jestrc': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly ".jestrc.js": {
+    readonly '.jestrc.js': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly ".jestrc.json": {
+    readonly '.jestrc.json': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly ".jsbeautifyrc": {
+    readonly '.jsbeautifyrc': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".jscsrc": {
+    readonly '.jscsrc': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".jshintignore": {
+    readonly '.jshintignore': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".jshintrc": {
+    readonly '.jshintrc': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".kl": {
+    readonly '.kl': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".luacheckrc": {
+    readonly '.luacheckrc': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".mailmap": {
+    readonly '.mailmap': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".mjmlconfig": {
+    readonly '.mjmlconfig': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly ".mocharc.js": {
+    readonly '.mocharc.js': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly ".mocharc.json": {
+    readonly '.mocharc.json': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly ".mocharc.jsonc": {
+    readonly '.mocharc.jsonc': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly ".mocharc.yaml": {
+    readonly '.mocharc.yaml': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly ".mocharc.yml": {
+    readonly '.mocharc.yml': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly ".modernizrrc": {
+    readonly '.modernizrrc': {
         readonly glyph: "";
         readonly color: readonly [234, 72, 99];
     };
-    readonly ".modernizrrc.js": {
+    readonly '.modernizrrc.js': {
         readonly glyph: "";
         readonly color: readonly [234, 72, 99];
     };
-    readonly ".modernizrrc.json": {
+    readonly '.modernizrrc.json': {
         readonly glyph: "";
         readonly color: readonly [234, 72, 99];
     };
-    readonly ".mrconfig": {
+    readonly '.mrconfig': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".nest-cli.json": {
+    readonly '.nest-cli.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".nestconfig.json": {
+    readonly '.nestconfig.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".node-version": {
+    readonly '.node-version': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
-    readonly ".nowignore": {
+    readonly '.nowignore': {
         readonly glyph: "";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".npmignore": {
+    readonly '.npmignore': {
         readonly glyph: "";
         readonly color: readonly [203, 56, 55];
     };
-    readonly ".npmrc": {
+    readonly '.npmrc': {
         readonly glyph: "";
         readonly color: readonly [203, 56, 55];
     };
-    readonly ".nuspec": {
+    readonly '.nuspec': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly ".nvmrc": {
+    readonly '.nvmrc': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
-    readonly ".nycrc": {
+    readonly '.nycrc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".nycrc.json": {
+    readonly '.nycrc.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".percy.yml": {
+    readonly '.percy.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".postcssrc": {
+    readonly '.postcssrc': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly ".postcssrc.js": {
+    readonly '.postcssrc.js': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly ".postcssrc.json": {
+    readonly '.postcssrc.json': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly ".postcssrc.yml": {
+    readonly '.postcssrc.yml': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly ".prettierignore": {
+    readonly '.prettierignore': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".prettierrc": {
+    readonly '.prettierrc': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".prettierrc.js": {
+    readonly '.prettierrc.js': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".prettierrc.json": {
+    readonly '.prettierrc.json': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".prettierrc.yaml": {
+    readonly '.prettierrc.yaml': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".prettierrc.yml": {
+    readonly '.prettierrc.yml': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly ".pug-lintrc": {
+    readonly '.pug-lintrc': {
         readonly glyph: "";
         readonly color: readonly [239, 204, 163];
     };
-    readonly ".pug-lintrc.js": {
+    readonly '.pug-lintrc.js': {
         readonly glyph: "";
         readonly color: readonly [239, 204, 163];
     };
-    readonly ".pug-lintrc.json": {
+    readonly '.pug-lintrc.json': {
         readonly glyph: "";
         readonly color: readonly [239, 204, 163];
     };
-    readonly ".python-version": {
+    readonly '.python-version': {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
-    readonly ".releaserc": {
+    readonly '.releaserc': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly ".releaserc.js": {
+    readonly '.releaserc.js': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly ".releaserc.json": {
+    readonly '.releaserc.json': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly ".releaserc.yaml": {
+    readonly '.releaserc.yaml': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly ".releaserc.yml": {
+    readonly '.releaserc.yml': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly ".sequelizerc": {
+    readonly '.sequelizerc': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".slugignore": {
+    readonly '.slugignore': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".snyk": {
+    readonly '.snyk': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".stylelintignore": {
+    readonly '.stylelintignore': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".stylelintrc": {
+    readonly '.stylelintrc': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".stylelintrc.js": {
+    readonly '.stylelintrc.js': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".stylelintrc.json": {
+    readonly '.stylelintrc.json': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".stylelintrc.yaml": {
+    readonly '.stylelintrc.yaml': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".stylelintrc.yml": {
+    readonly '.stylelintrc.yml': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".travis.yml": {
+    readonly '.travis.yml': {
         readonly glyph: "";
         readonly color: readonly [203, 58, 73];
     };
-    readonly ".vercelignore": {
+    readonly '.vercelignore': {
         readonly glyph: "";
         readonly color: readonly [207, 216, 220];
     };
-    readonly ".vfl": {
+    readonly '.vfl': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".wakatime-project": {
+    readonly '.wakatime-project': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".watchmanconfig": {
+    readonly '.watchmanconfig': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly ".yardopts": {
+    readonly '.yardopts': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly ".yarn-integrity": {
+    readonly '.yarn-integrity': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
-    readonly ".yarnclean": {
+    readonly '.yarnclean': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
-    readonly ".yarnrc": {
+    readonly '.yarnrc': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
-    readonly ".yarnrc.yaml": {
+    readonly '.yarnrc.yaml': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
-    readonly ".yarnrc.yml": {
+    readonly '.yarnrc.yml': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
@@ -2992,11 +2992,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "androidmanifest.xml": {
+    readonly 'androidmanifest.xml': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "apollo.config.js": {
+    readonly 'apollo.config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
@@ -3004,11 +3004,11 @@ export const IconFileName: {
         readonly glyph: "ﯿ";
         readonly color: readonly [149, 119, 232];
     };
-    readonly "appveyor.yml": {
+    readonly 'appveyor.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "aurelia.json": {
+    readonly 'aurelia.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
@@ -3016,39 +3016,39 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "authors.md": {
+    readonly 'authors.md': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "authors.txt": {
+    readonly 'authors.txt': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "azure-pipelines.yaml": {
+    readonly 'azure-pipelines.yaml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "azure-pipelines.yml": {
+    readonly 'azure-pipelines.yml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "babel.config.js": {
+    readonly 'babel.config.js': {
         readonly glyph: "";
         readonly color: readonly [253, 217, 59];
     };
-    readonly "babel.config.json": {
+    readonly 'babel.config.json': {
         readonly glyph: "";
         readonly color: readonly [253, 217, 59];
     };
-    readonly "bitbucket-pipelines.yaml": {
+    readonly 'bitbucket-pipelines.yaml': {
         readonly glyph: "";
         readonly color: readonly [31, 136, 229];
     };
-    readonly "bitbucket-pipelines.yml": {
+    readonly 'bitbucket-pipelines.yml': {
         readonly glyph: "";
         readonly color: readonly [31, 136, 229];
     };
-    readonly "bower.json": {
+    readonly 'bower.json': {
         readonly glyph: "";
         readonly color: readonly [239, 88, 60];
     };
@@ -3056,19 +3056,19 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "buildkite.yaml": {
+    readonly 'buildkite.yaml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "buildkite.yml": {
+    readonly 'buildkite.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "capacitor.config.json": {
+    readonly 'capacitor.config.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "cdp.pid": {
+    readonly 'cdp.pid': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
@@ -3076,11 +3076,11 @@ export const IconFileName: {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "changelog.md": {
+    readonly 'changelog.md': {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "changelog.txt": {
+    readonly 'changelog.txt': {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
@@ -3088,35 +3088,35 @@ export const IconFileName: {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "changes.md": {
+    readonly 'changes.md': {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "changes.txt": {
+    readonly 'changes.txt': {
         readonly glyph: "ﮦ";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "circle.yml": {
+    readonly 'circle.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "cmakecache.txt": {
+    readonly 'cmakecache.txt': {
         readonly glyph: "";
         readonly color: readonly [178, 178, 179];
     };
-    readonly "cmakelists.txt": {
+    readonly 'cmakelists.txt': {
         readonly glyph: "";
         readonly color: readonly [178, 178, 179];
     };
-    readonly "code_of_conduct.md": {
+    readonly 'code_of_conduct.md': {
         readonly glyph: "";
         readonly color: readonly [205, 220, 57];
     };
-    readonly "code_of_conduct.txt": {
+    readonly 'code_of_conduct.txt': {
         readonly glyph: "";
         readonly color: readonly [205, 220, 57];
     };
-    readonly "codecov.yml": {
+    readonly 'codecov.yml': {
         readonly glyph: "";
         readonly color: readonly [237, 80, 122];
     };
@@ -3124,15 +3124,15 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [175, 180, 43];
     };
-    readonly "commitlint.config.js": {
+    readonly 'commitlint.config.js': {
         readonly glyph: "ﰖ";
         readonly color: readonly [43, 150, 137];
     };
-    readonly "composer.lock": {
+    readonly 'composer.lock': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly "contributing.md": {
+    readonly 'contributing.md': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
@@ -3140,51 +3140,51 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [156, 204, 101];
     };
-    readonly "credits.md": {
+    readonly 'credits.md': {
         readonly glyph: "";
         readonly color: readonly [156, 204, 101];
     };
-    readonly "credits.txt": {
+    readonly 'credits.txt': {
         readonly glyph: "";
         readonly color: readonly [156, 204, 101];
     };
-    readonly "docker-compose.ci.yml": {
+    readonly 'docker-compose.ci.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.dev.yml": {
+    readonly 'docker-compose.dev.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.local.yml": {
+    readonly 'docker-compose.local.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.override.yml": {
+    readonly 'docker-compose.override.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.prod.yml": {
+    readonly 'docker-compose.prod.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.production.yml": {
+    readonly 'docker-compose.production.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.staging.yml": {
+    readonly 'docker-compose.staging.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.test.yml": {
+    readonly 'docker-compose.test.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.yaml": {
+    readonly 'docker-compose.yaml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "docker-compose.yml": {
+    readonly 'docker-compose.yml': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
@@ -3192,11 +3192,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "dockerfile.prod": {
+    readonly 'dockerfile.prod': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
-    readonly "dockerfile.production": {
+    readonly 'dockerfile.production': {
         readonly glyph: "";
         readonly color: readonly [1, 135, 201];
     };
@@ -3204,7 +3204,7 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [244, 127, 61];
     };
-    readonly "dune-project": {
+    readonly 'dune-project': {
         readonly glyph: "";
         readonly color: readonly [244, 127, 61];
     };
@@ -3212,43 +3212,43 @@ export const IconFileName: {
         readonly glyph: "ﯿ";
         readonly color: readonly [149, 119, 232];
     };
-    readonly "favicon.ico": {
+    readonly 'favicon.ico': {
         readonly glyph: "";
         readonly color: readonly [255, 213, 79];
     };
-    readonly "firebase.json": {
+    readonly 'firebase.json': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly "firestore.indexes.json": {
+    readonly 'firestore.indexes.json': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly "firestore.rules": {
+    readonly 'firestore.rules': {
         readonly glyph: "";
         readonly color: readonly [251, 193, 60];
     };
-    readonly "fuse.js": {
+    readonly 'fuse.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "gatsby-browser.js": {
+    readonly 'gatsby-browser.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "gatsby-config.js": {
+    readonly 'gatsby-config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "gatsby-node.js": {
+    readonly 'gatsby-node.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "gatsby-ssr.js": {
+    readonly 'gatsby-ssr.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "gatsby.config.js": {
+    readonly 'gatsby.config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
@@ -3256,23 +3256,23 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "git-history": {
+    readonly 'git-history': {
         readonly glyph: "";
         readonly color: readonly [229, 77, 58];
     };
-    readonly "go.mod": {
+    readonly 'go.mod': {
         readonly glyph: "ﳑ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "go.sum": {
+    readonly 'go.sum': {
         readonly glyph: "ﳑ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "gradle-wrapper.properties": {
+    readonly 'gradle-wrapper.properties': {
         readonly glyph: "ﳄ";
         readonly color: readonly [29, 151, 167];
     };
-    readonly "gradle.properties": {
+    readonly 'gradle.properties': {
         readonly glyph: "ﳄ";
         readonly color: readonly [29, 151, 167];
     };
@@ -3280,51 +3280,51 @@ export const IconFileName: {
         readonly glyph: "ﳄ";
         readonly color: readonly [29, 151, 167];
     };
-    readonly "gruntfile.babel.coffee": {
+    readonly 'gruntfile.babel.coffee': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gruntfile.babel.js": {
+    readonly 'gruntfile.babel.js': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gruntfile.babel.ts": {
+    readonly 'gruntfile.babel.ts': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gruntfile.coffee": {
+    readonly 'gruntfile.coffee': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gruntfile.js": {
+    readonly 'gruntfile.js': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gruntfile.ts": {
+    readonly 'gruntfile.ts': {
         readonly glyph: "";
         readonly color: readonly [251, 170, 61];
     };
-    readonly "gulpfile.babel.js": {
+    readonly 'gulpfile.babel.js': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "gulpfile.js": {
+    readonly 'gulpfile.js': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "gulpfile.mjs": {
+    readonly 'gulpfile.mjs': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "gulpfile.ts": {
+    readonly 'gulpfile.ts': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "husky.config.js": {
+    readonly 'husky.config.js': {
         readonly glyph: "";
         readonly color: readonly [229, 229, 229];
     };
-    readonly "ionic.config.json": {
+    readonly 'ionic.config.json': {
         readonly glyph: "";
         readonly color: readonly [79, 143, 247];
     };
@@ -3332,87 +3332,87 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [240, 214, 183];
     };
-    readonly "jest.config.cjs": {
+    readonly 'jest.config.cjs': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.config.js": {
+    readonly 'jest.config.js': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.config.json": {
+    readonly 'jest.config.json': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.config.mjs": {
+    readonly 'jest.config.mjs': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.config.ts": {
+    readonly 'jest.config.ts': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.e2e.config.cjs": {
+    readonly 'jest.e2e.config.cjs': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.e2e.config.js": {
+    readonly 'jest.e2e.config.js': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.e2e.config.json": {
+    readonly 'jest.e2e.config.json': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.e2e.config.mjs": {
+    readonly 'jest.e2e.config.mjs': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.e2e.config.ts": {
+    readonly 'jest.e2e.config.ts': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.json": {
+    readonly 'jest.json': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.setup.js": {
+    readonly 'jest.setup.js': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.setup.ts": {
+    readonly 'jest.setup.ts': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "jest.teardown.js": {
+    readonly 'jest.teardown.js': {
         readonly glyph: "J";
         readonly color: readonly [244, 85, 62];
     };
-    readonly "karma-main.js": {
+    readonly 'karma-main.js': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma-main.ts": {
+    readonly 'karma-main.ts': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma.conf.coffee": {
+    readonly 'karma.conf.coffee': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma.conf.js": {
+    readonly 'karma.conf.js': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma.conf.ts": {
+    readonly 'karma.conf.ts': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma.config.js": {
+    readonly 'karma.config.js': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
-    readonly "karma.config.ts": {
+    readonly 'karma.config.ts': {
         readonly glyph: "";
         readonly color: readonly [60, 190, 174];
     };
@@ -3420,11 +3420,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "licence.md": {
+    readonly 'licence.md': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "licence.txt": {
+    readonly 'licence.txt': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
@@ -3432,11 +3432,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "license.md": {
+    readonly 'license.md': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "license.txt": {
+    readonly 'license.txt': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
@@ -3444,91 +3444,91 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [239, 83, 80];
     };
-    readonly "manifest.in": {
+    readonly 'manifest.in': {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
-    readonly "manifest.mf": {
+    readonly 'manifest.mf': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "meson.build": {
+    readonly 'meson.build': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "milestones.md": {
+    readonly 'milestones.md': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
-    readonly "milestones.txt": {
+    readonly 'milestones.txt': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
-    readonly "mocha.opts": {
+    readonly 'mocha.opts': {
         readonly glyph: "";
         readonly color: readonly [161, 136, 127];
     };
-    readonly "nest-cli.json": {
+    readonly 'nest-cli.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "nestconfig.json": {
+    readonly 'nestconfig.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "netlify.json": {
+    readonly 'netlify.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "netlify.toml": {
+    readonly 'netlify.toml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "netlify.yaml": {
+    readonly 'netlify.yaml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "netlify.yml": {
+    readonly 'netlify.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "nodemon-debug.json": {
+    readonly 'nodemon-debug.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "nodemon.json": {
+    readonly 'nodemon.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "now.json": {
+    readonly 'now.json': {
         readonly glyph: "";
         readonly color: readonly [207, 216, 220];
     };
-    readonly "nuget.config": {
+    readonly 'nuget.config': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "nuget.exe": {
+    readonly 'nuget.exe': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "nuxt.config.js": {
+    readonly 'nuxt.config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 184, 131];
     };
-    readonly "nuxt.config.ts": {
+    readonly 'nuxt.config.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 184, 131];
     };
-    readonly "nx.json": {
+    readonly 'nx.json': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "package-lock.json": {
+    readonly 'package-lock.json': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
-    readonly "package.json": {
+    readonly 'package.json': {
         readonly glyph: "";
         readonly color: readonly [139, 195, 74];
     };
@@ -3536,15 +3536,15 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
-    readonly "postcss.config.js": {
+    readonly 'postcss.config.js': {
         readonly glyph: "";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "prettier.config.js": {
+    readonly 'prettier.config.js': {
         readonly glyph: "";
         readonly color: readonly [86, 179, 180];
     };
-    readonly "prisma.yml": {
+    readonly 'prisma.yml': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
@@ -3552,31 +3552,31 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [105, 99, 185];
     };
-    readonly "procfile.windows": {
+    readonly 'procfile.windows': {
         readonly glyph: "";
         readonly color: readonly [105, 99, 185];
     };
-    readonly "project.graphcool": {
+    readonly 'project.graphcool': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "protractor.conf.coffee": {
+    readonly 'protractor.conf.coffee': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "protractor.conf.js": {
+    readonly 'protractor.conf.js': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "protractor.conf.ts": {
+    readonly 'protractor.conf.ts': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "protractor.config.js": {
+    readonly 'protractor.config.js': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
-    readonly "protractor.config.ts": {
+    readonly 'protractor.config.ts': {
         readonly glyph: "";
         readonly color: readonly [229, 61, 58];
     };
@@ -3584,115 +3584,115 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "readme.md": {
+    readonly 'readme.md': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "readme.txt": {
+    readonly 'readme.txt': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "release.config.js": {
+    readonly 'release.config.js': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
-    readonly "requirements.txt": {
+    readonly 'requirements.txt': {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
-    readonly "roadmap.md": {
+    readonly 'roadmap.md': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
-    readonly "roadmap.txt": {
+    readonly 'roadmap.txt': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
-    readonly "rollup-config.js": {
+    readonly 'rollup-config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup-config.ts": {
+    readonly 'rollup-config.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.base.js": {
+    readonly 'rollup.config.base.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.base.ts": {
+    readonly 'rollup.config.base.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.common.js": {
+    readonly 'rollup.config.common.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.common.ts": {
+    readonly 'rollup.config.common.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.dev.js": {
+    readonly 'rollup.config.dev.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.dev.ts": {
+    readonly 'rollup.config.dev.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.js": {
+    readonly 'rollup.config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.prod.js": {
+    readonly 'rollup.config.prod.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.prod.ts": {
+    readonly 'rollup.config.prod.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.prod.vendor.js": {
+    readonly 'rollup.config.prod.vendor.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.prod.vendor.ts": {
+    readonly 'rollup.config.prod.vendor.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "rollup.config.ts": {
+    readonly 'rollup.config.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "routes.js": {
+    readonly 'routes.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.jsx": {
+    readonly 'routes.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.ts": {
+    readonly 'routes.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.tsx": {
+    readonly 'routes.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.js": {
+    readonly 'routing.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.jsx": {
+    readonly 'routing.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.ts": {
+    readonly 'routing.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.tsx": {
+    readonly 'routing.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
@@ -3700,39 +3700,39 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [255, 213, 79];
     };
-    readonly "security.md": {
+    readonly 'security.md': {
         readonly glyph: "";
         readonly color: readonly [255, 213, 79];
     };
-    readonly "security.txt": {
+    readonly 'security.txt': {
         readonly glyph: "";
         readonly color: readonly [255, 213, 79];
     };
-    readonly "stencil.config.js": {
+    readonly 'stencil.config.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "stencil.config.ts": {
+    readonly 'stencil.config.ts': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "stryker.conf.js": {
+    readonly 'stryker.conf.js': {
         readonly glyph: "";
         readonly color: readonly [239, 83, 80];
     };
-    readonly "stryker.conf.json": {
+    readonly 'stryker.conf.json': {
         readonly glyph: "";
         readonly color: readonly [239, 83, 80];
     };
-    readonly "stylelint.config.js": {
+    readonly 'stylelint.config.js': {
         readonly glyph: "ﭶ";
         readonly color: readonly [207, 216, 220];
     };
-    readonly "tailwind.config.js": {
+    readonly 'tailwind.config.js': {
         readonly glyph: "ﲋ";
         readonly color: readonly [77, 182, 172];
     };
-    readonly "tailwind.js": {
+    readonly 'tailwind.js': {
         readonly glyph: "ﲋ";
         readonly color: readonly [77, 182, 172];
     };
@@ -3740,11 +3740,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "timeline.md": {
+    readonly 'timeline.md': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
-    readonly "timeline.txt": {
+    readonly 'timeline.txt': {
         readonly glyph: "ﭭ";
         readonly color: readonly [48, 166, 154];
     };
@@ -3752,11 +3752,11 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "unlicense.md": {
+    readonly 'unlicense.md': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
-    readonly "unlicense.txt": {
+    readonly 'unlicense.txt': {
         readonly glyph: "";
         readonly color: readonly [249, 89, 63];
     };
@@ -3764,283 +3764,283 @@ export const IconFileName: {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "vercel.json": {
+    readonly 'vercel.json': {
         readonly glyph: "";
         readonly color: readonly [207, 216, 220];
     };
-    readonly "vue.config.js": {
+    readonly 'vue.config.js': {
         readonly glyph: "﵂";
         readonly color: readonly [58, 121, 110];
     };
-    readonly "vue.config.ts": {
+    readonly 'vue.config.ts': {
         readonly glyph: "﵂";
         readonly color: readonly [58, 121, 110];
     };
-    readonly "wallaby.conf.js": {
+    readonly 'wallaby.conf.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "wallaby.js": {
+    readonly 'wallaby.js': {
         readonly glyph: "";
         readonly color: readonly [65, 129, 190];
     };
-    readonly "webpack.base.js": {
+    readonly 'webpack.base.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.base.ts": {
+    readonly 'webpack.base.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.client.js": {
+    readonly 'webpack.client.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.client.ts": {
+    readonly 'webpack.client.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.common.js": {
+    readonly 'webpack.common.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.common.ts": {
+    readonly 'webpack.common.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.babel.js": {
+    readonly 'webpack.config.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.babel.ts": {
+    readonly 'webpack.config.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.base.babel.js": {
+    readonly 'webpack.config.base.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.base.babel.ts": {
+    readonly 'webpack.config.base.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.base.js": {
+    readonly 'webpack.config.base.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.base.ts": {
+    readonly 'webpack.config.base.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.client.js": {
+    readonly 'webpack.config.client.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.client.ts": {
+    readonly 'webpack.config.client.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.coffee": {
+    readonly 'webpack.config.coffee': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.common.babel.js": {
+    readonly 'webpack.config.common.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.common.babel.ts": {
+    readonly 'webpack.config.common.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.common.js": {
+    readonly 'webpack.config.common.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.common.ts": {
+    readonly 'webpack.config.common.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.dev.babel.js": {
+    readonly 'webpack.config.dev.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.dev.babel.ts": {
+    readonly 'webpack.config.dev.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.dev.js": {
+    readonly 'webpack.config.dev.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.dev.ts": {
+    readonly 'webpack.config.dev.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.js": {
+    readonly 'webpack.config.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.prod.babel.js": {
+    readonly 'webpack.config.prod.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.prod.babel.ts": {
+    readonly 'webpack.config.prod.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.prod.js": {
+    readonly 'webpack.config.prod.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.prod.ts": {
+    readonly 'webpack.config.prod.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.production.babel.js": {
+    readonly 'webpack.config.production.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.production.babel.ts": {
+    readonly 'webpack.config.production.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.production.js": {
+    readonly 'webpack.config.production.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.production.ts": {
+    readonly 'webpack.config.production.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.server.js": {
+    readonly 'webpack.config.server.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.server.ts": {
+    readonly 'webpack.config.server.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.staging.babel.js": {
+    readonly 'webpack.config.staging.babel.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.staging.babel.ts": {
+    readonly 'webpack.config.staging.babel.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.staging.js": {
+    readonly 'webpack.config.staging.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.staging.ts": {
+    readonly 'webpack.config.staging.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.test.js": {
+    readonly 'webpack.config.test.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.test.ts": {
+    readonly 'webpack.config.test.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.ts": {
+    readonly 'webpack.config.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.vendor.js": {
+    readonly 'webpack.config.vendor.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.vendor.production.js": {
+    readonly 'webpack.config.vendor.production.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.vendor.production.ts": {
+    readonly 'webpack.config.vendor.production.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.config.vendor.ts": {
+    readonly 'webpack.config.vendor.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.dev.js": {
+    readonly 'webpack.dev.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.dev.ts": {
+    readonly 'webpack.dev.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.development.js": {
+    readonly 'webpack.development.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.development.ts": {
+    readonly 'webpack.development.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.dist.js": {
+    readonly 'webpack.dist.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.dist.ts": {
+    readonly 'webpack.dist.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.js": {
+    readonly 'webpack.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.prod.js": {
+    readonly 'webpack.prod.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.prod.ts": {
+    readonly 'webpack.prod.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.production.js": {
+    readonly 'webpack.production.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.production.ts": {
+    readonly 'webpack.production.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.server.js": {
+    readonly 'webpack.server.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.server.ts": {
+    readonly 'webpack.server.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.test.js": {
+    readonly 'webpack.test.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.test.ts": {
+    readonly 'webpack.test.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpack.ts": {
+    readonly 'webpack.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpackfile.js": {
+    readonly 'webpackfile.js': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "webpackfile.ts": {
+    readonly 'webpackfile.ts': {
         readonly glyph: "ﰩ";
         readonly color: readonly [142, 214, 251];
     };
-    readonly "yarn-error.log": {
+    readonly 'yarn-error.log': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
-    readonly "yarn.lock": {
+    readonly 'yarn.lock': {
         readonly glyph: "";
         readonly color: readonly [44, 142, 187];
     };
@@ -4060,7 +4060,7 @@ export interface IconResult {
 
 // @public
 export const IconSet: {
-    readonly "3d": {
+    readonly '3d': {
         readonly glyph: "";
         readonly color: readonly [40, 182, 246];
     };
@@ -4116,7 +4116,7 @@ export const IconSet: {
         readonly glyph: "ﴃ";
         readonly color: readonly [31, 136, 229];
     };
-    readonly "azure-pipelines": {
+    readonly 'azure-pipelines': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
@@ -4168,7 +4168,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [141, 110, 99];
     };
-    readonly "code-climate": {
+    readonly 'code-climate': {
         readonly glyph: "";
         readonly color: readonly [238, 238, 238];
     };
@@ -4220,7 +4220,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "css-map": {
+    readonly 'css-map': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
@@ -4248,51 +4248,51 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [120, 144, 156];
     };
-    readonly "dir-config": {
+    readonly 'dir-config': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly "dir-controller": {
+    readonly 'dir-controller': {
         readonly glyph: "";
         readonly color: readonly [255, 194, 61];
     };
-    readonly "dir-download": {
+    readonly 'dir-download': {
         readonly glyph: "";
         readonly color: readonly [76, 175, 80];
     };
-    readonly "dir-environment": {
+    readonly 'dir-environment': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly "dir-git": {
+    readonly 'dir-git': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly "dir-github": {
+    readonly 'dir-github': {
         readonly glyph: "";
         readonly color: readonly [84, 110, 122];
     };
-    readonly "dir-images": {
+    readonly 'dir-images': {
         readonly glyph: "";
         readonly color: readonly [43, 150, 137];
     };
-    readonly "dir-import": {
+    readonly 'dir-import': {
         readonly glyph: "";
         readonly color: readonly [175, 180, 43];
     };
-    readonly "dir-include": {
+    readonly 'dir-include': {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
-    readonly "dir-npm": {
+    readonly 'dir-npm': {
         readonly glyph: "";
         readonly color: readonly [203, 56, 55];
     };
-    readonly "dir-secure": {
+    readonly 'dir-secure': {
         readonly glyph: "";
         readonly color: readonly [249, 169, 60];
     };
-    readonly "dir-upload": {
+    readonly 'dir-upload': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
@@ -4408,11 +4408,11 @@ export const IconSet: {
         readonly glyph: "ﳑ";
         readonly color: readonly [32, 173, 194];
     };
-    readonly "go-mod": {
+    readonly 'go-mod': {
         readonly glyph: "ﳑ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "go-test": {
+    readonly 'go-test': {
         readonly glyph: "ﳑ";
         readonly color: readonly [255, 213, 79];
     };
@@ -4420,7 +4420,7 @@ export const IconSet: {
         readonly glyph: "ﮧ";
         readonly color: readonly [79, 195, 247];
     };
-    readonly "godot-assets": {
+    readonly 'godot-assets': {
         readonly glyph: "ﮧ";
         readonly color: readonly [129, 199, 132];
     };
@@ -4504,7 +4504,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "javascript-map": {
+    readonly 'javascript-map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
@@ -4720,7 +4720,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [52, 102, 143];
     };
-    readonly "python-misc": {
+    readonly 'python-misc': {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
@@ -4736,7 +4736,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "raspberry-pi": {
+    readonly 'raspberry-pi': {
         readonly glyph: "";
         readonly color: readonly [208, 60, 76];
     };
@@ -4788,7 +4788,7 @@ export const IconSet: {
         readonly glyph: "ﬦ";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "semantic-release": {
+    readonly 'semantic-release': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
@@ -4868,15 +4868,15 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [92, 107, 192];
     };
-    readonly "test-js": {
+    readonly 'test-js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "test-jsx": {
+    readonly 'test-jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "test-ts": {
+    readonly 'test-ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
@@ -4904,7 +4904,7 @@ export const IconSet: {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "typescript-def": {
+    readonly 'typescript-def': {
         readonly glyph: "ﯤ";
         readonly color: readonly [3, 136, 209];
     };
@@ -4956,7 +4956,7 @@ export const IconSet: {
         readonly glyph: "﵂";
         readonly color: readonly [65, 184, 131];
     };
-    readonly "vue-config": {
+    readonly 'vue-config': {
         readonly glyph: "﵂";
         readonly color: readonly [58, 121, 110];
     };
@@ -5000,175 +5000,175 @@ export const IconSet: {
 
 // @public
 export const IconSubExt: {
-    readonly "azure-pipelines.yaml": {
+    readonly 'azure-pipelines.yaml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "azure-pipelines.yml": {
+    readonly 'azure-pipelines.yml': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
-    readonly "blade.php": {
+    readonly 'blade.php': {
         readonly glyph: "";
         readonly color: readonly [248, 80, 81];
     };
-    readonly "css.map": {
+    readonly 'css.map': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "d.ts": {
+    readonly 'd.ts': {
         readonly glyph: "ﯤ";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "e2e-spec.js": {
+    readonly 'e2e-spec.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "e2e-spec.ts": {
+    readonly 'e2e-spec.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "gitlab-ci.yml": {
+    readonly 'gitlab-ci.yml': {
         readonly glyph: "";
         readonly color: readonly [226, 69, 57];
     };
-    readonly "inky.php": {
+    readonly 'inky.php': {
         readonly glyph: "";
         readonly color: readonly [248, 80, 81];
     };
-    readonly "js.map": {
+    readonly 'js.map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "js.snap": {
+    readonly 'js.snap': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "jsx.snap": {
+    readonly 'jsx.snap': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "mjs.map": {
+    readonly 'mjs.map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "routes.js": {
+    readonly 'routes.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.jsx": {
+    readonly 'routes.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.ts": {
+    readonly 'routes.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routes.tsx": {
+    readonly 'routes.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.js": {
+    readonly 'routing.js': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.jsx": {
+    readonly 'routing.jsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.ts": {
+    readonly 'routing.ts': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "routing.tsx": {
+    readonly 'routing.tsx': {
         readonly glyph: "נּ";
         readonly color: readonly [67, 160, 71];
     };
-    readonly "sln.dotsettings": {
+    readonly 'sln.dotsettings': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "spec.js": {
+    readonly 'spec.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "spec.jsx": {
+    readonly 'spec.jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "spec.ts": {
+    readonly 'spec.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "spec.tsx": {
+    readonly 'spec.tsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "stories.js": {
+    readonly 'stories.js': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.jsx": {
+    readonly 'stories.jsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.ts": {
+    readonly 'stories.ts': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "stories.tsx": {
+    readonly 'stories.tsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.js": {
+    readonly 'story.js': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.jsx": {
+    readonly 'story.jsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.ts": {
+    readonly 'story.ts': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "story.tsx": {
+    readonly 'story.tsx': {
         readonly glyph: "ﴬ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "test.js": {
+    readonly 'test.js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "test.jsx": {
+    readonly 'test.jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "test.ts": {
+    readonly 'test.ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "test.tsx": {
+    readonly 'test.tsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "tf.json": {
+    readonly 'tf.json': {
         readonly glyph: "";
         readonly color: readonly [92, 107, 192];
     };
-    readonly "ts.snap": {
+    readonly 'ts.snap': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "tsx.snap": {
+    readonly 'tsx.snap': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "vcxitems.filters": {
+    readonly 'vcxitems.filters': {
         readonly glyph: "";
         readonly color: readonly [173, 99, 188];
     };
-    readonly "vcxproj.filters": {
+    readonly 'vcxproj.filters': {
         readonly glyph: "";
         readonly color: readonly [173, 99, 188];
     };

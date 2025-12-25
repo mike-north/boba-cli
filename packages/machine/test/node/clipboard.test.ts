@@ -41,7 +41,7 @@ describe('NodeClipboardAdapter', () => {
       // Run this in CI environments without clipboard binaries to verify degradation works
       // If clipboardy fails at runtime (e.g., missing xsel), subsequent isAvailable() should return false
       const adapter = new NodeClipboardAdapter()
-      
+
       // Try to use clipboard - may succeed or fail depending on environment
       try {
         await adapter.read()
@@ -49,7 +49,7 @@ describe('NodeClipboardAdapter', () => {
       } catch {
         // After a runtime error, isAvailable() should return false
         expect(adapter.isAvailable()).toBe(false)
-        
+
         // Subsequent read should still fail
         await expect(adapter.read()).rejects.toThrow('Clipboard not available')
       }
@@ -76,7 +76,7 @@ describe('NodeClipboardAdapter', () => {
       // In CI environments, clipboardy may be installed but fail at runtime
       // (e.g., missing xsel binary on Linux), which is acceptable
       const adapter = new NodeClipboardAdapter()
-      
+
       // This test verifies the error handling path
       // The actual behavior depends on whether clipboardy is installed and functional
       try {
@@ -90,7 +90,7 @@ describe('NodeClipboardAdapter', () => {
         expect(
           errorMessage.includes('Clipboard not available') ||
             errorMessage.includes('xsel') ||
-            errorMessage.includes('clipboard')
+            errorMessage.includes('clipboard'),
         ).toBe(true)
       }
     })
@@ -130,7 +130,7 @@ describe('NodeClipboardAdapter', () => {
       // This test validates graceful degradation behavior
       // It should pass both with and without clipboard binaries available
       const adapter = new NodeClipboardAdapter()
-      
+
       // This test verifies the error handling path
       // In CI environments, clipboardy may be installed but fail at runtime
       try {
@@ -144,10 +144,9 @@ describe('NodeClipboardAdapter', () => {
         expect(
           errorMessage.includes('Clipboard not available') ||
             errorMessage.includes('xsel') ||
-            errorMessage.includes('clipboard')
+            errorMessage.includes('clipboard'),
         ).toBe(true)
       }
     })
   })
 })
-

@@ -1,18 +1,18 @@
-import { Style, width as textWidth } from "@suds-cli/chapstick";
-import { WindowSizeMsg, type Cmd, type Msg } from "@suds-cli/tea";
-import type { ColorConfig, StatusbarState } from "./types.js";
+import { Style, width as textWidth } from '@suds-cli/chapstick'
+import { WindowSizeMsg, type Cmd, type Msg } from '@suds-cli/tea'
+import type { ColorConfig, StatusbarState } from './types.js'
 
 /**
  * Height of the status bar (always 1 row).
  * @public
  */
-export const Height = 1;
+export const Height = 1
 
 /**
  * Maximum width for the first column before truncation.
  * @internal
  */
-const MAX_FIRST_COLUMN_WIDTH = 30;
+const MAX_FIRST_COLUMN_WIDTH = 30
 
 /**
  * Truncate text with ellipsis if it exceeds maxWidth.
@@ -20,24 +20,24 @@ const MAX_FIRST_COLUMN_WIDTH = 30;
  */
 function truncate(text: string, maxWidth: number): string {
   if (textWidth(text) <= maxWidth) {
-    return text;
+    return text
   }
 
-  const ellipsis = "...";
-  const availableWidth = maxWidth - textWidth(ellipsis);
+  const ellipsis = '...'
+  const availableWidth = maxWidth - textWidth(ellipsis)
   if (availableWidth <= 0) {
-    return ellipsis.slice(0, maxWidth);
+    return ellipsis.slice(0, maxWidth)
   }
 
-  let result = "";
+  let result = ''
   for (const char of text) {
     if (textWidth(result + char) > availableWidth) {
-      break;
+      break
     }
-    result += char;
+    result += char
   }
 
-  return result + ellipsis;
+  return result + ellipsis
 }
 
 /**
@@ -65,15 +65,15 @@ export class StatusbarModel {
     return new StatusbarModel({
       width: 0,
       height: Height,
-      firstColumn: "",
-      secondColumn: "",
-      thirdColumn: "",
-      fourthColumn: "",
+      firstColumn: '',
+      secondColumn: '',
+      thirdColumn: '',
+      fourthColumn: '',
       firstColumnColors: first,
       secondColumnColors: second,
       thirdColumnColors: third,
       fourthColumnColors: fourth,
-    });
+    })
   }
 
   /**
@@ -86,7 +86,7 @@ export class StatusbarModel {
     return new StatusbarModel({
       ...this.state,
       width: Math.max(0, width),
-    });
+    })
   }
 
   /**
@@ -110,7 +110,7 @@ export class StatusbarModel {
       secondColumn: second,
       thirdColumn: third,
       fourthColumn: fourth,
-    });
+    })
   }
 
   /**
@@ -134,7 +134,7 @@ export class StatusbarModel {
       secondColumnColors: second,
       thirdColumnColors: third,
       fourthColumnColors: fourth,
-    });
+    })
   }
 
   /**
@@ -145,9 +145,9 @@ export class StatusbarModel {
    */
   update(msg: Msg): [StatusbarModel, Cmd<Msg>] {
     if (msg instanceof WindowSizeMsg) {
-      return [this.setSize(msg.width), null];
+      return [this.setSize(msg.width), null]
     }
-    return [this, null];
+    return [this, null]
   }
 
   /**
@@ -156,10 +156,10 @@ export class StatusbarModel {
    * @public
    */
   view(): string {
-    const { width: totalWidth } = this.state;
+    const { width: totalWidth } = this.state
 
     if (totalWidth === 0) {
-      return "";
+      return ''
     }
 
     // Build styled columns
@@ -167,54 +167,63 @@ export class StatusbarModel {
       .foreground(this.state.firstColumnColors.foreground)
       .background(this.state.firstColumnColors.background)
       .padding(0, 1)
-      .height(Height);
+      .height(Height)
 
     const secondStyle = new Style()
       .foreground(this.state.secondColumnColors.foreground)
       .background(this.state.secondColumnColors.background)
       .padding(0, 1)
-      .height(Height);
+      .height(Height)
 
     const thirdStyle = new Style()
       .foreground(this.state.thirdColumnColors.foreground)
       .background(this.state.thirdColumnColors.background)
       .padding(0, 1)
       .height(Height)
-      .alignHorizontal("right");
+      .alignHorizontal('right')
 
     const fourthStyle = new Style()
       .foreground(this.state.fourthColumnColors.foreground)
       .background(this.state.fourthColumnColors.background)
       .padding(0, 1)
-      .height(Height);
+      .height(Height)
 
     // Render third and fourth columns (they don't truncate)
-    const thirdRendered = thirdStyle.render(this.state.thirdColumn);
-    const fourthRendered = fourthStyle.render(this.state.fourthColumn);
-    const thirdWidth = textWidth(thirdRendered);
-    const fourthWidth = textWidth(fourthRendered);
+    const thirdRendered = thirdStyle.render(this.state.thirdColumn)
+    const fourthRendered = fourthStyle.render(this.state.fourthColumn)
+    const thirdWidth = textWidth(thirdRendered)
+    const fourthWidth = textWidth(fourthRendered)
 
     // Calculate max width for first column (limited to 30 chars of content + padding)
     const maxFirstContentWidth = Math.min(
       MAX_FIRST_COLUMN_WIDTH,
       Math.max(0, totalWidth - thirdWidth - fourthWidth - 4), // -4 for second column padding
-    );
-    const firstTruncated = truncate(this.state.firstColumn, maxFirstContentWidth);
-    const firstRendered = firstStyle.render(firstTruncated);
-    const firstWidth = textWidth(firstRendered);
+    )
+    const firstTruncated = truncate(
+      this.state.firstColumn,
+      maxFirstContentWidth,
+    )
+    const firstRendered = firstStyle.render(firstTruncated)
+    const firstWidth = textWidth(firstRendered)
 
     // Calculate remaining width for second column
     const secondContentWidth = Math.max(
       0,
       totalWidth - firstWidth - thirdWidth - fourthWidth - 2, // -2 for padding
-    );
-    const secondTruncated = truncate(this.state.secondColumn, secondContentWidth);
-    
+    )
+    const secondTruncated = truncate(
+      this.state.secondColumn,
+      secondContentWidth,
+    )
+
     // Set width for second column to fill remaining space
-    const secondRendered = secondStyle.width(secondContentWidth + 2).render(secondTruncated);
+    const secondRendered = secondStyle
+      .width(secondContentWidth + 2)
+      .render(secondTruncated)
 
     // Join columns horizontally
-    return [firstRendered, secondRendered, thirdRendered, fourthRendered]
-      .join("");
+    return [firstRendered, secondRendered, thirdRendered, fourthRendered].join(
+      '',
+    )
   }
 }

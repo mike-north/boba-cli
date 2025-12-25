@@ -1,9 +1,9 @@
-import { Style, joinVertical, joinHorizontal } from "@suds-cli/chapstick";
-import { ViewportModel } from "@suds-cli/viewport";
-import { type Cmd, type Msg } from "@suds-cli/tea";
-import type { Entry, TitleColor } from "./bubble-types.js";
+import { Style, joinVertical, joinHorizontal } from '@suds-cli/chapstick'
+import { ViewportModel } from '@suds-cli/viewport'
+import { type Cmd, type Msg } from '@suds-cli/tea'
+import type { Entry, TitleColor } from './bubble-types.js'
 
-const KEY_WIDTH = 12;
+const KEY_WIDTH = 12
 
 /**
  * Generates the help screen content with styled title and entries.
@@ -16,22 +16,22 @@ function generateHelpScreen(
   width: number,
   height: number,
 ): string {
-  let helpScreen = "";
+  let helpScreen = ''
 
   // Build each entry row with two-column layout
   for (const content of entries) {
-    const paddedKey = content.key.padEnd(KEY_WIDTH);
+    const paddedKey = content.key.padEnd(KEY_WIDTH)
     const keyText = new Style()
       .bold(true)
-      .foreground({ dark: "#ffffff", light: "#000000" })
-      .render(paddedKey);
+      .foreground({ dark: '#ffffff', light: '#000000' })
+      .render(paddedKey)
 
     const descriptionText = new Style()
-      .foreground({ dark: "#ffffff", light: "#000000" })
-      .render(content.description);
+      .foreground({ dark: '#ffffff', light: '#000000' })
+      .render(content.description)
 
-    const row = joinHorizontal(2, keyText, descriptionText);
-    helpScreen += `${row}\n`;
+    const row = joinHorizontal(2, keyText, descriptionText)
+    helpScreen += `${row}\n`
   }
 
   // Create styled title
@@ -41,13 +41,13 @@ function generateHelpScreen(
     .foreground(titleColor.foreground)
     .padding(0, 1)
     .italic(true)
-    .render(title);
+    .render(title)
 
   // Combine title and entries, apply width/height constraints
   return new Style()
     .width(width)
     .height(height)
-    .render(joinVertical(titleText, helpScreen));
+    .render(joinVertical(titleText, helpScreen))
 }
 
 /**
@@ -59,23 +59,23 @@ export class HelpBubble {
   /**
    * The viewport model that handles scrolling and content display.
    */
-  readonly viewport: ViewportModel;
+  readonly viewport: ViewportModel
   /**
    * The array of help entries displayed in the bubble.
    */
-  readonly entries: Entry[];
+  readonly entries: Entry[]
   /**
    * The title text shown at the top of the help screen.
    */
-  readonly title: string;
+  readonly title: string
   /**
    * The color configuration for the title bar.
    */
-  readonly titleColor: TitleColor;
+  readonly titleColor: TitleColor
   /**
    * Whether the help bubble is active and receiving input.
    */
-  readonly active: boolean;
+  readonly active: boolean
 
   private constructor(
     viewport: ViewportModel,
@@ -84,11 +84,11 @@ export class HelpBubble {
     titleColor: TitleColor,
     active: boolean,
   ) {
-    this.viewport = viewport;
-    this.entries = entries;
-    this.title = title;
-    this.titleColor = titleColor;
-    this.active = active;
+    this.viewport = viewport
+    this.entries = entries
+    this.title = title
+    this.titleColor = titleColor
+    this.active = active
   }
 
   /**
@@ -104,9 +104,9 @@ export class HelpBubble {
     titleColor: TitleColor,
     entries: Entry[],
   ): HelpBubble {
-    const viewport = ViewportModel.new({ width: 0, height: 0 });
-    const content = generateHelpScreen(title, titleColor, entries, 0, 0);
-    const initializedViewport = viewport.setContent(content);
+    const viewport = ViewportModel.new({ width: 0, height: 0 })
+    const content = generateHelpScreen(title, titleColor, entries, 0, 0)
+    const initializedViewport = viewport.setContent(content)
 
     return new HelpBubble(
       initializedViewport,
@@ -114,7 +114,7 @@ export class HelpBubble {
       title,
       titleColor,
       active,
-    );
+    )
   }
 
   /**
@@ -129,11 +129,11 @@ export class HelpBubble {
       this.entries,
       width,
       height,
-    );
+    )
     const updatedViewport = this.viewport
       .setWidth(width)
       .setHeight(height)
-      .setContent(content);
+      .setContent(content)
 
     return new HelpBubble(
       updatedViewport,
@@ -141,7 +141,7 @@ export class HelpBubble {
       this.title,
       this.titleColor,
       this.active,
-    );
+    )
   }
 
   /**
@@ -149,14 +149,14 @@ export class HelpBubble {
    * @param active - Active state
    */
   setIsActive(active: boolean): HelpBubble {
-    if (this.active === active) return this;
+    if (this.active === active) return this
     return new HelpBubble(
       this.viewport,
       this.entries,
       this.title,
       this.titleColor,
       active,
-    );
+    )
   }
 
   /**
@@ -170,8 +170,8 @@ export class HelpBubble {
       this.entries,
       this.viewport.width,
       this.viewport.height,
-    );
-    const updatedViewport = this.viewport.setContent(content);
+    )
+    const updatedViewport = this.viewport.setContent(content)
 
     return new HelpBubble(
       updatedViewport,
@@ -179,15 +179,15 @@ export class HelpBubble {
       this.title,
       color,
       this.active,
-    );
+    )
   }
 
   /**
    * Scroll to the top of the viewport.
    */
   gotoTop(): HelpBubble {
-    const updatedViewport = this.viewport.scrollToTop();
-    if (updatedViewport === this.viewport) return this;
+    const updatedViewport = this.viewport.scrollToTop()
+    if (updatedViewport === this.viewport) return this
 
     return new HelpBubble(
       updatedViewport,
@@ -195,7 +195,7 @@ export class HelpBubble {
       this.title,
       this.titleColor,
       this.active,
-    );
+    )
   }
 
   /**
@@ -204,13 +204,13 @@ export class HelpBubble {
    */
   update(msg: Msg): [HelpBubble, Cmd<Msg>] {
     if (!this.active) {
-      return [this, null];
+      return [this, null]
     }
 
-    const [updatedViewport, cmd] = this.viewport.update(msg);
+    const [updatedViewport, cmd] = this.viewport.update(msg)
 
     if (updatedViewport === this.viewport) {
-      return [this, cmd];
+      return [this, cmd]
     }
 
     return [
@@ -222,13 +222,13 @@ export class HelpBubble {
         this.active,
       ),
       cmd,
-    ];
+    ]
   }
 
   /**
    * Render the help screen.
    */
   view(): string {
-    return this.viewport.view();
+    return this.viewport.view()
   }
 }

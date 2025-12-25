@@ -3,7 +3,7 @@
  * @public
  */
 export class SyntaxMsg {
-  readonly _tag = "code-syntax";
+  readonly _tag = 'code-syntax'
   constructor(public readonly content: string) {}
 }
 
@@ -12,6 +12,6 @@ export class SyntaxMsg {
  * @public
  */
 export class ErrorMsg {
-  readonly _tag = "code-error";
+  readonly _tag = 'code-error'
   constructor(public readonly error: Error) {}
 }

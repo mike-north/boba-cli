@@ -18,13 +18,13 @@ Ported from [teacup icons](https://github.com/mistakenelf/teacup/tree/main/icons
 ## Usage
 
 ```typescript
-import { getIndicator, getIcon } from '@suds-cli/icons';
+import { getIndicator, getIcon } from '@suds-cli/icons'
 
 // Get indicator for a file type
-const indicator = getIndicator(0o040000); // "/" for directory
+const indicator = getIndicator(0o040000) // "/" for directory
 
 // Get icon and color for a file
-const { glyph, color } = getIcon('example', '.ts', '');
+const { glyph, color } = getIcon('example', '.ts', '')
 // Returns: { glyph: '\ue628', color: '\x1b[38;2;3;136;209m' }
 ```
 

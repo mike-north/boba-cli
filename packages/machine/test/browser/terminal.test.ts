@@ -24,14 +24,16 @@ describe('XtermTerminalAdapter', () => {
           },
         }
       }),
-      onResize: vi.fn((listener: (size: { cols: number; rows: number }) => void) => {
-        resizeListeners.add(listener)
-        return {
-          dispose: () => {
-            resizeListeners.delete(listener)
-          },
-        }
-      }),
+      onResize: vi.fn(
+        (listener: (size: { cols: number; rows: number }) => void) => {
+          resizeListeners.add(listener)
+          return {
+            dispose: () => {
+              resizeListeners.delete(listener)
+            },
+          }
+        },
+      ),
     } as unknown as XtermTerminal
   })
 
@@ -236,4 +238,3 @@ describe('XtermTerminalAdapter', () => {
     })
   })
 })
-

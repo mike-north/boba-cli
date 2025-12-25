@@ -93,9 +93,7 @@ describe('NodeTerminalAdapter', () => {
 
       expect(handler).toHaveBeenCalledTimes(1)
       expect(handler).toHaveBeenCalledWith(expect.any(Uint8Array))
-      expect(Array.from(handler.mock.calls[0][0])).toEqual(
-        Array.from(buffer),
-      )
+      expect(Array.from(handler.mock.calls[0][0])).toEqual(Array.from(buffer))
     })
 
     it('calls handler with string data', () => {
@@ -195,7 +193,10 @@ describe('NodeTerminalAdapter', () => {
 
       disposable.dispose()
 
-      expect(mockOutput.off).toHaveBeenCalledWith('resize', expect.any(Function))
+      expect(mockOutput.off).toHaveBeenCalledWith(
+        'resize',
+        expect.any(Function),
+      )
     })
   })
 
@@ -384,7 +385,10 @@ describe('NodeTerminalAdapter', () => {
       adapter.dispose()
 
       expect(mockInput.off).toHaveBeenCalledWith('data', expect.any(Function))
-      expect(mockOutput.off).toHaveBeenCalledWith('resize', expect.any(Function))
+      expect(mockOutput.off).toHaveBeenCalledWith(
+        'resize',
+        expect.any(Function),
+      )
     })
 
     it('disables raw mode', () => {
@@ -421,15 +425,14 @@ describe('NodeTerminalAdapter', () => {
       const adapter = new NodeTerminalAdapter(mockInput, mockOutput)
       adapter.onInput(vi.fn()) // Need at least one handler to register listener
       adapter.dispose()
-      
+
       // Clear mock call history
       vi.clearAllMocks()
-      
+
       adapter.dispose() // Should not throw and should not call off again since already disposed
-      
+
       // After first dispose, second dispose should not call off again
       expect(mockInput.off).not.toHaveBeenCalled()
     })
   })
 })
-

@@ -110,7 +110,9 @@ describe('BrowserClipboardAdapter', () => {
       })
       const adapter = new BrowserClipboardAdapter()
 
-      await expect(adapter.read()).rejects.toThrow('Clipboard API not available')
+      await expect(adapter.read()).rejects.toThrow(
+        'Clipboard API not available',
+      )
     })
 
     it('wraps clipboard API errors', async () => {
@@ -118,7 +120,9 @@ describe('BrowserClipboardAdapter', () => {
       mockClipboard.readText.mockRejectedValue(error)
       const adapter = new BrowserClipboardAdapter()
 
-      await expect(adapter.read()).rejects.toThrow('Failed to read from clipboard')
+      await expect(adapter.read()).rejects.toThrow(
+        'Failed to read from clipboard',
+      )
       await expect(adapter.read()).rejects.toThrow('Permission denied')
     })
   })
@@ -142,7 +146,9 @@ describe('BrowserClipboardAdapter', () => {
       })
       const adapter = new BrowserClipboardAdapter()
 
-      await expect(adapter.write('test')).rejects.toThrow('Clipboard API not available')
+      await expect(adapter.write('test')).rejects.toThrow(
+        'Clipboard API not available',
+      )
     })
 
     it('wraps clipboard API errors', async () => {
@@ -150,9 +156,10 @@ describe('BrowserClipboardAdapter', () => {
       mockClipboard.writeText.mockRejectedValue(error)
       const adapter = new BrowserClipboardAdapter()
 
-      await expect(adapter.write('test')).rejects.toThrow('Failed to write to clipboard')
+      await expect(adapter.write('test')).rejects.toThrow(
+        'Failed to write to clipboard',
+      )
       await expect(adapter.write('test')).rejects.toThrow('Permission denied')
     })
   })
 })
-

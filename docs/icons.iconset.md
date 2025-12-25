@@ -10,7 +10,7 @@ Icon set containing all available icons organized by type.
 
 ```typescript
 IconSet: {
-    readonly "3d": {
+    readonly '3d': {
         readonly glyph: "";
         readonly color: readonly [40, 182, 246];
     };
@@ -66,7 +66,7 @@ IconSet: {
         readonly glyph: "ﴃ";
         readonly color: readonly [31, 136, 229];
     };
-    readonly "azure-pipelines": {
+    readonly 'azure-pipelines': {
         readonly glyph: "";
         readonly color: readonly [20, 101, 192];
     };
@@ -118,7 +118,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [141, 110, 99];
     };
-    readonly "code-climate": {
+    readonly 'code-climate': {
         readonly glyph: "";
         readonly color: readonly [238, 238, 238];
     };
@@ -170,7 +170,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "css-map": {
+    readonly 'css-map': {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
@@ -198,51 +198,51 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [120, 144, 156];
     };
-    readonly "dir-config": {
+    readonly 'dir-config': {
         readonly glyph: "";
         readonly color: readonly [32, 173, 194];
     };
-    readonly "dir-controller": {
+    readonly 'dir-controller': {
         readonly glyph: "";
         readonly color: readonly [255, 194, 61];
     };
-    readonly "dir-download": {
+    readonly 'dir-download': {
         readonly glyph: "";
         readonly color: readonly [76, 175, 80];
     };
-    readonly "dir-environment": {
+    readonly 'dir-environment': {
         readonly glyph: "";
         readonly color: readonly [102, 187, 106];
     };
-    readonly "dir-git": {
+    readonly 'dir-git': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
-    readonly "dir-github": {
+    readonly 'dir-github': {
         readonly glyph: "";
         readonly color: readonly [84, 110, 122];
     };
-    readonly "dir-images": {
+    readonly 'dir-images': {
         readonly glyph: "";
         readonly color: readonly [43, 150, 137];
     };
-    readonly "dir-import": {
+    readonly 'dir-import': {
         readonly glyph: "";
         readonly color: readonly [175, 180, 43];
     };
-    readonly "dir-include": {
+    readonly 'dir-include': {
         readonly glyph: "";
         readonly color: readonly [3, 155, 229];
     };
-    readonly "dir-npm": {
+    readonly 'dir-npm': {
         readonly glyph: "";
         readonly color: readonly [203, 56, 55];
     };
-    readonly "dir-secure": {
+    readonly 'dir-secure': {
         readonly glyph: "";
         readonly color: readonly [249, 169, 60];
     };
-    readonly "dir-upload": {
+    readonly 'dir-upload': {
         readonly glyph: "";
         readonly color: readonly [250, 111, 66];
     };
@@ -358,11 +358,11 @@ IconSet: {
         readonly glyph: "ﳑ";
         readonly color: readonly [32, 173, 194];
     };
-    readonly "go-mod": {
+    readonly 'go-mod': {
         readonly glyph: "ﳑ";
         readonly color: readonly [237, 80, 122];
     };
-    readonly "go-test": {
+    readonly 'go-test': {
         readonly glyph: "ﳑ";
         readonly color: readonly [255, 213, 79];
     };
@@ -370,7 +370,7 @@ IconSet: {
         readonly glyph: "ﮧ";
         readonly color: readonly [79, 195, 247];
     };
-    readonly "godot-assets": {
+    readonly 'godot-assets': {
         readonly glyph: "ﮧ";
         readonly color: readonly [129, 199, 132];
     };
@@ -454,7 +454,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "javascript-map": {
+    readonly 'javascript-map': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
@@ -670,7 +670,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [52, 102, 143];
     };
-    readonly "python-misc": {
+    readonly 'python-misc': {
         readonly glyph: "";
         readonly color: readonly [130, 61, 28];
     };
@@ -686,7 +686,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [66, 165, 245];
     };
-    readonly "raspberry-pi": {
+    readonly 'raspberry-pi': {
         readonly glyph: "";
         readonly color: readonly [208, 60, 76];
     };
@@ -738,7 +738,7 @@ IconSet: {
         readonly glyph: "ﬦ";
         readonly color: readonly [244, 68, 62];
     };
-    readonly "semantic-release": {
+    readonly 'semantic-release': {
         readonly glyph: "";
         readonly color: readonly [245, 245, 245];
     };
@@ -818,15 +818,15 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [92, 107, 192];
     };
-    readonly "test-js": {
+    readonly 'test-js': {
         readonly glyph: "";
         readonly color: readonly [255, 202, 61];
     };
-    readonly "test-jsx": {
+    readonly 'test-jsx': {
         readonly glyph: "";
         readonly color: readonly [35, 188, 212];
     };
-    readonly "test-ts": {
+    readonly 'test-ts': {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
@@ -854,7 +854,7 @@ IconSet: {
         readonly glyph: "";
         readonly color: readonly [3, 136, 209];
     };
-    readonly "typescript-def": {
+    readonly 'typescript-def': {
         readonly glyph: "ﯤ";
         readonly color: readonly [3, 136, 209];
     };
@@ -906,7 +906,7 @@ IconSet: {
         readonly glyph: "﵂";
         readonly color: readonly [65, 184, 131];
     };
-    readonly "vue-config": {
+    readonly 'vue-config': {
         readonly glyph: "﵂";
         readonly color: readonly [58, 121, 110];
     };

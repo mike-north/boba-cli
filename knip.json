@@ -4,14 +4,14 @@
     "@vitest/coverage-v8",
     "@commitlint/cli",
     "@commitlint/types",
+    "archiver",
     "clipboardy",
     "supports-color",
-    "syncpack"
+    "syncpack",
+    "unzipper"
   ],
-  "ignoreBinaries": [
-    "test:graceful-degradation",
-    "test:browser"
-  ],
+  "ignoreFiles": ["./examples/filetree/**/*"],
+  "ignoreBinaries": ["test:graceful-degradation", "test:browser"],
   "workspaces": {
     ".": {
       "paths": {

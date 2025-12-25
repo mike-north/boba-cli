@@ -21,21 +21,21 @@ pnpm add @suds-cli/code
 ## Usage
 
 ```typescript
-import { CodeModel } from '@suds-cli/code';
-import { Program } from '@suds-cli/tea';
+import { CodeModel } from '@suds-cli/code'
+import { Program } from '@suds-cli/tea'
 
-const codeModel = CodeModel.new({ active: true });
+const codeModel = CodeModel.new({ active: true })
 
 // In init
-const cmd = codeModel.setFileName('example.ts');
+const cmd = codeModel.setFileName('example.ts')
 
 // In update - handle window resize
 if (msg instanceof WindowSizeMsg) {
-  codeModel = codeModel.setSize(msg.width, msg.height);
+  codeModel = codeModel.setSize(msg.width, msg.height)
 }
 
 // In view
-return codeModel.view();
+return codeModel.view()
 ```
 
 ## API

@@ -58,10 +58,10 @@ describe('BrowserEnvironmentAdapter', () => {
       adapter.set('TERM_BACKGROUND', 'dark')
       const first = adapter.getTerminalBackground()
       expect(first).toBe('dark')
-      
+
       // Change a different env var - should clear cache
       adapter.set('SOME_VAR', 'value')
-      
+
       // Change TERM_BACKGROUND - should return new value
       adapter.set('TERM_BACKGROUND', 'light')
       const second = adapter.getTerminalBackground()
@@ -97,7 +97,9 @@ describe('BrowserEnvironmentAdapter', () => {
     })
 
     it('returns override for light background', () => {
-      const adapter = new BrowserEnvironmentAdapter({ TERM_BACKGROUND: 'light' })
+      const adapter = new BrowserEnvironmentAdapter({
+        TERM_BACKGROUND: 'light',
+      })
       expect(adapter.getTerminalBackground()).toBe('light')
     })
 
@@ -116,7 +118,9 @@ describe('BrowserEnvironmentAdapter', () => {
 
       const adapter = new BrowserEnvironmentAdapter()
       expect(adapter.getTerminalBackground()).toBe('dark')
-      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-color-scheme: dark)')
+      expect(mockMatchMedia).toHaveBeenCalledWith(
+        '(prefers-color-scheme: dark)',
+      )
     })
 
     it('detects light from prefers-color-scheme media query', () => {
@@ -183,4 +187,3 @@ describe('BrowserEnvironmentAdapter', () => {
     })
   })
 })
-

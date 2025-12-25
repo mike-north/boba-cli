@@ -140,7 +140,12 @@ describe('HelpBubble', () => {
 
   it('gotoTop resets viewport offset', () => {
     // We can verify gotoTop() works by checking it returns the same instance when already at top
-    const help = HelpBubble.new(true, 'Help', testTitleColor, testEntries).setSize(40, 10)
+    const help = HelpBubble.new(
+      true,
+      'Help',
+      testTitleColor,
+      testEntries,
+    ).setSize(40, 10)
 
     const atTop = help.gotoTop()
     // When already at top, gotoTop should return the same instance
@@ -166,7 +171,12 @@ describe('HelpBubble', () => {
   })
 
   it('handles viewport scrolling when active', () => {
-    const help = HelpBubble.new(true, 'Help', testTitleColor, testEntries).setSize(40, 5)
+    const help = HelpBubble.new(
+      true,
+      'Help',
+      testTitleColor,
+      testEntries,
+    ).setSize(40, 5)
     const keyMsg = new KeyMsg({
       type: KeyType.Down,
       runes: '',
@@ -181,7 +191,12 @@ describe('HelpBubble', () => {
   })
 
   it('renders help screen view', () => {
-    const help = HelpBubble.new(true, 'Help', testTitleColor, testEntries).setSize(40, 10)
+    const help = HelpBubble.new(
+      true,
+      'Help',
+      testTitleColor,
+      testEntries,
+    ).setSize(40, 10)
     const view = help.view()
 
     expect(view).toBeTruthy()

@@ -19,33 +19,33 @@ pnpm add @suds-cli/statusbar
 ## Usage
 
 ```typescript
-import { StatusbarModel } from "@suds-cli/statusbar";
-import type { ColorConfig } from "@suds-cli/statusbar";
+import { StatusbarModel } from '@suds-cli/statusbar'
+import type { ColorConfig } from '@suds-cli/statusbar'
 
 const sb = StatusbarModel.new(
-  { foreground: "#ffffff", background: "#F25D94" },  // Pink - first column
-  { foreground: "#ffffff", background: "#3c3836" },  // Gray - second column
-  { foreground: "#ffffff", background: "#A550DF" },  // Purple - third column
-  { foreground: "#ffffff", background: "#6124DF" },  // Indigo - fourth column
-);
+  { foreground: '#ffffff', background: '#F25D94' }, // Pink - first column
+  { foreground: '#ffffff', background: '#3c3836' }, // Gray - second column
+  { foreground: '#ffffff', background: '#A550DF' }, // Purple - third column
+  { foreground: '#ffffff', background: '#6124DF' }, // Indigo - fourth column
+)
 
 // Set size and content
 const updated = sb
   .setSize(80)
-  .setContent("file.txt", "~/.config/nvim", "1/23", "OK");
+  .setContent('file.txt', '~/.config/nvim', '1/23', 'OK')
 
 // Render
-console.log(updated.view());
+console.log(updated.view())
 ```
 
 ## Column Layout
 
-| Column | Alignment | Width | Truncation |
-|--------|-----------|-------|------------|
-| First  | Left      | Auto (max 30 chars) | Yes, with "..." |
+| Column | Alignment | Width                  | Truncation      |
+| ------ | --------- | ---------------------- | --------------- |
+| First  | Left      | Auto (max 30 chars)    | Yes, with "..." |
 | Second | Left      | Flexible (fills space) | Yes, with "..." |
-| Third  | Right     | Auto | No |
-| Fourth | Left      | Auto | No |
+| Third  | Right     | Auto                   | No              |
+| Fourth | Left      | Auto                   | No              |
 
 ## API
 
