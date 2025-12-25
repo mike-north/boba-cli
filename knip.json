@@ -19,6 +19,13 @@
         "@/*": ["src/*"]
       }
     },
+    "packages/boba-cli": {
+      "entry": ["src/index.ts"],
+      "paths": {
+        "@": ["src/index.ts"],
+        "@/*": ["src/*"]
+      }
+    },
     "packages/*": {
       "entry": ["src/index.ts", "test/**/*.test.ts"],
       "paths": {
