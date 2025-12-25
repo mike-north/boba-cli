@@ -29,17 +29,21 @@
     "@suds-cli/scripts": "0.0.0",
     "acceptance-tests": "0.0.0",
     "@suds-cli/filetree": "0.0.0",
-    "@suds-cli/machine": "0.0.0"
+    "@suds-cli/machine": "0.0.0",
+    "demo-website": "0.0.0",
+    "@suds-cli/dsl": "0.1.0-alpha.0"
   },
   "changesets": [
     "add-code-demo",
     "add-code-package",
+    "add-dsl-package",
     "add-machine-package",
     "add-markdown-package",
     "add-statusbar-component",
     "add-tsup-dual-builds",
     "browser-isolation-adapters",
     "chapstick-style-provider",
+    "deprecate-suds-cli-packages",
     "eager-feet-cheer",
     "fix-viewport-scrolling",
     "help-bubble-component"
