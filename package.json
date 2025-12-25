@@ -80,7 +80,7 @@
     "check": "pnpm check:packages && pnpm check:workspace",
     "check:markdown": "markdownlint-cli2 \"**/*.md\"",
     "check:packages": "NX_TUI=false nx run-many -t check:eslint,check:typecheck-tests,check:api-report",
-    "check:examples": "pnpm --filter @suds-cli/examples check:typecheck",
+    "check:examples": "pnpm --filter @suds-cli/examples check",
     "check:workspace": "NX_TUI=false nx knip && pnpm check:examples",
     "demo": "pnpm -C examples start",
     "fix": "NX_TUI=false nx run-many -t fix:lint,fix:format",

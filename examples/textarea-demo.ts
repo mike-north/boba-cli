@@ -62,7 +62,7 @@ class DemoModel implements Model<Msg, DemoModel> {
     })
     const [focused, cmd] = base.focus()
     this.editor = focused
-    this.initCmd = cmd as Cmd<Msg>
+    this.initCmd = cmd
   }
 
   init(): Cmd<Msg> {

@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Stopwatch
  *
- * Demonstrates @suds-cli/tea, @suds-cli/stopwatch, @suds-cli/chapstick, and @suds-cli/key.
+ * Demonstrates \@suds-cli/tea, \@suds-cli/stopwatch, \@suds-cli/chapstick, and \@suds-cli/key.
  *
  * Controls:
  *   space  - Start/stop
@@ -47,7 +47,7 @@ class StopwatchDemo implements Model<Msg, StopwatchDemo> {
 
   init(): Cmd<Msg> {
     // Start immediately
-    return this.stopwatch.init() as Cmd<Msg>
+    return this.stopwatch.init()
   }
 
   update(msg: Msg): [StopwatchDemo, Cmd<Msg>] {
@@ -58,12 +58,12 @@ class StopwatchDemo implements Model<Msg, StopwatchDemo> {
 
       if (matches(msg, keys.toggle)) {
         const cmd = this.stopwatch.toggle()
-        return [this, cmd as Cmd<Msg>]
+        return [this, cmd]
       }
 
       if (matches(msg, keys.reset)) {
         const cmd = this.stopwatch.reset()
-        return [this, cmd as Cmd<Msg>]
+        return [this, cmd]
       }
     }
 
@@ -82,7 +82,7 @@ class StopwatchDemo implements Model<Msg, StopwatchDemo> {
             ? 'running'
             : 'paused'
           : this.status
-      return [new StopwatchDemo(nextStopwatch, nextStatus), cmd as Cmd<Msg>]
+      return [new StopwatchDemo(nextStopwatch, nextStatus), cmd]
     }
 
     return [this, null]

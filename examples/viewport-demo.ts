@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Scrollable Viewport
  *
- * Demonstrates @suds/viewport with keyboard and mouse scrolling.
+ * Demonstrates \@suds/viewport with keyboard and mouse scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line

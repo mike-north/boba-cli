@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Animated Progress Bar
  *
- * Demonstrates @suds-cli/progress with spring animation, gradient fill,
+ * Demonstrates \@suds-cli/progress with spring animation, gradient fill,
  * and keyboard controls.
  *
  * Controls:

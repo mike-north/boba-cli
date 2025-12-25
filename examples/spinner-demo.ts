@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Spinner with Styling
  *
- * Demonstrates @suds/tea, @suds/spinner, @suds/chapstick, and @suds/key
+ * Demonstrates \@suds/tea, \@suds/spinner, \@suds/chapstick, and \@suds/key
  * working together.
  *
  * Controls:
@@ -83,7 +83,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
   init(): Cmd<Msg> {
     // Start the spinner animation
-    return this.spinner.tick() as Cmd<Msg>
+    return this.spinner.tick()
   }
 
   update(msg: Msg): [DemoModel, Cmd<Msg>] {
@@ -105,17 +105,17 @@ class DemoModel implements Model<Msg, DemoModel> {
           style: spinnerStyle,
         })
         const next = new DemoModel(nextIndex, newSpinner)
-        return [next, newSpinner.tick() as Cmd<Msg>]
+        return [next, newSpinner.tick()]
       }
     }
 
     // Pass other messages to spinner
     const [nextSpinner, cmd] = this.spinner.update(msg)
     if (nextSpinner !== this.spinner) {
-      return [new DemoModel(this.spinnerIndex, nextSpinner), cmd as Cmd<Msg>]
+      return [new DemoModel(this.spinnerIndex, nextSpinner), cmd]
     }
 
-    return [this, cmd as Cmd<Msg>]
+    return [this, cmd]
   }
 
   view(): string {

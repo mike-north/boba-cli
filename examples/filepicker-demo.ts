@@ -1,7 +1,7 @@
 /**
  * Suds Demo: Filepicker
  *
- * Demonstrates @suds-cli/filepicker for browsing the filesystem.
+ * Demonstrates \@suds-cli/filepicker for browsing the filesystem.
  *
  * Controls (built into the filepicker keymap):
  *   j / k / arrows  - move selection
