@@ -5,8 +5,8 @@
 ```ts
 
 import { DirectoryEntry } from '@suds-cli/machine';
-import type { FileSystemAdapter } from '@suds-cli/machine';
-import type { PathAdapter } from '@suds-cli/machine';
+import { FileSystemAdapter } from '@suds-cli/machine';
+import { PathAdapter } from '@suds-cli/machine';
 
 // @public
 export function copyDirectory(fs: FileSystemAdapter, path: PathAdapter, name: string): Promise<string>;

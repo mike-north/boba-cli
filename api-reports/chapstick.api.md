@@ -4,10 +4,10 @@
 
 ```ts
 
-import type { ColorSupport } from '@suds-cli/machine';
-import type { EnvironmentAdapter } from '@suds-cli/machine';
-import type { StyleFn } from '@suds-cli/machine';
-import type { TerminalBackground } from '@suds-cli/machine';
+import { ColorSupport } from '@suds-cli/machine';
+import { EnvironmentAdapter } from '@suds-cli/machine';
+import { StyleFn } from '@suds-cli/machine';
+import { TerminalBackground } from '@suds-cli/machine';
 
 // @public
 export type Align = HAlign;

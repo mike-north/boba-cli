@@ -4,12 +4,12 @@
 
 ```ts
 
-import type { Binding } from '@suds-cli/key';
+import { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
-import type { FileSystemAdapter } from '@suds-cli/machine';
-import type { KeyMap } from '@suds-cli/help';
+import { FileSystemAdapter } from '@suds-cli/machine';
+import { KeyMap } from '@suds-cli/help';
 import { Msg } from '@suds-cli/tea';
-import type { PathAdapter } from '@suds-cli/machine';
+import { PathAdapter } from '@suds-cli/machine';
 import { Style } from '@suds-cli/chapstick';
 
 // @public

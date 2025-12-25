@@ -1,7 +1,6 @@
 /**
  * Platform-agnostic byte utilities using Uint8Array.
  * These replace Node.js Buffer operations for cross-platform compatibility.
- * @packageDocumentation
  */
 
 /** Shared TextEncoder instance for string encoding. */
