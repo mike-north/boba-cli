@@ -4,12 +4,12 @@
 
 ```ts
 
-import type { Cmd } from '@suds-cli/tea';
-import type { EnvironmentAdapter } from '@suds-cli/machine';
-import type { FileSystemAdapter } from '@suds-cli/machine';
-import type { Msg } from '@suds-cli/tea';
+import { Cmd } from '@suds-cli/tea';
+import { EnvironmentAdapter } from '@suds-cli/machine';
+import { FileSystemAdapter } from '@suds-cli/machine';
+import { Msg } from '@suds-cli/tea';
 import { Style } from '@suds-cli/chapstick';
-import type { TerminalBackground } from '@suds-cli/machine';
+import { TerminalBackground } from '@suds-cli/machine';
 import { ViewportModel } from '@suds-cli/viewport';
 
 // @public
@@ -68,5 +68,7 @@ export interface RenderMarkdownOptions {
     env?: EnvironmentAdapter;
     width?: number;
 }
+
+// (No @packageDocumentation comment for this package)
 
 ```

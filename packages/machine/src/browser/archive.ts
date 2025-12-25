@@ -1,6 +1,5 @@
 /**
  * Browser archive adapter (not available).
- * @packageDocumentation
  */
 
 import type { ArchiveAdapter } from '../types.js'

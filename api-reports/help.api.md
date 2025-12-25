@@ -4,9 +4,9 @@
 
 ```ts
 
-import type { Binding } from '@suds-cli/key';
+import { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
-import type { ColorInput } from '@suds-cli/chapstick';
+import { ColorInput } from '@suds-cli/chapstick';
 import { Msg } from '@suds-cli/tea';
 import { Style } from '@suds-cli/chapstick';
 import { ViewportModel } from '@suds-cli/viewport';

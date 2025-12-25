@@ -1,6 +1,5 @@
 /**
  * Node.js archive adapter using archiver and unzipper.
- * @packageDocumentation
  */
 
 import type { ArchiveAdapter } from '../types.js'

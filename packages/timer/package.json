@@ -14,20 +14,26 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./package.json": "./package.json"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "scripts": {
-    "build": "pnpm run clean && tsc -p ./tsconfig.json",
+    "build": "tsup",
     "check:api-report": "pnpm run generate:api-report",
     "check:eslint": "pnpm run lint",
-    "clean": "rm -rf dist",
     "generate:api-report": "api-extractor run --local",
     "lint": "eslint \"{src,test}/**/*.{ts,tsx}\"",
     "test": "vitest run"

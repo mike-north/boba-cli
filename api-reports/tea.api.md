@@ -4,7 +4,7 @@
 
 ```ts
 
-import type { PlatformAdapter } from '@suds-cli/machine';
+import { PlatformAdapter } from '@suds-cli/machine';
 
 // @public
 export function batch<M extends Msg>(...cmds: Array<Cmd<M>>): Cmd<M>;

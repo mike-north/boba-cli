@@ -5,7 +5,7 @@
 ```ts
 
 import { Cmd } from '@suds-cli/tea';
-import type { ColorInput } from '@suds-cli/chapstick';
+import { ColorInput } from '@suds-cli/chapstick';
 import { Msg } from '@suds-cli/tea';
 
 // @public

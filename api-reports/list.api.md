@@ -7,7 +7,7 @@
 import { Binding } from '@suds-cli/key';
 import { Cmd } from '@suds-cli/tea';
 import { HelpModel } from '@suds-cli/help';
-import type { KeyMap } from '@suds-cli/help';
+import { KeyMap } from '@suds-cli/help';
 import { Msg } from '@suds-cli/tea';
 import { PaginatorModel } from '@suds-cli/paginator';
 import { SpinnerModel } from '@suds-cli/spinner';

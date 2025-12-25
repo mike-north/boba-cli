@@ -1,7 +1,6 @@
 /**
  * Pure JavaScript ANSI styling utility for terminal text.
  * Works identically in Node.js and browser/xterm.js contexts.
- * @packageDocumentation
  */
 
 import type { ColorSupport, StyleFn } from '../types.js'

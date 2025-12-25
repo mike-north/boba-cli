@@ -456,4 +456,6 @@ export interface TerminalSize {
 // @public
 export const UNDERLINE = "\u001B[4m";
 
+// (No @packageDocumentation comment for this package)
+
 ```

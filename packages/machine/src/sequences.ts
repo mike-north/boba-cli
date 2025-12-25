@@ -1,7 +1,6 @@
 /**
  * ANSI escape sequences for terminal control.
  * These are platform-agnostic constants that work in any terminal emulator.
- * @packageDocumentation
  */
 
 /** Escape character. @public */
