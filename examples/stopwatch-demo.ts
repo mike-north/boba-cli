@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Stopwatch
+ * Boba Demo: Stopwatch
  *
- * Demonstrates \@suds-cli/tea, \@suds-cli/stopwatch, \@suds-cli/chapstick, and \@suds-cli/key.
+ * Demonstrates \@boba-cli/tea, \@boba-cli/stopwatch, \@boba-cli/chapstick, and \@boba-cli/key.
  *
  * Controls:
  *   space  - Start/stop
@@ -16,15 +16,15 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import {
   StopwatchModel,
   TickMsg,
   StartStopMsg,
   ResetMsg,
-} from '@suds-cli/stopwatch'
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/stopwatch'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 const keys = {
   toggle: newBinding({ keys: ['space'] }).withHelp('space', 'start/stop'),
@@ -96,7 +96,7 @@ class StopwatchDemo implements Model<Msg, StopwatchDemo> {
 
     return [
       '',
-      title.render('⏱️ Suds Stopwatch Demo'),
+      title.render('⏱️ Boba Stopwatch Demo'),
       '',
       text.render(`Elapsed: ${value.render(this.stopwatch.view())}`),
       text.render(`Status: ${state.render(this.status)}`),

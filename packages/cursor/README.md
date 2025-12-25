@@ -2,12 +2,12 @@
 
 # @suds-cli/cursor
 
-Cursor component for Suds terminal UIs. Handles blinking, focus, and hidden/static modes.
+Cursor component for Boba terminal UIs. Handles blinking, focus, and hidden/static modes.
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/cursor
+pnpm add @boba-cli/cursor
 ```
 
 ## Quickstart
@@ -18,8 +18,8 @@ import {
   CursorMode,
   BlinkMsg,
   InitialBlinkMsg,
-} from '@suds-cli/cursor'
-import type { Cmd, Msg } from '@suds-cli/tea'
+} from '@boba-cli/cursor'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 // Create a cursor (defaults to blink mode)
 let cursor = new CursorModel()

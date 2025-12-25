@@ -1,4 +1,4 @@
-import { Style } from '@suds-cli/chapstick'
+import { Style } from '@boba-cli/chapstick'
 
 /**
  * Style configuration for the filetree component.

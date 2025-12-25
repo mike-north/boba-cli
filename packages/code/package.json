@@ -1,13 +1,13 @@
 {
-  "name": "@suds-cli/code",
-  "description": "Syntax-highlighted code viewer with scrollable viewport for Suds terminal UIs",
+  "name": "@boba-cli/code",
+  "description": "Syntax-highlighted code viewer with scrollable viewport for Boba terminal UIs",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/filesystem": "workspace:*",
-    "@suds-cli/machine": "workspace:*",
-    "@suds-cli/tea": "workspace:*",
-    "@suds-cli/viewport": "workspace:*",
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/filesystem": "workspace:*",
+    "@boba-cli/machine": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
+    "@boba-cli/viewport": "workspace:*",
     "shiki": "^1.24.2"
   },
   "devDependencies": {

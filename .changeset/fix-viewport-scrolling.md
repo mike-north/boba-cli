@@ -1,7 +1,7 @@
 ---
-'@suds-cli/code': patch
-'@suds-cli/markdown': patch
-'@suds-cli/help': patch
+'@boba-cli/code': patch
+'@boba-cli/markdown': patch
+'@boba-cli/help': patch
 ---
 
 Fix viewport scrolling and layout issues in code, markdown, and help components.

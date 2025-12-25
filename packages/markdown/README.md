@@ -2,7 +2,7 @@
 
 # @suds-cli/markdown
 
-Markdown viewer component for Suds terminal UIs.
+Markdown viewer component for Boba terminal UIs.
 
 <img src="../../examples/markdown-demo.gif" width="950" alt="Markdown component demo" />
 
@@ -17,14 +17,14 @@ Markdown viewer component for Suds terminal UIs.
 ## Installation
 
 ```bash
-pnpm add @suds-cli/markdown
+pnpm add @boba-cli/markdown
 ```
 
 ## Usage
 
 ```typescript
-import { MarkdownModel } from '@suds-cli/markdown'
-import { Program } from '@suds-cli/tea'
+import { MarkdownModel } from '@boba-cli/markdown'
+import { Program } from '@boba-cli/tea'
 
 let model = MarkdownModel.new({ active: true })
 const [updatedModel, cmd] = model.setFileName('README.md')

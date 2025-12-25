@@ -1,14 +1,14 @@
 {
-  "name": "@suds-cli/list",
-  "description": "Filterable, selectable list for Suds terminal UIs.",
+  "name": "@boba-cli/list",
+  "description": "Filterable, selectable list for Boba terminal UIs.",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/help": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/paginator": "workspace:*",
-    "@suds-cli/spinner": "workspace:*",
-    "@suds-cli/tea": "workspace:*",
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/help": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/paginator": "workspace:*",
+    "@boba-cli/spinner": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
     "fuzzysort": "2.0.4"
   },
   "devDependencies": {

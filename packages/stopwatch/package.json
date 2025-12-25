@@ -1,9 +1,9 @@
 {
-  "name": "@suds-cli/stopwatch",
-  "description": "Stopwatch component for Suds terminal UIs",
+  "name": "@boba-cli/stopwatch",
+  "description": "Stopwatch component for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
   "dependencies": {
-    "@suds-cli/tea": "workspace:*"
+    "@boba-cli/tea": "workspace:*"
   },
   "devDependencies": {
     "typescript": "5.8.2",

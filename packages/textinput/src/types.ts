@@ -1,6 +1,6 @@
-import { Style } from '@suds-cli/chapstick'
-import { CursorMode } from '@suds-cli/cursor'
-import { Binding, newBinding } from '@suds-cli/key'
+import { Style } from '@boba-cli/chapstick'
+import { CursorMode } from '@boba-cli/cursor'
+import { Binding, newBinding } from '@boba-cli/key'
 
 /**
  * Echo rendering mode for text input.

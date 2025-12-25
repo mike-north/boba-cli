@@ -2,22 +2,22 @@
 
 # @suds-cli/spinner
 
-Animated spinner component for Suds terminal UIs. Port of Charmbracelet Bubbles spinner.
+Animated spinner component for Boba terminal UIs. Port of Charmbracelet Bubbles spinner.
 
 <img src="../../examples/spinner-demo.gif" width="950" alt="Spinner component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/spinner
+pnpm add @boba-cli/spinner
 ```
 
 ## Quickstart
 
 ```ts
-import { SpinnerModel, TickMsg, dot } from '@suds-cli/spinner'
-import { Style } from '@suds-cli/chapstick'
-import type { Cmd, Msg, Model } from '@suds-cli/tea'
+import { SpinnerModel, TickMsg, dot } from '@boba-cli/spinner'
+import { Style } from '@boba-cli/chapstick'
+import type { Cmd, Msg, Model } from '@boba-cli/tea'
 
 // Create a spinner with custom style
 const spinner = new SpinnerModel({
@@ -65,7 +65,7 @@ function view(): string {
 ## Custom Spinners
 
 ```ts
-import type { Spinner } from '@suds-cli/spinner'
+import type { Spinner } from '@boba-cli/spinner'
 
 const customSpinner: Spinner = {
   frames: ['◐', '◓', '◑', '◒'],

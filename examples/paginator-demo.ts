@@ -1,5 +1,5 @@
 /**
- * Suds Demo: Paginator
+ * Boba Demo: Paginator
  *
  * Laptop-friendly bindings to move:
  *   Prev page: u / k / ↑
@@ -17,9 +17,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { PaginatorModel, PaginatorType } from '@suds-cli/paginator'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { PaginatorModel, PaginatorType } from '@boba-cli/paginator'
+import { newBinding, matches } from '@boba-cli/key'
 
 // Sample data to paginate
 const ITEMS = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`)
@@ -100,7 +100,7 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
     const [start, end] = this.paginator.getSliceBounds(this.items.length)
     const visible = this.items.slice(start, end)
 
-    const header = `🧼 Suds Paginator (${this.paginator.view()})`
+    const header = `🧼 Boba Paginator (${this.paginator.view()})`
     const body = visible
       .map((item, idx) => {
         const lineNum = start + idx + 1

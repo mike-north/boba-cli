@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Filepicker
+ * Boba Demo: Filepicker
  *
- * Demonstrates \@suds-cli/filepicker for browsing the filesystem.
+ * Demonstrates \@boba-cli/filepicker for browsing the filesystem.
  *
  * Controls (built into the filepicker keymap):
  *   j / k / arrows  - move selection
@@ -16,9 +16,9 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
 import {
   KeyMsg,
   Program,
@@ -26,8 +26,8 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { FileSelectedMsg, FilepickerModel } from '@suds-cli/filepicker'
+} from '@boba-cli/tea'
+import { FileSelectedMsg, FilepickerModel } from '@boba-cli/filepicker'
 
 const filesystem = new NodeFileSystemAdapter()
 const pathAdapter = new NodePathAdapter()
@@ -45,7 +45,7 @@ const statusStyle = new Style().foreground('#50fa7b')
  * Create a demo directory with sample files
  */
 function createDemoDirectory(): string {
-  const demoDir = mkdtempSync(join(tmpdir(), 'suds-demo-'))
+  const demoDir = mkdtempSync(join(tmpdir(), 'boba-demo-'))
 
   // Create a subdirectory
   const docsDir = join(demoDir, 'documents')
@@ -54,12 +54,12 @@ function createDemoDirectory(): string {
   // Create 5 regular text files
   writeFileSync(
     join(demoDir, 'readme.txt'),
-    'Welcome to the Suds filepicker demo!\n',
+    'Welcome to the Boba filepicker demo!\n',
   )
   writeFileSync(join(demoDir, 'notes.txt'), 'These are some sample notes.\n')
   writeFileSync(
     join(demoDir, 'todo.txt'),
-    '- Learn Suds\n- Build a TUI\n- Ship it!\n',
+    '- Learn Boba\n- Build a TUI\n- Ship it!\n',
   )
   writeFileSync(
     join(docsDir, 'report.txt'),
@@ -126,7 +126,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Filepicker')
+    const header = headerStyle.render('🧼 Boba Demo — Filepicker')
     const help = helpStyle.render(
       "Use arrows/enter/backspace. '.' toggles hidden. q to quit.",
     )

@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Markdown Viewer
+ * Boba Demo: Markdown Viewer
  *
- * Demonstrates \@suds-cli/markdown with file rendering and scrolling.
+ * Demonstrates \@boba-cli/markdown with file rendering and scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line
@@ -14,10 +14,10 @@
  *   q / ctrl+c / esc - quit
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { MarkdownModel } from '@suds-cli/markdown'
-import { NodeFileSystemAdapter } from '@suds-cli/machine/node'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { MarkdownModel } from '@boba-cli/markdown'
+import { NodeFileSystemAdapter } from '@boba-cli/machine/node'
 import {
   KeyMsg,
   Program,
@@ -26,7 +26,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c', 'esc'] }).withHelp(
   'q',
@@ -92,7 +92,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Markdown Viewer')
+    const header = headerStyle.render('🧼 Boba Demo — Markdown Viewer')
     const help = helpStyle.render(
       'Scroll with j/k, f/b, d/u, PgUp/PgDn, mouse wheel • q to quit',
     )

@@ -21,12 +21,12 @@ import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { Style, borderStyles } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { DefaultItem, ListModel } from '@suds-cli/list'
-import { ProgressModel } from '@suds-cli/progress'
-import { SpinnerModel, dot } from '@suds-cli/spinner'
-import { StopwatchModel } from '@suds-cli/stopwatch'
+import { Style, borderStyles } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { DefaultItem, ListModel } from '@boba-cli/list'
+import { ProgressModel } from '@boba-cli/progress'
+import { SpinnerModel, dot } from '@boba-cli/spinner'
+import { StopwatchModel } from '@boba-cli/stopwatch'
 import {
   KeyMsg,
   Program,
@@ -35,7 +35,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

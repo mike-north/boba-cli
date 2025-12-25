@@ -5,7 +5,7 @@ import {
   type Cmd,
   type Msg as TeaMsg,
   type Model as TeaModel,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import { ResetMsg, StartStopMsg, TickMsg } from './messages.js'
 
 // Module-level ID counter for unique stopwatches

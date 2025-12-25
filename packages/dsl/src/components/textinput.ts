@@ -1,11 +1,11 @@
-import { type Cmd, type Msg } from '@suds-cli/tea'
-import { Style } from '@suds-cli/chapstick'
+import { type Cmd, type Msg } from '@boba-cli/tea'
+import { Style } from '@boba-cli/chapstick'
 import {
   TextInputModel,
   EchoMode,
   type TextInputOptions,
   type ValidateFunc,
-} from '@suds-cli/textinput'
+} from '@boba-cli/textinput'
 import type { ComponentBuilder } from '../types.js'
 
 /**

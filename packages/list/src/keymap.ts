@@ -1,5 +1,5 @@
-import type { KeyMap as HelpKeyMap } from '@suds-cli/help'
-import { Binding, newBinding } from '@suds-cli/key'
+import type { KeyMap as HelpKeyMap } from '@boba-cli/help'
+import { Binding, newBinding } from '@boba-cli/key'
 
 /**
  * Keyboard bindings for the list component.

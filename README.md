@@ -1,12 +1,12 @@
-# 🧼 Suds
+# 🧋 Boba
 
 **Build beautiful terminal UIs in TypeScript.**
 
-Suds is a **best-effort TypeScript port** of the wonderful [Bubble Tea](https://github.com/charmbracelet/bubbletea) framework and [Bubbles](https://github.com/charmbracelet/bubbles) component library from [Charm](https://charm.sh), with additional utilities inspired by [Teacup](https://github.com/mistakenelf/teacup).
+Boba is a **best-effort TypeScript port** of the wonderful [Bubble Tea](https://github.com/charmbracelet/bubbletea) framework and [Bubbles](https://github.com/charmbracelet/bubbles) component library from [Charm](https://charm.sh), with additional utilities inspired by [Teacup](https://github.com/mistakenelf/teacup).
 
 <img src="./examples/textarea-demo.gif" width="800" alt="Textarea component demo" />
 
-## Why Suds?
+## Why Boba?
 
 - **Elm Architecture** — Simple, functional model-update-view pattern
 - **Type Safe** — Full TypeScript with strict types throughout
@@ -17,7 +17,7 @@ Suds is a **best-effort TypeScript port** of the wonderful [Bubble Tea](https://
 ## Quick Start
 
 ```bash
-pnpm add @suds-cli/tea @suds-cli/spinner @suds-cli/chapstick
+pnpm add @boba-cli/tea @boba-cli/spinner @boba-cli/chapstick
 ```
 
 ```ts
@@ -29,9 +29,9 @@ import {
   type Model,
   type Cmd,
   type Msg,
-} from '@suds-cli/tea'
-import { SpinnerModel, TickMsg, dot } from '@suds-cli/spinner'
-import { Style } from '@suds-cli/chapstick'
+} from '@boba-cli/tea'
+import { SpinnerModel, TickMsg, dot } from '@boba-cli/spinner'
+import { Style } from '@boba-cli/chapstick'
 
 class LoadingScreen implements Model<Msg, LoadingScreen> {
   readonly spinner: SpinnerModel
@@ -73,41 +73,41 @@ await program.run()
 
 | Package                                     | Description                                             |
 | ------------------------------------------- | ------------------------------------------------------- |
-| [@suds-cli/tea](./packages/tea)             | The runtime — keyboard/mouse input, rendering, commands |
-| [@suds-cli/chapstick](./packages/chapstick) | Terminal styling — colors, borders, padding, alignment  |
-| [@suds-cli/key](./packages/key)             | Keybinding definitions and matching                     |
+| [@boba-cli/tea](./packages/tea)             | The runtime — keyboard/mouse input, rendering, commands |
+| [@boba-cli/chapstick](./packages/chapstick) | Terminal styling — colors, borders, padding, alignment  |
+| [@boba-cli/key](./packages/key)             | Keybinding definitions and matching                     |
 
 ### Components
 
 | Package                                       | Description                               |
 | --------------------------------------------- | ----------------------------------------- |
-| [@suds-cli/spinner](./packages/spinner)       | Animated loading spinners                 |
-| [@suds-cli/progress](./packages/progress)     | Animated progress bars with gradients     |
-| [@suds-cli/textinput](./packages/textinput)   | Single-line text input with cursor        |
-| [@suds-cli/textarea](./packages/textarea)     | Multi-line text editor                    |
-| [@suds-cli/table](./packages/table)           | Tabular data with scrolling and selection |
-| [@suds-cli/list](./packages/list)             | Filterable, paginated item lists          |
-| [@suds-cli/viewport](./packages/viewport)     | Scrollable content window                 |
-| [@suds-cli/paginator](./packages/paginator)   | Pagination logic and UI                   |
-| [@suds-cli/timer](./packages/timer)           | Countdown timer                           |
-| [@suds-cli/stopwatch](./packages/stopwatch)   | Elapsed time counter                      |
-| [@suds-cli/help](./packages/help)             | Auto-generated keybinding help            |
-| [@suds-cli/filepicker](./packages/filepicker) | File system browser                       |
-| [@suds-cli/cursor](./packages/cursor)         | Blinking cursor component                 |
+| [@boba-cli/spinner](./packages/spinner)       | Animated loading spinners                 |
+| [@boba-cli/progress](./packages/progress)     | Animated progress bars with gradients     |
+| [@boba-cli/textinput](./packages/textinput)   | Single-line text input with cursor        |
+| [@boba-cli/textarea](./packages/textarea)     | Multi-line text editor                    |
+| [@boba-cli/table](./packages/table)           | Tabular data with scrolling and selection |
+| [@boba-cli/list](./packages/list)             | Filterable, paginated item lists          |
+| [@boba-cli/viewport](./packages/viewport)     | Scrollable content window                 |
+| [@boba-cli/paginator](./packages/paginator)   | Pagination logic and UI                   |
+| [@boba-cli/timer](./packages/timer)           | Countdown timer                           |
+| [@boba-cli/stopwatch](./packages/stopwatch)   | Elapsed time counter                      |
+| [@boba-cli/help](./packages/help)             | Auto-generated keybinding help            |
+| [@boba-cli/filepicker](./packages/filepicker) | File system browser                       |
+| [@boba-cli/cursor](./packages/cursor)         | Blinking cursor component                 |
 
 ### Utilities
 
 | Package                                   | Description                             |
 | ----------------------------------------- | --------------------------------------- |
-| [@suds-cli/runeutil](./packages/runeutil) | Text sanitization and grapheme handling |
+| [@boba-cli/runeutil](./packages/runeutil) | Text sanitization and grapheme handling |
 
 ## Examples
 
 ### Styled Progress Bar
 
 ```ts
-import { ProgressModel } from '@suds-cli/progress'
-import { Style, borderStyles } from '@suds-cli/chapstick'
+import { ProgressModel } from '@boba-cli/progress'
+import { Style, borderStyles } from '@boba-cli/chapstick'
 
 const progress = ProgressModel.withDefaultGradient({ width: 40 })
 const [updated] = progress.setPercent(0.65)
@@ -131,7 +131,7 @@ console.log(box.render(updated.view()))
 ### Interactive List
 
 ```ts
-import { ListModel, DefaultItem } from '@suds-cli/list'
+import { ListModel, DefaultItem } from '@boba-cli/list'
 import {
   Program,
   KeyMsg,
@@ -139,8 +139,8 @@ import {
   type Model,
   type Cmd,
   type Msg,
-} from '@suds-cli/tea'
-import { matches, newBinding } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { matches, newBinding } from '@boba-cli/key'
 
 const items = [
   new DefaultItem('Build UI', 'Create the interface'),
@@ -184,8 +184,8 @@ class TaskList implements Model<Msg, TaskList> {
 ### Text Input Form
 
 ```ts
-import { TextInputModel, EchoMode } from '@suds-cli/textinput'
-import { Style } from '@suds-cli/chapstick'
+import { TextInputModel, EchoMode } from '@boba-cli/textinput'
+import { Style } from '@boba-cli/chapstick'
 
 const label = new Style().bold().foreground('#f8f8f2')
 const input = TextInputModel.new({
@@ -200,7 +200,7 @@ const input = TextInputModel.new({
 ### Scrollable Content
 
 ```ts
-import { ViewportModel } from '@suds-cli/viewport'
+import { ViewportModel } from '@boba-cli/viewport'
 
 const viewport = ViewportModel.new({ width: 60, height: 20 }).setContent(
   longMarkdownText,
@@ -213,7 +213,7 @@ console.log(next.view())
 
 ## The Elm Architecture
 
-Suds follows the [Elm Architecture](https://guide.elm-lang.org/architecture/), a simple pattern for building UIs:
+Boba follows the [Elm Architecture](https://guide.elm-lang.org/architecture/), a simple pattern for building UIs:
 
 ```text
 ┌─────────────────────────────────────────────┐
@@ -251,8 +251,8 @@ Full API documentation is available in the [docs](./docs) folder, auto-generated
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/suds
-cd suds
+git clone https://github.com/mike-north/boba-cli
+cd boba-cli
 
 # Install dependencies
 pnpm install
@@ -266,7 +266,7 @@ pnpm demo textinput-demo
 
 ## Credits
 
-Suds is a TypeScript port of excellent Go libraries from the [Charm](https://charm.sh) ecosystem:
+Boba is a TypeScript port of excellent Go libraries from the [Charm](https://charm.sh) ecosystem:
 
 - [**Bubble Tea**](https://github.com/charmbracelet/bubbletea) — The TUI framework
 - [**Bubbles**](https://github.com/charmbracelet/bubbles) — TUI components

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { encodeString } from '@suds-cli/machine'
+import { encodeString } from '@boba-cli/machine'
 import { KeyType, parseKey } from '../src/keys.js'
 
 const toBuf = (s: string) => encodeString(s)

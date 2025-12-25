@@ -7,13 +7,13 @@ TypeScript port of Charmbracelet Bubbles key package for user-definable keybindi
 ## Install
 
 ```bash
-pnpm add @suds-cli/key
+pnpm add @boba-cli/key
 ```
 
 ## Quickstart
 
 ```ts
-import { newBinding, matches } from '@suds-cli/key'
+import { newBinding, matches } from '@boba-cli/key'
 
 // Define keybindings with help text
 const keymap = {

@@ -1,10 +1,10 @@
 ---
-'@suds-cli/machine': minor
+'@boba-cli/machine': minor
 ---
 
 Add new machine package for platform abstraction layer
 
-This change introduces a new `@suds-cli/machine` package that provides a platform abstraction layer for Suds terminal UIs, enabling applications to run in both Node.js and browser environments.
+This change introduces a new `@boba-cli/machine` package that provides a platform abstraction layer for Boba terminal UIs, enabling applications to run in both Node.js and browser environments.
 
 Features:
 

@@ -2,7 +2,7 @@
 
 # @suds-cli/filetree
 
-Navigable file tree browser component for Suds terminal UIs.
+Navigable file tree browser component for Boba terminal UIs.
 
 ## Features
 
@@ -15,14 +15,14 @@ Navigable file tree browser component for Suds terminal UIs.
 ## Installation
 
 ```bash
-pnpm add @suds-cli/filetree
+pnpm add @boba-cli/filetree
 ```
 
 ## Usage
 
 ```typescript
-import { FiletreeModel } from '@suds-cli/filetree'
-import { Program } from '@suds-cli/tea'
+import { FiletreeModel } from '@boba-cli/filetree'
+import { Program } from '@boba-cli/tea'
 
 const filetree = FiletreeModel.new({
   currentDir: process.cwd(),

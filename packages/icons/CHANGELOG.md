@@ -1,4 +1,4 @@
-# @suds-cli/icons
+# @boba-cli/icons
 
 ## 0.1.0-alpha.1
 

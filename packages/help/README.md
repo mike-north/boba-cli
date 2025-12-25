@@ -7,7 +7,7 @@ Render short or full help text from your key bindings. Ported from the Charm `bu
 <img src="../../examples/help-demo.gif" width="950" alt="Help component demo" />
 
 ```ts
-import { HelpModel } from '@suds-cli/help'
+import { HelpModel } from '@boba-cli/help'
 
 const help = HelpModel.new({ width: 80 })
 const text = help.view(keyMap)
@@ -20,7 +20,7 @@ A self-contained help bubble component with a scrollable viewport for displaying
 <img src="../../examples/help-bubble-demo.gif" width="950" alt="HelpBubble component demo" />
 
 ```ts
-import { HelpBubble } from '@suds-cli/help'
+import { HelpBubble } from '@boba-cli/help'
 
 const bubble = HelpBubble.new(
   true,

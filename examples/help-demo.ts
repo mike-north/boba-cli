@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Help
+ * Boba Demo: Help
  *
- * Shows how \@suds-cli/help renders short and full help from key bindings.
+ * Shows how \@boba-cli/help renders short and full help from key bindings.
  *
  * Controls:
  *   k / ↑   - move up
@@ -18,9 +18,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { HelpModel, type KeyMap } from '@suds-cli/help'
-import { newBinding, matches, type Binding } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { HelpModel, type KeyMap } from '@boba-cli/help'
+import { newBinding, matches, type Binding } from '@boba-cli/key'
 
 const items = ['Apples', 'Bananas', 'Cherries', 'Dates', 'Elderberry']
 
@@ -114,7 +114,7 @@ class HelpDemo implements Model<Msg, HelpDemo> {
       : 'Press enter to select'
 
     return [
-      '🧼 Suds Help Demo',
+      '🧼 Boba Help Demo',
       '',
       list,
       '',

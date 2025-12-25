@@ -1,4 +1,4 @@
-import { decodeFirstRune, decodeString, byteLength } from '@suds-cli/machine'
+import { decodeFirstRune, decodeString, byteLength } from '@boba-cli/machine'
 
 /** @public Known key types parsed from terminal input. */
 export enum KeyType {

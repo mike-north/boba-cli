@@ -1,4 +1,4 @@
-import type { ColorInput } from '@suds-cli/chapstick'
+import type { ColorInput } from '@boba-cli/chapstick'
 
 /**
  * Color configuration for the help bubble title (adaptive for light/dark terminals).

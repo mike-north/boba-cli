@@ -1,5 +1,5 @@
-import type { PlatformAdapter, TerminalAdapter } from '@suds-cli/machine'
-import { CURSOR_HOME, CLEAR_SCREEN } from '@suds-cli/machine'
+import type { PlatformAdapter, TerminalAdapter } from '@boba-cli/machine'
+import { CURSOR_HOME, CLEAR_SCREEN } from '@boba-cli/machine'
 
 /** @public Options for the standard renderer. */
 export interface RendererOptions {

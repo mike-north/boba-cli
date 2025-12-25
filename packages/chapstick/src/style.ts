@@ -1,5 +1,5 @@
-import type { ColorSupport, EnvironmentAdapter, StyleFn } from '@suds-cli/machine'
-import { createStyle } from '@suds-cli/machine'
+import type { ColorSupport, EnvironmentAdapter, StyleFn } from '@boba-cli/machine'
+import { createStyle } from '@boba-cli/machine'
 import { defaultBorderStyle } from './borders.js'
 import { resolveColor } from './colors.js'
 import { clampWidth, width as textWidth, wrapWidth } from './measure.js'

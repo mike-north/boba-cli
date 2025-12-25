@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Code Viewer
+ * Boba Demo: Code Viewer
  *
- * Demonstrates \@suds-cli/code with syntax highlighting and scrolling.
+ * Demonstrates \@boba-cli/code with syntax highlighting and scrolling.
  *
  * Controls:
  *   j / ↓      - scroll down 1 line
@@ -14,10 +14,10 @@
  *   q / esc    - quit
  */
 
-import { Style } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
-import { CodeModel } from '@suds-cli/code'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import { Style } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
+import { CodeModel } from '@boba-cli/code'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
 import {
   KeyMsg,
   Program,
@@ -26,7 +26,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c', 'esc'] }).withHelp(
   'q',
@@ -80,7 +80,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Suds Demo — Code Viewer')
+    const header = headerStyle.render('🧼 Boba Demo — Code Viewer')
     const help = helpStyle.render(
       'Scroll with j/k, f/b, d/u, PgUp/PgDn • g=top • q/esc to quit',
     )

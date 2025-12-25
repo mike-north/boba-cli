@@ -1,13 +1,13 @@
 {
-  "name": "@suds-cli/markdown",
-  "description": "Markdown viewer component for Suds terminal UIs",
+  "name": "@boba-cli/markdown",
+  "description": "Markdown viewer component for Boba terminal UIs",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/filesystem": "workspace:*",
-    "@suds-cli/machine": "workspace:*",
-    "@suds-cli/tea": "workspace:*",
-    "@suds-cli/viewport": "workspace:*",
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/filesystem": "workspace:*",
+    "@boba-cli/machine": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
+    "@boba-cli/viewport": "workspace:*",
     "marked": "^15.0.0",
     "marked-terminal": "^7.3.0"
   },

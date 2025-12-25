@@ -1,4 +1,4 @@
-# @suds-cli/tea
+# @boba-cli/tea
 
 ## 0.1.0-alpha.1
 
@@ -23,12 +23,12 @@
 
 ### Patch Changes
 
-- [#35](https://github.com/mike-north/suds-cli/pull/35) [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca) Thanks [@mike-north](https://github.com/mike-north)! - Isolate Node.js dependencies to @suds-cli/machine for browser compatibility
+- [#35](https://github.com/mike-north/suds-cli/pull/35) [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca) Thanks [@mike-north](https://github.com/mike-north)! - Isolate Node.js dependencies to @boba-cli/machine for browser compatibility
 
   This change introduces platform abstraction adapters that allow all public packages
-  (except @suds-cli/machine) to run in browser environments:
+  (except @boba-cli/machine) to run in browser environments:
 
-  **New adapters in @suds-cli/machine:**
+  **New adapters in @boba-cli/machine:**
   - `FileSystemAdapter` - File operations abstraction
   - `PathAdapter` - Path manipulation abstraction
   - `EnvironmentAdapter` - Environment variable and terminal capability detection
@@ -36,8 +36,8 @@
   - `ArchiveAdapter` - Archive creation/extraction
 
   **Platform implementations:**
-  - Node.js: `@suds-cli/machine/node` subpath exports
-  - Browser: `@suds-cli/machine/browser` subpath exports (stubs/polyfills)
+  - Node.js: `@boba-cli/machine/node` subpath exports
+  - Browser: `@boba-cli/machine/browser` subpath exports (stubs/polyfills)
 
   **Breaking changes:**
   - `CodeModel.new()` now requires `filesystem` and `path` options
@@ -46,4 +46,4 @@
   - Direct chalk imports are now blocked by ESLint
 
 - Updated dependencies [[`e8a6068`](https://github.com/mike-north/suds-cli/commit/e8a6068e74ddccec7d57308e48a5c37d9d430030), [`0756ee8`](https://github.com/mike-north/suds-cli/commit/0756ee87bd7470589cdd0181fab0573a90fe3c2d), [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca)]:
-  - @suds-cli/machine@0.1.0-alpha.0
+  - @boba-cli/machine@0.1.0-alpha.0

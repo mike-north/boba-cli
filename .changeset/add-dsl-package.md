@@ -1,5 +1,5 @@
 ---
-'@suds-cli/dsl': minor
+'@boba-cli/dsl': minor
 ---
 
 Add declarative DSL for building CLI applications with minimal boilerplate

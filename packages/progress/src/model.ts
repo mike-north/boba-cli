@@ -1,11 +1,11 @@
-import { tick, type Cmd, type Msg } from '@suds-cli/tea'
+import { tick, type Cmd, type Msg } from '@boba-cli/tea'
 import {
   Style,
   createDefaultContext,
   resolveColor,
   width as textWidth,
   type ColorInput,
-} from '@suds-cli/chapstick'
+} from '@boba-cli/chapstick'
 import { FrameMsg } from './messages.js'
 import { Spring } from './spring.js'
 import { interpolateColor } from './gradient.js'

@@ -2,7 +2,7 @@ import type {
   DirectoryEntry,
   FileSystemAdapter,
   PathAdapter,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 
 /**
  * Directory shortcuts.

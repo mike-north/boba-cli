@@ -1,4 +1,4 @@
-import { Style } from '@suds-cli/chapstick'
+import { Style } from '@boba-cli/chapstick'
 import type { HelpStyles } from './types.js'
 
 /**

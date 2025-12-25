@@ -1,6 +1,6 @@
 {
-  "name": "@suds-cli/key",
-  "description": "Keybinding utilities for Suds terminal UIs",
+  "name": "@boba-cli/key",
+  "description": "Keybinding utilities for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
   "devDependencies": {
     "typescript": "5.8.2",

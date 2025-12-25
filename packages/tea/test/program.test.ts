@@ -1,6 +1,6 @@
 import { PassThrough } from 'node:stream'
 import { describe, expect, test, vi } from 'vitest'
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 import { Program } from '../src/program.js'
 import type { Cmd, Model, Msg } from '../src/types.js'
 import { EnterAltScreenMsg, QuitMsg, WindowSizeMsg } from '../src/messages.js'

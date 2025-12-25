@@ -9,7 +9,7 @@ Filterable, selectable list with integrated help, spinner, and paginator. Ported
 ## Usage
 
 ```ts
-import { DefaultItem, ListModel } from '@suds-cli/list'
+import { DefaultItem, ListModel } from '@boba-cli/list'
 
 const list = ListModel.new({
   items: [new DefaultItem('Item 1'), new DefaultItem('Item 2')],

@@ -1,0 +1,66 @@
+{
+  "name": "boba-cli",
+  "description": "Complete Boba CLI framework - all TUI components in one package",
+  "version": "0.1.0-alpha.0",
+  "dependencies": {
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/code": "workspace:*",
+    "@boba-cli/cursor": "workspace:*",
+    "@boba-cli/dsl": "workspace:*",
+    "@boba-cli/filepicker": "workspace:*",
+    "@boba-cli/filesystem": "workspace:*",
+    "@boba-cli/filetree": "workspace:*",
+    "@boba-cli/help": "workspace:*",
+    "@boba-cli/icons": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/list": "workspace:*",
+    "@boba-cli/machine": "workspace:*",
+    "@boba-cli/markdown": "workspace:*",
+    "@boba-cli/paginator": "workspace:*",
+    "@boba-cli/progress": "workspace:*",
+    "@boba-cli/runeutil": "workspace:*",
+    "@boba-cli/spinner": "workspace:*",
+    "@boba-cli/statusbar": "workspace:*",
+    "@boba-cli/stopwatch": "workspace:*",
+    "@boba-cli/table": "workspace:*",
+    "@boba-cli/tea": "workspace:*",
+    "@boba-cli/textarea": "workspace:*",
+    "@boba-cli/textinput": "workspace:*",
+    "@boba-cli/timer": "workspace:*",
+    "@boba-cli/viewport": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "typescript": "5.8.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "check:eslint": "pnpm run lint",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\"",
+    "test": "echo 'No tests for rollup package'"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts"
+}

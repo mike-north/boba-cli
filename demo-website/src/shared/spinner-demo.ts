@@ -12,7 +12,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import {
   SpinnerModel,
   line,
@@ -24,8 +24,8 @@ import {
   meter,
   ellipsis,
   type Spinner,
-} from '@suds-cli/spinner'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/spinner'
+import { newBinding, matches } from '@boba-cli/key'
 import { createStyle } from '../browser-style'
 
 const SPINNERS: { name: string; spinner: Spinner }[] = [
@@ -105,7 +105,7 @@ export class SpinnerDemoModel implements Model<Msg, SpinnerDemoModel> {
     const current = SPINNERS[this.spinnerIndex]
     const spinnerName = current?.name ?? 'unknown'
 
-    const title = titleStyle.render('Suds Spinner Demo')
+    const title = titleStyle.render('Boba Spinner Demo')
     const spinnerLine = `${this.spinner.view()}  ${textStyle.render('Loading something amazing...')}`
     const status = helpStyle.render(
       `Spinner: ${keyStyle.render(spinnerName)} | ` +

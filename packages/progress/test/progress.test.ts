@@ -1,4 +1,4 @@
-import { width as textWidth } from '@suds-cli/chapstick'
+import { width as textWidth } from '@boba-cli/chapstick'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { interpolateColor } from '../src/gradient.js'
 import { FrameMsg } from '../src/messages.js'

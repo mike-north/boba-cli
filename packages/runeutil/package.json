@@ -1,6 +1,6 @@
 {
-  "name": "@suds-cli/runeutil",
-  "description": "Input sanitization utilities for Suds terminal UIs",
+  "name": "@boba-cli/runeutil",
+  "description": "Input sanitization utilities for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
   "dependencies": {
     "strip-ansi": "^7.1.0"

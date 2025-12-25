@@ -15,14 +15,14 @@ A 4-column status bar component for terminal UIs, ported from [teacup](https://g
 ## Installation
 
 ```bash
-pnpm add @suds-cli/statusbar
+pnpm add @boba-cli/statusbar
 ```
 
 ## Usage
 
 ```typescript
-import { StatusbarModel } from '@suds-cli/statusbar'
-import type { ColorConfig } from '@suds-cli/statusbar'
+import { StatusbarModel } from '@boba-cli/statusbar'
+import type { ColorConfig } from '@boba-cli/statusbar'
 
 const sb = StatusbarModel.new(
   { foreground: '#ffffff', background: '#F25D94' }, // Pink - first column

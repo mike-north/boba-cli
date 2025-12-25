@@ -1,5 +1,5 @@
-import { matches } from '@suds-cli/key'
-import { KeyMsg, type Cmd, type Msg } from '@suds-cli/tea'
+import { matches } from '@boba-cli/key'
+import { KeyMsg, type Cmd, type Msg } from '@boba-cli/tea'
 import { defaultKeyMap, PaginatorType, type KeyMap } from './types.js'
 
 /**

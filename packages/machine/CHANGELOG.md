@@ -1,4 +1,4 @@
-# @suds-cli/machine
+# @boba-cli/machine
 
 ## 0.1.0-alpha.1
 
@@ -14,7 +14,7 @@
 
 - [#33](https://github.com/mike-north/suds-cli/pull/33) [`e8a6068`](https://github.com/mike-north/suds-cli/commit/e8a6068e74ddccec7d57308e48a5c37d9d430030) Thanks [@mike-north](https://github.com/mike-north)! - Add new machine package for platform abstraction layer
 
-  This change introduces a new `@suds-cli/machine` package that provides a platform abstraction layer for Suds terminal UIs, enabling applications to run in both Node.js and browser environments.
+  This change introduces a new `@boba-cli/machine` package that provides a platform abstraction layer for Boba terminal UIs, enabling applications to run in both Node.js and browser environments.
 
   Features:
   - Platform-agnostic interfaces for terminal I/O, clipboard access, environment detection, and signal handling
@@ -35,12 +35,12 @@
 
   All packages now provide both CommonJS and ESM output with proper TypeScript type declarations for each module system. Package exports are configured with conditional exports for seamless consumption in both CJS and ESM environments.
 
-- [#35](https://github.com/mike-north/suds-cli/pull/35) [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca) Thanks [@mike-north](https://github.com/mike-north)! - Isolate Node.js dependencies to @suds-cli/machine for browser compatibility
+- [#35](https://github.com/mike-north/suds-cli/pull/35) [`2fd3d20`](https://github.com/mike-north/suds-cli/commit/2fd3d20da5fd2c57e219f94b8c13d7fc68e1daca) Thanks [@mike-north](https://github.com/mike-north)! - Isolate Node.js dependencies to @boba-cli/machine for browser compatibility
 
   This change introduces platform abstraction adapters that allow all public packages
-  (except @suds-cli/machine) to run in browser environments:
+  (except @boba-cli/machine) to run in browser environments:
 
-  **New adapters in @suds-cli/machine:**
+  **New adapters in @boba-cli/machine:**
   - `FileSystemAdapter` - File operations abstraction
   - `PathAdapter` - Path manipulation abstraction
   - `EnvironmentAdapter` - Environment variable and terminal capability detection
@@ -48,8 +48,8 @@
   - `ArchiveAdapter` - Archive creation/extraction
 
   **Platform implementations:**
-  - Node.js: `@suds-cli/machine/node` subpath exports
-  - Browser: `@suds-cli/machine/browser` subpath exports (stubs/polyfills)
+  - Node.js: `@boba-cli/machine/node` subpath exports
+  - Browser: `@boba-cli/machine/browser` subpath exports (stubs/polyfills)
 
   **Breaking changes:**
   - `CodeModel.new()` now requires `filesystem` and `path` options

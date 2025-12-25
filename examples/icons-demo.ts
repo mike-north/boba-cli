@@ -1,5 +1,5 @@
 /**
- * Suds Demo: Icons
+ * Boba Demo: Icons
  *
  * Displays a showcase of file icons with their associated colors.
  *
@@ -7,9 +7,9 @@
  *   q / ctrl+c / esc - quit
  */
 
-import { Style, joinVertical } from '@suds-cli/chapstick'
-import { getIcon } from '@suds-cli/icons'
-import { newBinding, matches } from '@suds-cli/key'
+import { Style, joinVertical } from '@boba-cli/chapstick'
+import { getIcon } from '@boba-cli/icons'
+import { newBinding, matches } from '@boba-cli/key'
 import {
   KeyMsg,
   Program,
@@ -18,7 +18,7 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 
 const quitBinding = newBinding({ keys: ['q', 'ctrl+c', 'esc'] })
 
@@ -120,7 +120,7 @@ class IconsDemo implements Model<Msg, IconsDemo> {
     const sectionStyle = new Style().bold(true).foreground('#bd93f9')
     const helpStyle = new Style().foreground('#6272a4').italic(true)
 
-    const header = headerStyle.render('🧼 Suds Demo — File Icons')
+    const header = headerStyle.render('🧼 Boba Demo — File Icons')
 
     // Calculate columns based on width
     const colWidth = 24

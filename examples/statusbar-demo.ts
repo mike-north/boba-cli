@@ -1,7 +1,7 @@
 /**
- * Suds Demo: Statusbar
+ * Boba Demo: Statusbar
  *
- * Demonstrates \@suds-cli/tea, \@suds-cli/statusbar, \@suds-cli/chapstick, and \@suds-cli/key.
+ * Demonstrates \@boba-cli/tea, \@boba-cli/statusbar, \@boba-cli/chapstick, and \@boba-cli/key.
  *
  * Controls:
  *   q      - Quit
@@ -17,10 +17,10 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { StatusbarModel, Height } from '@suds-cli/statusbar'
-import { Style, joinVertical } from '@suds-cli/chapstick'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { StatusbarModel, Height } from '@boba-cli/statusbar'
+import { Style, joinVertical } from '@boba-cli/chapstick'
+import { newBinding, matches } from '@boba-cli/key'
 
 // Keybindings
 const keys = {

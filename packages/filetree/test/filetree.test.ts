@@ -2,11 +2,11 @@ import { describe, it, expect } from 'vitest'
 import {
   NodeFileSystemAdapter,
   NodePathAdapter,
-} from '@suds-cli/machine/node'
+} from '@boba-cli/machine/node'
 import { FiletreeModel } from '../src/model.js'
 import { GetDirectoryListingMsg, ErrorMsg } from '../src/messages.js'
 import { convertBytesToSizeString } from '../src/fs.js'
-import { KeyMsg, KeyType, WindowSizeMsg } from '@suds-cli/tea'
+import { KeyMsg, KeyType, WindowSizeMsg } from '@boba-cli/tea'
 
 // Test helpers
 const filesystem = new NodeFileSystemAdapter()

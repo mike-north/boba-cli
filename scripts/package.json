@@ -1,14 +1,14 @@
 {
-  "name": "@suds-cli/scripts",
+  "name": "@boba-cli/scripts",
   "version": "0.0.1-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/list": "workspace:*",
-    "@suds-cli/progress": "workspace:*",
-    "@suds-cli/spinner": "workspace:*",
-    "@suds-cli/stopwatch": "workspace:*",
-    "@suds-cli/tea": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/list": "workspace:*",
+    "@boba-cli/progress": "workspace:*",
+    "@boba-cli/spinner": "workspace:*",
+    "@boba-cli/stopwatch": "workspace:*",
+    "@boba-cli/tea": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.21.0"

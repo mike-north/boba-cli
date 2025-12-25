@@ -1,4 +1,4 @@
-import type { BorderStyle } from '@suds-cli/chapstick'
+import type { BorderStyle } from '@boba-cli/chapstick'
 import type { TableKeyMap } from './keymap.js'
 import type { TableStyles } from './styles.js'
 

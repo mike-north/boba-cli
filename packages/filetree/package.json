@@ -1,12 +1,12 @@
 {
-  "name": "@suds-cli/filetree",
-  "description": "Navigable file tree browser component for Suds terminal UIs",
-  "version": "0.1.0-alpha.1",
+  "name": "@boba-cli/filetree",
+  "description": "Navigable file tree browser component for Boba terminal UIs",
+  "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/machine": "workspace:*",
-    "@suds-cli/tea": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/machine": "workspace:*",
+    "@boba-cli/tea": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.10.2",

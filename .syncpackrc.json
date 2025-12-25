@@ -4,9 +4,9 @@
   "dependencyTypes": ["prod", "dev", "peer", "optional"],
   "versionGroups": [
     {
-      "label": "Ignore all @suds-cli workspace dependencies",
+      "label": "Ignore all @boba-cli workspace dependencies",
       "packages": ["**"],
-      "dependencies": ["@suds-cli/**"],
+      "dependencies": ["@boba-cli/**"],
       "isIgnored": true
     }
   ]

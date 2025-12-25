@@ -1,5 +1,5 @@
 /**
- * Markdown viewer component for Suds terminal UIs.
+ * Markdown viewer component for Boba terminal UIs.
  *
  * @packageDocumentation
  */

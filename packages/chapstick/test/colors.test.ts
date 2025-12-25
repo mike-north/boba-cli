@@ -4,7 +4,7 @@ import {
   resolveColor,
   getTerminalBackground,
 } from '../src/colors.js'
-import type { ColorSupport, EnvironmentAdapter, TerminalBackground } from '@suds-cli/machine'
+import type { ColorSupport, EnvironmentAdapter, TerminalBackground } from '@boba-cli/machine'
 
 // Mock environment adapter for testing
 function createMockEnv(options: {

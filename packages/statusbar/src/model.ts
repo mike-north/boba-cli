@@ -1,5 +1,5 @@
-import { Style, width as textWidth } from '@suds-cli/chapstick'
-import { WindowSizeMsg, type Cmd, type Msg } from '@suds-cli/tea'
+import { Style, width as textWidth } from '@boba-cli/chapstick'
+import { WindowSizeMsg, type Cmd, type Msg } from '@boba-cli/tea'
 import type { ColorConfig, StatusbarState } from './types.js'
 
 /**

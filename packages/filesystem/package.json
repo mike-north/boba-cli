@@ -1,9 +1,9 @@
 {
-  "name": "@suds-cli/filesystem",
-  "description": "Filesystem utility functions for Suds terminal UIs",
-  "version": "0.1.0-alpha.1",
+  "name": "@boba-cli/filesystem",
+  "description": "Filesystem utility functions for Boba terminal UIs",
+  "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/machine": "workspace:*"
+    "@boba-cli/machine": "workspace:*"
   },
   "devDependencies": {
     "typescript": "5.8.2",

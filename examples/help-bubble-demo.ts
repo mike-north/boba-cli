@@ -1,5 +1,5 @@
 /**
- * Suds Demo: Help Bubble
+ * Boba Demo: Help Bubble
  *
  * Shows a scrollable help bubble component matching the teacup help example.
  *
@@ -21,9 +21,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { HelpBubble, type Entry } from '@suds-cli/help'
-import { matches, newBinding } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { HelpBubble, type Entry } from '@boba-cli/help'
+import { matches, newBinding } from '@boba-cli/key'
 
 const quitBinding = newBinding({ keys: ['q', 'ctrl+c', 'esc'] })
 

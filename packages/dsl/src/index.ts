@@ -23,7 +23,7 @@ export { spinner, type SpinnerBuilderOptions } from './components/spinner.js'
 export { textInput, type TextInputBuilderOptions } from './components/textinput.js'
 
 // Re-export useful types from dependencies
-export { Style } from '@suds-cli/chapstick'
+export { Style } from '@boba-cli/chapstick'
 export {
   type Spinner,
   line,
@@ -34,10 +34,10 @@ export {
   moon,
   meter,
   ellipsis,
-} from '@suds-cli/spinner'
+} from '@boba-cli/spinner'
 export {
   type TextInputModel,
   EchoMode,
   CursorMode,
   type ValidateFunc,
-} from '@suds-cli/textinput'
+} from '@boba-cli/textinput'

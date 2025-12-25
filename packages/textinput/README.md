@@ -2,21 +2,21 @@
 
 # @suds-cli/textinput
 
-Single-line text input component for Suds terminal UIs. Port of Charmbracelet Bubbles textinput.
+Single-line text input component for Boba terminal UIs. Port of Charmbracelet Bubbles textinput.
 
 <img src="../../examples/textinput-demo.gif" width="950" alt="Textinput component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/textinput
+pnpm add @boba-cli/textinput
 ```
 
 ## Quickstart
 
 ```ts
-import { TextInputModel, EchoMode } from '@suds-cli/textinput'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import { TextInputModel, EchoMode } from '@boba-cli/textinput'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 let input = TextInputModel.new({
   placeholder: 'Type your name…',

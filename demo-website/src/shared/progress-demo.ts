@@ -15,9 +15,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { newBinding, matches } from '@suds-cli/key'
-import { ProgressModel } from '@suds-cli/progress'
+} from '@boba-cli/tea'
+import { newBinding, matches } from '@boba-cli/key'
+import { ProgressModel } from '@boba-cli/progress'
 import { createStyle } from '../browser-style'
 
 const keys = {
@@ -103,7 +103,7 @@ export class ProgressDemoModel implements Model<Msg, ProgressDemoModel> {
   }
 
   view(): string {
-    const title = titleStyle.render('Suds Progress Demo')
+    const title = titleStyle.render('Boba Progress Demo')
     const bar = this.progress.view()
     const mode = this.useGradient ? 'Gradient' : 'Solid'
 

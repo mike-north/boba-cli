@@ -1,5 +1,5 @@
 /**
- * \@suds-cli/machine - Platform abstraction layer for Suds terminal UIs.
+ * \@boba-cli/machine - Platform abstraction layer for Boba terminal UIs.
  *
  * This package provides platform-agnostic interfaces and utilities for building
  * terminal applications that can run in both Node.js and browser environments.
@@ -7,17 +7,17 @@
  * @example
  * ```typescript
  * // Node.js usage
- * import { createNodePlatform } from '@suds-cli/machine/node'
+ * import { createNodePlatform } from '@boba-cli/machine/node'
  * const platform = createNodePlatform()
  *
  * // Browser usage (with xterm.js)
- * import { createBrowserPlatform } from '@suds-cli/machine/browser'
+ * import { createBrowserPlatform } from '@boba-cli/machine/browser'
  * import { Terminal } from '@xterm/xterm'
  * const terminal = new Terminal()
  * const platform = createBrowserPlatform({ terminal })
  *
  * // Platform-agnostic code
- * import type { PlatformAdapter } from '@suds-cli/machine'
+ * import type { PlatformAdapter } from '@boba-cli/machine'
  *
  * function run(platform: PlatformAdapter) {
  *   platform.terminal.onInput((data) => {

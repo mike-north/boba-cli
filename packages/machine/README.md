@@ -2,12 +2,12 @@
 
 # @suds-cli/machine
 
-Platform abstraction layer for Suds terminal UIs. This package enables Suds applications to run in both Node.js and browser environments (with xterm.js) by providing platform-agnostic interfaces for terminal I/O, clipboard access, environment detection, and signal handling.
+Platform abstraction layer for Boba terminal UIs. This package enables Boba applications to run in both Node.js and browser environments (with xterm.js) by providing platform-agnostic interfaces for terminal I/O, clipboard access, environment detection, and signal handling.
 
 ## Installation
 
 ```bash
-npm install @suds-cli/machine
+npm install @boba-cli/machine
 ```
 
 ### Optional Peer Dependencies
@@ -29,7 +29,7 @@ npm install @xterm/xterm
 ### Node.js
 
 ```typescript
-import { createNodePlatform } from '@suds-cli/machine/node'
+import { createNodePlatform } from '@boba-cli/machine/node'
 
 const platform = createNodePlatform()
 
@@ -96,7 +96,7 @@ platform.dispose()
 
 ```typescript
 import { Terminal } from '@xterm/xterm'
-import { createBrowserPlatform } from '@suds-cli/machine/browser'
+import { createBrowserPlatform } from '@boba-cli/machine/browser'
 
 // Create xterm.js terminal
 const terminal = new Terminal()
@@ -121,7 +121,7 @@ platform.dispose()
 Write code that works on both platforms:
 
 ```typescript
-import type { PlatformAdapter } from '@suds-cli/machine'
+import type { PlatformAdapter } from '@boba-cli/machine'
 
 function runApp(platform: PlatformAdapter) {
   const { columns, rows } = platform.terminal.getSize()
@@ -149,7 +149,7 @@ import {
   byteLength,
   concatBytes,
   decodeFirstRune,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 
 // Encode string to UTF-8 bytes
 const bytes = encodeString('Hello, 世界!')
@@ -182,7 +182,7 @@ import {
   fgRGB,
   bgRGB,
   setWindowTitle,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 
 // Use constants directly
 terminal.write(CURSOR_HIDE)
@@ -328,9 +328,9 @@ type TerminalBackground = 'dark' | 'light' | 'unknown'
 
 The package has three entry points:
 
-- `@suds-cli/machine` - Core interfaces, byte utilities, and ANSI sequences
-- `@suds-cli/machine/node` - Node.js adapter implementations
-- `@suds-cli/machine/browser` - Browser/xterm.js adapter implementations
+- `@boba-cli/machine` - Core interfaces, byte utilities, and ANSI sequences
+- `@boba-cli/machine/node` - Node.js adapter implementations
+- `@boba-cli/machine/browser` - Browser/xterm.js adapter implementations
 
 ## License
 

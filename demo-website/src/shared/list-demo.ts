@@ -17,9 +17,9 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
-import { DefaultItem, ListModel } from '@suds-cli/list'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/tea'
+import { DefaultItem, ListModel } from '@boba-cli/list'
+import { newBinding, matches } from '@boba-cli/key'
 import { createStyle } from '../browser-style'
 
 const quitBinding = newBinding({ keys: ['q', 'Q', 'ctrl+c'] }).withHelp('q', 'quit')
@@ -82,7 +82,7 @@ export class ListDemoModel implements Model<Msg, ListDemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('Suds List Demo')
+    const header = headerStyle.render('Boba List Demo')
     const help = helpStyle.render("Try '/', j/k, pgup/pgdn, ? | [q] quit")
     return [header, '', this.list.view(), '', help, ''].join('\n')
   }

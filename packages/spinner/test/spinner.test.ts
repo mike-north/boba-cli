@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { Style } from '@suds-cli/chapstick'
+import { Style } from '@boba-cli/chapstick'
 import { SpinnerModel } from '@/model.js'
 import { TickMsg } from '@/messages.js'
 import {

@@ -1,11 +1,11 @@
 {
-  "name": "@suds-cli/table",
-  "description": "Tabular data display with scrolling and selection for Suds",
+  "name": "@boba-cli/table",
+  "description": "Tabular data display with scrolling and selection for Boba",
   "version": "0.1.0-alpha.2",
   "dependencies": {
-    "@suds-cli/chapstick": "workspace:*",
-    "@suds-cli/key": "workspace:*",
-    "@suds-cli/tea": "workspace:*"
+    "@boba-cli/chapstick": "workspace:*",
+    "@boba-cli/key": "workspace:*",
+    "@boba-cli/tea": "workspace:*"
   },
   "devDependencies": {
     "typescript": "5.8.2",

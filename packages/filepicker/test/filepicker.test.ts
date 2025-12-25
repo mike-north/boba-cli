@@ -3,7 +3,7 @@ import { sortFiles } from '../src/fs.js'
 import { DirReadMsg } from '../src/messages.js'
 import { FilepickerModel } from '../src/model.js'
 import type { FileInfo } from '../src/types.js'
-import { NodeFileSystemAdapter, NodePathAdapter } from '@suds-cli/machine/node'
+import { NodeFileSystemAdapter, NodePathAdapter } from '@boba-cli/machine/node'
 
 function stubFile(name: string, isDir = false): FileInfo {
   return {

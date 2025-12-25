@@ -13,14 +13,14 @@ import {
   type Cmd,
   type Model,
   type Msg,
-} from '@suds-cli/tea'
+} from '@boba-cli/tea'
 import {
   StopwatchModel,
   TickMsg,
   StartStopMsg,
   ResetMsg,
-} from '@suds-cli/stopwatch'
-import { newBinding, matches } from '@suds-cli/key'
+} from '@boba-cli/stopwatch'
+import { newBinding, matches } from '@boba-cli/key'
 import { createStyle } from '../browser-style'
 
 const keys = {
@@ -98,7 +98,7 @@ export class StopwatchDemoModel implements Model<Msg, StopwatchDemoModel> {
 
     return [
       '',
-      title.render('Suds Stopwatch Demo'),
+      title.render('Boba Stopwatch Demo'),
       '',
       text.render(`Elapsed: ${value.render(this.stopwatch.view())}`),
       text.render(`Status: ${state.render(this.status)}`),

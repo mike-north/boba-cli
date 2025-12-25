@@ -2,13 +2,13 @@
 
 # @suds-cli/table
 
-Tabular data display with scrolling and selection for Suds terminal UIs.
+Tabular data display with scrolling and selection for Boba terminal UIs.
 
 <img src="../../examples/table-demo.gif" width="950" alt="Table component demo" />
 
 ```ts
-import { TableModel } from '@suds-cli/table'
-import { borderStyles } from '@suds-cli/chapstick'
+import { TableModel } from '@boba-cli/table'
+import { borderStyles } from '@boba-cli/chapstick'
 
 const table = TableModel.new({
   columns: [

@@ -2,21 +2,21 @@
 
 # @suds-cli/progress
 
-Animated progress bar for Suds terminal UIs. Port of Charmbracelet Bubbles progress.
+Animated progress bar for Boba terminal UIs. Port of Charmbracelet Bubbles progress.
 
 <img src="../../examples/progress-demo.gif" width="950" alt="Progress component demo" />
 
 ## Install
 
 ```bash
-pnpm add @suds-cli/progress
+pnpm add @boba-cli/progress
 ```
 
 ## Quickstart
 
 ```ts
-import { ProgressModel, FrameMsg } from '@suds-cli/progress'
-import type { Cmd, Msg } from '@suds-cli/tea'
+import { ProgressModel, FrameMsg } from '@boba-cli/progress'
+import type { Cmd, Msg } from '@boba-cli/tea'
 
 let progress = ProgressModel.withDefaultGradient({ width: 30 })
 

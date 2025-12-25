@@ -1,4 +1,4 @@
-import type { PlatformAdapter, TerminalAdapter } from '@suds-cli/machine'
+import type { PlatformAdapter, TerminalAdapter } from '@boba-cli/machine'
 import {
   CURSOR_SHOW,
   CURSOR_HIDE,
@@ -16,7 +16,7 @@ import {
   BRACKETED_PASTE_OFF,
   REPORT_FOCUS_ON,
   REPORT_FOCUS_OFF,
-} from '@suds-cli/machine'
+} from '@boba-cli/machine'
 
 /** @public Options for the terminal controller. */
 export interface TerminalOptions {
