@@ -10,17 +10,11 @@
   },
   "dependencies": {
     "@boba-cli/chapstick": "workspace:*",
-    "@boba-cli/key": "workspace:*",
-    "@boba-cli/list": "workspace:*",
+    "@boba-cli/examples": "workspace:*",
     "@boba-cli/machine": "workspace:*",
-    "@boba-cli/progress": "workspace:*",
-    "@boba-cli/spinner": "workspace:*",
-    "@boba-cli/stopwatch": "workspace:*",
-    "@boba-cli/table": "workspace:*",
     "@boba-cli/tea": "workspace:*",
-    "@boba-cli/timer": "workspace:*",
-    "@xterm/xterm": "^5.5.0",
-    "@xterm/addon-fit": "^0.10.0"
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0"
   },
   "devDependencies": {
     "typescript": "5.8.2",

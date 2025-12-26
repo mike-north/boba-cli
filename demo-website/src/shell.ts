@@ -7,9 +7,10 @@
 
 import type { Terminal } from '@xterm/xterm'
 import { createBrowserPlatform } from '@boba-cli/machine/browser'
-import { Program, KeyMsg, KeyType, type Cmd, type Model, type Msg } from '@boba-cli/tea'
+import { Program, KeyMsg, KeyType, quit, type Cmd, type Model, type Msg } from '@boba-cli/tea'
 import { createStyle } from './browser-style'
 import { demos, findDemo, parseCommand, type DemoInfo } from './shared/registry'
+import { SimpleFSAdapter } from './simple-fs-adapter'
 
 // Shell styles
 const promptStyle = createStyle().foreground('#50fa7b').bold(true)
@@ -23,8 +24,8 @@ const filenameStyle = createStyle().foreground('#f1fa8c')
 
 const BANNER = `
 ${headerStyle.render('╔═══════════════════════════════════════════════════╗')}
-${headerStyle.render('║')}  ${accentStyle.render('Boba CLI')} - Terminal UIs in TypeScript           ${headerStyle.render('║')}
-${headerStyle.render('║')}  ${dimStyle.render('A port of Bubble Tea for the browser')}              ${headerStyle.render('║')}
+${headerStyle.render('║')}  ${accentStyle.render('Boba CLI')} - Terminal UIs in TypeScript            ${headerStyle.render('║')}
+${headerStyle.render('║')}  ${dimStyle.render('A port of Bubble Tea               ')}              ${headerStyle.render('║')}
 ${headerStyle.render('╚═══════════════════════════════════════════════════╝')}
 `
 
@@ -58,17 +59,30 @@ class ShellModel implements Model<Msg, ShellModel> {
   readonly cursorPos: number
   readonly history: HistoryEntry[]
   readonly showBanner: boolean
+  private readonly runner: ShellRunner | null
+  // Tab completion state
+  private readonly tabCompletions: string[]
+  private readonly tabIndex: number
+  private readonly tabOriginalInput: string
 
   constructor(
+    runner: ShellRunner | null,
     input = '',
     cursorPos = 0,
     history: HistoryEntry[] = [],
     showBanner = true,
+    tabCompletions: string[] = [],
+    tabIndex = 0,
+    tabOriginalInput = '',
   ) {
+    this.runner = runner
     this.input = input
     this.cursorPos = cursorPos
     this.history = history
     this.showBanner = showBanner
+    this.tabCompletions = tabCompletions
+    this.tabIndex = tabIndex
+    this.tabOriginalInput = tabOriginalInput
   }
 
   init(): Cmd<Msg> {
@@ -93,7 +107,7 @@ class ShellModel implements Model<Msg, ShellModel> {
           this.input.slice(0, this.cursorPos - 1) +
           this.input.slice(this.cursorPos)
         return [
-          new ShellModel(newInput, this.cursorPos - 1, this.history, false),
+          new ShellModel(this.runner, newInput, this.cursorPos - 1, this.history, false),
           null,
         ]
       }
@@ -106,7 +120,7 @@ class ShellModel implements Model<Msg, ShellModel> {
           this.input.slice(0, this.cursorPos) +
           this.input.slice(this.cursorPos + 1)
         return [
-          new ShellModel(newInput, this.cursorPos, this.history, false),
+          new ShellModel(this.runner, newInput, this.cursorPos, this.history, false),
           null,
         ]
       }
@@ -116,6 +130,7 @@ class ShellModel implements Model<Msg, ShellModel> {
     if (key.type === KeyType.Left) {
       return [
         new ShellModel(
+          this.runner,
           this.input,
           Math.max(0, this.cursorPos - 1),
           this.history,
@@ -128,6 +143,7 @@ class ShellModel implements Model<Msg, ShellModel> {
     if (key.type === KeyType.Right) {
       return [
         new ShellModel(
+          this.runner,
           this.input,
           Math.min(this.input.length, this.cursorPos + 1),
           this.history,
@@ -138,29 +154,35 @@ class ShellModel implements Model<Msg, ShellModel> {
     }
 
     if (key.type === KeyType.Home) {
-      return [new ShellModel(this.input, 0, this.history, false), null]
+      return [new ShellModel(this.runner, this.input, 0, this.history, false), null]
     }
 
     if (key.type === KeyType.End) {
       return [
-        new ShellModel(this.input, this.input.length, this.history, false),
+        new ShellModel(this.runner, this.input, this.input.length, this.history, false),
         null,
       ]
     }
 
+    // Handle Tab - autocomplete
+    if (key.type === KeyType.Tab) {
+      return this.handleTabCompletion()
+    }
+
     // Handle Ctrl+C - clear input (Break key)
     if (key.type === KeyType.Break) {
-      return [new ShellModel('', 0, this.history, false), null]
+      return [new ShellModel(this.runner, '', 0, this.history, false), null]
     }
 
     // Handle printable characters (Runes) and Space
+    // Any other input resets tab completion
     if (key.type === KeyType.Runes && !key.alt) {
       const newInput =
         this.input.slice(0, this.cursorPos) +
         key.runes +
         this.input.slice(this.cursorPos)
       return [
-        new ShellModel(newInput, this.cursorPos + key.runes.length, this.history, false),
+        new ShellModel(this.runner, newInput, this.cursorPos + key.runes.length, this.history, false),
         null,
       ]
     }
@@ -171,7 +193,7 @@ class ShellModel implements Model<Msg, ShellModel> {
         ' ' +
         this.input.slice(this.cursorPos)
       return [
-        new ShellModel(newInput, this.cursorPos + 1, this.history, false),
+        new ShellModel(this.runner, newInput, this.cursorPos + 1, this.history, false),
         null,
       ]
     }
@@ -179,11 +201,138 @@ class ShellModel implements Model<Msg, ShellModel> {
     return [this, null]
   }
 
+  private handleTabCompletion(): [ShellModel, Cmd<Msg>] {
+    // Only complete at the end of the input
+    if (this.cursorPos !== this.input.length) {
+      return [this, null]
+    }
+
+    const input = this.input.trim()
+
+    // If we're already in tab completion, cycle to next match
+    if (this.tabCompletions.length > 0) {
+      const nextIndex = (this.tabIndex + 1) % this.tabCompletions.length
+      const completion = this.tabCompletions[nextIndex]
+
+      return [
+        new ShellModel(
+          this.runner,
+          completion ?? '',
+          completion?.length ?? 0,
+          this.history,
+          false,
+          this.tabCompletions,
+          nextIndex,
+          this.tabOriginalInput,
+        ),
+        null,
+      ]
+    }
+
+    // Start new tab completion
+    const completions = this.getCompletions(input)
+
+    if (completions.length === 0) {
+      return [this, null]
+    }
+
+    // If only one match, complete it directly
+    if (completions.length === 1) {
+      const completion = completions[0]
+      return [
+        new ShellModel(
+          this.runner,
+          completion ?? '',
+          completion?.length ?? 0,
+          this.history,
+          false,
+        ),
+        null,
+      ]
+    }
+
+    // Multiple matches - start cycling
+    const firstCompletion = completions[0]
+    return [
+      new ShellModel(
+        this.runner,
+        firstCompletion ?? '',
+        firstCompletion?.length ?? 0,
+        this.history,
+        false,
+        completions,
+        0,
+        input,
+      ),
+      null,
+    ]
+  }
+
+  private getCompletions(input: string): string[] {
+    if (!input) {
+      return []
+    }
+
+    const parts = input.split(/\s+/)
+    const firstWord = parts[0]
+
+    // If we're completing the first word (command)
+    if (parts.length === 1) {
+      const commands = ['help', 'ls', 'clear', 'tsx']
+      const matches = commands.filter(cmd => cmd.startsWith(firstWord ?? ''))
+      return matches
+    }
+
+    // If we're completing after "tsx "
+    if (firstWord === 'tsx' && parts.length === 2) {
+      const prefix = parts[1]?.toLowerCase() ?? ''
+      const matches = demos
+        .filter(demo => {
+          const filename = demo.filename.toLowerCase()
+          const name = demo.name.toLowerCase()
+          return filename.startsWith(prefix) || name.startsWith(prefix)
+        })
+        .map(demo => `tsx ${demo.filename}`)
+
+      return matches
+    }
+
+    return []
+  }
+
+  /**
+   * Get the completion preview (the dim text that shows what would be completed).
+   * Only shows when cursor is at the end of input and there's a single unambiguous match.
+   */
+  private getCompletionPreview(): string {
+    // Only show preview when cursor is at the end
+    if (this.cursorPos !== this.input.length) {
+      return ''
+    }
+
+    const input = this.input.trim()
+    if (!input) {
+      return ''
+    }
+
+    const completions = this.getCompletions(input)
+
+    // Only show preview if there's exactly one match
+    if (completions.length === 1) {
+      const completion = completions[0]
+      if (completion && completion.startsWith(input)) {
+        return completion.slice(input.length)
+      }
+    }
+
+    return ''
+  }
+
   private executeCommand(): [ShellModel, Cmd<Msg>] {
     const command = this.input.trim()
 
     if (!command) {
-      return [new ShellModel('', 0, this.history, false), null]
+      return [new ShellModel(this.runner, '', 0, this.history, false), null]
     }
 
     let output = ''
@@ -196,15 +345,19 @@ class ShellModel implements Model<Msg, ShellModel> {
         .map(d => `  ${filenameStyle.render(d.filename.padEnd(20))} ${dimStyle.render(d.description)}`)
         .join('\n') + '\n'
     } else if (command === 'clear' || command === 'cls') {
-      return [new ShellModel('', 0, [], false), null]
+      return [new ShellModel(this.runner, '', 0, [], false), null]
     } else {
       // Try to run a demo
       const demoName = parseCommand(command)
       if (demoName) {
         const demo = findDemo(demoName)
         if (demo) {
-          // Signal to run this demo (handled by shell runner)
-          output = `__RUN_DEMO__:${demo.name}`
+          // Store the demo name in the runner for later execution
+          if (this.runner) {
+            this.runner.setPendingDemo(demo.name)
+          }
+          // Exit the shell so the demo can run
+          return [this, quit()]
         } else {
           output = errorStyle.render(`\nDemo not found: ${demoName}\n`) +
             dimStyle.render(`Type ${accentStyle.render('ls')} to see available demos.\n`)
@@ -217,7 +370,7 @@ class ShellModel implements Model<Msg, ShellModel> {
 
     const entry: HistoryEntry = { command, output }
     return [
-      new ShellModel('', 0, [...this.history, entry], false),
+      new ShellModel(this.runner, '', 0, [...this.history, entry], false),
       null,
     ]
   }
@@ -248,7 +401,18 @@ class ShellModel implements Model<Msg, ShellModel> {
     const afterCursor = this.input.slice(this.cursorPos + 1)
 
     const cursorStyle = createStyle().background('#f8f8f2').foreground('#0d1117')
-    const inputLine = `${promptStyle.render('$ ')}${commandStyle.render(beforeCursor)}${cursorStyle.render(cursorChar)}${commandStyle.render(afterCursor)}`
+
+    // Get completion preview and show it in dim style
+    const preview = this.getCompletionPreview()
+    const previewStyle = createStyle().foreground('#6272a4') // dim gray
+
+    let inputLine = `${promptStyle.render('$ ')}${commandStyle.render(beforeCursor)}${cursorStyle.render(cursorChar)}${commandStyle.render(afterCursor)}`
+
+    // Add preview if available (only when cursor is at end)
+    if (preview && this.cursorPos === this.input.length) {
+      inputLine += previewStyle.render(preview)
+    }
+
     lines.push(inputLine)
 
     return lines.join('\n')
@@ -274,15 +438,18 @@ class ShellRunner {
   private terminal: Terminal
   private platform: ReturnType<typeof createBrowserPlatform>
   private shellProgram: Program<ShellModel> | null = null
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private demoProgram: Program<any> | null = null
   private shellModel: ShellModel
   private isRunningDemo = false
+  private pendingDemoName: string | null = null
 
   constructor(terminal: Terminal) {
     this.terminal = terminal
     this.platform = createBrowserPlatform({ terminal })
-    this.shellModel = new ShellModel()
+    this.shellModel = new ShellModel(this)
+  }
+
+  setPendingDemo(demoName: string): void {
+    this.pendingDemoName = demoName
   }
 
   async start(): Promise<void> {
@@ -294,17 +461,18 @@ class ShellRunner {
       this.shellProgram.kill()
       this.shellProgram = null
     }
-    if (this.demoProgram) {
-      this.demoProgram.kill()
-      this.demoProgram = null
-    }
   }
 
   private async runShell(): Promise<void> {
     this.isRunningDemo = false
+    this.pendingDemoName = null
 
     // Create a new platform for each shell session to reset state
-    this.platform = createBrowserPlatform({ terminal: this.terminal })
+    const filesystem = new SimpleFSAdapter()
+    this.platform = createBrowserPlatform({
+      terminal: this.terminal,
+      filesystem,
+    })
 
     this.shellProgram = new Program(this.shellModel, {
       platform: this.platform,
@@ -314,39 +482,35 @@ class ShellRunner {
     await this.shellProgram.run()
 
     // After shell exits, check if we need to run a demo
-    // Get the final model state
-    const finalModel = this.shellModel
-    const pendingDemo = finalModel.getPendingDemo()
-
-    if (pendingDemo && !this.isRunningDemo) {
-      this.isRunningDemo = true
-      await this.runDemo(pendingDemo)
+    if (this.pendingDemoName && !this.isRunningDemo) {
+      const demo = findDemo(this.pendingDemoName)
+      if (demo) {
+        this.isRunningDemo = true
+        await this.runDemo(demo)
+      }
     }
   }
 
   private async runDemo(demo: DemoInfo): Promise<void> {
     // Create a fresh platform for the demo
-    this.platform = createBrowserPlatform({ terminal: this.terminal })
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const model = demo.create()
-    this.demoProgram = new Program(model, {
-      platform: this.platform,
+    const filesystem = new SimpleFSAdapter()
+    this.platform = createBrowserPlatform({
+      terminal: this.terminal,
+      filesystem,
     })
 
-    await this.demoProgram.run()
+    // Run the demo
+    // Demos from @boba-cli/examples export async functions that take a platform
+    await demo.create(this.platform)
 
     // Demo finished, return to shell
-    // Clear the pending demo from history
-    const newHistory = this.shellModel.history.filter(
-      h => !h.output.startsWith('__RUN_DEMO__:')
-    )
+    const newHistory = this.shellModel.history.slice()
     newHistory.push({
       command: `tsx ${demo.filename}`,
       output: successStyle.render(`\n✓ Demo '${demo.name}' completed.\n`),
     })
 
-    this.shellModel = new ShellModel('', 0, newHistory, false)
+    this.shellModel = new ShellModel(this, '', 0, newHistory, false)
     this.isRunningDemo = false
 
     // Restart shell

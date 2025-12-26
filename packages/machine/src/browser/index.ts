@@ -41,6 +41,8 @@ export interface BrowserPlatformOptions {
   terminal: XtermTerminal
   /** Environment variable overrides. */
   env?: Record<string, string>
+  /** Custom filesystem adapter (e.g., using memfs). If not provided, uses the default BrowserFileSystemAdapter which throws errors. */
+  filesystem?: FileSystemAdapter
 }
 
 /**
@@ -70,7 +72,7 @@ export class BrowserPlatformAdapter implements PlatformAdapter {
     const signalAdapter = new BrowserSignalAdapter()
     const clipboardAdapter = new BrowserClipboardAdapter()
     const environmentAdapter = new BrowserEnvironmentAdapter(options.env)
-    const filesystemAdapter = new BrowserFileSystemAdapter()
+    const filesystemAdapter = options.filesystem ?? new BrowserFileSystemAdapter()
     const pathAdapter = new BrowserPathAdapter()
     const archiveAdapter = new BrowserArchiveAdapter()
 
