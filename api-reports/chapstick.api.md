@@ -4,10 +4,11 @@
 
 ```ts
 
-import { ColorSupport } from '@boba-cli/machine';
-import { EnvironmentAdapter } from '@boba-cli/machine';
+import { ColorSupport } from '@boba-cli/core';
+import { EnvironmentAdapter } from '@boba-cli/core';
+import { EnvironmentAdapter as EnvironmentAdapter_2 } from '@boba-cli/machine';
 import { StyleFn } from '@boba-cli/machine';
-import { TerminalBackground } from '@boba-cli/machine';
+import { TerminalBackground } from '@boba-cli/core';
 
 // @public
 export type Align = HAlign;
@@ -39,7 +40,7 @@ export const borderStyles: Record<BorderStyleName, BorderStyle>;
 
 // @public
 export class ChapstickStyleProvider implements StyleProvider {
-    constructor(env: EnvironmentAdapter, styleFn: StyleFn);
+    constructor(env: EnvironmentAdapter_2, styleFn: StyleFn);
     // (undocumented)
     readonly context: StyleContext;
     // (undocumented)
@@ -58,6 +59,9 @@ export type ColorInput = string | {
 };
 
 export { ColorSupport }
+
+// @public
+export function createContextFromEnv(env: EnvironmentAdapter): StyleContext;
 
 // @public
 export function createDefaultContext(): StyleContext;

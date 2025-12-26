@@ -1,4 +1,6 @@
-import type { ColorSupport, EnvironmentAdapter, StyleFn } from '@boba-cli/machine'
+import type { EnvironmentAdapter } from '@boba-cli/core'
+import { createAutoEnvironmentAdapter } from '@boba-cli/core'
+import type { StyleFn } from '@boba-cli/machine'
 import { createStyle } from '@boba-cli/machine'
 import { defaultBorderStyle } from './borders.js'
 import { resolveColor } from './colors.js'
@@ -33,25 +35,27 @@ export interface StyleContext {
   readonly styleFn: StyleFn
 }
 
-// Lazy-initialized default context for layout-only styling (no colors)
+// Lazy-initialized default context
 let defaultContext: StyleContext | undefined
 
 /**
- * Create a default StyleContext for layout-only styling (no ANSI colors).
- * This is used internally when no context is provided.
+ * Create a default StyleContext with auto-detected color support.
+ *
+ * @remarks
+ * In Node.js environments, this automatically detects terminal color capabilities
+ * from environment variables like COLORTERM, TERM, and FORCE_COLOR.
+ * In browser environments, colors are disabled by default - use {@link setDefaultContext}
+ * with a browser-specific context for xterm.js or similar.
+ *
  * @public
  */
 export function createDefaultContext(): StyleContext {
   if (!defaultContext) {
-    const noColors: ColorSupport = { level: 0, hasBasic: false, has256: false, has16m: false }
-    const noopEnv: EnvironmentAdapter = {
-      get: () => undefined,
-      getColorSupport: () => noColors,
-      getTerminalBackground: () => 'unknown',
-    }
+    const autoEnv = createAutoEnvironmentAdapter()
+    const colorSupport = autoEnv.getColorSupport()
     defaultContext = {
-      env: noopEnv,
-      styleFn: createStyle(noColors),
+      env: autoEnv,
+      styleFn: createStyle(colorSupport),
     }
   }
   return defaultContext
@@ -65,6 +69,33 @@ export function createDefaultContext(): StyleContext {
  */
 export function setDefaultContext(context: StyleContext | undefined): void {
   defaultContext = context
+}
+
+/**
+ * Create a StyleContext from an EnvironmentAdapter.
+ *
+ * @remarks
+ * This is useful for initializing the style context from a platform adapter's environment.
+ *
+ * @example
+ * ```typescript
+ * import { createNodePlatform } from '@boba-cli/machine/node'
+ * import { createContextFromEnv, setDefaultContext } from '@boba-cli/chapstick'
+ *
+ * const platform = createNodePlatform()
+ * setDefaultContext(createContextFromEnv(platform.environment))
+ * ```
+ *
+ * @param env - Environment adapter to use for color detection
+ * @returns A StyleContext with proper color support
+ * @public
+ */
+export function createContextFromEnv(env: EnvironmentAdapter): StyleContext {
+  const colorSupport = env.getColorSupport()
+  return {
+    env,
+    styleFn: createStyle(colorSupport),
+  }
 }
 
 /**

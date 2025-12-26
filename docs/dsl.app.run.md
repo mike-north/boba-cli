@@ -9,10 +9,47 @@ Run the application and block until it quits.
 **Signature:**
 
 ```typescript
-run(): Promise<{
+run(options: RunOptions): Promise<{
         state: State;
     }>;
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+
+</td><td>
+
+[RunOptions](./dsl.runoptions.md)
+
+
+</td><td>
+
+Run configuration including platform adapter
+
+
+</td></tr>
+</tbody></table>
+
 **Returns:**
 
 Promise&lt;{ state: State; }&gt;

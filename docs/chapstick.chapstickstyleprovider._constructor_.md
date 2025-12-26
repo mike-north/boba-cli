@@ -9,7 +9,7 @@ Create a new style provider.
 **Signature:**
 
 ```typescript
-constructor(env: EnvironmentAdapter, styleFn: StyleFn);
+constructor(env: EnvironmentAdapter$1, styleFn: StyleFn);
 ```
 
 ## Parameters
@@ -37,7 +37,7 @@ env
 
 </td><td>
 
-[EnvironmentAdapter](./machine.environmentadapter.md)
+[EnvironmentAdapter$1](./core.environmentadapter.md)
 
 
 </td><td>

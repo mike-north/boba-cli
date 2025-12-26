@@ -14,6 +14,9 @@ export function joinHorizontal(spacing: number, ...blocks: string[]): string
  * @public
  */
 export function joinHorizontal(...blocks: string[]): string
+/**
+ * @public
+ */
 export function joinHorizontal(
   first: number | string,
   ...rest: string[]
@@ -56,6 +59,9 @@ export function joinVertical(spacing: number, ...blocks: string[]): string
  * @public
  */
 export function joinVertical(...blocks: string[]): string
+/**
+ * @public
+ */
 export function joinVertical(
   first: number | string,
   ...rest: string[]

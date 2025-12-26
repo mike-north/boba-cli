@@ -37,7 +37,7 @@ env
 
 </td><td>
 
-[EnvironmentAdapter](./machine.environmentadapter.md)
+[EnvironmentAdapter](./core.environmentadapter.md)
 
 
 </td><td>
@@ -50,7 +50,7 @@ Environment adapter to query color support
 
 **Returns:**
 
-[ColorSupport](./machine.colorsupport.md)
+[ColorSupport](./core.colorsupport.md)
 
 Color support information
 

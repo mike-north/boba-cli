@@ -2,10 +2,10 @@ import type {
   ColorSupport,
   EnvironmentAdapter,
   TerminalBackground,
-} from '@boba-cli/machine'
+} from '@boba-cli/core'
 import type { ColorInput } from './types.js'
 
-// Re-export types from machine for convenience
+// Re-export types from core for convenience
 export type { ColorSupport, TerminalBackground }
 
 /**

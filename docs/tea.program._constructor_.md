@@ -9,7 +9,7 @@ Constructs a new instance of the `Program` class
 **Signature:**
 
 ```typescript
-constructor(model: M, options?: ProgramOptions);
+constructor(model: M, options: ProgramOptions);
 ```
 
 ## Parameters
@@ -55,8 +55,6 @@ options
 
 
 </td><td>
-
-_(Optional)_
 
 
 </td></tr>

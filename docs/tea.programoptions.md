@@ -113,7 +113,7 @@ _(Optional)_
 </td></tr>
 <tr><td>
 
-[platform?](./tea.programoptions.platform.md)
+[platform](./tea.programoptions.platform.md)
 
 
 </td><td>
@@ -126,7 +126,7 @@ _(Optional)_
 
 </td><td>
 
-_(Optional)_
+The platform adapter to use.
 
 
 </td></tr>

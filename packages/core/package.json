@@ -1,0 +1,42 @@
+{
+  "name": "@boba-cli/core",
+  "description": "Core types and utilities for Boba terminal UI framework",
+  "version": "0.1.0-alpha.1",
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "typescript": "5.8.2",
+    "vitest": "^4.0.16"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "check:api-report": "api-extractor run",
+    "generate:api-report": "api-extractor run --local",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\"",
+    "test": "vitest run --passWithNoTests"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts"
+}

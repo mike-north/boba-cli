@@ -247,6 +247,17 @@ Layout node for stacking views vertically or horizontally.
 </td></tr>
 <tr><td>
 
+[RunOptions](./dsl.runoptions.md)
+
+
+</td><td>
+
+Options for running an application.
+
+
+</td></tr>
+<tr><td>
+
 [SpinnerBuilderOptions](./dsl.spinnerbuilderoptions.md)
 
 

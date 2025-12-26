@@ -2,7 +2,7 @@
 
 Countdown timer component for Boba terminal UIs. Port of Charmbracelet Bubbles timer.
 
-<img src="../../examples/timer-demo.gif" width="950" alt="Timer component demo" />
+<img src="../../examples/animations/timer.gif" width="950" alt="Timer component demo" />
 
 ## Install
 

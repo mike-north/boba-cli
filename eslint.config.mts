@@ -1,6 +1,8 @@
 import * as eslint from '@eslint/js'
 import { defineConfig } from 'eslint/config'
+import { fixupPluginRules } from '@eslint/compat'
 
+import apiExtractorPlugin from '@api-extractor-tools/eslint-plugin'
 import * as tsdocPlugin from 'eslint-plugin-tsdoc'
 import tseslint from 'typescript-eslint'
 
@@ -14,8 +16,10 @@ export default defineConfig(
       },
     },
     plugins: {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- plugin has no types
-      tsdoc: tsdocPlugin,
+      // @ts-expect-error - @api-extractor-tools/eslint-plugin types don't match ESLint's Plugin type, but works at runtime
+      '@api-extractor-tools': apiExtractorPlugin,
+      // @ts-expect-error - fixupPluginRules adapts old plugin format but types don't reflect this
+      tsdoc: fixupPluginRules(tsdocPlugin),
     },
     rules: {
       '@typescript-eslint/no-unused-vars': [
@@ -39,6 +43,32 @@ export default defineConfig(
   {
     files: ['scripts/**/*.mts'],
   },
+  // Examples directory - explicitly use examples tsconfig (disable projectService for this scope)
+  {
+    files: ['examples/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        projectService: false,
+        project: ['./examples/tsconfig.json'],
+      },
+    },
+    rules: {
+      // Disable no-useless-escape for examples - TSDoc requires escaping @ in comments
+      'no-useless-escape': 'off',
+    },
+  },
+  // Apply API Extractor rules to public npm packages (packages with api-extractor.json)
+  // Note: extra-release-tag rule exists in source but not yet published in 0.1.0-alpha.0
+  {
+    files: ['packages/*/src/**/*.ts'],
+    ignores: ['packages/boba-cli/**/*.ts'],
+    rules: {
+      '@api-extractor-tools/missing-release-tag': 'error',
+      '@api-extractor-tools/override-keyword': 'error',
+      '@api-extractor-tools/package-documentation': 'warn',
+      // '@api-extractor-tools/extra-release-tag': 'error', // Available in source, waiting for release
+    },
+  },
   // Prevent Node.js imports in packages (except machine) for browser compatibility
   {
     files: ['packages/*/src/**/*.ts'],
@@ -55,8 +85,7 @@ export default defineConfig(
             },
             {
               group: ['fs', 'fs/*'],
-              message:
-                'Use @boba-cli/machine FileSystemAdapter instead of fs.',
+              message: 'Use @boba-cli/machine FileSystemAdapter instead of fs.',
             },
             {
               group: ['path'],
@@ -105,8 +134,7 @@ export default defineConfig(
           paths: [
             {
               name: 'chalk',
-              message:
-                'Use @boba-cli/machine StyleAdapter instead of chalk.',
+              message: 'Use @boba-cli/machine StyleAdapter instead of chalk.',
             },
             {
               name: 'supports-color',

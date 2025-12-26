@@ -352,7 +352,7 @@ export const msg: <M extends Msg>(value: M) => Cmd<M>;
 
 // @public
 export class Program<M extends Model<Msg, M>> {
-    constructor(model: M, options?: ProgramOptions);
+    constructor(model: M, options: ProgramOptions);
     // (undocumented)
     kill(): void;
     // (undocumented)
@@ -373,8 +373,7 @@ export interface ProgramOptions {
     fps?: number;
     // (undocumented)
     mouseMode?: 'cell' | 'all' | false;
-    // (undocumented)
-    platform?: PlatformAdapter;
+    platform: PlatformAdapter;
     // (undocumented)
     reportFocus?: boolean;
 }

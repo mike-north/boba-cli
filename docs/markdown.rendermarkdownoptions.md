@@ -45,7 +45,7 @@ Description
 
 </td><td>
 
-[TerminalBackground](./machine.terminalbackground.md)
+[TerminalBackground](./core.terminalbackground.md)
 
 
 </td><td>
@@ -64,7 +64,7 @@ _(Optional)_ Terminal background mode. Defaults to 'dark'.
 
 </td><td>
 
-[EnvironmentAdapter](./machine.environmentadapter.md)
+[EnvironmentAdapter](./core.environmentadapter.md)
 
 
 </td><td>

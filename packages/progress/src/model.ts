@@ -5,6 +5,7 @@ import {
   resolveColor,
   width as textWidth,
   type ColorInput,
+  type StyleContext,
 } from '@boba-cli/chapstick'
 import { FrameMsg } from './messages.js'
 import { Spring } from './spring.js'
@@ -89,6 +90,14 @@ export interface ProgressOptions {
   springFrequency?: number
   springDamping?: number
   percentageStyle?: Style
+  /**
+   * Style context for rendering colors.
+   *
+   * @remarks
+   * In browser environments, pass the browser style context to enable colors.
+   * If not provided, uses the default context from `createDefaultContext()`.
+   */
+  styleContext?: StyleContext
 }
 
 interface ProgressState {

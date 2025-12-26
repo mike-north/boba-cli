@@ -4,8 +4,15 @@
 
 ## ProgramOptions.platform property
 
+The platform adapter to use.
+
 **Signature:**
 
 ```typescript
-platform?: PlatformAdapter;
+platform: PlatformAdapter;
 ```
+
+## Remarks
+
+For Node.js, use `createNodePlatform()` from `@boba-cli/machine/node`<!-- -->. For browser with xterm.js, use `createBrowserPlatform({ terminal })` from `@boba-cli/machine/browser`<!-- -->.
+

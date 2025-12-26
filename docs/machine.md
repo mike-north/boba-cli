@@ -250,6 +250,28 @@ Find the index of a substring within a byte array. Returns -1 if not found.
 </td></tr>
 <tr><td>
 
+[isBrowserEnvironment()](./machine.isbrowserenvironment.md)
+
+
+</td><td>
+
+Checks if the current environment is a browser.
+
+
+</td></tr>
+<tr><td>
+
+[isNodeEnvironment()](./machine.isnodeenvironment.md)
+
+
+</td><td>
+
+Checks if the current environment is Node.js.
+
+
+</td></tr>
+<tr><td>
+
 [scrollDown(n)](./machine.scrolldown.md)
 
 
@@ -364,17 +386,6 @@ Clipboard adapter interface for platform-agnostic clipboard operations.
 </td></tr>
 <tr><td>
 
-[ColorSupport](./machine.colorsupport.md)
-
-
-</td><td>
-
-Color support levels for terminal output.
-
-
-</td></tr>
-<tr><td>
-
 [DirectoryEntry](./machine.directoryentry.md)
 
 
@@ -392,17 +403,6 @@ Directory entry returned by readdir with withFileTypes option.
 </td><td>
 
 Disposable resource that can be cleaned up.
-
-
-</td></tr>
-<tr><td>
-
-[EnvironmentAdapter](./machine.environmentadapter.md)
-
-
-</td><td>
-
-Environment adapter interface for platform-agnostic environment access.
 
 
 </td></tr>
@@ -1027,17 +1027,6 @@ Handler for terminal resize events.
 </td><td>
 
 Handler for signals (SIGINT, SIGTERM, etc.).
-
-
-</td></tr>
-<tr><td>
-
-[TerminalBackground](./machine.terminalbackground.md)
-
-
-</td><td>
-
-Terminal background mode.
 
 
 </td></tr>

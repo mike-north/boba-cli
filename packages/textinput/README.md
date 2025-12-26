@@ -2,7 +2,7 @@
 
 Single-line text input component for Boba terminal UIs. Port of Charmbracelet Bubbles textinput.
 
-<img src="../../examples/textinput-demo.gif" width="950" alt="Textinput component demo" />
+<img src="../../examples/animations/textinput.gif" width="950" alt="Textinput component demo" />
 
 ## Install
 

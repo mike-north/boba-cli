@@ -129,7 +129,7 @@ Update package references in `.d.ts` files.
 ## 6. Documentation
 
 ### 6.1 Root `README.md`
-- Change title from `"🧼 Suds"` → `"🧋 Boba"` (boba tea emoji)
+- Change title from `"🧋 Suds"` → `"🧋 Boba"` (boba tea emoji)
 - Change "Suds is..." → "Boba is..."
 - Update all package references
 - Update installation examples

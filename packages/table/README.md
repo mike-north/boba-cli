@@ -2,7 +2,7 @@
 
 Tabular data display with scrolling and selection for Boba terminal UIs.
 
-<img src="../../examples/table-demo.gif" width="950" alt="Table component demo" />
+<img src="../../examples/animations/table.gif" width="950" alt="Table component demo" />
 
 ```ts
 import { TableModel } from '@boba-cli/table'

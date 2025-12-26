@@ -3,9 +3,10 @@
   "compilerOptions": {
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "./dist",
-    "noEmit": true
+    "declaration": true,
+    "declarationMap": true
   },
-  "include": ["*.ts"]
+  "include": ["src/**/*.ts"]
 }

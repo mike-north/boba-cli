@@ -265,6 +265,25 @@ _(Optional)_
 </td></tr>
 <tr><td>
 
+[styleContext?](./progress.progressoptions.stylecontext.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[StyleContext](./chapstick.stylecontext.md)
+
+
+</td><td>
+
+_(Optional)_ Style context for rendering colors.
+
+
+</td></tr>
+<tr><td>
+
 [width?](./progress.progressoptions.width.md)
 
 

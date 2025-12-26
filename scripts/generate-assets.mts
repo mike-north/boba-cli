@@ -11,16 +11,18 @@
  *   - gifsicle: https://github.com/kohler/gifsicle
  *
  * Usage:
- *   npx tsx scripts/generate-assets.mts           # Interactive selection
- *   npx tsx scripts/generate-assets.mts --all     # Generate all demos
- *   npx tsx scripts/generate-assets.mts spinner   # Generate specific demo(s)
- *   npx tsx scripts/generate-assets.mts --list    # List available demos
+ *   npx tsx scripts/generate-assets.mts              # Interactive selection
+ *   npx tsx scripts/generate-assets.mts --all        # Generate all demos
+ *   npx tsx scripts/generate-assets.mts -e spinner   # Generate specific demo
+ *   npx tsx scripts/generate-assets.mts --list       # List available demos
  */
 
 import { spawn, spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import { Command } from 'commander'
 
 import { Style, borderStyles } from '@boba-cli/chapstick'
 import { newBinding, matches } from '@boba-cli/key'
@@ -43,6 +45,26 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const EXAMPLES_DIR = resolve(__dirname, '../examples')
+const SRC_DIR = resolve(EXAMPLES_DIR, 'src')
+
+// Track whether any generation failed (for exit code)
+let hasFailure = false
+
+// Track current VHS process for cleanup on quit
+let currentVhsProcess: ReturnType<typeof spawn> | null = null
+
+function killCurrentVhsProcess(): void {
+  if (currentVhsProcess && currentVhsProcess.pid) {
+    try {
+      // Kill the entire process group (VHS + ttyd + ffmpeg)
+      process.kill(-currentVhsProcess.pid, 'SIGKILL')
+    } catch {
+      // Fallback to killing just the process
+      currentVhsProcess.kill('SIGKILL')
+    }
+    currentVhsProcess = null
+  }
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Styles
@@ -79,8 +101,9 @@ interface TapeInfo {
 }
 
 function parseTapeFile(tapePath: string): TapeInfo {
-  const filename = basename(tapePath)
-  const name = filename.replace('-demo.tape', '')
+  // Extract name from parent directory, e.g., /examples/src/spinner/example.tape -> "spinner"
+  const dir = dirname(tapePath)
+  const name = basename(dir)
 
   let description = ''
   try {
@@ -97,10 +120,19 @@ function parseTapeFile(tapePath: string): TapeInfo {
 }
 
 function discoverTapeFiles(): TapeInfo[] {
-  const files = readdirSync(EXAMPLES_DIR)
-  return files
-    .filter((f) => f.endsWith('-demo.tape'))
-    .map((f) => parseTapeFile(join(EXAMPLES_DIR, f)))
+  const entries = readdirSync(SRC_DIR, { withFileTypes: true })
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => join(SRC_DIR, entry.name, 'example.tape'))
+    .filter((tapePath) => {
+      try {
+        statSync(tapePath)
+        return true
+      } catch {
+        return false
+      }
+    })
+    .map((tapePath) => parseTapeFile(tapePath))
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 
@@ -160,11 +192,18 @@ function compressGifAsync(
 }
 
 function runVhsAsync(tapePath: string): Promise<VhsResult> {
-  return new Promise((resolve) => {
-    const proc = spawn('vhs', [tapePath], {
-      cwd: EXAMPLES_DIR,
+  return new Promise((resolvePromise) => {
+    // Run VHS from the tape file's directory
+    const tapeDir = dirname(tapePath)
+
+    const proc = spawn('vhs', [basename(tapePath)], {
+      cwd: tapeDir,
       stdio: 'pipe',
+      detached: true, // Create process group for clean killing
     })
+
+    // Track for cleanup on quit
+    currentVhsProcess = proc
 
     let stderr = ''
     proc.stderr?.on('data', (data: Buffer) => {
@@ -172,12 +211,28 @@ function runVhsAsync(tapePath: string): Promise<VhsResult> {
     })
 
     proc.on('close', (code) => {
+      // Clear the tracked process
+      if (currentVhsProcess === proc) {
+        currentVhsProcess = null
+      }
+
       if (code === 0) {
-        // Compress the generated GIF
-        const gifName = basename(tapePath).replace('.tape', '.gif')
-        const gifPath = join(EXAMPLES_DIR, gifName)
+        // Parse output path from tape file
+        const tapeContent = readFileSync(tapePath, 'utf-8')
+        const outputMatch = tapeContent.match(/Output\s+"([^"]+)"/)
+
+        let gifPath: string
+        if (outputMatch?.[1]) {
+          // Resolve relative path from tape directory
+          gifPath = resolve(tapeDir, outputMatch[1])
+        } else {
+          // Fallback: use example name
+          const name = basename(tapeDir)
+          gifPath = join(EXAMPLES_DIR, 'animations', `${name}.gif`)
+        }
+
         void compressGifAsync(gifPath).then((compressedBytes) => {
-          resolve({
+          resolvePromise({
             success: true,
             compressedBytes: compressedBytes ?? undefined,
           })
@@ -191,12 +246,12 @@ function runVhsAsync(tapePath: string): Promise<VhsResult> {
           errorMatch?.[1]?.trim() ||
           stderr.trim().split('\n').pop() ||
           'Unknown error'
-        resolve({ success: false, error })
+        resolvePromise({ success: false, error })
       }
     })
 
     proc.on('error', (err) => {
-      resolve({ success: false, error: err.message })
+      resolvePromise({ success: false, error: err.message })
     })
   })
 }
@@ -275,6 +330,15 @@ class StartVhsMsg {
   ) {}
 }
 
+class VhsPendingMsg {
+  readonly _tag = 'VhsPendingMsg' as const
+  constructor(
+    readonly tape: TapeInfo,
+    readonly startTime: number,
+    readonly promise: Promise<VhsResult>,
+  ) {}
+}
+
 class VhsCompleteMsg {
   readonly _tag = 'VhsCompleteMsg' as const
   constructor(
@@ -316,6 +380,7 @@ class AppModel implements Model<Msg, AppModel> {
   readonly stopwatch: StopwatchModel
   readonly progress: ProgressModel
   readonly currentDemo: string
+  readonly currentItemStartTime: number
   readonly completed: CompletedItem[]
   readonly pending: TapeInfo[]
   readonly totalDemos: number
@@ -329,6 +394,7 @@ class AppModel implements Model<Msg, AppModel> {
     stopwatch?: StopwatchModel
     progress?: ProgressModel
     currentDemo?: string
+    currentItemStartTime?: number
     completed?: CompletedItem[]
     pending?: TapeInfo[]
     totalDemos?: number
@@ -369,6 +435,7 @@ class AppModel implements Model<Msg, AppModel> {
       })
 
     this.currentDemo = opts.currentDemo ?? ''
+    this.currentItemStartTime = opts.currentItemStartTime ?? 0
     this.completed = opts.completed ?? []
     this.pending = opts.pending ?? []
     this.totalDemos = opts.totalDemos ?? 0
@@ -384,6 +451,7 @@ class AppModel implements Model<Msg, AppModel> {
       stopwatch: opts.stopwatch ?? this.stopwatch,
       progress: opts.progress ?? this.progress,
       currentDemo: opts.currentDemo ?? this.currentDemo,
+      currentItemStartTime: opts.currentItemStartTime ?? this.currentItemStartTime,
       completed: opts.completed ?? this.completed,
       pending: opts.pending ?? this.pending,
       totalDemos: opts.totalDemos ?? this.totalDemos,
@@ -398,6 +466,8 @@ class AppModel implements Model<Msg, AppModel> {
 
   update(msg: Msg): [AppModel, Cmd<Msg>] {
     if (msg instanceof KeyMsg && matches(msg, keys.quit)) {
+      // Kill any running VHS process immediately
+      killCurrentVhsProcess()
       return [this, quit()]
     }
 
@@ -476,12 +546,14 @@ class AppModel implements Model<Msg, AppModel> {
 
     // Create fresh stopwatch for timing this generation
     const freshStopwatch = StopwatchModel.new({ interval: 10 })
+    const startTime = Date.now()
 
     const nextModel = this.copy({
       state: 'generating',
       totalDemos: tapes.length,
       pending: tapes.slice(1),
       currentDemo: first.name,
+      currentItemStartTime: startTime,
       stopwatch: freshStopwatch,
     })
 
@@ -496,7 +568,7 @@ class AppModel implements Model<Msg, AppModel> {
         // Execute and collect results
         const spinnerResult = spinnerCmd ? await spinnerCmd() : null
         const stopwatchResult = stopwatchCmd ? await stopwatchCmd() : null
-        const vhsStartMsg = new StartVhsMsg(first, Date.now())
+        const vhsStartMsg = new StartVhsMsg(first, startTime)
 
         // Flatten and return all messages
         const messages: Msg[] = []
@@ -522,21 +594,55 @@ class AppModel implements Model<Msg, AppModel> {
   }
 
   private updateGenerating(msg: Msg): [AppModel, Cmd<Msg>] {
-    // Handle VHS start message
+    // Handle VHS start message - start VHS but don't block
     if (msg instanceof StartVhsMsg) {
-      const startTime = msg.startTime
+      const vhsPromise = runVhsAsync(msg.tape.path)
       return [
         this,
+        () => new VhsPendingMsg(msg.tape, msg.startTime, vhsPromise),
+      ]
+    }
+
+    // Handle VHS pending - poll for completion while allowing ticks to continue
+    if (msg instanceof VhsPendingMsg) {
+      const POLL_INTERVAL = 50 // 50ms between polls
+
+      // Update progress based on elapsed time
+      const elapsedMs = Date.now() - msg.startTime
+      const estimatedProgress = this.calculateEstimatedProgress(elapsedMs)
+      const [nextProgress] = this.progress.setPercent(estimatedProgress)
+
+      const nextModel = this.copy({
+        progress: nextProgress,
+        currentItemStartTime: msg.startTime,
+      })
+
+      return [
+        nextModel,
         async () => {
-          const result = await runVhsAsync(msg.tape.path)
-          const duration = Date.now() - startTime
-          return new VhsCompleteMsg(
-            msg.tape.name,
-            result.success,
-            duration,
-            result.error,
-            result.compressedBytes,
+          const timeout = new Promise<'timeout'>((resolve) =>
+            setTimeout(() => resolve('timeout'), POLL_INTERVAL),
           )
+
+          const result = await Promise.race([
+            msg.promise.then((r) => ({ type: 'complete' as const, result: r })),
+            timeout,
+          ])
+
+          if (result === 'timeout') {
+            // VHS still running - return pending message to poll again
+            return new VhsPendingMsg(msg.tape, msg.startTime, msg.promise)
+          } else {
+            // VHS completed
+            const duration = Date.now() - msg.startTime
+            return new VhsCompleteMsg(
+              msg.tape.name,
+              result.result.success,
+              duration,
+              result.result.error,
+              result.result.compressedBytes,
+            )
+          }
         },
       ]
     }
@@ -555,6 +661,20 @@ class AppModel implements Model<Msg, AppModel> {
 
       const percent = newCompleted.length / this.totalDemos
       const [nextProgress] = this.progress.setPercent(percent)
+
+      // Fail fast: if VHS failed, stop immediately
+      if (!msg.success) {
+        hasFailure = true
+        return [
+          this.copy({
+            state: 'done',
+            completed: newCompleted,
+            progress: nextProgress,
+            currentDemo: '',
+          }),
+          quit(),
+        ]
+      }
 
       // Check if we're done
       if (this.pending.length === 0) {
@@ -577,9 +697,11 @@ class AppModel implements Model<Msg, AppModel> {
 
       // Reset stopwatch for next item
       const freshStopwatch = StopwatchModel.new({ interval: 10 })
+      const nextStartTime = Date.now()
 
       const nextModel = this.copy({
         currentDemo: next.name,
+        currentItemStartTime: nextStartTime,
         completed: newCompleted,
         pending: this.pending.slice(1),
         progress: nextProgress,
@@ -592,7 +714,7 @@ class AppModel implements Model<Msg, AppModel> {
           // Restart stopwatch for next item (spinner continues from previous)
           const stopwatchCmd = nextModel.stopwatch.start()
           const stopwatchResult = stopwatchCmd ? await stopwatchCmd() : null
-          const vhsStartMsg = new StartVhsMsg(next, Date.now())
+          const vhsStartMsg = new StartVhsMsg(next, nextStartTime)
 
           const messages: Msg[] = []
           if (stopwatchResult) {
@@ -615,19 +737,90 @@ class AppModel implements Model<Msg, AppModel> {
       return [this.copy({ spinner: nextSpinner }), spinnerCmd]
     }
 
-    // Update stopwatch - keep it ticking
+    // Update stopwatch - keep it ticking and update progress based on elapsed time
     const [nextStopwatch, stopwatchCmd] = this.stopwatch.update(msg)
     if (nextStopwatch !== this.stopwatch) {
-      return [this.copy({ stopwatch: nextStopwatch }), stopwatchCmd]
+      // Calculate time-based progress estimate
+      const estimatedProgress = this.calculateEstimatedProgress(
+        nextStopwatch.elapsed(),
+      )
+      const [nextProgress] = this.progress.setPercent(estimatedProgress)
+
+      return [
+        this.copy({ stopwatch: nextStopwatch, progress: nextProgress }),
+        stopwatchCmd,
+      ]
     }
 
-    // Update progress
+    // Update progress (for animation frames)
     const [nextProgress, progressCmd] = this.progress.update(msg)
     if (nextProgress !== this.progress) {
       return [this.copy({ progress: nextProgress }), progressCmd]
     }
 
     return [this, null]
+  }
+
+  /**
+   * Calculate estimated progress based on elapsed time.
+   *
+   * Progress rates:
+   * - 0-90%: ~15 seconds per image (fast phase)
+   * - 90-99%: ~60 seconds per image (slow phase)
+   * - 99%+: hold until actual completion
+   */
+  private calculateEstimatedProgress(elapsedMs: number): number {
+    const completedCount = this.completed.length
+    const totalCount = this.totalDemos
+
+    // Base progress from completed items
+    const baseProgress = completedCount / totalCount
+
+    // Calculate how much progress this current item represents
+    const progressPerItem = 1 / totalCount
+
+    // Calculate progress within current item's slice
+    // We need to handle the case where this item crosses phase boundaries
+    const itemStartProgress = baseProgress
+    const itemEndProgress = baseProgress + progressPerItem
+
+    // Calculate how much of this item's slice we've filled based on elapsed time
+    // Use fast rate (15s) for the portion under 90%, slow rate (60s) for 90-99%
+    const FAST_RATE_MS = 15000 // 15 seconds per image in fast phase
+    const SLOW_RATE_MS = 60000 // 60 seconds per image in slow phase
+
+    let estimatedProgress: number
+
+    if (itemEndProgress <= 0.9) {
+      // Entire item is in fast phase
+      const itemProgress = Math.min(elapsedMs / FAST_RATE_MS, 0.99)
+      estimatedProgress = itemStartProgress + progressPerItem * itemProgress
+    } else if (itemStartProgress >= 0.9) {
+      // Entire item is in slow phase
+      const itemProgress = Math.min(elapsedMs / SLOW_RATE_MS, 0.99)
+      estimatedProgress = itemStartProgress + progressPerItem * itemProgress
+    } else {
+      // Item crosses the 90% boundary - split into fast and slow portions
+      const fastPortion = (0.9 - itemStartProgress) / progressPerItem // 0 to 1
+      const slowPortion = 1 - fastPortion
+
+      const fastTimeMs = fastPortion * FAST_RATE_MS
+      const slowTimeMs = slowPortion * SLOW_RATE_MS
+
+      if (elapsedMs <= fastTimeMs) {
+        // Still in fast portion
+        const fastProgress = elapsedMs / FAST_RATE_MS
+        estimatedProgress = itemStartProgress + progressPerItem * fastProgress
+      } else {
+        // In slow portion
+        const slowElapsed = elapsedMs - fastTimeMs
+        const slowProgress = Math.min(slowElapsed / SLOW_RATE_MS, slowPortion * 0.99)
+        estimatedProgress = 0.9 + progressPerItem * slowProgress
+      }
+    }
+
+    // Hard cap at 99% - never show 100% until actually complete
+    return Math.min(estimatedProgress, 0.99)
   }
 
   view(): string {
@@ -691,7 +884,7 @@ class AppModel implements Model<Msg, AppModel> {
             ` ${formatCompression(item.compressedBytes.before, item.compressedBytes.after)}`,
           )
         : ''
-      lines.push(`${icon} ${item.name}-demo.gif ${duration}${compression}`)
+      lines.push(`${icon} ${item.name}.gif ${duration}${compression}`)
     }
 
     // Current progress line: spinner + name + elapsed + progress + count
@@ -700,11 +893,16 @@ class AppModel implements Model<Msg, AppModel> {
     const pkgCount = `${String(this.completed.length + 1).padStart(w)}/${n}`
 
     const spin = this.spinner.view() + ' '
-    const prog = this.progress.view()
-    const pkgName = styles.currentPkg.render(`${this.currentDemo}-demo`)
-    const elapsed = styles.time.render(
-      `(${formatDuration(this.stopwatch.elapsed())})`,
-    )
+    const pkgName = styles.currentPkg.render(this.currentDemo)
+    // Calculate elapsed time from currentItemStartTime for smooth updates
+    const elapsedMs =
+      this.currentItemStartTime > 0
+        ? Date.now() - this.currentItemStartTime
+        : 0
+    const elapsed = styles.time.render(`(${formatDuration(elapsedMs)})`)
+    // Calculate and render progress directly (bypass animation since we poll frequently)
+    const currentProgress = this.calculateEstimatedProgress(elapsedMs)
+    const prog = this.progress.viewAs(currentProgress)
 
     lines.push(`${spin}${pkgName} ${elapsed}  ${prog}  ${pkgCount}`)
 
@@ -727,7 +925,7 @@ class AppModel implements Model<Msg, AppModel> {
             ` ${formatCompression(item.compressedBytes.before, item.compressedBytes.after)}`,
           )
         : ''
-      lines.push(`${icon} ${item.name}-demo.gif ${duration}${compression}`)
+      lines.push(`${icon} ${item.name}.gif ${duration}${compression}`)
     }
 
     lines.push('')
@@ -789,24 +987,44 @@ function printStatic(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Main
+// CLI Setup
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function main(): Promise<void> {
-  const args = process.argv.slice(2)
+interface CliOptions {
+  list: boolean
+  all: boolean
+  example: string[]
+}
 
-  // Handle --list flag
-  if (args.includes('--list')) {
-    const tapes = discoverTapeFiles()
-    printStatic('\n📼 Available demos:\n', 'cyan')
-    for (const tape of tapes) {
-      const desc = tape.description ? ` - ${tape.description}` : ''
-      printStatic(`  • ${tape.name}${desc}`)
-    }
-    printStatic('')
-    return
+function createCli(): Command {
+  const program = new Command()
+
+  program
+    .name('generate-assets')
+    .description('Generate GIF assets for Boba-CLI examples using VHS')
+    .option('-l, --list', 'list available demos', false)
+    .option('-a, --all', 'generate all demos', false)
+    .option(
+      '-e, --example <name>',
+      'generate a specific example (can be used multiple times)',
+      (value: string, previous: string[]) => [...previous, value],
+      [] as string[],
+    )
+
+  return program
+}
+
+function listDemos(): void {
+  const tapes = discoverTapeFiles()
+  printStatic('\n📼 Available demos:\n', 'cyan')
+  for (const tape of tapes) {
+    const desc = tape.description ? ` - ${tape.description}` : ''
+    printStatic(`  • ${tape.name}${desc}`)
   }
+  printStatic('')
+}
 
+function checkDependencies(): boolean {
   // Check for VHS
   if (!commandExists('vhs')) {
     printStatic('\n✗ Error: VHS is not installed or not in PATH\n', 'red')
@@ -817,7 +1035,7 @@ async function main(): Promise<void> {
     printStatic('  # Go install')
     printStatic('  go install github.com/charmbracelet/vhs@latest\n')
     printStatic('  # See: https://github.com/charmbracelet/vhs\n')
-    process.exit(1)
+    return false
   }
 
   // Check for ttyd (required by VHS for terminal emulation)
@@ -828,7 +1046,7 @@ async function main(): Promise<void> {
     printStatic('  # macOS (Homebrew)')
     printStatic('  brew install ttyd\n')
     printStatic('  # See: https://github.com/tsl0922/ttyd\n')
-    process.exit(1)
+    return false
   }
 
   // Check for ffmpeg (required by VHS for recording)
@@ -841,7 +1059,7 @@ async function main(): Promise<void> {
     printStatic('  # Linux (apt)')
     printStatic('  sudo apt install ffmpeg\n')
     printStatic('  # See: https://ffmpeg.org/download.html\n')
-    process.exit(1)
+    return false
   }
 
   // Check for gifsicle (required for compression)
@@ -852,41 +1070,74 @@ async function main(): Promise<void> {
     printStatic('  # macOS or Linux (Homebrew)')
     printStatic('  brew install gifsicle\n')
     printStatic('  # See: https://github.com/kohler/gifsicle\n')
-    process.exit(1)
+    return false
   }
 
-  const requestedDemos = args.filter((a) => !a.startsWith('--'))
-  const runAll = args.includes('--all')
+  return true
+}
+
+function validateExamples(
+  requestedDemos: string[],
+  allTapes: TapeInfo[],
+): boolean {
+  const availableNames = allTapes.map((t) => t.name)
+  for (const demo of requestedDemos) {
+    if (!availableNames.includes(demo)) {
+      printStatic(`\n✗ Error: No tape file found for "${demo}"`, 'red')
+      printStatic(`  Available: ${availableNames.join(', ')}`, 'yellow')
+      return false
+    }
+  }
+  return true
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Main
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function main(): Promise<void> {
+  const cli = createCli()
+  cli.parse()
+  const opts = cli.opts<CliOptions>()
+
+  // Handle --list flag
+  if (opts.list) {
+    listDemos()
+    return
+  }
+
+  // Check dependencies
+  if (!checkDependencies()) {
+    process.exit(1)
+  }
 
   // Discover all tapes
   const allTapes = discoverTapeFiles()
 
   // Validate requested demos
-  if (requestedDemos.length > 0) {
-    const availableNames = allTapes.map((t) => t.name)
-    for (const demo of requestedDemos) {
-      if (!availableNames.includes(demo)) {
-        printStatic(`\n✗ Error: No tape file found for "${demo}"`, 'red')
-        printStatic(`  Available: ${availableNames.join(', ')}`, 'yellow')
-        process.exit(1)
-      }
+  if (opts.example.length > 0) {
+    if (!validateExamples(opts.example, allTapes)) {
+      process.exit(1)
     }
   }
 
   // Determine which tapes to use
   let tapes = allTapes
-  if (requestedDemos.length > 0) {
-    tapes = allTapes.filter((t) => requestedDemos.includes(t.name))
+  if (opts.example.length > 0) {
+    tapes = allTapes.filter((t) => opts.example.includes(t.name))
   }
 
   // Create model
   const model = new AppModel({ tapes })
 
   // Create program with explicit Node.js platform
-  const program = new Program(model, { altScreen: false, platform: createNodePlatform() })
+  const program = new Program(model, {
+    altScreen: false,
+    platform: createNodePlatform(),
+  })
 
   // For non-interactive mode, send StartGeneratingMsg after init
-  if (runAll || requestedDemos.length > 0) {
+  if (opts.all || opts.example.length > 0) {
     // Use a small delay to let the program initialize
     setTimeout(() => {
       program.send(new StartGeneratingMsg(tapes))
@@ -894,6 +1145,11 @@ async function main(): Promise<void> {
   }
 
   await program.run()
+
+  // Exit with error code if any generation failed
+  if (hasFailure) {
+    process.exit(1)
+  }
 }
 
 main().catch(console.error)

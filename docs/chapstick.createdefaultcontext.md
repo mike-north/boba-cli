@@ -4,7 +4,7 @@
 
 ## createDefaultContext() function
 
-Create a default StyleContext for layout-only styling (no ANSI colors). This is used internally when no context is provided.
+Create a default StyleContext with auto-detected color support.
 
 **Signature:**
 
@@ -14,4 +14,8 @@ declare function createDefaultContext(): StyleContext;
 **Returns:**
 
 [StyleContext](./chapstick.stylecontext.md)
+
+## Remarks
+
+In Node.js environments, this automatically detects terminal color capabilities from environment variables like COLORTERM, TERM, and FORCE\_COLOR. In browser environments, colors are disabled by default - use [setDefaultContext()](./chapstick.setdefaultcontext.md) with a browser-specific context for xterm.js or similar.
 

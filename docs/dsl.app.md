@@ -42,7 +42,7 @@ Get the underlying TEA model (escape hatch for advanced use cases).
 </td></tr>
 <tr><td>
 
-[run()](./dsl.app.run.md)
+[run(options)](./dsl.app.run.md)
 
 
 </td><td>

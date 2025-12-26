@@ -2,7 +2,7 @@
 
 Syntax-highlighted code viewer component for Boba terminal UIs.
 
-![Code Demo](../../examples/code-demo.gif)
+![Code Demo](../../examples/animations/code.gif)
 
 ## Features
 

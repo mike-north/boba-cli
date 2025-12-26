@@ -4,6 +4,10 @@
 
 ```ts
 
+import { ColorSupport } from '@boba-cli/core';
+import { EnvironmentAdapter } from '@boba-cli/core';
+import { TerminalBackground } from '@boba-cli/core';
+
 // @public
 export function allocBytes(size: number): Uint8Array;
 
@@ -78,13 +82,7 @@ export interface ClipboardAdapter {
     write(text: string): Promise<void>;
 }
 
-// @public
-export interface ColorSupport {
-    readonly has16m: boolean;
-    readonly has256: boolean;
-    readonly hasBasic: boolean;
-    readonly level: number;
-}
+export { ColorSupport }
 
 // @public
 export function concatBytes(...arrays: Uint8Array[]): Uint8Array;
@@ -157,12 +155,7 @@ export { Disposable_2 as Disposable }
 // @public
 export function encodeString(text: string): Uint8Array;
 
-// @public
-export interface EnvironmentAdapter {
-    get(name: string): string | undefined;
-    getColorSupport(): ColorSupport;
-    getTerminalBackground(): TerminalBackground;
-}
+export { EnvironmentAdapter }
 
 // @public
 export const ESC = "\u001B";
@@ -450,8 +443,7 @@ export interface TerminalAdapter extends Disposable_2 {
     write(data: string): void;
 }
 
-// @public
-export type TerminalBackground = 'dark' | 'light' | 'unknown';
+export { TerminalBackground }
 
 // @public
 export interface TerminalSize {

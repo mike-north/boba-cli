@@ -7,6 +7,9 @@ export interface RendererOptions {
   fps?: number
 }
 
+/**
+ * @public
+ */
 export class StandardRenderer {
   private nextFrame: string | null = null
   private lastFrame = ''

@@ -15,6 +15,7 @@ import { miniDot } from '@boba-cli/spinner';
 import { Model } from '@boba-cli/tea';
 import { moon } from '@boba-cli/spinner';
 import { Msg } from '@boba-cli/tea';
+import { PlatformAdapter } from '@boba-cli/machine';
 import { points } from '@boba-cli/spinner';
 import { pulse } from '@boba-cli/spinner';
 import { Spinner } from '@boba-cli/spinner';
@@ -26,7 +27,7 @@ import { ValidateFunc } from '@boba-cli/textinput';
 // @public
 export interface App<State, _Components extends Record<string, unknown>> {
     getModel(): Model<Msg>;
-    run(): Promise<{
+    run(options: RunOptions): Promise<{
         state: State;
     }>;
 }
@@ -113,6 +114,11 @@ export { pulse }
 
 // @public
 export function render(node: ViewNode): string;
+
+// @public
+export interface RunOptions {
+    platform: PlatformAdapter;
+}
 
 // @public
 export function spacer(height?: number): string;

@@ -67,12 +67,23 @@ Truncate text to a maximum width per line, ANSI-aware.
 </td></tr>
 <tr><td>
 
+[createContextFromEnv(env)](./chapstick.createcontextfromenv.md)
+
+
+</td><td>
+
+Create a StyleContext from an EnvironmentAdapter.
+
+
+</td></tr>
+<tr><td>
+
 [createDefaultContext()](./chapstick.createdefaultcontext.md)
 
 
 </td><td>
 
-Create a default StyleContext for layout-only styling (no ANSI colors). This is used internally when no context is provided.
+Create a default StyleContext with auto-detected color support.
 
 
 </td></tr>
