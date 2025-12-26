@@ -2,6 +2,9 @@ declare module 'marked-terminal' {
   import type { MarkedExtension } from 'marked'
   import type { StyleFn } from '@boba-cli/machine'
 
+  /**
+   * @public
+   */
   export interface MarkedTerminalOptions {
     code?: StyleFn
     blockquote?: StyleFn

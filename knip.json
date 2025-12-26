@@ -10,7 +10,11 @@
     "syncpack",
     "unzipper"
   ],
-  "ignoreFiles": ["./examples/filetree/**/*"],
+  "ignoreFiles": [
+    "./examples/filetree/**/*",
+    "./examples/src/code/program.ts",
+    "./examples/src/filetree/mock-project/**/*"
+  ],
   "ignoreBinaries": ["test:graceful-degradation", "test:browser"],
   "workspaces": {
     ".": {
