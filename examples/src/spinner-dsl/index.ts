@@ -29,7 +29,7 @@ const app = createApp()
   .view(({ state, components }) =>
     vstack(
       text(''),
-      makeDemoHeader('DSL'),
+      text('🧋 Boba DSL Demo').bold().foreground('#ff79c6'),
       text(''),
       hstack(
         components.loading,
