@@ -129,7 +129,7 @@ Update package references in `.d.ts` files.
 ## 6. Documentation
 
 ### 6.1 Root `README.md`
-- Change title from `"🧼 Suds"` → `"🧋 Boba"` (boba tea emoji)
+- Change title from `"🧋 Suds"` → `"🧋 Boba"` (boba tea emoji)
 - Change "Suds is..." → "Boba is..."
 - Update all package references
 - Update installation examples
@@ -314,6 +314,6 @@ After completion, verify:
 
 ## Notes
 
-- The emoji in README changes from 🧼 (soap/suds) to 🧋 (boba tea)
+- The emoji in README changes from 🧋 (soap/suds) to 🧋 (boba tea)
 - Some descriptions mentioning "Suds" should change to "Boba"
 - The theme stays consistent: Bubble Tea framework port, now named "Boba" (bubble tea drink)

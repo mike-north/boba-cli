@@ -115,7 +115,7 @@ class HelpDemo implements Model<Msg, HelpDemo> {
       : 'Press enter to select'
 
     return [
-      '🧼 Boba Help Demo',
+      '🧋 Boba Help Demo',
       '',
       list,
       '',

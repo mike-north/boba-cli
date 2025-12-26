@@ -84,7 +84,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
   view(): string {
     const lines: string[] = []
-    lines.push(titleStyle.render('🧼 Boba Textarea Demo'))
+    lines.push(titleStyle.render('🧋 Boba Textarea Demo'))
     lines.push('')
     lines.push(this.editor.view())
 

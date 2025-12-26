@@ -1,13 +1,7 @@
 {
-  "name": "@boba-cli/chapstick",
-  "description": "TypeScript port of Lip Gloss terminal styling DSL",
-  "version": "0.1.0-alpha.2",
-  "dependencies": {
-    "@boba-cli/core": "workspace:*",
-    "@boba-cli/machine": "workspace:*",
-    "string-width": "^7.2.0",
-    "terminal-reflowjs": "0.0.0-alpha.0"
-  },
+  "name": "@boba-cli/core",
+  "description": "Core types and utilities for Boba terminal UI framework",
+  "version": "0.1.0-alpha.1",
   "devDependencies": {
     "@types/node": "^24.10.2",
     "typescript": "5.8.2",
@@ -32,16 +26,17 @@
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "scripts": {
     "build": "tsup",
-    "check:api-report": "pnpm run generate:api-report",
-    "check:eslint": "pnpm run lint",
+    "check:api-report": "api-extractor run",
     "generate:api-report": "api-extractor run --local",
     "lint": "eslint \"{src,test}/**/*.{ts,tsx}\"",
     "test": "vitest run --passWithNoTests"
   },
+  "sideEffects": false,
   "type": "module",
   "types": "./dist/index.d.ts"
 }

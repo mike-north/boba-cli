@@ -92,7 +92,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — Markdown Viewer')
+    const header = headerStyle.render('🧋 Boba Demo — Markdown Viewer')
     const help = helpStyle.render(
       'Scroll with j/k, f/b, d/u, PgUp/PgDn, mouse wheel • q to quit',
     )

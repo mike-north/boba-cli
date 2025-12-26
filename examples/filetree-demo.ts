@@ -88,7 +88,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — Filetree')
+    const header = headerStyle.render('🧋 Boba Demo — Filetree')
     const help = helpStyle.render(
       'Use j/k or arrows to navigate. q/esc to quit.',
     )

@@ -121,7 +121,7 @@ class IconsDemo implements Model<Msg, IconsDemo> {
     const sectionStyle = new Style().bold(true).foreground('#bd93f9')
     const helpStyle = new Style().foreground('#6272a4').italic(true)
 
-    const header = headerStyle.render('🧼 Boba Demo — File Icons')
+    const header = headerStyle.render('🧋 Boba Demo — File Icons')
 
     // Calculate columns based on width
     const colWidth = 24

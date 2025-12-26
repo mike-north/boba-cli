@@ -63,7 +63,7 @@ const app = createApp()
   })
   .view(({ components }) =>
     vstack(
-      titleStyle.render('🧼 Boba DSL Text Input Demo'),
+      titleStyle.render('🧋 Boba DSL Text Input Demo'),
       text(''),
       labelStyle.render('Name:'),
       components.nameInput,

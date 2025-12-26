@@ -123,7 +123,7 @@ class DemoModel implements Model<Msg, DemoModel> {
     const current = SPINNERS[this.spinnerIndex]
     const spinnerName = current?.name ?? 'unknown'
 
-    const title = titleStyle.render('🧼 Boba Demo')
+    const title = titleStyle.render('🧋 Boba Demo')
 
     const spinnerLine = `${this.spinner.view()}  ${textStyle.render('Loading something amazing...')}`
 

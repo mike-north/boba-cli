@@ -19,7 +19,7 @@ const app = createApp()
   .onKey(['q', 'ctrl+c'], ({ quit }) => quit())
   .view(({ state, components }) =>
     vstack(
-      text('🧼 My App').bold().foreground('#ff79c6'),
+      text('🧋 My App').bold().foreground('#ff79c6'),
       spacer(),
       hstack(components.loading, text('  ' + state.message)),
       spacer(),

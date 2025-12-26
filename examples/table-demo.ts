@@ -109,7 +109,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — Table')
+    const header = headerStyle.render('🧋 Boba Demo — Table')
     const help = helpStyle.render(
       'Move with j/k, f/b, d/u, g/G, PgUp/PgDn • q to quit',
     )

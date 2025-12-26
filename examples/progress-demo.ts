@@ -113,7 +113,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const title = titleStyle.render('🧼 Boba Progress Demo')
+    const title = titleStyle.render('🧋 Boba Progress Demo')
     const bar = this.progress.view()
     const mode = this.useGradient ? 'Gradient' : 'Solid'
 

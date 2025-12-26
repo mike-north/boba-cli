@@ -94,7 +94,7 @@ class DemoModel implements Model<Msg, DemoModel> {
 
   view(): string {
     const lines: string[] = []
-    lines.push(titleStyle.render('🧼 Boba Text Input Demo'))
+    lines.push(titleStyle.render('🧋 Boba Text Input Demo'))
     lines.push('')
     lines.push(labelStyle.render('Name:'))
     lines.push(this.input.view())

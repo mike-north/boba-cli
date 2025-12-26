@@ -126,7 +126,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — Filepicker')
+    const header = headerStyle.render('🧋 Boba Demo — Filepicker')
     const help = helpStyle.render(
       "Use arrows/enter/backspace. '.' toggles hidden. q to quit.",
     )

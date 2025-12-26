@@ -80,7 +80,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — Code Viewer')
+    const header = headerStyle.render('🧋 Boba Demo — Code Viewer')
     const help = helpStyle.render(
       'Scroll with j/k, f/b, d/u, PgUp/PgDn • g=top • q/esc to quit',
     )

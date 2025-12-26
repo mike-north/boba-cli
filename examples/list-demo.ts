@@ -88,7 +88,7 @@ class DemoModel implements Model<Msg, DemoModel> {
   }
 
   view(): string {
-    const header = headerStyle.render('🧼 Boba Demo — List')
+    const header = headerStyle.render('🧋 Boba Demo — List')
     const help = helpStyle.render("Try '/', pgup/pgdn, ?, and q to quit.")
     return [header, '', this.list.view(), '', help, ''].join('\n')
   }

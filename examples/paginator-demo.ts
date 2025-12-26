@@ -101,7 +101,7 @@ class PaginatorDemo implements Model<Msg, PaginatorDemo> {
     const [start, end] = this.paginator.getSliceBounds(this.items.length)
     const visible = this.items.slice(start, end)
 
-    const header = `🧼 Boba Paginator (${this.paginator.view()})`
+    const header = `🧋 Boba Paginator (${this.paginator.view()})`
     const body = visible
       .map((item, idx) => {
         const lineNum = start + idx + 1

@@ -34,7 +34,7 @@ const app = createApp()
   .view(({ state, components }) =>
     vstack(
       text(''),
-      text('🧼 Boba DSL Demo').bold().foreground('#ff79c6'),
+      text('🧋 Boba DSL Demo').bold().foreground('#ff79c6'),
       text(''),
       hstack(components.loading, text('  ' + state.message).foreground('#f8f8f2')),
       text(''),

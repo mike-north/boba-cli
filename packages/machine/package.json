@@ -2,6 +2,9 @@
   "name": "@boba-cli/machine",
   "description": "Platform abstraction layer for Boba terminal UIs",
   "version": "0.1.0-alpha.1",
+  "dependencies": {
+    "@boba-cli/core": "workspace:*"
+  },
   "devDependencies": {
     "@types/archiver": "^6.0.4",
     "@types/node": "^24.10.2",
