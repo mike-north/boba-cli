@@ -16,6 +16,8 @@ export default defineConfig(
       },
     },
     plugins: {
+      // @ts-expect-error - @api-extractor-tools/eslint-plugin types don't match ESLint's Plugin type, but works at runtime
+      '@api-extractor-tools': apiExtractorPlugin,
       // @ts-expect-error - fixupPluginRules adapts old plugin format but types don't reflect this
       tsdoc: fixupPluginRules(tsdocPlugin),
     },
@@ -49,10 +51,6 @@ export default defineConfig(
         projectService: false,
         project: ['./examples/tsconfig.json'],
       },
-    },
-    rules: {
-      // Disable no-useless-escape for examples - TSDoc requires escaping @ in comments
-      'no-useless-escape': 'off',
     },
   },
   // Apply API Extractor rules to public npm packages (packages with api-extractor.json)
