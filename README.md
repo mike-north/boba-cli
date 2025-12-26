@@ -4,7 +4,7 @@
 
 Boba is a **best-effort TypeScript port** of the wonderful [Bubble Tea](https://github.com/charmbracelet/bubbletea) framework and [Bubbles](https://github.com/charmbracelet/bubbles) component library from [Charm](https://charm.sh), with additional utilities inspired by [Teacup](https://github.com/mistakenelf/teacup).
 
-<img src="./examples/textarea-demo.gif" width="800" alt="Textarea component demo" />
+<img src="./examples/animations/textarea.gif" width="800" alt="Textarea component demo" />
 
 ## Why Boba?
 

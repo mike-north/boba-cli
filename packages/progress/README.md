@@ -2,7 +2,7 @@
 
 Animated progress bar for Boba terminal UIs. Port of Charmbracelet Bubbles progress.
 
-<img src="../../examples/progress-demo.gif" width="950" alt="Progress component demo" />
+<img src="../../examples/animations/progress.gif" width="950" alt="Progress component demo" />
 
 ## Install
 

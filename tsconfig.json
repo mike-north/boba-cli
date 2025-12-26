@@ -14,7 +14,12 @@
     "noUncheckedIndexedAccess": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "paths": {
+      "@api-extractor-tools/eslint-plugin": [
+        "./node_modules/@api-extractor-tools/eslint-plugin/dist/index.d.ts"
+      ]
+    }
   },
   "include": ["eslint.config.mts", "**/vitest.config.mts"]
 }

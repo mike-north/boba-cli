@@ -2,7 +2,7 @@
 
 Pagination state management and rendering for Boba terminal UIs. Ported from the Charm `bubbles/paginator` component.
 
-<img src="../../examples/paginator-demo.gif" width="950" alt="Paginator component demo" />
+<img src="../../examples/animations/paginator.gif" width="950" alt="Paginator component demo" />
 
 ## Usage
 

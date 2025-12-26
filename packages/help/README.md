@@ -2,7 +2,7 @@
 
 Render short or full help text from your key bindings. Ported from the Charm `bubbles/help` component.
 
-<img src="../../examples/help-demo.gif" width="950" alt="Help component demo" />
+<img src="../../examples/animations/help.gif" width="950" alt="Help component demo" />
 
 ```ts
 import { HelpModel } from '@boba-cli/help'
@@ -15,7 +15,7 @@ const text = help.view(keyMap)
 
 A self-contained help bubble component with a scrollable viewport for displaying keyboard shortcuts.
 
-<img src="../../examples/help-bubble-demo.gif" width="950" alt="HelpBubble component demo" />
+<img src="../../examples/animations/help-bubble.gif" width="950" alt="HelpBubble component demo" />
 
 ```ts
 import { HelpBubble } from '@boba-cli/help'

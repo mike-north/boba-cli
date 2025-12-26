@@ -2,7 +2,7 @@
 
 Animated spinner component for Boba terminal UIs. Port of Charmbracelet Bubbles spinner.
 
-<img src="../../examples/spinner-demo.gif" width="950" alt="Spinner component demo" />
+<img src="../../examples/animations/spinner.gif" width="950" alt="Spinner component demo" />
 
 ## Install
 

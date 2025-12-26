@@ -2,7 +2,7 @@
 
 Markdown viewer component for Boba terminal UIs.
 
-<img src="../../examples/markdown-demo.gif" width="950" alt="Markdown component demo" />
+<img src="../../examples/animations/markdown.gif" width="950" alt="Markdown component demo" />
 
 ## Features
 
