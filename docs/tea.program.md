@@ -12,6 +12,10 @@ Bubble Tea-style program runner.
 declare class Program<M extends Model<Msg, M>> 
 ```
 
+## Remarks
+
+Requires a platform adapter to be provided via options. Use `createNodePlatform()` from `@boba-cli/machine/node` for Node.js, or `createBrowserPlatform({ terminal })` from `@boba-cli/machine/browser` for browsers.
+
 ## Constructors
 
 <table><thead><tr><th>

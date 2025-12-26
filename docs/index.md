@@ -37,6 +37,15 @@ Description
 </td></tr>
 <tr><td>
 
+[@boba-cli/core](./core.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
 [@boba-cli/cursor](./cursor.md)
 
 

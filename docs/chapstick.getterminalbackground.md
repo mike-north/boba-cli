@@ -37,7 +37,7 @@ env
 
 </td><td>
 
-[EnvironmentAdapter](./machine.environmentadapter.md)
+[EnvironmentAdapter](./core.environmentadapter.md)
 
 
 </td><td>
@@ -50,7 +50,7 @@ Environment adapter to query terminal background
 
 **Returns:**
 
-[TerminalBackground](./machine.terminalbackground.md)
+[TerminalBackground](./core.terminalbackground.md)
 
 Terminal background mode
 

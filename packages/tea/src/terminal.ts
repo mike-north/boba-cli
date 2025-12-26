@@ -23,6 +23,9 @@ export interface TerminalOptions {
   platform?: PlatformAdapter
 }
 
+/**
+ * @public
+ */
 export class TerminalController {
   private rawMode = false
   private altScreen = false

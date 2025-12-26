@@ -90,7 +90,7 @@ Clipboard operations adapter.
 
 </td><td>
 
-[EnvironmentAdapter](./machine.environmentadapter.md)
+[EnvironmentAdapter](./core.environmentadapter.md)
 
 
 </td><td>

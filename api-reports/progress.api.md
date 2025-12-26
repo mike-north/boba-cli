@@ -8,6 +8,7 @@ import { Cmd } from '@boba-cli/tea';
 import { ColorInput } from '@boba-cli/chapstick';
 import { Msg } from '@boba-cli/tea';
 import { Style } from '@boba-cli/chapstick';
+import { StyleContext } from '@boba-cli/chapstick';
 
 // @public
 export class FrameMsg {
@@ -92,6 +93,7 @@ export interface ProgressOptions {
     springDamping?: number;
     // (undocumented)
     springFrequency?: number;
+    styleContext?: StyleContext;
     // (undocumented)
     width?: number;
 }

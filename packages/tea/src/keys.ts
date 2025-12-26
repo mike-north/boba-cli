@@ -262,6 +262,9 @@ export function keyToString(key: Key): string {
   return key.alt ? `alt+${base}` : base
 }
 
+/**
+ * @public
+ */
 export function parseKey(
   buffer: Uint8Array,
   allowMoreData: boolean,

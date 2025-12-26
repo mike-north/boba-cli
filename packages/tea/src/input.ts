@@ -14,6 +14,9 @@ export interface InputOptions {
 const BRACKET_PASTE_START = '\u001b[200~'
 const BRACKET_PASTE_END = '\u001b[201~'
 
+/**
+ * @public
+ */
 export function startInput(options: InputOptions): () => void {
   if (!options.platform) {
     // No platform adapter available, return no-op cleanup

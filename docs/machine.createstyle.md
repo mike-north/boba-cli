@@ -37,7 +37,7 @@ colorSupport
 
 </td><td>
 
-[ColorSupport](./machine.colorsupport.md)
+[ColorSupport](./core.colorsupport.md)
 
 
 </td><td>
