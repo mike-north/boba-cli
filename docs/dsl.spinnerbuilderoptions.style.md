@@ -14,5 +14,5 @@ style?: Style;
 
 ## Remarks
 
-Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting.
+Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting. The style is applied to all frames of the spinner animation.
 

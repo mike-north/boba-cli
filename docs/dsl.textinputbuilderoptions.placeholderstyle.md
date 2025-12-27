@@ -11,3 +11,8 @@ Style for the placeholder text.
 ```typescript
 placeholderStyle?: Style;
 ```
+
+## Remarks
+
+Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting to the placeholder.
+

@@ -52,35 +52,65 @@ _(Optional)_ Configuration options for the spinner
 
 [ComponentBuilder](./dsl.componentbuilder.md)<!-- -->&lt;[SpinnerModel](./spinner.spinnermodel.md)<!-- -->&gt;
 
-A [ComponentBuilder](./dsl.componentbuilder.md) ready to use with [AppBuilder.component()](./dsl.appbuilder.component.md)
+A `ComponentBuilder` ready to use with `AppBuilder.component`
 
 ## Remarks
 
-Creates a [ComponentBuilder](./dsl.componentbuilder.md) wrapping the `@boba-cli/spinner` package. The spinner automatically animates and can be styled with custom colors.
+Creates a `ComponentBuilder` wrapping the `@boba-cli/spinner` package. The spinner automatically animates by ticking through animation frames. It starts animating immediately when the application initializes.
+
+Spinners are useful for indicating loading states, background processes, or that the application is working on a task.
 
 ## Example 1
 
-Basic usage:
+Basic usage with default spinner:
 
 ```typescript
 const app = createApp()
   .component('loading', spinner())
-  .view(({ components }) => components.loading)
+  .view(({ components }) => vstack(
+    text('Loading...'),
+    components.loading
+  ))
   .build()
 ```
 
 ## Example 2
 
-With custom styling:
+With custom animation and styling:
 
 ```typescript
+import { spinner, moon } from '@boba-cli/dsl'
+import { Style } from '@boba-cli/chapstick'
+
 const app = createApp()
   .component('loading', spinner({
+    spinner: moon,
     style: new Style().foreground('#50fa7b')
   }))
   .view(({ components }) => hstack(
     components.loading,
-    text('Loading...')
+    text(' Processing...')
+  ))
+  .build()
+```
+
+## Example 3
+
+Multiple spinners with different styles:
+
+```typescript
+const app = createApp()
+  .component('spinner1', spinner({
+    spinner: line,
+    style: new Style().foreground('#ff79c6')
+  }))
+  .component('spinner2', spinner({
+    spinner: pulse,
+    style: new Style().foreground('#8be9fd')
+  }))
+  .view(({ components }) => vstack(
+    hstack(components.spinner1, text(' Task 1')),
+    hstack(components.spinner2, text(' Task 2'))
   ))
   .build()
 ```

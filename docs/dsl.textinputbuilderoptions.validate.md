@@ -9,5 +9,21 @@ Validation function.
 **Signature:**
 
 ```typescript
-validate?: ValidateFunc;
+validate?: ValidateFunc$1;
 ```
+
+## Remarks
+
+Called on every change to validate the current input value. Return `null` for valid input, or an `Error` with a descriptive message for invalid input.
+
+## Example
+
+
+```typescript
+validate: (value) => {
+  if (value.length < 3) return new Error('Too short')
+  if (!/^[a-z]+$/.test(value)) return new Error('Lowercase letters only')
+  return null
+}
+```
+

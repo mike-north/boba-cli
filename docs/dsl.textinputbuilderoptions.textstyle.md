@@ -11,3 +11,8 @@ Style for the input text.
 ```typescript
 textStyle?: Style;
 ```
+
+## Remarks
+
+Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting to typed text.
+
