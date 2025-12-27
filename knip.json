@@ -13,7 +13,8 @@
   "ignoreFiles": [
     "./examples/src/filetree/mock-project/**/*",
     "./examples/src/code/program.ts",
-    "./packages/dsl/examples/**/*"
+    "./packages/dsl/examples/**/*",
+    "./demo-website/src/stubs/**/*"
   ],
   "ignoreExportsUsedInFile": true,
   "ignoreBinaries": ["test:graceful-degradation", "test:browser"],

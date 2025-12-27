@@ -2,62 +2,161 @@
  * Demo registry - maps command names to demo factories.
  */
 
-import { SpinnerDemoModel } from './spinner-demo'
-import { ProgressDemoModel } from './progress-demo'
-import { ListDemoModel } from './list-demo'
-import { TimerDemoModel } from './timer-demo'
-import { StopwatchDemoModel } from './stopwatch-demo'
-import { TableDemoModel } from './table-demo'
+import type { PlatformAdapter } from '@boba-cli/machine'
+// import codeDemo from '@boba-cli/examples/code'
+// import filepickerDemo from '@boba-cli/examples/filepicker'
+// import filetreeDemo from '@boba-cli/examples/filetree'
+import helpDemo from '@boba-cli/examples/help'
+import helpBubbleDemo from '@boba-cli/examples/help-bubble'
+import iconsDemo from '@boba-cli/examples/icons'
+import listDemo from '@boba-cli/examples/list'
+// import markdownDemo from '@boba-cli/examples/markdown'
+import paginatorDemo from '@boba-cli/examples/paginator'
+import progressDemo from '@boba-cli/examples/progress'
+import spinnerDemo from '@boba-cli/examples/spinner'
+import spinnerDslDemo from '@boba-cli/examples/spinner-dsl'
+import statusbarDemo from '@boba-cli/examples/statusbar'
+import stopwatchDemo from '@boba-cli/examples/stopwatch'
+import tableDemo from '@boba-cli/examples/table'
+import textareaDemo from '@boba-cli/examples/textarea'
+import textinputDemo from '@boba-cli/examples/textinput'
+import textinputDslDemo from '@boba-cli/examples/textinput-dsl'
+import timerDemo from '@boba-cli/examples/timer'
+import viewportDemo from '@boba-cli/examples/viewport'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyModel = any
+// Type for demo runner functions from examples
+type DemoRunner = (platform: PlatformAdapter) => Promise<void>
 
 export interface DemoInfo {
   name: string
   filename: string
   description: string
-  create: () => AnyModel
+  create: DemoRunner
 }
 
 /**
  * Registry of all available demos.
  */
 export const demos: DemoInfo[] = [
+  // {
+  //   name: 'code',
+  //   filename: 'code.ts',
+  //   description: 'Syntax-highlighted code viewer',
+  //   create: codeDemo,
+  // },
+  // {
+  //   name: 'filepicker',
+  //   filename: 'filepicker.ts',
+  //   description: 'Interactive file picker',
+  //   create: filepickerDemo,
+  // },
+  // {
+  //   name: 'filetree',
+  //   filename: 'filetree.ts',
+  //   description: 'Expandable file tree navigator',
+  //   create: filetreeDemo,
+  // },
   {
-    name: 'spinner',
-    filename: 'spinner-demo.ts',
-    description: 'Animated loading spinners',
-    create: () => new SpinnerDemoModel(),
+    name: 'help',
+    filename: 'help.ts',
+    description: 'Keyboard shortcuts help viewer',
+    create: helpDemo,
   },
   {
-    name: 'progress',
-    filename: 'progress-demo.ts',
-    description: 'Animated progress bars with gradients',
-    create: () => new ProgressDemoModel(),
+    name: 'help-bubble',
+    filename: 'help-bubble.ts',
+    description: 'Bubble-style help overlay',
+    create: helpBubbleDemo,
+  },
+  {
+    name: 'icons',
+    filename: 'icons.ts',
+    description: 'Icon gallery browser',
+    create: iconsDemo,
   },
   {
     name: 'list',
-    filename: 'list-demo.ts',
+    filename: 'list.ts',
     description: 'Filterable, selectable lists',
-    create: () => new ListDemoModel(),
+    create: listDemo,
+  },
+  // {
+  //   name: 'markdown',
+  //   filename: 'markdown.ts',
+  //   description: 'Rendered markdown viewer',
+  //   create: markdownDemo,
+  // },
+  {
+    name: 'paginator',
+    filename: 'paginator.ts',
+    description: 'Page navigation controls',
+    create: paginatorDemo,
   },
   {
-    name: 'timer',
-    filename: 'timer-demo.ts',
-    description: 'Countdown timer',
-    create: () => new TimerDemoModel(),
+    name: 'progress',
+    filename: 'progress.ts',
+    description: 'Animated progress bars with gradients',
+    create: progressDemo,
+  },
+  {
+    name: 'spinner',
+    filename: 'spinner.ts',
+    description: 'Animated loading spinners',
+    create: spinnerDemo,
+  },
+  {
+    name: 'spinner-dsl',
+    filename: 'spinner-dsl.ts',
+    description: 'Spinner with DSL builder',
+    create: spinnerDslDemo,
+  },
+  {
+    name: 'statusbar',
+    filename: 'statusbar.ts',
+    description: 'Bottom status bar component',
+    create: statusbarDemo,
   },
   {
     name: 'stopwatch',
-    filename: 'stopwatch-demo.ts',
+    filename: 'stopwatch.ts',
     description: 'Elapsed time tracker',
-    create: () => new StopwatchDemoModel(),
+    create: stopwatchDemo,
   },
   {
     name: 'table',
-    filename: 'table-demo.ts',
+    filename: 'table.ts',
     description: 'Scrollable data tables',
-    create: () => new TableDemoModel(),
+    create: tableDemo,
+  },
+  {
+    name: 'textarea',
+    filename: 'textarea.ts',
+    description: 'Multi-line text editor',
+    create: textareaDemo,
+  },
+  {
+    name: 'textinput',
+    filename: 'textinput.ts',
+    description: 'Single-line text input',
+    create: textinputDemo,
+  },
+  {
+    name: 'textinput-dsl',
+    filename: 'textinput-dsl.ts',
+    description: 'Text input with DSL builder',
+    create: textinputDslDemo,
+  },
+  {
+    name: 'timer',
+    filename: 'timer.ts',
+    description: 'Countdown timer',
+    create: timerDemo,
+  },
+  {
+    name: 'viewport',
+    filename: 'viewport.ts',
+    description: 'Scrollable viewport container',
+    create: viewportDemo,
   },
 ]
 

@@ -103,33 +103,15 @@ importers:
       '@boba-cli/chapstick':
         specifier: workspace:*
         version: link:../packages/chapstick
-      '@boba-cli/key':
+      '@boba-cli/examples':
         specifier: workspace:*
-        version: link:../packages/key
-      '@boba-cli/list':
-        specifier: workspace:*
-        version: link:../packages/list
+        version: link:../examples
       '@boba-cli/machine':
         specifier: workspace:*
         version: link:../packages/machine
-      '@boba-cli/progress':
-        specifier: workspace:*
-        version: link:../packages/progress
-      '@boba-cli/spinner':
-        specifier: workspace:*
-        version: link:../packages/spinner
-      '@boba-cli/stopwatch':
-        specifier: workspace:*
-        version: link:../packages/stopwatch
-      '@boba-cli/table':
-        specifier: workspace:*
-        version: link:../packages/table
       '@boba-cli/tea':
         specifier: workspace:*
         version: link:../packages/tea
-      '@boba-cli/timer':
-        specifier: workspace:*
-        version: link:../packages/timer
       '@xterm/addon-fit':
         specifier: ^0.10.0
         version: 0.10.0(@xterm/xterm@5.5.0)
