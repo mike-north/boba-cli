@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/list",
   "description": "Filterable, selectable list for Boba terminal UIs.",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "dependencies": {
     "@boba-cli/chapstick": "workspace:*",
     "@boba-cli/help": "workspace:*",

@@ -31,11 +31,13 @@
     "acceptance-tests": "0.0.0",
     "demo-website": "0.0.0",
     "@boba-cli/filetree": "0.0.0",
-    "@boba-cli/machine": "0.0.0"
+    "@boba-cli/machine": "0.0.0",
+    "@boba-cli/core": "0.1.0-alpha.1"
   },
   "changesets": [
     "add-code-demo",
     "add-code-package",
+    "add-core-package",
     "add-dsl-package",
     "add-machine-package",
     "add-markdown-package",
@@ -46,6 +48,8 @@
     "deprecate-suds-cli-packages",
     "eager-feet-cheer",
     "fix-viewport-scrolling",
-    "help-bubble-component"
+    "help-bubble-component",
+    "platform-auto-detection",
+    "smooth-otters-invite"
   ]
 }

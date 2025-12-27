@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/textarea",
   "description": "Multi-line text area component for Boba terminal UIs",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "dependencies": {
     "@boba-cli/chapstick": "workspace:*",
     "@boba-cli/cursor": "workspace:*",
