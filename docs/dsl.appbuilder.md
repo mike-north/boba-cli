@@ -77,6 +77,20 @@ Register a component with a unique key.
 </td></tr>
 <tr><td>
 
+[onInit(handler)](./dsl.appbuilder.oninit.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Set the initialization handler.
+
+
+</td></tr>
+<tr><td>
+
 [onKey(keys, handler)](./dsl.appbuilder.onkey.md)
 
 
@@ -86,6 +100,20 @@ Register a component with a unique key.
 </td><td>
 
 Register a key handler.
+
+
+</td></tr>
+<tr><td>
+
+[onMessage(msgClass, handler)](./dsl.appbuilder.onmessage.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Register a message handler for a specific message type.
 
 
 </td></tr>

@@ -14,5 +14,7 @@ spinner?: Spinner;
 
 ## Remarks
 
-Available spinners include `line`<!-- -->, `dot`<!-- -->, `miniDot`<!-- -->, `pulse`<!-- -->, `points`<!-- -->, `moon`<!-- -->, `meter`<!-- -->, and `ellipsis`<!-- -->.
+Available spinners include: - `line`<!-- -->: Simple line rotation animation (default) - `dot`<!-- -->: Dots appearing sequentially - `miniDot`<!-- -->: Compact dot animation - `pulse`<!-- -->: Pulsing circle animation - `points`<!-- -->: Loading dots animation - `moon`<!-- -->: Moon phase animation - `meter`<!-- -->: Progress meter style - `ellipsis`<!-- -->: Bouncing ellipsis
+
+All spinners are re-exported from `@boba-cli/spinner` for convenience.
 

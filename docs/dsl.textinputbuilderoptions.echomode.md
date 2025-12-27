@@ -4,10 +4,15 @@
 
 ## TextInputBuilderOptions.echoMode property
 
-Echo mode for input display (Normal, Password, or None).
+Echo mode for input display (default: `EchoMode.Normal`<!-- -->).
 
 **Signature:**
 
 ```typescript
 echoMode?: EchoMode;
 ```
+
+## Remarks
+
+Controls how input characters are displayed: - `EchoMode.Normal`<!-- -->: Characters are displayed as typed - `EchoMode.Password`<!-- -->: Characters are hidden with asterisks or dots - `EchoMode.None`<!-- -->: No characters are displayed
+

@@ -11,3 +11,8 @@ Width constraint for the input field.
 ```typescript
 width?: number;
 ```
+
+## Remarks
+
+When set to 0 or not specified, the input field has no width constraint. When set to a positive value, the input will be constrained to that width.
+

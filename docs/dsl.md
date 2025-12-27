@@ -56,6 +56,17 @@ Choose between two nodes based on condition.
 </td></tr>
 <tr><td>
 
+[code(options)](./dsl.code.md)
+
+
+</td><td>
+
+Create a code viewer component builder.
+
+
+</td></tr>
+<tr><td>
+
 [createApp()](./dsl.createapp.md)
 
 
@@ -78,6 +89,50 @@ Create a divider line.
 </td></tr>
 <tr><td>
 
+[filepicker(options)](./dsl.filepicker.md)
+
+
+</td><td>
+
+Create a filepicker component builder.
+
+
+</td></tr>
+<tr><td>
+
+[filetree(options)](./dsl.filetree.md)
+
+
+</td><td>
+
+Create a filetree component builder.
+
+
+</td></tr>
+<tr><td>
+
+[help(options)](./dsl.help.md)
+
+
+</td><td>
+
+Create a help component builder.
+
+
+</td></tr>
+<tr><td>
+
+[helpBubble(options)](./dsl.helpbubble.md)
+
+
+</td><td>
+
+Create a help bubble component builder.
+
+
+</td></tr>
+<tr><td>
+
 [hstack(children)](./dsl.hstack.md)
 
 
@@ -89,12 +144,56 @@ Create a horizontal stack layout.
 </td></tr>
 <tr><td>
 
+[list(options)](./dsl.list.md)
+
+
+</td><td>
+
+Create a list component builder.
+
+
+</td></tr>
+<tr><td>
+
 [map(items, render)](./dsl.map.md)
 
 
 </td><td>
 
 Map items to view nodes.
+
+
+</td></tr>
+<tr><td>
+
+[markdown(options)](./dsl.markdown.md)
+
+
+</td><td>
+
+Create a markdown component builder.
+
+
+</td></tr>
+<tr><td>
+
+[paginator(options)](./dsl.paginator.md)
+
+
+</td><td>
+
+Create a paginator component builder.
+
+
+</td></tr>
+<tr><td>
+
+[progress(options)](./dsl.progress.md)
+
+
+</td><td>
+
+Create a progress bar component builder.
 
 
 </td></tr>
@@ -133,6 +232,39 @@ Create a spinner component builder.
 </td></tr>
 <tr><td>
 
+[statusBar(options)](./dsl.statusbar.md)
+
+
+</td><td>
+
+Create a statusbar component builder.
+
+
+</td></tr>
+<tr><td>
+
+[stopwatch(options)](./dsl.stopwatch.md)
+
+
+</td><td>
+
+Create a stopwatch component builder.
+
+
+</td></tr>
+<tr><td>
+
+[table(options)](./dsl.table.md)
+
+
+</td><td>
+
+Create a table component builder.
+
+
+</td></tr>
+<tr><td>
+
 [text(content)](./dsl.text.md)
 
 
@@ -144,12 +276,45 @@ Create a text node with chainable style methods.
 </td></tr>
 <tr><td>
 
+[textArea(options)](./dsl.textarea.md)
+
+
+</td><td>
+
+Create a textArea component builder.
+
+
+</td></tr>
+<tr><td>
+
 [textInput(options)](./dsl.textinput.md)
 
 
 </td><td>
 
 Create a textInput component builder.
+
+
+</td></tr>
+<tr><td>
+
+[timer(options)](./dsl.timer.md)
+
+
+</td><td>
+
+Create a timer component builder.
+
+
+</td></tr>
+<tr><td>
+
+[viewport(options)](./dsl.viewport.md)
+
+
+</td><td>
+
+Create a viewport component builder.
 
 
 </td></tr>
@@ -203,6 +368,17 @@ Built application ready to run.
 </td></tr>
 <tr><td>
 
+[CodeBuilderOptions](./dsl.codebuilderoptions.md)
+
+
+</td><td>
+
+Options for the code component builder.
+
+
+</td></tr>
+<tr><td>
+
 [ComponentBuilder](./dsl.componentbuilder.md)
 
 
@@ -236,12 +412,122 @@ Event context passed to key event handlers.
 </td></tr>
 <tr><td>
 
+[FilepickerBuilderOptions](./dsl.filepickerbuilderoptions.md)
+
+
+</td><td>
+
+Options for the filepicker component builder.
+
+
+</td></tr>
+<tr><td>
+
+[FiletreeBuilderOptions](./dsl.filetreebuilderoptions.md)
+
+
+</td><td>
+
+Options for the filetree component builder.
+
+
+</td></tr>
+<tr><td>
+
+[HelpBubbleBuilderOptions](./dsl.helpbubblebuilderoptions.md)
+
+
+</td><td>
+
+Options for the help bubble component builder.
+
+
+</td></tr>
+<tr><td>
+
+[HelpBuilderOptions](./dsl.helpbuilderoptions.md)
+
+
+</td><td>
+
+Options for the help component builder.
+
+
+</td></tr>
+<tr><td>
+
+[InitContext](./dsl.initcontext.md)
+
+
+</td><td>
+
+Context passed to init handlers.
+
+
+</td></tr>
+<tr><td>
+
 [LayoutNode](./dsl.layoutnode.md)
 
 
 </td><td>
 
 Layout node for stacking views vertically or horizontally.
+
+
+</td></tr>
+<tr><td>
+
+[ListBuilderOptions](./dsl.listbuilderoptions.md)
+
+
+</td><td>
+
+Options for the list component builder.
+
+
+</td></tr>
+<tr><td>
+
+[MarkdownBuilderOptions](./dsl.markdownbuilderoptions.md)
+
+
+</td><td>
+
+Options for the markdown component builder.
+
+
+</td></tr>
+<tr><td>
+
+[MessageContext](./dsl.messagecontext.md)
+
+
+</td><td>
+
+Context passed to message handlers.
+
+
+</td></tr>
+<tr><td>
+
+[PaginatorBuilderOptions](./dsl.paginatorbuilderoptions.md)
+
+
+</td><td>
+
+Options for the paginator component builder.
+
+
+</td></tr>
+<tr><td>
+
+[ProgressBuilderOptions](./dsl.progressbuilderoptions.md)
+
+
+</td><td>
+
+Options for the progress bar component builder.
 
 
 </td></tr>
@@ -269,6 +555,50 @@ Options for the spinner component builder.
 </td></tr>
 <tr><td>
 
+[StatusBarBuilderOptions](./dsl.statusbarbuilderoptions.md)
+
+
+</td><td>
+
+Options for the statusbar component builder.
+
+
+</td></tr>
+<tr><td>
+
+[StopwatchBuilderOptions](./dsl.stopwatchbuilderoptions.md)
+
+
+</td><td>
+
+Options for the stopwatch component builder.
+
+
+</td></tr>
+<tr><td>
+
+[TableBuilderOptions](./dsl.tablebuilderoptions.md)
+
+
+</td><td>
+
+Options for the table component builder.
+
+
+</td></tr>
+<tr><td>
+
+[TextAreaBuilderOptions](./dsl.textareabuilderoptions.md)
+
+
+</td><td>
+
+Options for the textArea component builder.
+
+
+</td></tr>
+<tr><td>
+
 [TextInputBuilderOptions](./dsl.textinputbuilderoptions.md)
 
 
@@ -289,6 +619,28 @@ Text node with chainable style methods.
 
 
 </td></tr>
+<tr><td>
+
+[TimerBuilderOptions](./dsl.timerbuilderoptions.md)
+
+
+</td><td>
+
+Options for the timer component builder.
+
+
+</td></tr>
+<tr><td>
+
+[ViewportBuilderOptions](./dsl.viewportbuilderoptions.md)
+
+
+</td><td>
+
+Options for the viewport component builder.
+
+
+</td></tr>
 </tbody></table>
 
 ## Type Aliases
@@ -306,12 +658,34 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[InitHandler](./dsl.inithandler.md)
+
+
+</td><td>
+
+Init handler function type.
+
+
+</td></tr>
+<tr><td>
+
 [KeyHandler](./dsl.keyhandler.md)
 
 
 </td><td>
 
 Key handler function type.
+
+
+</td></tr>
+<tr><td>
+
+[MessageHandler](./dsl.messagehandler.md)
+
+
+</td><td>
+
+Message handler function type.
 
 
 </td></tr>

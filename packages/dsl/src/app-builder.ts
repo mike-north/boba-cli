@@ -12,7 +12,11 @@ import type {
   App,
   ComponentBuilder,
   EventContext,
+  InitContext,
+  InitHandler,
   KeyHandler,
+  MessageContext,
+  MessageHandler,
   ViewFunction,
   ComponentView,
   RunOptions,
@@ -27,6 +31,16 @@ import { componentView } from './view/nodes.js'
 interface KeyHandlerEntry<State, Components extends Record<string, unknown>> {
   keys: string[]
   handler: KeyHandler<State, Components>
+}
+
+/**
+ * Internal message handler registration.
+ * @internal
+ */
+interface MessageHandlerEntry<State, Components extends Record<string, unknown>> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  msgClass: new (...args: any[]) => Msg
+  handler: MessageHandler<State, Components, Msg>
 }
 
 /**
@@ -65,17 +79,23 @@ export class AppBuilder<
   readonly #initialState: State | undefined
   readonly #components: ComponentEntry[]
   readonly #keyHandlers: KeyHandlerEntry<State, Components>[]
+  readonly #messageHandlers: MessageHandlerEntry<State, Components>[]
+  readonly #initHandler: InitHandler<State, Components> | undefined
   readonly #viewFn: ViewFunction<State, Components> | undefined
 
   private constructor(
     initialState: State | undefined,
     components: ComponentEntry[],
     keyHandlers: KeyHandlerEntry<State, Components>[],
+    messageHandlers: MessageHandlerEntry<State, Components>[],
+    initHandler: InitHandler<State, Components> | undefined,
     viewFn: ViewFunction<State, Components> | undefined,
   ) {
     this.#initialState = initialState
     this.#components = components
     this.#keyHandlers = keyHandlers
+    this.#messageHandlers = messageHandlers
+    this.#initHandler = initHandler
     this.#viewFn = viewFn
   }
 
@@ -84,7 +104,7 @@ export class AppBuilder<
    * @internal
    */
   static create(): AppBuilder<undefined, Record<string, never>> {
-    return new AppBuilder(undefined, [], [], undefined)
+    return new AppBuilder(undefined, [], [], [], undefined, undefined)
   }
 
   /**
@@ -114,6 +134,8 @@ export class AppBuilder<
       initial,
       this.#components,
       this.#keyHandlers as unknown as KeyHandlerEntry<S, Components>[],
+      this.#messageHandlers as unknown as MessageHandlerEntry<S, Components>[],
+      this.#initHandler as unknown as InitHandler<S, Components> | undefined,
       this.#viewFn as unknown as ViewFunction<S, Components> | undefined,
     )
   }
@@ -150,6 +172,8 @@ export class AppBuilder<
       this.#initialState,
       newComponents,
       this.#keyHandlers as KeyHandlerEntry<State, Components & Record<K, M>>[],
+      this.#messageHandlers as MessageHandlerEntry<State, Components & Record<K, M>>[],
+      this.#initHandler as InitHandler<State, Components & Record<K, M>> | undefined,
       this.#viewFn as ViewFunction<State, Components & Record<K, M>> | undefined,
     )
   }
@@ -182,7 +206,92 @@ export class AppBuilder<
   ): AppBuilder<State, Components> {
     const keyArray = Array.isArray(keys) ? keys : [keys]
     const newHandlers = [...this.#keyHandlers, { keys: keyArray, handler }]
-    return new AppBuilder(this.#initialState, this.#components, newHandlers, this.#viewFn)
+    return new AppBuilder(
+      this.#initialState,
+      this.#components,
+      newHandlers,
+      this.#messageHandlers,
+      this.#initHandler,
+      this.#viewFn,
+    )
+  }
+
+  /**
+   * Set the initialization handler.
+   *
+   * @remarks
+   * The init handler is called once when the application starts. Use it to
+   * schedule initial async operations like fetching data or starting timers.
+   * Calling this method multiple times will replace the previous handler.
+   *
+   * @example
+   * ```typescript
+   * createApp()
+   *   .onInit(({ schedule }) => {
+   *     schedule(tick(1000, () => new MyMessage()))
+   *   })
+   * ```
+   *
+   * @param handler - Function to call on initialization
+   * @returns A new {@link AppBuilder} with the init handler registered
+   *
+   * @public
+   */
+  onInit(handler: InitHandler<State, Components>): AppBuilder<State, Components> {
+    return new AppBuilder(
+      this.#initialState,
+      this.#components,
+      this.#keyHandlers,
+      this.#messageHandlers,
+      handler,
+      this.#viewFn,
+    )
+  }
+
+  /**
+   * Register a message handler for a specific message type.
+   *
+   * @remarks
+   * Message handlers are called when a message of the specified type is received.
+   * Use this to handle async callbacks from commands scheduled via `onInit()`
+   * or other message handlers.
+   *
+   * @example
+   * ```typescript
+   * class DownloadComplete {
+   *   constructor(public packageName: string) {}
+   * }
+   *
+   * createApp()
+   *   .onMessage(DownloadComplete, ({ msg, update, schedule }) => {
+   *     update({ currentPackage: msg.packageName })
+   *     schedule(tick(500, () => new DownloadComplete('next-package')))
+   *   })
+   * ```
+   *
+   * @param msgClass - The message class constructor to match
+   * @param handler - Function to call when a message of this type is received
+   * @returns A new {@link AppBuilder} with the message handler registered
+   *
+   * @public
+   */
+  onMessage<M extends Msg>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    msgClass: new (...args: any[]) => M,
+    handler: MessageHandler<State, Components, M>,
+  ): AppBuilder<State, Components> {
+    const newHandlers = [
+      ...this.#messageHandlers,
+      { msgClass, handler: handler as MessageHandler<State, Components, Msg> },
+    ]
+    return new AppBuilder(
+      this.#initialState,
+      this.#components,
+      this.#keyHandlers,
+      newHandlers,
+      this.#initHandler,
+      this.#viewFn,
+    )
   }
 
   /**
@@ -208,7 +317,14 @@ export class AppBuilder<
    * @public
    */
   view(fn: ViewFunction<State, Components>): AppBuilder<State, Components> {
-    return new AppBuilder(this.#initialState, this.#components, this.#keyHandlers, fn)
+    return new AppBuilder(
+      this.#initialState,
+      this.#components,
+      this.#keyHandlers,
+      this.#messageHandlers,
+      this.#initHandler,
+      fn,
+    )
   }
 
   /**
@@ -233,10 +349,19 @@ export class AppBuilder<
     const initialState = this.#initialState as State
     const components = this.#components
     const keyHandlers = this.#keyHandlers
+    const messageHandlers = this.#messageHandlers
+    const initHandler = this.#initHandler
     const viewFn = this.#viewFn
 
     // Create the generated model
-    const model = new GeneratedModel(initialState, components, keyHandlers, viewFn)
+    const model = new GeneratedModel(
+      initialState,
+      components,
+      keyHandlers,
+      messageHandlers,
+      initHandler,
+      viewFn,
+    )
 
     return {
       async run(options: RunOptions) {
@@ -280,17 +405,23 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
   readonly #componentModels: Map<string, unknown>
   readonly #componentBuilders: Map<string, ComponentBuilder<unknown>>
   readonly #keyHandlers: KeyHandlerEntry<State, Components>[]
+  readonly #messageHandlers: MessageHandlerEntry<State, Components>[]
+  readonly #initHandler: InitHandler<State, Components> | undefined
   readonly #viewFn: ViewFunction<State, Components> | undefined
 
   constructor(
     userState: State,
     components: ComponentEntry[],
     keyHandlers: KeyHandlerEntry<State, Components>[],
+    messageHandlers: MessageHandlerEntry<State, Components>[],
+    initHandler: InitHandler<State, Components> | undefined,
     viewFn: ViewFunction<State, Components> | undefined,
     componentModels?: Map<string, unknown>,
   ) {
     this.#userState = userState
     this.#keyHandlers = keyHandlers
+    this.#messageHandlers = messageHandlers
+    this.#initHandler = initHandler
     this.#viewFn = viewFn
 
     // Build component builders map
@@ -317,6 +448,45 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
       if (cmd) {
         cmds.push(cmd)
       }
+    }
+
+    // Call init handler if present
+    if (this.#initHandler) {
+      const scheduledCmds: Cmd<Msg>[] = []
+      const componentUpdates: Array<{
+        key: string
+        model: unknown
+        cmd: Cmd<Msg>
+      }> = []
+
+      const ctx: InitContext<State, Components> = {
+        state: this.#userState,
+        schedule: (cmd) => {
+          if (cmd) scheduledCmds.push(cmd)
+        },
+        sendToComponent: (key, fn) => {
+          const currentModel = this.#componentModels.get(key as string)
+          if (currentModel !== undefined) {
+            const [nextModel, cmd] = fn(currentModel as Components[typeof key])
+            componentUpdates.push({
+              key: key as string,
+              model: nextModel,
+              cmd,
+            })
+          }
+        },
+      }
+
+      this.#initHandler(ctx)
+
+      // Apply component updates
+      for (const { key, model, cmd } of componentUpdates) {
+        this.#componentModels.set(key, model)
+        if (cmd) cmds.push(cmd)
+      }
+
+      // Add scheduled commands
+      cmds.push(...scheduledCmds)
     }
 
     return cmds.length > 0 ? batch(...cmds) : null
@@ -390,6 +560,8 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
                 builder,
               })),
               this.#keyHandlers,
+              this.#messageHandlers,
+              this.#initHandler,
               this.#viewFn,
               newComponentModels,
             )
@@ -399,6 +571,89 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
 
           return [this, null]
         }
+      }
+    }
+
+    // Check message handlers
+    for (const { msgClass, handler } of this.#messageHandlers) {
+      if (msg instanceof msgClass) {
+        let nextUserState = this.#userState
+        let shouldQuit = false
+        const scheduledCmds: Cmd<Msg>[] = []
+        const componentUpdates: Array<{
+          key: string
+          model: unknown
+          cmd: Cmd<Msg>
+        }> = []
+
+        const ctx: MessageContext<State, Components, Msg> = {
+          msg,
+          state: this.#userState,
+          components: this.#buildComponentViews(),
+          update: (patch) => {
+            nextUserState = { ...nextUserState, ...patch }
+          },
+          setState: (newState) => {
+            nextUserState = newState
+          },
+          quit: () => {
+            shouldQuit = true
+          },
+          schedule: (cmd) => {
+            if (cmd) scheduledCmds.push(cmd)
+          },
+          sendToComponent: (key, fn) => {
+            const currentModel = this.#componentModels.get(key as string)
+            if (currentModel !== undefined) {
+              const [nextModel, cmd] = fn(currentModel as Components[typeof key])
+              componentUpdates.push({
+                key: key as string,
+                model: nextModel,
+                cmd,
+              })
+            }
+          },
+        }
+
+        handler(ctx)
+
+        if (shouldQuit) {
+          return [this, teaQuit()]
+        }
+
+        // Apply state and component updates
+        const stateChanged = nextUserState !== this.#userState
+        const componentsChanged = componentUpdates.length > 0
+        const hasScheduled = scheduledCmds.length > 0
+
+        if (stateChanged || componentsChanged || hasScheduled) {
+          const newComponentModels = new Map(this.#componentModels)
+          const cmds: Cmd<Msg>[] = [...scheduledCmds]
+
+          for (const { key, model, cmd } of componentUpdates) {
+            newComponentModels.set(key, model)
+            if (cmd) {
+              cmds.push(cmd)
+            }
+          }
+
+          const next = new GeneratedModel(
+            nextUserState,
+            Array.from(this.#componentBuilders.entries()).map(([key, builder]) => ({
+              key,
+              builder,
+            })),
+            this.#keyHandlers,
+            this.#messageHandlers,
+            this.#initHandler,
+            this.#viewFn,
+            newComponentModels,
+          )
+
+          return [next, cmds.length > 0 ? batch(...cmds) : null]
+        }
+
+        return [this, null]
       }
     }
 
@@ -433,6 +688,8 @@ class GeneratedModel<State, Components extends Record<string, unknown>>
           builder,
         })),
         this.#keyHandlers,
+        this.#messageHandlers,
+        this.#initHandler,
         this.#viewFn,
         newComponentModels,
       )

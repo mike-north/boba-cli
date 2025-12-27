@@ -7,13 +7,20 @@ export type {
   ComponentBuilder,
   ComponentView,
   EventContext,
+  InitContext,
+  InitHandler,
   KeyHandler,
   LayoutNode,
+  MessageContext,
+  MessageHandler,
   RunOptions,
   TextNode,
   ViewFunction,
   ViewNode,
 } from './types.js'
+
+// Commands (re-exported from TEA for scheduling)
+export { tick, batch, sequence } from '@boba-cli/tea'
 
 // View DSL
 export { text, vstack, hstack, spacer, divider, when, choose, map } from './view/nodes.js'
