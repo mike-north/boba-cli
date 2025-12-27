@@ -514,15 +514,16 @@ export class ListModel<T extends Item> {
           : idx
         const selected = absoluteIndex === this.cursor
         const rendered = this.delegate.render(item, absoluteIndex, selected)
-        // Prefix each line of the rendered item with bullet/spacing
+        // Prefix each line of the rendered item with bullet/vertical line
         const renderedLines = rendered.split('\n')
         for (const [lineIdx, line] of renderedLines.entries()) {
-          // First line gets bullet for selected, subsequent lines get spacing to align
-          const prefix = lineIdx === 0 && selected ? '● ' : '  '
+          // First line of selected item gets bullet, all other lines get vertical line
+          const prefix = lineIdx === 0 && selected ? '● ' : '│ '
           lines.push(prefix + line)
         }
         if (idx < visible.length - 1 && this.delegate.spacing() > 0) {
-          lines.push(''.padEnd(this.delegate.spacing(), ' '))
+          // Spacing lines also get the vertical line for visual continuity
+          lines.push('│')
         }
       }
     }
