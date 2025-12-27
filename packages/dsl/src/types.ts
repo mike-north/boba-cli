@@ -294,7 +294,7 @@ export type KeyHandler<State, Components extends Record<string, unknown>> = (
  * Init handler function type.
  *
  * @remarks
- * Init handlers are registered via {@link AppBuilder.onInit} and are called once
+ * Init handlers are registered via `AppBuilder.onInit()` and are called once
  * when the application starts. They receive an {@link InitContext} that allows
  * scheduling initial commands.
  *
@@ -341,7 +341,7 @@ export interface InitContext<State, Components extends Record<string, unknown>> 
  * Message handler function type.
  *
  * @remarks
- * Message handlers are registered via {@link AppBuilder.onMessage} and are called
+ * Message handlers are registered via `AppBuilder.onMessage()` and are called
  * when a message of the specified type is received.
  *
  * @typeParam State - The application state type

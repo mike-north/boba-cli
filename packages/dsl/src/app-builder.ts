@@ -253,7 +253,7 @@ export class AppBuilder<
    *
    * @remarks
    * Message handlers are called when a message of the specified type is received.
-   * Use this to handle async callbacks from commands scheduled via {@link onInit}
+   * Use this to handle async callbacks from commands scheduled via `onInit()`
    * or other message handlers.
    *
    * @example
