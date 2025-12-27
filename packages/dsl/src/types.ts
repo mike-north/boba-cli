@@ -291,6 +291,116 @@ export type KeyHandler<State, Components extends Record<string, unknown>> = (
 ) => void
 
 /**
+ * Init handler function type.
+ *
+ * @remarks
+ * Init handlers are registered via {@link AppBuilder.onInit} and are called once
+ * when the application starts. They receive an {@link InitContext} that allows
+ * scheduling initial commands.
+ *
+ * @typeParam State - The application state type
+ * @typeParam Components - Record of registered components
+ *
+ * @public
+ */
+export type InitHandler<State, Components extends Record<string, unknown>> = (
+  ctx: InitContext<State, Components>,
+) => void
+
+/**
+ * Context passed to init handlers.
+ *
+ * @remarks
+ * Provides access to initial state and a method to schedule commands.
+ *
+ * @public
+ */
+export interface InitContext<State, Components extends Record<string, unknown>> {
+  /** Current application state. */
+  readonly state: State
+  /**
+   * Schedule a command to run.
+   *
+   * @remarks
+   * Commands scheduled during init will be executed after the app starts.
+   * Use this to trigger initial async operations like fetching data.
+   *
+   * @param cmd - Command to schedule
+   */
+  schedule(cmd: Cmd<Msg>): void
+  /**
+   * Send a message to a specific component.
+   */
+  sendToComponent<K extends keyof Components>(
+    key: K,
+    fn: (model: Components[K]) => [Components[K], Cmd<Msg>],
+  ): void
+}
+
+/**
+ * Message handler function type.
+ *
+ * @remarks
+ * Message handlers are registered via {@link AppBuilder.onMessage} and are called
+ * when a message of the specified type is received.
+ *
+ * @typeParam State - The application state type
+ * @typeParam Components - Record of registered components
+ * @typeParam M - The message type to handle
+ *
+ * @public
+ */
+export type MessageHandler<
+  State,
+  Components extends Record<string, unknown>,
+  M extends Msg,
+> = (ctx: MessageContext<State, Components, M>) => void
+
+/**
+ * Context passed to message handlers.
+ *
+ * @remarks
+ * Similar to {@link EventContext} but also includes the received message.
+ *
+ * @public
+ */
+export interface MessageContext<
+  State,
+  Components extends Record<string, unknown>,
+  M extends Msg,
+> {
+  /** The received message. */
+  readonly msg: M
+  /** Current application state. */
+  readonly state: State
+  /** Current component views. */
+  readonly components: { [K in keyof Components]: ComponentView }
+  /**
+   * Update state with a partial patch.
+   */
+  update(patch: Partial<State>): void
+  /**
+   * Replace entire state.
+   */
+  setState(newState: State): void
+  /**
+   * Quit the application.
+   */
+  quit(): void
+  /**
+   * Schedule a command to run.
+   */
+  schedule(cmd: Cmd<Msg>): void
+  /**
+   * Send a message to a specific component.
+   */
+  sendToComponent<K extends keyof Components>(
+    key: K,
+    fn: (model: Components[K]) => [Components[K], Cmd<Msg>],
+  ): void
+}
+
+/**
  * View function type.
  *
  * @remarks
