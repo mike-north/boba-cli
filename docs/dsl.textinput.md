@@ -42,7 +42,7 @@ options
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Configuration options for the text input
 
 
 </td></tr>
@@ -52,17 +52,78 @@ _(Optional)_
 
 [ComponentBuilder](./dsl.componentbuilder.md)<!-- -->&lt;[TextInputModel](./textinput.textinputmodel.md)<!-- -->&gt;
 
-## Example
+A `ComponentBuilder` ready to use with `AppBuilder.component`
 
+## Remarks
+
+Creates a `ComponentBuilder` wrapping the `@boba-cli/textinput` package. The text input accepts user keyboard input and supports validation, placeholders, password masking, and character limits. The component is automatically focused on initialization.
+
+## Example 1
+
+Basic usage:
 
 ```typescript
 const app = createApp()
   .component('nameInput', textInput({
     placeholder: 'Enter your name...',
-    width: 40,
-    validate: (value) => value.length < 3 ? new Error('Too short') : null
+    width: 40
   }))
   .view(({ components }) => components.nameInput)
+  .build()
+```
+
+## Example 2
+
+With validation:
+
+```typescript
+const app = createApp()
+  .component('emailInput', textInput({
+    placeholder: 'Email address',
+    validate: (value) => {
+      if (!value.includes('@')) return new Error('Invalid email')
+      return null
+    }
+  }))
+  .view(({ components }) => components.emailInput)
+  .build()
+```
+
+## Example 3
+
+Password input:
+
+```typescript
+const app = createApp()
+  .component('password', textInput({
+    placeholder: 'Password',
+    echoMode: EchoMode.Password,
+    charLimit: 50
+  }))
+  .view(({ components }) => vstack(
+    text('Enter your password:'),
+    components.password
+  ))
+  .build()
+```
+
+## Example 4
+
+With custom styling:
+
+```typescript
+import { textInput, EchoMode } from '@boba-cli/dsl'
+import { Style } from '@boba-cli/chapstick'
+
+const app = createApp()
+  .component('styledInput', textInput({
+    prompt: '> ',
+    placeholder: 'Type something...',
+    promptStyle: new Style().foreground('#50fa7b').bold(),
+    textStyle: new Style().foreground('#f8f8f2'),
+    placeholderStyle: new Style().foreground('#6272a4').italic()
+  }))
+  .view(({ components }) => components.styledInput)
   .build()
 ```
 

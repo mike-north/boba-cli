@@ -14,10 +14,11 @@ interface EventContext<State, Components extends Record<string, unknown>>
 
 ## Remarks
 
-The event context provides access to the current application state and component views, along with methods to update state or quit the application. It's passed to handlers registered via [AppBuilder.onKey()](./dsl.appbuilder.onkey.md)<!-- -->.
+The event context provides access to the current application state and component views, along with methods to update state, interact with components, or quit the application. It's passed to handlers registered via [AppBuilder.onKey()](./dsl.appbuilder.onkey.md)<!-- -->.
 
-## Example
+## Example 1
 
+Basic usage:
 
 ```typescript
 createApp()
@@ -26,6 +27,18 @@ createApp()
     update({ count: state.count + 1 })
   })
   .onKey('q', ({ quit }) => quit())
+```
+
+## Example 2
+
+Interacting with components:
+
+```typescript
+createApp()
+  .component('progress', progress())
+  .onKey('space', ({ sendToComponent }) => {
+    sendToComponent('progress', (model) => model.setPercent(0.5))
+  })
 ```
 
 ## Properties
@@ -116,6 +129,17 @@ Description
 </td><td>
 
 Quit the application gracefully.
+
+
+</td></tr>
+<tr><td>
+
+[sendToComponent(key, fn)](./dsl.eventcontext.sendtocomponent.md)
+
+
+</td><td>
+
+Send a message to a specific component by calling a function with the component's model.
 
 
 </td></tr>

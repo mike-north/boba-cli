@@ -4,25 +4,64 @@
 
 ```ts
 
+import { BorderStyle } from '@boba-cli/chapstick';
 import { Cmd } from '@boba-cli/tea';
+import { CodeModel } from '@boba-cli/code';
+import { ColorInput } from '@boba-cli/chapstick';
+import { Column } from '@boba-cli/table';
 import { CursorMode } from '@boba-cli/textinput';
+import { CursorMode as CursorMode_2 } from '@boba-cli/textarea';
+import { DefaultItem } from '@boba-cli/list';
+import { DirectoryItem } from '@boba-cli/filetree';
 import { dot } from '@boba-cli/spinner';
 import { EchoMode } from '@boba-cli/textinput';
 import { ellipsis } from '@boba-cli/spinner';
+import { Entry } from '@boba-cli/help';
+import { FilepickerModel } from '@boba-cli/filepicker';
+import { FilepickerStyles } from '@boba-cli/filepicker';
+import { FileSystemAdapter } from '@boba-cli/machine';
+import { FiletreeKeyMap } from '@boba-cli/filetree';
+import { FiletreeModel } from '@boba-cli/filetree';
+import { FiletreeStyles } from '@boba-cli/filetree';
+import { HelpBubble } from '@boba-cli/help';
+import { HelpModel } from '@boba-cli/help';
+import { HelpOptions } from '@boba-cli/help';
+import { Item } from '@boba-cli/list';
+import { ItemDelegate } from '@boba-cli/list';
+import { KeyMap } from '@boba-cli/help';
+import { KeyMap as KeyMap_2 } from '@boba-cli/paginator';
+import { KeyMap as KeyMap_3 } from '@boba-cli/textarea';
 import { line } from '@boba-cli/spinner';
+import { ListKeyMap } from '@boba-cli/list';
+import { ListModel } from '@boba-cli/list';
+import { ListStyles } from '@boba-cli/list';
 import { meter } from '@boba-cli/spinner';
 import { miniDot } from '@boba-cli/spinner';
 import { Model } from '@boba-cli/tea';
 import { moon } from '@boba-cli/spinner';
 import { Msg } from '@boba-cli/tea';
+import { PaginatorModel } from '@boba-cli/paginator';
+import { PathAdapter } from '@boba-cli/machine';
 import { PlatformAdapter } from '@boba-cli/machine';
 import { points } from '@boba-cli/spinner';
+import { ProgressModel } from '@boba-cli/progress';
 import { pulse } from '@boba-cli/spinner';
+import { Row } from '@boba-cli/table';
 import { Spinner } from '@boba-cli/spinner';
 import { SpinnerModel } from '@boba-cli/spinner';
+import { StatusbarModel } from '@boba-cli/statusbar';
+import { StopwatchModel } from '@boba-cli/stopwatch';
 import { Style } from '@boba-cli/chapstick';
+import { TableKeyMap } from '@boba-cli/table';
+import { TableModel } from '@boba-cli/table';
+import { TableStyles } from '@boba-cli/table';
+import { TextareaModel } from '@boba-cli/textarea';
 import { TextInputModel } from '@boba-cli/textinput';
+import { TimerModel } from '@boba-cli/timer';
+import { TitleColor } from '@boba-cli/help';
 import { ValidateFunc } from '@boba-cli/textinput';
+import { ValidateFunc as ValidateFunc_2 } from '@boba-cli/textarea';
+import { ViewportModel } from '@boba-cli/viewport';
 
 // @public
 export interface App<State, _Components extends Record<string, unknown>> {
@@ -47,6 +86,19 @@ export class AppBuilder<State = undefined, Components extends Record<string, unk
 export function choose(condition: boolean, ifTrue: ViewNode, ifFalse: ViewNode): ViewNode;
 
 // @public
+export function code(options: CodeBuilderOptions): ComponentBuilder<CodeModel>;
+
+// @public
+export interface CodeBuilderOptions {
+    active?: boolean;
+    filesystem: FileSystemAdapter;
+    height?: number;
+    path: PathAdapter;
+    theme?: string;
+    width?: number;
+}
+
+// @public
 export interface ComponentBuilder<M> {
     init(): [M, Cmd<Msg>];
     update(model: M, msg: Msg): [M, Cmd<Msg>];
@@ -64,6 +116,10 @@ export function createApp(): AppBuilder<undefined, Record<string, never>>;
 
 export { CursorMode }
 
+export { DefaultItem }
+
+export { DirectoryItem }
+
 // @public
 export function divider(char?: string, width?: number): string;
 
@@ -73,19 +129,78 @@ export { EchoMode }
 
 export { ellipsis }
 
+export { Entry }
+
 // @public
 export interface EventContext<State, Components extends Record<string, unknown>> {
     readonly components: {
         [K in keyof Components]: ComponentView;
     };
     quit(): void;
+    sendToComponent<K extends keyof Components>(key: K, fn: (model: Components[K]) => [Components[K], Cmd<Msg>]): void;
     setState(newState: State): void;
     readonly state: State;
     update(patch: Partial<State>): void;
 }
 
 // @public
+export function filepicker(options: FilepickerBuilderOptions): ComponentBuilder<FilepickerModel>;
+
+// @public
+export interface FilepickerBuilderOptions {
+    allowedExtensions?: string[];
+    currentDirectory?: string;
+    filesystem: FileSystemAdapter;
+    height?: number;
+    path: PathAdapter;
+    showHidden?: boolean;
+    styles?: Partial<FilepickerStyles>;
+}
+
+// @public
+export function filetree(options: FiletreeBuilderOptions): ComponentBuilder<FiletreeModel>;
+
+// @public
+export interface FiletreeBuilderOptions {
+    currentDirectory?: string;
+    filesystem: FileSystemAdapter;
+    height?: number;
+    keyMap?: FiletreeKeyMap;
+    path: PathAdapter;
+    showHidden?: boolean;
+    styles?: Partial<FiletreeStyles>;
+    width?: number;
+}
+
+// @public
+export function help(options: HelpBuilderOptions): ComponentBuilder<HelpModel>;
+
+// @public
+export function helpBubble(options: HelpBubbleBuilderOptions): ComponentBuilder<HelpBubble>;
+
+// @public
+export interface HelpBubbleBuilderOptions {
+    active?: boolean;
+    entries: Entry[];
+    title?: string;
+    titleColor?: TitleColor;
+}
+
+// @public
+export interface HelpBuilderOptions {
+    ellipsis?: string;
+    fullSeparator?: string;
+    keyMap: KeyMap;
+    shortSeparator?: string;
+    showAll?: boolean;
+    styles?: HelpOptions['styles'];
+    width?: number;
+}
+
+// @public
 export function hstack(...children: ViewNode[]): LayoutNode;
+
+export { Item }
 
 // @public
 export type KeyHandler<State, Components extends Record<string, unknown>> = (ctx: EventContext<State, Components>) => void;
@@ -100,7 +215,42 @@ export interface LayoutNode {
 export { line }
 
 // @public
+export function list<T extends Item>(options: ListBuilderOptions<T>): ComponentBuilder<ListModel<T>>;
+
+// @public
+export interface ListBuilderOptions<T extends Item> {
+    delegate?: ItemDelegate<T>;
+    filteringEnabled?: boolean;
+    height?: number;
+    items: T[];
+    keyMap?: ListKeyMap;
+    showFilter?: boolean;
+    showHelp?: boolean;
+    showPagination?: boolean;
+    showStatusBar?: boolean;
+    showTitle?: boolean;
+    styles?: Partial<ListStyles>;
+    title?: string;
+    width?: number;
+}
+
+export { ListModel }
+
+export { ListStyles }
+
+// @public
 export function map<T>(items: T[], render: (item: T, index: number) => ViewNode): ViewNode[];
+
+// Warning: (ae-forgotten-export) The symbol "StaticMarkdownModel" needs to be exported by the entry point index.d.ts
+//
+// @public
+export function markdown(options: MarkdownBuilderOptions): ComponentBuilder<StaticMarkdownModel>;
+
+// @public
+export interface MarkdownBuilderOptions {
+    content: string;
+    width?: number;
+}
 
 export { meter }
 
@@ -108,7 +258,46 @@ export { miniDot }
 
 export { moon }
 
+// @public
+export function paginator(options: PaginatorBuilderOptions): ComponentBuilder<PaginatorModel>;
+
+// @public
+export interface PaginatorBuilderOptions {
+    activeDot?: string;
+    arabicFormat?: string;
+    inactiveDot?: string;
+    keyMap?: KeyMap_2;
+    page?: number;
+    perPage: number;
+    totalItems: number;
+    type: 'dots' | 'arabic';
+}
+
 export { points }
+
+// @public
+export function progress(options?: ProgressBuilderOptions): ComponentBuilder<ProgressModel>;
+
+// @public
+export interface ProgressBuilderOptions {
+    empty?: string;
+    emptyColor?: ColorInput;
+    full?: string;
+    fullColor?: ColorInput;
+    gradient?: {
+        start: ColorInput;
+        end: ColorInput;
+        scaleGradientToProgress?: boolean;
+    };
+    percentageStyle?: Style;
+    percentFormat?: string;
+    showPercentage?: boolean;
+    spring?: {
+        frequency?: number;
+        damping?: number;
+    };
+    width?: number;
+}
 
 export { pulse }
 
@@ -134,10 +323,80 @@ export interface SpinnerBuilderOptions {
     style?: Style;
 }
 
+// @public
+export function statusBar(options: StatusBarBuilderOptions): ComponentBuilder<StatusbarModel>;
+
+// @public
+export interface StatusBarBuilderOptions {
+    first: {
+        foreground: ColorInput;
+        background: ColorInput;
+    };
+    fourth: {
+        foreground: ColorInput;
+        background: ColorInput;
+    };
+    second: {
+        foreground: ColorInput;
+        background: ColorInput;
+    };
+    third: {
+        foreground: ColorInput;
+        background: ColorInput;
+    };
+}
+
+// @public
+export function stopwatch(options?: StopwatchBuilderOptions): ComponentBuilder<StopwatchModel>;
+
+// @public
+export interface StopwatchBuilderOptions {
+    autoStart?: boolean;
+    interval?: number;
+}
+
 export { Style }
 
 // @public
+export function table(options: TableBuilderOptions): ComponentBuilder<TableModel>;
+
+// @public
+export interface TableBuilderOptions {
+    bordered?: boolean;
+    borderStyle?: BorderStyle;
+    columns: Column[];
+    focused?: boolean;
+    height?: number;
+    keyMap?: Partial<TableKeyMap>;
+    rows?: Row[];
+    styles?: Partial<TableStyles>;
+    width?: number;
+}
+
+// @public
 export function text(content: string): TextNode;
+
+// @public
+export function textArea(options?: TextAreaBuilderOptions): ComponentBuilder<TextareaModel>;
+
+// @public
+export interface TextAreaBuilderOptions {
+    cursorMode?: CursorMode_2;
+    cursorStyle?: Style;
+    keyMap?: KeyMap_3;
+    lineNumberStyle?: Style;
+    maxHeight?: number;
+    maxWidth?: number;
+    placeholder?: string;
+    placeholderStyle?: Style;
+    prompt?: string;
+    promptStyle?: Style;
+    showLineNumbers?: boolean;
+    textStyle?: Style;
+    validate?: ValidateFunc_2;
+    value?: string;
+    width?: number;
+}
 
 // @public
 export function textInput(options?: TextInputBuilderOptions): ComponentBuilder<TextInputModel>;
@@ -173,6 +432,16 @@ export interface TextNode {
     readonly _type: 'text';
 }
 
+// @public
+export function timer(options: TimerBuilderOptions): ComponentBuilder<TimerModel>;
+
+// @public
+export interface TimerBuilderOptions {
+    autoStart?: boolean;
+    interval?: number;
+    timeout: number;
+}
+
 export { ValidateFunc }
 
 // @public
@@ -185,6 +454,19 @@ export type ViewFunction<State, Components extends Record<string, unknown>> = (c
 
 // @public
 export type ViewNode = string | TextNode | LayoutNode | ComponentView;
+
+// @public
+export function viewport(options?: ViewportBuilderOptions): ComponentBuilder<ViewportModel>;
+
+// @public
+export interface ViewportBuilderOptions {
+    content?: string;
+    height?: number;
+    highPerformanceRendering?: boolean;
+    mouseWheelEnabled?: boolean;
+    style?: Style;
+    width?: number;
+}
 
 // @public
 export function vstack(...children: ViewNode[]): LayoutNode;

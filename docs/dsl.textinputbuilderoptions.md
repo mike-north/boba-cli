@@ -12,6 +12,10 @@ Options for the textInput component builder.
 interface TextInputBuilderOptions 
 ```
 
+## Remarks
+
+Configure the text input's appearance, behavior, and validation when creating a text input component.
+
 ## Properties
 
 <table><thead><tr><th>
@@ -50,7 +54,7 @@ number
 
 </td><td>
 
-_(Optional)_ Character limit for input.
+_(Optional)_ Character limit for input (default: 0 = unlimited).
 
 
 </td></tr>
@@ -69,7 +73,7 @@ _(Optional)_ Character limit for input.
 
 </td><td>
 
-_(Optional)_ Echo mode for input display (Normal, Password, or None).
+_(Optional)_ Echo mode for input display (default: `EchoMode.Normal`<!-- -->).
 
 
 </td></tr>
@@ -178,7 +182,7 @@ _(Optional)_ Style for the input text.
 
 </td><td>
 
-[ValidateFunc](./textinput.validatefunc.md)
+[ValidateFunc$1](./textinput.validatefunc.md)
 
 
 </td><td>

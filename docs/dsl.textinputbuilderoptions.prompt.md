@@ -11,3 +11,8 @@ Prompt string shown before the input.
 ```typescript
 prompt?: string;
 ```
+
+## Remarks
+
+Displayed at the start of the input line. Uses `promptStyle` for styling. Common examples: `'> '`<!-- -->, `'$ '`<!-- -->, or `'Name: '`<!-- -->.
+

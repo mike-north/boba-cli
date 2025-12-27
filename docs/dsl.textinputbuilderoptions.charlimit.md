@@ -4,10 +4,15 @@
 
 ## TextInputBuilderOptions.charLimit property
 
-Character limit for input.
+Character limit for input (default: 0 = unlimited).
 
 **Signature:**
 
 ```typescript
 charLimit?: number;
 ```
+
+## Remarks
+
+When set to a positive value, prevents input beyond the specified character count. When 0 or not specified, there is no character limit.
+

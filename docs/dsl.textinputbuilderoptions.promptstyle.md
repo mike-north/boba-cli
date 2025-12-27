@@ -11,3 +11,8 @@ Style for the prompt.
 ```typescript
 promptStyle?: Style;
 ```
+
+## Remarks
+
+Uses `Style` from `@boba-cli/chapstick` to apply terminal colors and formatting.
+

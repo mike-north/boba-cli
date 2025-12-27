@@ -14,7 +14,7 @@ interface SpinnerBuilderOptions
 
 ## Remarks
 
-Configure the spinner animation and styling when creating a spinner component.
+Configure the spinner animation and styling when creating a spinner component. Spinners are animated loading indicators that automatically tick and cycle through animation frames.
 
 ## Properties
 

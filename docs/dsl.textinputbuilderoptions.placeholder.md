@@ -11,3 +11,8 @@ Placeholder text shown when input is empty.
 ```typescript
 placeholder?: string;
 ```
+
+## Remarks
+
+Displayed in a dimmed style when the input has no content. Uses `placeholderStyle` for styling.
+
