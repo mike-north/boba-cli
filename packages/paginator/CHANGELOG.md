@@ -1,5 +1,12 @@
 # @boba-cli/paginator
 
+## 0.1.0-alpha.2
+
+### Patch Changes
+
+- Updated dependencies [[`0a45b65`](https://github.com/mike-north/boba-cli/commit/0a45b65722c56f8f299e0e20998f9f3780d6f23e)]:
+  - @boba-cli/tea@1.0.0-alpha.2
+
 ## 0.1.0-alpha.1
 
 ### Minor Changes

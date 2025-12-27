@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/dsl",
   "description": "Declarative DSL for building CLI applications with minimal ceremony",
-  "version": "0.1.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "dependencies": {
     "@boba-cli/chapstick": "workspace:*",
     "@boba-cli/code": "workspace:*",

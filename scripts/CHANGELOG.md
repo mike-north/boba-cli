@@ -1,5 +1,18 @@
 # @boba-cli/scripts
 
+## 0.0.1-alpha.3
+
+### Patch Changes
+
+- Updated dependencies [[`67cd786`](https://github.com/mike-north/boba-cli/commit/67cd7869dd69156aafb7cedcff270fb27341879d), [`0a45b65`](https://github.com/mike-north/boba-cli/commit/0a45b65722c56f8f299e0e20998f9f3780d6f23e)]:
+  - @boba-cli/machine@0.1.0-alpha.2
+  - @boba-cli/chapstick@0.1.0-alpha.3
+  - @boba-cli/tea@1.0.0-alpha.2
+  - @boba-cli/list@0.1.0-alpha.3
+  - @boba-cli/progress@0.1.0-alpha.3
+  - @boba-cli/spinner@0.1.0-alpha.3
+  - @boba-cli/stopwatch@0.1.0-alpha.2
+
 ## 0.0.1-alpha.2
 
 ### Patch Changes

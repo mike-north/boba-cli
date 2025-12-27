@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/core",
   "description": "Core types and utilities for Boba terminal UI framework",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "devDependencies": {
     "@types/node": "^24.10.2",
     "typescript": "5.8.2",

@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/code",
   "description": "Syntax-highlighted code viewer with scrollable viewport for Boba terminal UIs",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "dependencies": {
     "@boba-cli/chapstick": "workspace:*",
     "@boba-cli/filesystem": "workspace:*",

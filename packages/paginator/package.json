@@ -1,7 +1,7 @@
 {
   "name": "@boba-cli/paginator",
   "description": "Pagination state + rendering for Boba terminal UIs",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "dependencies": {
     "@boba-cli/key": "workspace:*",
     "@boba-cli/tea": "workspace:*"
