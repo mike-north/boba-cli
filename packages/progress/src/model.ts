@@ -281,12 +281,25 @@ export class ProgressModel {
   /** Set a new target percent and start animation. */
   setPercent(percent: number): [ProgressModel, Cmd<Msg>] {
     const clamped = clamp01(percent)
+
+    // If already animating, just update target without resetting animation
+    if (this.isAnimating()) {
+      const next = this.withState({ target: clamped })
+      return [next, null]
+    }
+
+    // Not animating - start new animation
     const next = this.withState({
       target: clamped,
       tag: this.#tag + 1,
       lastFrameTime: null,
     })
     return [next, next.nextFrame()]
+  }
+
+  /** Returns true if animation is in progress (not yet settled). */
+  private isAnimating(): boolean {
+    return !settle(this.#percent, this.#target, this.#velocity)
   }
 
   /** Increment the target percent. */
