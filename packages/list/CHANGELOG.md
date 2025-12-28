@@ -1,5 +1,11 @@
 # @boba-cli/list
 
+## 0.1.0-alpha.4
+
+### Patch Changes
+
+- [#53](https://github.com/mike-north/boba-cli/pull/53) [`898fa1b`](https://github.com/mike-north/boba-cli/commit/898fa1bfbc5ab788d9ded63228e46b69c9e7acc6) Thanks [@mike-north](https://github.com/mike-north)! - Fixes filter character input handling. When in filtering mode (after pressing `/`), typing characters now properly appends to the filter value and filters the list. Backspace removes the last character from the filter, the `/` key adds to the filter when already in filtering mode, space key is handled correctly, and Alt+character combinations are ignored during filtering.
+
 ## 0.1.0-alpha.3
 
 ### Patch Changes
