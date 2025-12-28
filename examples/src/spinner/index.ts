@@ -4,7 +4,7 @@
  * Demonstrates the \@boba-cli/dsl package for building CLI apps
  * with minimal ceremony.
  *
- * Compare this to spinner-demo.ts to see the reduction in boilerplate:
+ * Compare this to spinner-low-level/index.ts to see the reduction in boilerplate:
  * - Original: 147 lines with class, manual state management, instanceof checks
  * - DSL version: ~35 lines with declarative API
  *
