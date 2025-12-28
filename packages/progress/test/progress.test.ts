@@ -66,6 +66,53 @@ describe('ProgressModel', () => {
     expect(cmd).toBeNull()
     expect(model.percent()).toBeGreaterThan(0.999)
   })
+
+  it('preserves animation when setPercent called while animating', async () => {
+    vi.useFakeTimers()
+
+    // Start animation toward 0.5
+    let [model, cmd] = ProgressModel.new().setPercent(0.5)
+    expect(cmd).not.toBeNull()
+
+    // Run a few frames to get animation in progress
+    for (let i = 0; i < 5 && cmd; i++) {
+      const promise = cmd()
+      vi.runOnlyPendingTimers()
+      const msg = await promise
+      ;[model, cmd] = model.update(msg)
+    }
+
+    // Animation should still be in progress (not settled yet)
+    expect(model.percent()).toBeLessThan(0.5)
+    expect(cmd).not.toBeNull()
+
+    // Call setPercent with new target while animating
+    const [updated, newCmd] = model.setPercent(0.8)
+
+    // Should NOT schedule a new frame (existing animation continues)
+    expect(newCmd).toBeNull()
+
+    // Target should be updated
+    expect(updated.targetPercent()).toBe(0.8)
+
+    // Current percent should be preserved (not reset)
+    expect(updated.percent()).toBe(model.percent())
+
+    // Continue animation with existing pending frame and verify it reaches new target
+    let finalModel = updated
+    let pendingCmd = cmd
+    let frames = 0
+    while (pendingCmd && frames < 200) {
+      const promise = pendingCmd()
+      vi.runOnlyPendingTimers()
+      const msg = await promise
+      ;[finalModel, pendingCmd] = finalModel.update(msg)
+      frames++
+    }
+
+    // Should have animated to the new target (0.8)
+    expect(finalModel.percent()).toBeGreaterThan(0.799)
+  })
 })
 
 describe('gradient', () => {
