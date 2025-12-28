@@ -3,7 +3,7 @@
  *
  * Demonstrates the \@boba-cli/dsl package with text input validation.
  *
- * Compare this to textinput-demo.ts to see the reduction in boilerplate:
+ * Compare this to textinput-low-level/index.ts to see the reduction in boilerplate:
  * - Original: 128 lines with class, manual state management, complex update logic
  * - DSL version: ~45 lines with declarative API
  *
