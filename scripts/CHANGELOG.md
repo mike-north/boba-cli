@@ -1,5 +1,12 @@
 # @boba-cli/scripts
 
+## 0.0.1-alpha.4
+
+### Patch Changes
+
+- Updated dependencies [[`898fa1b`](https://github.com/mike-north/boba-cli/commit/898fa1bfbc5ab788d9ded63228e46b69c9e7acc6)]:
+  - @boba-cli/list@0.1.0-alpha.4
+
 ## 0.0.1-alpha.3
 
 ### Patch Changes
